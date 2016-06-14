@@ -1,0 +1,85 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container" id="UserInterface">
+    <div class="row">
+        <form class="form-inline">
+            <div class="alert alert-info" role="alert">Folder with documents examples: <h4 data-bind="text: defaultDocumentsFolder"></h4></div>
+        </form>
+    </div>
+    <div class="row">
+        <form class="form-inline">
+            <input type="text" class="form-control" placeholder="@Resources.MainResource.IndexFolderText" data-bind="value: indexFolder">
+            <button class="btn btn-primary" type="button" data-bind="click: createIndex">@Resources.MainResource.CreateText</button>
+        </form>
+    </div>
+    <div class="row" data-bind="visible:indexes().length > 0">
+        <h3>@Resources.MainResource.CurrentIndexesText</h3>
+    </div>
+
+    <div class="row">
+        <!-- ko foreach: indexes -->
+        <div class="row " data-bind="css: {'alert-info': isChecked()}">
+            <div class="col-md-1">
+                <button class="btn btn-primary" type="button" data-bind="click: $root.selectIndex">@Resources.MainResource.SelectText</button>
+            </div>
+            <div class="col-md-2">
+                <h6 data-bind="if: inMemory">@Resources.MainResource.InMemoryIndexText</h6>
+                <h5 data-bind="text: indexFolder, ifnot: inMemory"></h5>
+            </div>
+
+            <div class="col-md-9 text-right">
+                <div class="form-inline">
+                    <form class="form-inline">
+                        <input class="form-control" type="text" placeholder="@Resources.MainResource.FolderWithDocumentsText" data-bind="value: folderName , visible: isFolderAdding">
+                        <button class="btn btn-primary" type="button" data-bind="click: $root.addDocumentsToIndex , visible: isFolderAdding">@Resources.MainResource.AddDocumentsToIndexText</button>
+                        <button class="btn btn-default" type="button" data-bind="click: $root.cancelFolderAdding , visible: isFolderAdding">@Resources.MainResource.CancelText</button>
+                        <button class="btn btn-default" type="button" data-bind="click: $root.startFolderAdding, visible: !isFolderAdding()">@Resources.MainResource.AddDocumentsToIndexText</button>
+
+                        <button class="btn btn-danger" type="button" data-bind="click: $root.deleteIndex">@Resources.MainResource.DeleteIndexButtonText</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+    <div class="row">
+        <hr/>
+    </div>
+    <div class="row">
+        <form class="form-inline">
+            <input type="text" class="form-control" placeholder="@Resources.MainResource.SearchQueryLabel" data-bind="value: searchQuery, enable: selectedIndex()">
+            <button class="btn btn-primary" type="button" data-bind="click: runSearch, enable: selectedIndex()">@Resources.MainResource.SearchText</button>
+        </form>
+    </div>
+    <div class="row" data-bind="visible:searchResults().length > 0">
+        <h3>@Resources.MainResource.SearchResultsTest</h3>
+    </div>
+    <div class="row">
+        <!-- ko foreach: searchResults -->
+        <div class="row">
+            <div class="col-md-10">
+                <h5 data-bind="text: fileName"></h5>
+            </div>
+            <div class="col-md-2 text-right">
+                <button class="btn btn-primary" type="button" data-bind="click: $root.runViewer">@Resources.MainResource.ShowTest</button>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+    <div class="row">
+        <hr/>
+    </div>
+    <div class="row">
+        <div class="container">
+            @*<button data-bind="click: $root.prevResult" type="button" class="btn btn-primary">@Resources.MainResource.PreviousResultButtonText</button>
+            <button data-bind="click: $root.nextResult" type="button" class="btn btn-primary">@Resources.MainResource.NextResultButtonText</button>*@
+            <iframe id="documentContent" width="100%" height="300"></iframe>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/app/uiExample.mainInterface.js"></script>
+}
