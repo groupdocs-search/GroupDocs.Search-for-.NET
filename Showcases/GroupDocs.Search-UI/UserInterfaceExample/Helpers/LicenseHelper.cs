@@ -2,6 +2,7 @@
 {
     public class LicenseHelper
     {
+        //License path
         private const string licensePath = @"D:\GroupDocs.Search.lic";
 
         public static void SetGroupDocsSearchLicense()
