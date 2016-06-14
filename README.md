@@ -18,7 +18,7 @@ Directory | Description
 
 ## Resources
 
-+ **Website:** [www.groupdocs.com](http://www.groupdocs.com)
++ **Website:** [www.groupdocs.com](#)
 + **Product Home:** [GroupDocs.Search for .NET](#)
 + **Download:** [Download GroupDocs.Search for .NET](#)
 + **Documentation:** [GroupDocs.Search for .NET Documentation](#)
