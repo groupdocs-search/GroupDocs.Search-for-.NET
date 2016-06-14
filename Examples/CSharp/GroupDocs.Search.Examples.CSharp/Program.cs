@@ -15,7 +15,7 @@ namespace GroupDocs.Search_for_.NET
 
             #region Searching
             ////Simple search, search a word
-            Searching.SimpleSearch("return");
+            Searching.SimpleSearch("hydra");
 
             ////Search term1 and term2 or term3 but not term4
             //Searching.BooleanSearch("(dropbox AND twist)","(return NOT omega)");
