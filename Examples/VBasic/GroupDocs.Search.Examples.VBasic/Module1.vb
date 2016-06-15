@@ -3,11 +3,11 @@
     Sub Main()
 
         'Uncomment to apply license
-        'Utilities.ApplyLicense()
+        Utilities.ApplyLicense()
 
         '#Region "Searching"
         'Simple search, search a word
-        'Searching.SimpleSearch("twist")
+        'Searching.SimpleSearch("hydra")
 
         'Search term1 and term2 or term3 but not term4
         'Searching.BooleanSearch("(atirtahir AND certificate)", "(return NOT omega)")
@@ -22,7 +22,7 @@
         'Searching.FacetedSearch("return")
 
         'Searching for any document in index that contain word "readme" in file name
-        'Searching.SearchFileName("readme")
+        Searching.SearchFileName("redme")
 
         'Faceted search combine with boolean search
         'Searching.FacetedSearchWithBooleanSearch("(virtual OR comsats)","(search AND engine)")

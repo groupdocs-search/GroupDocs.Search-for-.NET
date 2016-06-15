@@ -114,7 +114,7 @@
         index.AddToIndex(Utilities.documentsPath)
 
         ' Searching for any document in index that contain word "return" in file content
-        Dim searchResults As SearchResults = index.Search(Convert.ToString("Content:") & searchString)
+        Dim searchResults As SearchResults = index.Search(Convert.ToString("content:") & searchString)
 
 
         ' List of found files
@@ -137,7 +137,7 @@
         index.AddToIndex(Utilities.documentsPath)
 
         ' Searching for any document in index that contain search string in file name
-        Dim searchResults As SearchResults = index.Search(Convert.ToString("FileName:") & searchString)
+        Dim searchResults As SearchResults = index.Search(Convert.ToString("filename:") & searchString)
 
 
         ' List of found files
