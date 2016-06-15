@@ -6,7 +6,7 @@ Public Class Utilities
     Public Const indexPath2 As String = "../../../../Data/Documents Indexes2/"
     Public Const documentsPath As String = "../../../../Data/Documents/"
     Public Const synonymFilePath As String = "../../../../Data/synonyms.txt"
-    Public Const licensePath As String = "../../../../Data/Documents/GroupDocs.Total.lic"
+    Public Const licensePath As String = "../../../../Data/Documents/GroupDocs.Search.lic"
  
     ''' <summary>
     ''' Apply license 

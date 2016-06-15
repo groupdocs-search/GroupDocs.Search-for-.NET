@@ -124,6 +124,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="GroupDocs.Search">
+      <HintPath>C:\Program Files (x86)\GroupDocs\Search for .NET\bin\GroupDocs.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="GroupDocs.Viewer">
+      <HintPath>C:\Users\atir\Downloads\Compressed\GroupDocs.Viewer_3.3.0-NET\bin\GroupDocs.Viewer.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Private>True</Private>
     </Reference>

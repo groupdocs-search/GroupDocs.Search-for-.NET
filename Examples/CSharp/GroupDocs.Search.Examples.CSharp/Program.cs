@@ -15,7 +15,7 @@ namespace GroupDocs.Search_for_.NET
 
             #region Searching
             ////Simple search, search a word
-            Searching.SimpleSearch("hydra");
+            //Searching.SimpleSearch("hydra");
 
             ////Search term1 and term2 or term3 but not term4
             //Searching.BooleanSearch("(dropbox AND twist)","(return NOT omega)");
@@ -27,7 +27,7 @@ namespace GroupDocs.Search_for_.NET
             //Searching.FuzzySearch("retur");
 
             ////Searching for any document in index that contain word "return" in file content
-            //Searching.FacetedSearch("return");
+            Searching.FacetedSearch("return");
 
             ////Searching for any document in index that contain word "readme" in file name
             //Searching.SearchFileName("readme");
