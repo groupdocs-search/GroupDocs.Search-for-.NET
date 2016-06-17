@@ -19,8 +19,8 @@ Directory | Description
 ## Resources
 
 + **Website:** [www.groupdocs.com](http://www.groupdocs.com)
-+ **Product Home:** [GroupDocs.Search for .NET](http://groupdocs.com/dot-net/document-search-library)
-+ **Download:** [Download GroupDocs.Search for .NET](#)
-+ **Documentation:** [GroupDocs.Search for .NET Documentation](#)
++ **Product Home:** [GroupDocs.Search for .NET](http://groupdocs.com/dot-net/document-search-api)
++ **Download:** [Download GroupDocs.Search for .NET](http://groupdocs.com/Community/files/8/.net-libraries/groupdocs_search_for_.net/default.aspx)
++ **Documentation:** [GroupDocs.Search for .NET Documentation](http://www.groupdocs.com/docs/display/searchnet/Getting+Started)
 + **Forum:** [GroupDocs.Search for .NET Forum](http://groupdocs.com/Community/forums/groupdocs.search-product-family/52/showforum.aspx)
 + **Blog:** [GroupDocs.Search for .NET Blog](#)
