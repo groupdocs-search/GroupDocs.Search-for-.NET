@@ -1,4 +1,5 @@
-﻿using System;
+﻿//ExStart:HomeController
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -136,11 +137,7 @@ namespace UserInterfaceExample.Controllers
             SearchResults results = IndexHelper.Search(selectedIndexId, searchQuery);
             AjaxResponse response = GetSearchAjaxResponse(results);
             return Json(response);
-        }
-
-
-
-     
+        }     
         #region Private Methods
 
         private AjaxResponse GetDefaultFoldersAjaxResponse()
@@ -196,3 +193,4 @@ namespace UserInterfaceExample.Controllers
         #endregion Private Methods
     }
 }
+//ExEnd:HomeController
