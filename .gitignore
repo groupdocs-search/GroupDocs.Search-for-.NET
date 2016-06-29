@@ -234,3 +234,4 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+Plugins/out/Working/Installer GroupDocs.Search for .NET API Examples.wixpdb
