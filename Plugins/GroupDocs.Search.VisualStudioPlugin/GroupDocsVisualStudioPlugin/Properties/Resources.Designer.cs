@@ -61,61 +61,11 @@ namespace GroupDocsSearchVisualStudioPlugin.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bmplogo {
-            get {
-                object obj = ResourceManager.GetObject("bmplogo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bmplogo1 {
-            get {
-                object obj = ResourceManager.GetObject("bmplogo1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap groupdocs {
-            get {
-                object obj = ResourceManager.GetObject("groupdocs", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Groupdocs_metadata {
-            get {
-                object obj = ResourceManager.GetObject("Groupdocs_metadata", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap groupdocs_search {
-            get {
-                object obj = ResourceManager.GetObject("groupdocs_search", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon groupdocs1 {
+        internal static System.Drawing.Icon groupdocs_search {
             get {
-                object obj = ResourceManager.GetObject("groupdocs1", resourceCulture);
+                object obj = ResourceManager.GetObject("groupdocs_search", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -123,9 +73,9 @@ namespace GroupDocsSearchVisualStudioPlugin.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap long_banner {
+        internal static System.Drawing.Bitmap groupdocs_search_128x128 {
             get {
-                object obj = ResourceManager.GetObject("long_banner", resourceCulture);
+                object obj = ResourceManager.GetObject("groupdocs_search_128x128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

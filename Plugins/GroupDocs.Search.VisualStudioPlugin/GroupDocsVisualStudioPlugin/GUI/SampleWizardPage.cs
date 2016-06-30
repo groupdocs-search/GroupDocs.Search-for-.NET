@@ -34,35 +34,35 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
         public SampleWizardPage()
         {
             InitializeComponent();
-            SetComponentsAPIs(); 
+            SetComponentsAPIs();
 
             toolStripStatusMessage.Visible = true;
             toolStripStatusMessage.Text = "";
             progressBar1.Visible = false;
             progressBar1.Value = 0;
-             
+
         }
 
         public SampleWizardPage(DTE2 application)
         {
             _application = application;
-            InitializeComponent(); 
+            InitializeComponent();
             SetComponentsAPIs();
 
             textBoxLocation.Text = GetExamplesRootPath();
 
-            
+
 
             toolStripStatusMessage.Visible = true;
             toolStripStatusMessage.Text = "";
             progressBar1.Visible = false;
             progressBar1.Value = 0;
-             
+
 
             GroupDocsComponent component;
             GroupDocsComponents.list.TryGetValue(Constants.GROUPDOCS_COMPONENT, out component);
-            string repoPath = GitHelper.getLocalRepositoryPath(component); 
-            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "GroupDocs.Search.Examples.CSharp" : "GroupDocs.Search.Examples.VBasic"));
+            string repoPath = GitHelper.getLocalRepositoryPath(component);
+            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "CSharp\\GroupDocs.Search.Examples.CSharp" : "VBasic\\GroupDocs.Search.Examples.VBasic"));
 
         }
 
@@ -73,7 +73,7 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
                 ComponentWizardPage componentWizardPage = new ComponentWizardPage();
                 componentWizardPage.FormClosed += new FormClosedEventHandler(components_FormClosed);
                 componentWizardPage.ShowDialog();
- 
+
             }
         }
         private string GetExamplesRootPath()
@@ -237,23 +237,23 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
                 progressBar1.Value = 40;
 
                 string dllsRootPath = GroupDocsComponentsManager.getLibaryDownloadPath();
-                string[] dllsPaths = Directory.GetFiles(Path.Combine(dllsRootPath, component.Name + "/lib/net20/"), "*.dll");
+                string[] dllsPaths = Directory.GetFiles(Path.Combine(dllsRootPath, component.Name + "/lib/"), "*.dll");
                 for (int i = 0; i < dllsPaths.Length; i++)
                 {
                     //For CSharp Project...
-                    if (!Directory.Exists(Path.Combine(destinationPath, "GroupDocs.Search.Examples.CSharp", "Bin", "Debug")))
-                        Directory.CreateDirectory(Path.Combine(destinationPath, "GroupDocs.Search.Examples.CSharp", "Bin", "Debug"));
-                    File.Copy(dllsPaths[i], Path.Combine(destinationPath, "GroupDocs.Search.Examples.CSharp", "Bin", "Debug", Path.GetFileName(dllsPaths[i])), true);
+                    if (!Directory.Exists(Path.Combine(destinationPath, "CSharp\\GroupDocs.Search.Examples.CSharp", "Bin", "Debug")))
+                        Directory.CreateDirectory(Path.Combine(destinationPath, "CSharp\\GroupDocs.Search.Examples.CSharp", "Bin", "Debug"));
+                    File.Copy(dllsPaths[i], Path.Combine(destinationPath, "CSharp\\GroupDocs.Search.Examples.CSharp", "Bin", "Debug", Path.GetFileName(dllsPaths[i])), true);
 
                     //For VBasic Project...
-                    if (!Directory.Exists(Path.Combine(destinationPath, "GroupDocs.Search.Examples.VBasic", "Bin", "Debug")))
-                        Directory.CreateDirectory(Path.Combine(destinationPath, "GroupDocs.Search.Examples.VBasic", "Bin", "Debug"));
-                    File.Copy(dllsPaths[i], Path.Combine(destinationPath, "GroupDocs.Search.Examples.VBasic", "Bin", "Debug", Path.GetFileName(dllsPaths[i])), true);
+                    if (!Directory.Exists(Path.Combine(destinationPath, "VBasic\\GroupDocs.Search.Examples.VBasic", "Bin", "Debug")))
+                        Directory.CreateDirectory(Path.Combine(destinationPath, "VBasic\\GroupDocs.Search.Examples.VBasic", "Bin", "Debug"));
+                    File.Copy(dllsPaths[i], Path.Combine(destinationPath, "VBasic\\GroupDocs.Search.Examples.VBasic", "Bin", "Debug", Path.GetFileName(dllsPaths[i])), true);
                 }
 
                 progressBar1.Value = 50;
 
-                string[] projectFiles = Directory.GetFiles(Path.Combine(destinationPath, (rdbCSharp.Checked ? "GroupDocs.Search.Examples.CSharp" : "GroupDocs.Search.Examples.VBasic")), (rdbCSharp.Checked ? "*.csproj" : "*.vbproj"));
+                string[] projectFiles = Directory.GetFiles(Path.Combine(destinationPath, (rdbCSharp.Checked ? "CSharp\\GroupDocs.Search.Examples.CSharp" : "VBasic\\GroupDocs.Search.Examples.VBasic")), (rdbCSharp.Checked ? "*.csproj" : "*.vbproj"));
                 for (int i = 0; i < projectFiles.Length; i++)
                 {
                     UpdatePrjReferenceHintPath(projectFiles[i], component);
@@ -394,10 +394,15 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             {
                 if (Directory.Exists(SourcePath))
                 {
-                    if (Directory.Exists(DestinationPath) == false)
+                    try
                     {
-                        Directory.CreateDirectory(DestinationPath);
+                        if (!Directory.Exists(DestinationPath))
+                        {
+                            Directory.CreateDirectory(DestinationPath);
+                        }
+                        
                     }
+                    catch { }
 
                     foreach (string files in Directory.GetFiles(SourcePath))
                     {
@@ -546,8 +551,8 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             GroupDocsComponent component;
             GroupDocsComponents.list.TryGetValue(Constants.GROUPDOCS_COMPONENT, out component);
             string repoPath = GitHelper.getLocalRepositoryPath(component);
-            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "GroupDocs.Search.Examples.CSharp" : "GroupDocs.Search.Examples.VBasic"));
-            
+            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "CSharp" : "VBasic"));
+
 
         }
 
@@ -556,8 +561,8 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             GroupDocsComponent component;
             GroupDocsComponents.list.TryGetValue(Constants.GROUPDOCS_COMPONENT, out component);
             string repoPath = GitHelper.getLocalRepositoryPath(component);
-            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "GroupDocs.Search.Examples.CSharp" : "GroupDocs.Search.Examples.VBasic"));
-             
+            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "CSharp" : "VBasic"));
+
 
         }
 

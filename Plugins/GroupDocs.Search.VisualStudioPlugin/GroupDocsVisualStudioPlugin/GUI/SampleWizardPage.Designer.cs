@@ -77,7 +77,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 155);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(479, 248);
+            this.groupBox1.Size = new System.Drawing.Size(473, 248);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Examples:";
@@ -145,7 +145,7 @@
             this.textBoxLocation.Location = new System.Drawing.Point(18, 128);
             this.textBoxLocation.Name = "textBoxLocation";
             this.textBoxLocation.ReadOnly = true;
-            this.textBoxLocation.Size = new System.Drawing.Size(379, 20);
+            this.textBoxLocation.Size = new System.Drawing.Size(366, 20);
             this.textBoxLocation.TabIndex = 11;
             // 
             // labelLocation
@@ -161,7 +161,7 @@
             // AbortButton
             // 
             this.AbortButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AbortButton.Location = new System.Drawing.Point(404, 416);
+            this.AbortButton.Location = new System.Drawing.Point(390, 416);
             this.AbortButton.Name = "AbortButton";
             this.AbortButton.Size = new System.Drawing.Size(81, 23);
             this.AbortButton.TabIndex = 18;
@@ -172,7 +172,7 @@
             // ContinueButton
             // 
             this.ContinueButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContinueButton.Location = new System.Drawing.Point(303, 416);
+            this.ContinueButton.Location = new System.Drawing.Point(289, 416);
             this.ContinueButton.Name = "ContinueButton";
             this.ContinueButton.Size = new System.Drawing.Size(81, 23);
             this.ContinueButton.TabIndex = 17;
@@ -201,9 +201,9 @@
             // BrowseButton
             // 
             this.BrowseButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BrowseButton.Location = new System.Drawing.Point(404, 126);
+            this.BrowseButton.Location = new System.Drawing.Point(390, 126);
             this.BrowseButton.Name = "BrowseButton";
-            this.BrowseButton.Size = new System.Drawing.Size(58, 23);
+            this.BrowseButton.Size = new System.Drawing.Size(81, 23);
             this.BrowseButton.TabIndex = 21;
             this.BrowseButton.Text = "&Browse";
             this.BrowseButton.UseVisualStyleBackColor = true;
@@ -248,7 +248,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 451);
+            this.ClientSize = new System.Drawing.Size(493, 451);
             this.ControlBox = false;
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.BrowseButton);

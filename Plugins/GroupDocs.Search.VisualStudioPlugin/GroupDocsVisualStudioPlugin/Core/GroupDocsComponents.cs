@@ -16,12 +16,12 @@ namespace GroupDocsSearchVisualStudioPlugin.Core
         {
             list.Clear();
 
-            GroupDocsComponent GroupDocsSearch = new GroupDocsComponent();
-            GroupDocsSearch.set_downloadUrl("");
-            GroupDocsSearch.set_downloadFileName("groupdocs.search.zip");
-            GroupDocsSearch.set_name(Constants.GROUPDOCS_COMPONENT);
-            GroupDocsSearch.set_remoteExamplesRepository("https://github.com/groupdocs-search/GroupDocs.Search-for-.NET.git");
-            list.Add(Constants.GROUPDOCS_COMPONENT, GroupDocsSearch);
+            GroupDocsComponent groupdocsSearch = new GroupDocsComponent();
+            groupdocsSearch.set_downloadUrl("");
+            groupdocsSearch.set_downloadFileName("groupdocs.search.zip");
+            groupdocsSearch.set_name(Constants.GROUPDOCS_COMPONENT);
+            groupdocsSearch.set_remoteExamplesRepository("https://github.com/groupdocs-search/GroupDocs.Search-for-.NET.git");
+            list.Add(Constants.GROUPDOCS_COMPONENT, groupdocsSearch);
         }
     }
 }

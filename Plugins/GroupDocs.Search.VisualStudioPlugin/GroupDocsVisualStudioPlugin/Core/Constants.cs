@@ -13,10 +13,10 @@ namespace GroupDocsSearchVisualStudioPlugin.Core
         public static string GROUPDOCS_COMPONENT = "GroupDocs.Search";
 
         //Messages UI text
-        public static string FIRST_PAGE_NAME = "GroupDocs Project Wizard";
-        public static string FIRST_PAGE_TITLE = "GroupDocs New Project";
-        public static string FIRST_PAGE_DESCRIPTION = "Create GroupDocs New Project";
-        public static string WIZARD_NAME = "GroupDocs new project";
+        public static string FIRST_PAGE_NAME = "GroupDocs.Search Project Wizard";
+        public static string FIRST_PAGE_TITLE = "GroupDocs.Search New Project";
+        public static string FIRST_PAGE_DESCRIPTION = "Create GroupDocs.Search New Project";
+        public static string WIZARD_NAME = "GroupDocs.Search new project";
         public static string IS_COMPONENT_SELECTED = "Please select one or more products to continue";
         public static string INTERNET_CONNECTION_REQUIRED_MESSAGE_TITLE = "Internet connectivity";
         public static string INTERNET_CONNECTION_REQUIRED_MESSAGE = "Internet connectivity is required to download GroupDocs libraries";

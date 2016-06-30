@@ -199,16 +199,11 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.Groupdocs_Search">
+        <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.Groupdocs_metadata">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
-        </member>
-        <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.long_banner">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
+        </member> 
         <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.pnglogosmall">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.

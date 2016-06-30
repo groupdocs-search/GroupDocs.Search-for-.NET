@@ -140,37 +140,12 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.bmplogo">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.bmplogo1">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.groupdocs">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.Groupdocs_metadata">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
         <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.groupdocs_search">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.groupdocs1">
             <summary>
               Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
             </summary>
         </member>
-        <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.long_banner">
+        <member name="P:GroupDocsSearchVisualStudioPlugin.Properties.Resources.groupdocs_search_128x128">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

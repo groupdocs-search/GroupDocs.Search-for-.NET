@@ -58,7 +58,7 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             this.groupBoxCommonUses.Font = new System.Drawing.Font("Calibri", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxCommonUses.Location = new System.Drawing.Point(12, 136);
             this.groupBoxCommonUses.Name = "groupBoxCommonUses";
-            this.groupBoxCommonUses.Size = new System.Drawing.Size(475, 275);
+            this.groupBoxCommonUses.Size = new System.Drawing.Size(469, 275);
             this.groupBoxCommonUses.TabIndex = 1;
             this.groupBoxCommonUses.TabStop = false;
             this.groupBoxCommonUses.Text = "Common Uses:";
@@ -68,7 +68,7 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(154, 17);
+            this.label2.Location = new System.Drawing.Point(148, 17);
             this.label2.MaximumSize = new System.Drawing.Size(320, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(318, 209);
@@ -78,7 +78,7 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::GroupDocsSearchVisualStudioPlugin.Properties.Resources.groupdocs_search;
+            this.pictureBox1.Image = global::GroupDocsSearchVisualStudioPlugin.Properties.Resources.groupdocs_search_128x128;
             this.pictureBox1.Location = new System.Drawing.Point(6, 38);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(133, 135);
@@ -106,7 +106,7 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.Location = new System.Drawing.Point(12, 102);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(475, 28);
+            this.progressBar.Size = new System.Drawing.Size(469, 28);
             this.progressBar.TabIndex = 3;
             // 
             // toolStripStatusMessage
@@ -126,9 +126,9 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             this.AbortButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AbortButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AbortButton.Location = new System.Drawing.Point(411, 437);
+            this.AbortButton.Location = new System.Drawing.Point(394, 437);
             this.AbortButton.Name = "AbortButton";
-            this.AbortButton.Size = new System.Drawing.Size(76, 23);
+            this.AbortButton.Size = new System.Drawing.Size(70, 23);
             this.AbortButton.TabIndex = 7;
             this.AbortButton.Text = "Abort";
             this.AbortButton.UseVisualStyleBackColor = true;
@@ -139,9 +139,9 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             this.ContinueButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ContinueButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContinueButton.Location = new System.Drawing.Point(327, 437);
+            this.ContinueButton.Location = new System.Drawing.Point(310, 437);
             this.ContinueButton.Name = "ContinueButton";
-            this.ContinueButton.Size = new System.Drawing.Size(76, 23);
+            this.ContinueButton.Size = new System.Drawing.Size(70, 23);
             this.ContinueButton.TabIndex = 6;
             this.ContinueButton.Text = "Continue";
             this.ContinueButton.UseVisualStyleBackColor = true;
@@ -174,7 +174,7 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(499, 63);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(503, 63);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // label1
@@ -193,7 +193,7 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 461);
+            this.ClientSize = new System.Drawing.Size(493, 461);
             this.ControlBox = false;
             this.Controls.Add(this.AbortButton);
             this.Controls.Add(this.ContinueButton);

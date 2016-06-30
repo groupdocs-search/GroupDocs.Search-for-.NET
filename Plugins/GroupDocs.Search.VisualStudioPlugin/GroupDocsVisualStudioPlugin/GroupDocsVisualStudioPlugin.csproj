@@ -55,7 +55,7 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>groupdocs.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\groupdocs.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <Win32Resource>
@@ -179,29 +179,25 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="groupdocs-viewer.ico" />
     <Content Include="groupdocs.ico" />
     <Content Include="GroupDocsVisualStudioPlugin.xml" />
     <Content Include="Config Files\info.txt" />
+    <None Include="Resources\groupdocs-search 128x128.png" />
     <Content Include="GroupDocsVisualStudioPluginSearch.AddIn" />
-    <Content Include="GroupDocsVisualStudioPluginSearch.xml" />
-    <None Include="Resources\Groupdocs-metadata.png" />
-    <None Include="Resources\groupdocs-search.png" />
-    <None Include="Resources\bmplogo.bmp" />
-    <None Include="Resources\bmplogo.png" />
-    <None Include="Resources\bmplogo11.png" />
-    <None Include="Resources\groupdocs-metadata1.png" />
-    <None Include="Resources\long_banner.png" />
-    <None Include="Resources\long_banner1.png" />
-    <None Include="Resources\pnglogosmall.png" />
-    <None Include="Resources\groupdocs.ico" />
+    <Content Include="GroupDocsVisualStudioPluginSearch.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\groupdocs-search.png" />
+    <None Include="Resources\groupdocs-viewer.ico" />
+    <Content Include="Resources\long_banner1.png" />
+    <Content Include="Resources\groupdocs.ico" />
     <Content Include="Resources\vbs-file.ico" />
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Config Files\AsposeVisualStudioPlugin.vsz" />
-    <None Include="Config Files\AsposeWizard.vsdir" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -227,10 +223,10 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>copy E:\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin.dll E:\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin5.dll"
-copy E:\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin.dll E:\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin8.dll"
-copy E:\GroupDocsSearchVSPlugin\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin.dll E:\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin12.dll"
-copy E:\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin.dll E:\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin13.dll</PostBuildEvent>
+    <PostBuildEvent>copy E:\vs\GroupDocsSearchVSPlugin\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin.dll E:\vs\GroupDocsSearchVSPlugin\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin5.dll"
+copy E:\vs\GroupDocsSearchVSPlugin\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin.dll E:\vs\GroupDocsSearchVSPlugin\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin8.dll"
+copy E:\vs\GroupDocsSearchVSPlugin\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin.dll E:\vs\GroupDocsSearchVSPlugin\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin12.dll"
+copy E:\vs\GroupDocsSearchVSPlugin\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin.dll E:\vs\GroupDocsSearchVSPlugin\GroupDocs.Search.VisualStudioPlugin\out\GroupDocsSearchVisualStudioPlugin13.dll</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions />
   <Target Name="AfterBuild">
