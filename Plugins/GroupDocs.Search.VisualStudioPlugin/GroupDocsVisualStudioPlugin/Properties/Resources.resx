@@ -118,31 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pnglogosmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pnglogosmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bmplogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bmplogo.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="groupdocs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bmplogo11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="long_banner1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\long_banner1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="long_banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\long_banner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="groupdocs_search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="pnglogosmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\groupdocs-search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bmplogo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bmplogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="groupdocs_search_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\groupdocs-search 128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="groupdocs1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\groupdocs.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Groupdocs_metadata" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Groupdocs-metadata.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="groupdocs_search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\groupdocs-search.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -18,9 +18,9 @@ namespace GroupDocsSearchVisualStudioPlugin
         private const string GROUPDOCS_MENU_CAPTION = "GroupDocs";
         private const string GROUPDOCS_MENU_TOOLTIP = "Download and Run GroupDocs.Search for .NET API Examples";
 
-        private const string WORDS_COMMAND_NAME = "GroupDocsSearchVSPlugin";
-        private const string WORDS_COMMAND_CAPTION = "New GroupDocs.Search Example Project";
-        private const string WORDS_COMMAND_TOOLTIP = "Download and Run GroupDocs.Search for .NET API Examples";
+        private const string VIEWER_COMMAND_NAME = "GroupDocsSearchVSPlugin";
+        private const string VIEWER_COMMAND_CAPTION = "New GroupDocs.Search Example Project";
+        private const string VIEWER_COMMAND_TOOLTIP = "Download and Run GroupDocs.Search for .NET API Examples";
 
         // Variables for IDE and add-in instances
         private DTE2 applicationObject;
@@ -101,7 +101,7 @@ namespace GroupDocsSearchVisualStudioPlugin
                         oBar = ((CommandBarPopup)toolsPopup.CommandBar.Controls[iloop]).CommandBar;
                         foreach (CommandBarButton cmdbtn in oBar.Controls)
                         {
-                            if (cmdbtn.Caption == WORDS_COMMAND_CAPTION)
+                            if (cmdbtn.Caption == VIEWER_COMMAND_CAPTION)
                             {
                                 oBtn = cmdbtn;
                             }
@@ -118,8 +118,8 @@ namespace GroupDocsSearchVisualStudioPlugin
                 if (oBtn == null)
                 {
                     //Add a command to the Commands collection:
-                    Command myCommand = commands.AddNamedCommand2(addInInstance, WORDS_COMMAND_NAME,
-                        WORDS_COMMAND_CAPTION, WORDS_COMMAND_TOOLTIP, false, Resources.pnglogosmall, ref contextGUIDS,
+                    Command myCommand = commands.AddNamedCommand2(addInInstance, VIEWER_COMMAND_NAME,
+                        VIEWER_COMMAND_CAPTION, VIEWER_COMMAND_TOOLTIP, false, Resources.pnglogosmall, ref contextGUIDS,
                         (int)vsCommandStatus.vsCommandStatusSupported + (int)vsCommandStatus.vsCommandStatusEnabled,
                         (int)vsCommandStyle.vsCommandStylePictAndText, vsCommandControlType.vsCommandControlTypeButton);
 
@@ -161,7 +161,7 @@ namespace GroupDocsSearchVisualStudioPlugin
 
                 if ((executeOption == vsCommandExecOption.vsCommandExecOptionDoDefault))
                 {
-                    if (cmdName == addInInstance.ProgID + "." + WORDS_COMMAND_NAME)
+                    if (cmdName == addInInstance.ProgID + "." + VIEWER_COMMAND_NAME)
                     {
                         SampleWizardPage page = new SampleWizardPage(applicationObject);
                         if (page != null && !page.IsDisposed) page.ShowDialog();
@@ -180,7 +180,7 @@ namespace GroupDocsSearchVisualStudioPlugin
         {
             if (neededText == vsCommandStatusTextWanted.vsCommandStatusTextWantedNone)
             {
-                if (cmdName == addInInstance.ProgID + "." + WORDS_COMMAND_NAME)
+                if (cmdName == addInInstance.ProgID + "." + VIEWER_COMMAND_NAME)
                 {
                     statusOption = (vsCommandStatus)(vsCommandStatus.vsCommandStatusEnabled | vsCommandStatus.vsCommandStatusSupported);
                     return;

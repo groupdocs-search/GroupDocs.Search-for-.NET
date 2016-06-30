@@ -41,6 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="License.rtf" />
+    <Content Include="obj\Debug\Installer.wixproj.FileList.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\" />
+    <Folder Include="obj\Debug\" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

@@ -212,7 +212,7 @@ namespace GroupDocsSearchVisualStudioPlugin.GUI
             WebClient webClient = new WebClient();
             webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
             webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-            Uri url = new Uri("http://packages.nuget.org/api/v2/package/groupdocs-search-dotnet/1.0.0");
+            Uri url = new Uri("https://www.nuget.org/api/v2/package/groupdocs-search-dotnet/1.0.0");
             webClient.DownloadFileAsync(url, destinationPath);
         }
 

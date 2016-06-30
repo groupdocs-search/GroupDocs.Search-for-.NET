@@ -55,7 +55,6 @@ namespace GroupDocsSearchVisualStudioPlugin.Core
                     }
                 }
             }
-
             return true;
         }
 
@@ -105,12 +104,12 @@ namespace GroupDocsSearchVisualStudioPlugin.Core
             {
 
             }
-
         }
 
         public static bool libraryAlreadyExists(string libFileName)
         {
-            return System.IO.File.Exists(getLibaryDownloadPath() + libFileName.Replace(".zip", "") + "\\lib\\net20\\" + libFileName.Replace(".zip", ".dll"));
+            return System.IO.File.Exists(getLibaryDownloadPath() 
+                + libFileName.Replace(".zip", "") + "\\lib\\" + libFileName.Replace(".zip", ".dll"));
         }
 
         public static void addToDownloadList(GroupDocsComponent component, string urlStr, string outputFile)
