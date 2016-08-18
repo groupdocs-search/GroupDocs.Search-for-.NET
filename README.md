@@ -3,6 +3,7 @@
 This package contains [Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Examples) and [Showcases](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI) for [GroupDocs.Search for .NET](http://groupdocs.com/dot-net/document-search-library) that will help you in understanding the API's working and writing your own applications.
 
 GroupDocs.Search for .NET API helps user to perform various search operations. It extracts text and metadata from different file formats and performs search over all user documents. In order to make search process fast and accurate, index is created and documents are added to it. Hence all the search queries or advanced searches are performed over the index.
+Example project is compatible with GroupDocs.Search for .NET 1.1.0.
 
 <p align="center">
 
