@@ -32,8 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GroupDocs.Search">
-      <HintPath>C:\Program Files (x86)\GroupDocs\Search for .NET\bin\GroupDocs.Search.dll</HintPath>
+    <Reference Include="Aspose.Email">
+      <HintPath>..\..\..\..\..\..\Downloads\Aspose.Email_6.8.0\net4.0_ClientProfile\Aspose.Email.dll</HintPath>
+    </Reference>
+    <Reference Include="GroupDocs.Search, Version=1.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Downloads\GroupDocs.Search_1.1.0-NET\bin\GroupDocs.Search.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomFieldExtractor.cs" />
+    <Compile Include="CustomOstPstExtractor.cs" />
     <Compile Include="Indexing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

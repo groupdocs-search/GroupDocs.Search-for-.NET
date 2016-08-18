@@ -1,4 +1,5 @@
-﻿using GroupDocs.Search;
+﻿using Aspose.Email.Outlook.Pst;
+using GroupDocs.Search;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace GroupDocs.Search_for_.NET
         public static void SimpleSearch(string searchString)
         {
             //ExStart:SimpleSearch
+
             // Create index
             Index index = new Index(Utilities.indexPath);
 
@@ -28,7 +30,7 @@ namespace GroupDocs.Search_for_.NET
             // List of found files
             foreach (DocumentResultInfo documentResultInfo in searchResults)
             {
-                Console.Write(documentResultInfo.FileName + "\n");
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
             //ExEnd:SimpleSearch
         }
@@ -53,7 +55,8 @@ namespace GroupDocs.Search_for_.NET
             // List of found files
             foreach (DocumentResultInfo documentResultInfo in searchResults)
             {
-                Console.Write(documentResultInfo.FileName + "\n");
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", firstTerm, documentResultInfo.HitCount, documentResultInfo.FileName);
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", secondTerm, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
             //ExEnd:BooleanSearch
         }
@@ -82,14 +85,16 @@ namespace GroupDocs.Search_for_.NET
             Console.WriteLine("Follwoing document(s) contain provided relevant tag: \n");
             foreach (DocumentResultInfo documentResultInfo in searchResults1)
             {
-                Console.Write(documentResultInfo.FileName + "\n");
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", relevantKey, documentResultInfo.HitCount, documentResultInfo.FileName);
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", regexString, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
 
             // List of found files
             Console.WriteLine("Follwoing document(s) contain provided RegEx: \n");
             foreach (DocumentResultInfo documentResultInfo in searchResults2)
             {
-                Console.Write(documentResultInfo.FileName + "\n");
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", relevantKey, documentResultInfo.HitCount, documentResultInfo.FileName);
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", regexString, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
             //ExEnd:Regexsearch
         }
@@ -139,7 +144,7 @@ namespace GroupDocs.Search_for_.NET
             // List of found files
             foreach (DocumentResultInfo documentResultInfo in searchResults)
             {
-                Console.Write(documentResultInfo.FileName + "\n");
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
             //ExEnd:Facetedsearch
         }
@@ -164,7 +169,7 @@ namespace GroupDocs.Search_for_.NET
             // List of found files
             foreach (DocumentResultInfo documentResultInfo in searchResults)
             {
-                Console.Write(documentResultInfo.FileName + "\n");
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
             //ExEnd:SearchFileName
         }
@@ -188,7 +193,8 @@ namespace GroupDocs.Search_for_.NET
             // List of found files
             foreach (DocumentResultInfo documentResultInfo in searchResults)
             {
-                Console.Write(documentResultInfo.FileName + "\n");
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", firstTerm, documentResultInfo.HitCount, documentResultInfo.FileName);
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", secondTerm, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
             //ExEnd:FacetedSearchWithBooleanSearch
         }
@@ -218,9 +224,122 @@ namespace GroupDocs.Search_for_.NET
             // List of found files
             foreach (DocumentResultInfo documentResultInfo in searchResults)
             {
-                Console.Write(documentResultInfo.FileName + "\n");
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
             //ExEnd:SynonymSearch
+        }
+
+        /// <summary>
+        /// Shows how to implement own custom extractor for outlook document for the extension .ost and .pst files
+        /// </summary>
+        /// <param name="searchString">string to search</param>
+        public static void OwnExtractorOst(string searchString)
+        {
+            //ExStart:OwnExtractorOst
+            // Create or load index
+            Index index = new Index(Utilities.indexPath);
+
+            index.CustomExtractors.Add(new CustomOstPstExtractor()); // Adding new custom extractor for container document
+
+            index.AddToIndex(Utilities.documentsPath); // Documents with "ost" and "pst" extension will be indexed using MyCustomContainerExtractor
+
+            SearchResults searchResults = index.Search(searchString);
+            //ExEnd:OwnExtractorOst
+        }
+
+        /// <summary>
+        /// Shows how to implement own custom extractor for outlook document for the extension .ost and .pst files
+        /// </summary>
+        /// <param name="searchString">string to search</param>
+        public static void DetailedResults(string searchString)
+        {
+            //ExStart:DetailedResultsPropertyInDocuments
+            // Create or load index
+            Index index = new Index(Utilities.indexPath);
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchResults results = index.Search(searchString);
+
+            foreach (DocumentResultInfo resultInfo in results)
+            {
+                if (resultInfo.DocumentType == DocumentType.OutlookEmailMessage)
+                {
+                    // for email message result info user should cast resultInfo as OutlookEmailMessageResultInfo for acessing EntryIdString property
+                    OutlookEmailMessageResultInfo emailResultInfo = resultInfo as OutlookEmailMessageResultInfo;
+
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in message {2} in file {3}", searchString, emailResultInfo.HitCount, emailResultInfo.EntryIdString, emailResultInfo.FileName);
+                }
+                else
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file {2}", searchString, resultInfo.HitCount, resultInfo.FileName);
+                }
+
+                foreach (DetailedResultInfo detailedResult in resultInfo.DetailedResults)
+                {
+                    Console.WriteLine("{0}In field \"{1}\" there was found {2} hit count", "\t", detailedResult.FieldName, detailedResult.HitCount);
+                }
+            }
+            //ExEnd:DetailedResultsPropertyInDocuments
+        }
+
+        public void OpenFoundMessageUsingAsposeEmail(string searchString)
+        {
+            string myPstFile = Utilities.pathToPstFile;
+            // Indexing MS Outlook storage with email messages
+            Index index = new Index(Utilities.indexPath);
+            index.OperationFinished += Utilities.index_OperationFinished;
+            index.AddToIndex(myPstFile);
+
+            // Searching in index
+            SearchResults results = index.Search(searchString);
+
+            // User gets all messages that qualify to search query using Aspose.Email API
+            MessageInfoCollection messages = new MessageInfoCollection();
+            foreach (DocumentResultInfo searchResult in results)
+            {
+                if (searchResult.DocumentType == DocumentType.OutlookEmailMessage)
+                {
+                    OutlookEmailMessageResultInfo emailResultInfo = searchResult as OutlookEmailMessageResultInfo;
+                    MessageInfo message = GetEmailMessagesById(Utilities.pathToPstFile, emailResultInfo.EntryIdString);
+                    if (message != null)
+                    {
+                        messages.Add(message);
+                    }
+                }
+            }
+        }
+
+        private MessageInfo GetEmailMessagesById(string fileName, string fieldId)
+        {
+            PersonalStorage pst = PersonalStorage.FromFile(fileName, false);
+            return GetEmailMessagesById(pst.RootFolder, fieldId);
+        }
+
+        private MessageInfo GetEmailMessagesById(FolderInfo folderInfo, string fieldId)
+        {
+            MessageInfo result = null;
+            MessageInfoCollection messageInfoCollection = folderInfo.GetContents();
+            foreach (MessageInfo messageInfo in messageInfoCollection)
+            {
+                if (messageInfo.EntryIdString == fieldId)
+                {
+                    result = messageInfo;
+                    break;
+                }
+            }
+
+            if (result == null && folderInfo.HasSubFolders)
+            {
+                foreach (FolderInfo subfolderInfo in folderInfo.GetSubFolders())
+                {
+                    result = GetEmailMessagesById(subfolderInfo, fieldId);
+                    if (result != null)
+                    {
+                        break;
+                    }
+                }
+            }
+            return result;
         }
     }
 }
