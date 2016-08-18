@@ -15,8 +15,9 @@ namespace GroupDocs.Search_for_.NET
         public const string indexPath2 = "../../../../Data/Documents Indexes2/";
         public const string documentsPath = "../../../../Data/Documents/";
         public const string synonymFilePath = "../../../../Data/synonyms.txt";
-        public const string licensePath = "../../../../Data/Documents/GroupDocs.Search.lic";
-      
+        public const string licensePath = "D:/GroupDocs.Search.lic";
+        public const string pathToPstFile = "D:/MyOutlookDataFile.pst";
+        
         /// <summary>
         /// Apply license 
         /// </summary>

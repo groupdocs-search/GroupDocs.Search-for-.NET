@@ -22,13 +22,20 @@
         'Searching.FacetedSearch("return")
 
         'Searching for any document in index that contain word "readme" in file name
-        Searching.SearchFileName("redme")
+        'Searching.SearchFileName("readme")
 
         'Faceted search combine with boolean search
         'Searching.FacetedSearchWithBooleanSearch("(virtual OR comsats)","(search AND engine)")
 
         'Searching for documents with words one of words "remote", "virtual" or "online"
         'Searching.SynonymSearch("remote")
+
+        'Searching.OwnExtractorOst("dropbox")
+
+        'Searching.DetailedResults("remote")
+
+        'Dim src As New Searching()
+        'src.OpenFoundMessageUsingAsposeEmail("text")
 
         '#End Region
 
@@ -60,6 +67,11 @@
 
         'Indexing.CustomExtractor()
 
+        'Indexing.PreventUnnecessaryFileIndex()
+
+        'Indexing.TrackAllChanges()
+
+        'Indexing.IndexSeparateFiles();
 
         '#End Region
 

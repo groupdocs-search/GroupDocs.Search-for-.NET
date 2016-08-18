@@ -198,5 +198,73 @@ namespace GroupDocs.Search_for_.NET
             index.AddToIndex(Utilities.documentsPath);
             //ExEnd:CustomExtractor
         }
+
+
+        /// <summary>
+        /// Add PowerPoint Document to index
+        /// </summary>
+        public static void AddPowerPointDocumentToIndex()
+        {
+            //ExStart:AddPowerPointDocumentToIndex
+            // Create index
+            Index index = new Index(Utilities.indexPath);
+            // all files from folder and its subfolders will be added to the index
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchResults results1 = index.Search("author:cisco"); // searching by author of presentation
+            SearchResults results2 = index.Search("LastSavedBy:teresa"); // searching by person who saved presentation last time
+            //ExEnd:AddPowerPointDocumentToIndex
+        }
+
+        /// <summary>
+        /// Prevents Unnecessary File Indexing
+        /// </summary>
+        public static void PreventUnnecessaryFileIndex()
+        {
+            //ExStart: PreventUnnecessaryFileIndex
+            // Create index
+            Index index = new Index(Utilities.indexPath);
+
+            // Add documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Try add the same documents to index
+            index.AddToIndex(Utilities.documentsPath); // Already indexed files will not be reindexed.
+            //ExEnd: PreventUnnecessaryFileIndex
+        }
+
+        /// <summary>
+        /// Tracks all the changes in the index folder
+        /// </summary>
+        public static void TrackAllChanges()
+        {
+            // Create index
+            Index index = new Index(Utilities.indexPath);
+
+            // Add documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Remove some documents from documents path
+            // Edit some documents in documents path
+            // Add some new documents to documents path
+
+            index.Update();
+            // removed documents will be marked as deleted in index and will not be added to search results
+            // Edited documents will be reindexed
+            // Added documents will be added to index
+        }
+           
+        /// <summary>
+        /// Indexes separate files 
+        /// </summary>
+        public static void IndexSeparateFiles()
+        {
+            //ExStart:IndexSeparateFiles
+            Index index = new Index(Utilities.indexPath);
+            // adding just one file to index
+            index.AddToIndex(Utilities.pathToPstFile); 
+            //ExEnd:IndexSeparateFiles
+        }
+        
     }
 }

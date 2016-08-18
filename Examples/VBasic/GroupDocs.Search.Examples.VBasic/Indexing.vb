@@ -1,5 +1,5 @@
-﻿Public Class Indexing
-
+﻿
+Public Class Indexing
     ''' <summary>
     ''' Update index
     ''' </summary>
@@ -43,8 +43,6 @@
     Public Shared Sub UpdateIndexInRepoAsynchronously()
         'ExStart:UpdateIndexInRepoAsynchronously
         Dim repository As New IndexRepository()
-        AddHandler repository.OperationFinished, Utilities.index_OperationFinished
-
         repository.AddToRepository(Utilities.indexPath)
         repository.AddToRepository(Utilities.indexPath2)
 
@@ -121,7 +119,7 @@
         ' Load indexes to index repository
         Dim repository As New IndexRepository()
         repository.AddToRepository(index)
-        'repository.AddToRepository(Utilities.indexPath2)
+        'repository.AddToRepository(Utilities.indexPath2);
         'ExEnd:loadindex
     End Sub
 
@@ -174,5 +172,72 @@
         index.AddToIndex(Utilities.documentsPath)
         'ExEnd:CustomExtractor
     End Sub
+
+
+    ''' <summary>
+    ''' Add PowerPoint Document to index
+    ''' </summary>
+    Public Shared Sub AddPowerPointDocumentToIndex()
+        'ExStart:AddPowerPointDocumentToIndex
+        ' Create index
+        Dim index As New Index(Utilities.indexPath)
+        ' all files from folder and its subfolders will be added to the index
+        index.AddToIndex(Utilities.documentsPath)
+
+        Dim results1 As SearchResults = index.Search("author:cisco")
+        ' searching by author of presentation
+        Dim results2 As SearchResults = index.Search("LastSavedBy:teresa")
+        ' searching by person who saved presentation last time
+        'ExEnd:AddPowerPointDocumentToIndex
+    End Sub
+
+    ''' <summary>
+    ''' Prevents Unnecessary File Indexing
+    ''' </summary>
+    Public Shared Sub PreventUnnecessaryFileIndex()
+        'ExStart: PreventUnnecessaryFileIndex
+        ' Create index
+        Dim index As New Index(Utilities.indexPath)
+
+        ' Add documents to index
+        index.AddToIndex(Utilities.documentsPath)
+
+        ' Try add the same documents to index
+        index.AddToIndex(Utilities.documentsPath)
+        ' Already indexed files will not be reindexed.
+        'ExEnd: PreventUnnecessaryFileIndex
+    End Sub
+    ''' <summary>
+    ''' Tracks all the changes in the index folder
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Shared Sub TrackAllChanges()
+        ' Create index
+        Dim index As New Index(Utilities.indexPath)
+
+        ' Add documents to index
+        index.AddToIndex(Utilities.documentsPath)
+
+        ' Remove some documents from documents path
+        ' Edit some documents in documents path
+        ' Add some new documents to documents path
+
+        index.Update()
+        ' removed documents will be marked as deleted in index and will not be added to search results
+        ' Edited documents will be reindexed
+        ' Added documents will be added to index
+    End Sub
+
+    ''' <summary>
+    ''' Indexes separate files 
+    ''' </summary>
+    Public Shared Sub IndexSeparateFiles()
+        'ExStart:IndexSeparateFiles
+        Dim index As New Index(Utilities.indexPath)
+        'adding just one file to index
+        index.AddToIndex(Utilities.pathToPstFile)
+        'ExEnd:IndexSeparateFiles
+    End Sub
+
 
 End Class

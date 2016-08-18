@@ -46,8 +46,11 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Email">
+      <HintPath>..\..\..\..\..\..\Downloads\Aspose.Email_6.8.0\net4.0_ClientProfile\Aspose.Email.dll</HintPath>
+    </Reference>
     <Reference Include="GroupDocs.Search">
-      <HintPath>C:\Program Files (x86)\GroupDocs\Search for .NET\bin\GroupDocs.Search.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Downloads\GroupDocs.Search_1.1.0-NET\bin\GroupDocs.Search.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -70,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomFieldExtractor.vb" />
+    <Compile Include="CustomOstPstExtractor.vb" />
     <Compile Include="Indexing.vb" />
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
