@@ -46,6 +46,12 @@ namespace GroupDocs.Search_for_.NET
             //Searching src = new Searching();
             //src.OpenFoundMessageUsingAsposeEmail("text");
 
+            ////User warning on running Search with not supported options
+            //Searching.NotSupportedOptionWarning("some search query");
+
+            //count of total hit count of search query in found results
+            //Searching.TotalHitCount("some search query");
+
             #endregion
 
             #region Indexing

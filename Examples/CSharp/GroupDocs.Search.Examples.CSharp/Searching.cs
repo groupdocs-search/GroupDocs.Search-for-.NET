@@ -100,27 +100,58 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
-        /// Creates index, adds documents to index and do fuzzy search
+        /// Creates index, 
+        /// Adds documents to index 
+        /// Enable fuzzy search
+        /// Set similarity level from 0.0 to 1.0
+        /// Do Fuzzy search
         /// </summary>
         /// <param name="searchString">Misspelled string</param>
+        /// 
         public static void FuzzySearch(string searchString)
         {
             //ExStart:Fuzzysearch
-            // Create index
             Index index = new Index(Utilities.indexPath);
-
-            // Add documents to index
             index.AddToIndex(Utilities.documentsPath);
 
             SearchParameters parameters = new SearchParameters();
-            parameters.UseFuzzySearch = true;
+            // turning on Fuzzy search feature
+            parameters.FuzzySearch.Enabled = true;
 
-            SearchResults searchResults = index.Search(searchString, parameters);
-
-            foreach (DocumentResultInfo documentResultInfo in searchResults)
+            // set low similarity level to search for less similar words and get more results
+            parameters.FuzzySearch.SimilarityLevel = 0.1;
+            SearchResults lessSimilarResults = index.Search(searchString, parameters);
+            Console.WriteLine("Results with less similarity level that is currently set to =" + parameters.FuzzySearch.SimilarityLevel);
+            foreach (DocumentResultInfo lessSimilarResultsDoc in lessSimilarResults)
             {
-                Console.WriteLine(documentResultInfo.FileName + "\n");
+                Console.WriteLine(lessSimilarResultsDoc.FileName + "\n");
             }
+
+            // set high similarity level to search for more similar words and get less results
+            parameters.FuzzySearch.SimilarityLevel = 0.9;
+            SearchResults moreSimilarResults = index.Search(searchString, parameters);
+
+            Console.WriteLine("Results with high similarity level that is currently set to =" + parameters.FuzzySearch.SimilarityLevel);
+            foreach (DocumentResultInfo highSimilarityLevelDoc in moreSimilarResults)
+            {
+                Console.WriteLine(highSimilarityLevelDoc.FileName + "\n");
+            }
+            /* // Create index
+       Index index = new Index(Utilities.indexPath);
+
+       // Add documents to index
+       index.AddToIndex(Utilities.documentsPath);
+
+       SearchParameters parameters = new SearchParameters();
+       parameters.UseFuzzySearch = true; // obolete now it was in 1.1
+
+       SearchResults searchResults = index.Search(searchString, parameters);
+
+       foreach (DocumentResultInfo documentResultInfo in searchResults)
+       {
+           Console.WriteLine(documentResultInfo.FileName + "\n");
+       }
+       */
             //ExEnd:Fuzzysearch
         }
 
@@ -280,6 +311,68 @@ namespace GroupDocs.Search_for_.NET
                 }
             }
             //ExEnd:DetailedResultsPropertyInDocuments
+        }
+        /// <summary>
+        /// User warnings for  
+        /// Trying to run Search with options 
+        /// that are not supported in index
+        /// </summary>
+        public static void NotSupportedOptionWarning(string searchString)
+        {
+            //ExStart:SimpleSearch
+            //create index
+            Index index = new Index(Utilities.indexPath);
+           // index.IndexingSettings.QuickIndexing = true;
+            index.ErrorHappened += index_ErrorHappened;
+           // QuickIndex ad = new QuickIndex();
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchParameters fuzzySearchParameters = new SearchParameters();
+            fuzzySearchParameters.FuzzySearch.Enabled = true;
+           // fuzzySearchParameters.FuzzySearchParameters.UseFuzzySearch = true;
+
+            // Run fuzzy search
+            SearchResults results = index.Search(searchString, fuzzySearchParameters);
+
+            // Run regex search
+           // SearchResults regexSearchResults = index.Search(regexQuery);
+
+
+            SearchParameters synonymSearchParameters = new SearchParameters();
+            synonymSearchParameters.UseSynonymSearch = true;
+
+            #region synonym search user warning
+            // we are not loading synonyms as index.LoadSynonyms(Utilities.synonymFilePath);
+            // and running synonym search so this option not supported 
+            SearchResults synonymSearchResults = index.Search(searchString, synonymSearchParameters);
+           
+            #endregion
+
+            //ExEnd:SimpleSearch
+
+        }
+
+        /// <summary>
+        /// event Handler for 
+        /// search options not supported in index
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        static void index_ErrorHappened(object sender, Search.Events.BaseIndexArg e)
+        {
+            // e.Message contains corresponding message 
+            //if search option is not supported
+            //string notificationMessage = e.Message;
+            Console.WriteLine(e.Message);
+        }
+
+        public static void TotalHitCount(string searchString)
+        {
+            Index index = new Index(Utilities.indexPath);
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchResults results = index.Search(searchString);
+            Console.WriteLine("Searching with query \"{0}\" returns {1} documents with {2} total hit count", searchString, results.Count, results.TotalHitCount);
         }
 
         public void OpenFoundMessageUsingAsposeEmail(string searchString)
