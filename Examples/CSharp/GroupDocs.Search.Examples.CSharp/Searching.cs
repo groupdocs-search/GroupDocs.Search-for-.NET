@@ -136,22 +136,6 @@ namespace GroupDocs.Search_for_.NET
             {
                 Console.WriteLine(highSimilarityLevelDoc.FileName + "\n");
             }
-            /* // Create index
-       Index index = new Index(Utilities.indexPath);
-
-       // Add documents to index
-       index.AddToIndex(Utilities.documentsPath);
-
-       SearchParameters parameters = new SearchParameters();
-       parameters.UseFuzzySearch = true; // obolete now it was in 1.1
-
-       SearchResults searchResults = index.Search(searchString, parameters);
-
-       foreach (DocumentResultInfo documentResultInfo in searchResults)
-       {
-           Console.WriteLine(documentResultInfo.FileName + "\n");
-       }
-       */
             //ExEnd:Fuzzysearch
         }
 
@@ -313,13 +297,12 @@ namespace GroupDocs.Search_for_.NET
             //ExEnd:DetailedResultsPropertyInDocuments
         }
         /// <summary>
-        /// User warnings for  
-        /// Trying to run Search with options 
-        /// that are not supported in index
+        /// Gives warnings if try to run Search with options that are not supported in index
         /// </summary>
+        /// <param name="searchString">string to search</param>
         public static void NotSupportedOptionWarning(string searchString)
         {
-            //ExStart:SimpleSearch
+            //ExStart:NotSupportedOptionWarning
             //create index
             Index index = new Index(Utilities.indexPath);
            // index.IndexingSettings.QuickIndexing = true;
@@ -347,32 +330,38 @@ namespace GroupDocs.Search_for_.NET
             SearchResults synonymSearchResults = index.Search(searchString, synonymSearchParameters);
            
             #endregion
-
-            //ExEnd:SimpleSearch
+            //ExEnd:NotSupportedOptionWarning
 
         }
 
+        //ExStart:index_ErrorHappened
         /// <summary>
-        /// event Handler for 
-        /// search options not supported in index
+        /// Event Handler for search options not supported in index
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         static void index_ErrorHappened(object sender, Search.Events.BaseIndexArg e)
-        {
+        {            
             // e.Message contains corresponding message 
             //if search option is not supported
             //string notificationMessage = e.Message;
-            Console.WriteLine(e.Message);
+            Console.WriteLine(e.Message);            
         }
-
-        public static void TotalHitCount(string searchString)
+        //ExEnd:index_ErrorHappened
+        /// <summary>
+        /// Gets total hits count
+        /// </summary>
+        /// <param name="searchString">string to search</param> 
+        public static void GetTotalHitCount(string searchString)
         {
+
+            //ExStart:GetTotalHitCount
             Index index = new Index(Utilities.indexPath);
             index.AddToIndex(Utilities.documentsPath);
 
             SearchResults results = index.Search(searchString);
             Console.WriteLine("Searching with query \"{0}\" returns {1} documents with {2} total hit count", searchString, results.Count, results.TotalHitCount);
+            //ExEnd:GetTotalHitCount
         }
 
         public void OpenFoundMessageUsingAsposeEmail(string searchString)

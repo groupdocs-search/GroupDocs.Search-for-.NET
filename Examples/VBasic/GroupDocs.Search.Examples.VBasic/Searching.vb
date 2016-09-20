@@ -83,24 +83,38 @@ Public Class Searching
     End Sub
 
     ''' <summary>
-    ''' Creates index, adds documents to index and do fuzzy search
+    ''' Creates index, 
+    ''' Adds documents to index 
+    ''' Enable fuzzy search
+    ''' Set similarity level from 0.0 to 1.0
+    ''' Do Fuzzy search
     ''' </summary>
     ''' <param name="searchString">Misspelled string</param>
+    ''' 
     Public Shared Sub FuzzySearch(searchString As String)
         'ExStart:Fuzzysearch
-        ' Create index
         Dim index As New Index(Utilities.indexPath)
-
-        ' Add documents to index
         index.AddToIndex(Utilities.documentsPath)
 
         Dim parameters As New SearchParameters()
-        parameters.UseFuzzySearch = True
+        ' turning on Fuzzy search feature
+        parameters.FuzzySearch.Enabled = True
 
-        Dim searchResults As SearchResults = index.Search(searchString, parameters)
+        ' set low similarity level to search for less similar words and get more results
+        parameters.FuzzySearch.SimilarityLevel = 0.1
+        Dim lessSimilarResults As SearchResults = index.Search(searchString, parameters)
+        Console.WriteLine("Results with less similarity level that is currently set to =" + parameters.FuzzySearch.SimilarityLevel)
+        For Each lessSimilarResultsDoc As DocumentResultInfo In lessSimilarResults
+            Console.WriteLine(lessSimilarResultsDoc.FileName + vbLf)
+        Next
 
-        For Each documentResultInfo As DocumentResultInfo In searchResults
-            Console.WriteLine(documentResultInfo.FileName + vbLf)
+        ' set high similarity level to search for more similar words and get less results
+        parameters.FuzzySearch.SimilarityLevel = 0.9
+        Dim moreSimilarResults As SearchResults = index.Search(searchString, parameters)
+
+        Console.WriteLine("Results with high similarity level that is currently set to =" + parameters.FuzzySearch.SimilarityLevel)
+        For Each highSimilarityLevelDoc As DocumentResultInfo In moreSimilarResults
+            Console.WriteLine(highSimilarityLevelDoc.FileName + vbLf)
         Next
         'ExEnd:Fuzzysearch
     End Sub
@@ -246,6 +260,71 @@ Public Class Searching
             Next
         Next
         'ExEnd:DetailedResultsPropertyInDocuments
+    End Sub
+
+    ''' <summary>
+    ''' Gives warnings if try to run Search with options that are not supported in index
+    ''' </summary>
+    ''' <param name="searchString">string to search</param>
+    Public Shared Sub NotSupportedOptionWarning(searchString As String)
+        'ExStart:NotSupportedOptionWarning
+        'create index
+        Dim index As New Index(Utilities.indexPath)
+        ' index.IndexingSettings.QuickIndexing = true;
+        AddHandler index.ErrorHappened, AddressOf index_ErrorHappened
+        ' QuickIndex ad = new QuickIndex();
+        index.AddToIndex(Utilities.documentsPath)
+
+        Dim fuzzySearchParameters As New SearchParameters()
+        fuzzySearchParameters.FuzzySearch.Enabled = True
+        ' fuzzySearchParameters.FuzzySearchParameters.UseFuzzySearch = true;
+
+        ' Run fuzzy search
+        Dim results As SearchResults = index.Search(searchString, fuzzySearchParameters)
+
+        ' Run regex search
+        ' SearchResults regexSearchResults = index.Search(regexQuery);
+
+
+        Dim synonymSearchParameters As New SearchParameters()
+        synonymSearchParameters.UseSynonymSearch = True
+
+        '#Region "synonym search user warning"
+        ' we are not loading synonyms as index.LoadSynonyms(Utilities.synonymFilePath);
+        ' and running synonym search so this option not supported 
+        Dim synonymSearchResults As SearchResults = index.Search(searchString, synonymSearchParameters)
+
+        '#End Region
+        'ExEnd:NotSupportedOptionWarning
+
+    End Sub
+
+    'ExStart:index_ErrorHappened
+    ''' <summary>
+    ''' Event Handler for search options not supported in index
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Shared Sub index_ErrorHappened(sender As Object, e As Search.Events.BaseIndexArg)
+        ' e.Message contains corresponding message 
+        'if search option is not supported
+        'string notificationMessage = e.Message;
+        Console.WriteLine(e.Message)
+    End Sub
+    'ExEnd:index_ErrorHappened
+    ''' <summary>
+    ''' Gets total hits count
+    ''' </summary>
+    ''' <param name="searchString">string to search</param> 
+    Public Shared Sub GetTotalHitCount(searchString As String)
+
+        'ExStart:GetTotalHitCount
+        Dim index As New Index(Utilities.indexPath)
+        index.AddToIndex(Utilities.documentsPath)
+
+        Dim results As SearchResults = index.Search(searchString)
+        Console.WriteLine("Searching with query ""{0}"" returns {1} documents with {2} total hit count", searchString, results.Count, results.TotalHitCount)
+        'ExEnd:GetTotalHitCount
     End Sub
 
     Public Sub OpenFoundMessageUsingAsposeEmail(searchString As String)
