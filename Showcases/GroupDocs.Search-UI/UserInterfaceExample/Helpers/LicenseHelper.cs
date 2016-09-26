@@ -3,7 +3,7 @@
     public class LicenseHelper
     {
         //License path
-        private const string licensePath = @"D:\GroupDocs.Search.lic";
+        private const string licensePath = @"D:\GroupDocs.Total.lic";
 
         public static void SetGroupDocsSearchLicense()
         {
