@@ -71,7 +71,7 @@ namespace GroupDocs.Search_for_.NET
             //ExStart:Regexsearch
             // Create index
             Index index = new Index(Utilities.indexPath);
-
+            
             // Add documents to index
             index.AddToIndex(Utilities.documentsPath);
 
@@ -312,24 +312,19 @@ namespace GroupDocs.Search_for_.NET
 
             SearchParameters fuzzySearchParameters = new SearchParameters();
             fuzzySearchParameters.FuzzySearch.Enabled = true;
-           // fuzzySearchParameters.FuzzySearchParameters.UseFuzzySearch = true;
 
             // Run fuzzy search
             SearchResults results = index.Search(searchString, fuzzySearchParameters);
 
             // Run regex search
-           // SearchResults regexSearchResults = index.Search(regexQuery);
-
+            string regexString = @"dropbox ^[A-Z0-9._%+\-|A-Z0-9._%+-]+@++[A-Z0-9.\-|A-Z0-9.-]+\.[A-Z|A-Z]{2,}$ folder";
+            SearchResults results1 = index.Search(regexString);
 
             SearchParameters synonymSearchParameters = new SearchParameters();
             synonymSearchParameters.UseSynonymSearch = true;
 
-            #region synonym search user warning
-            // we are not loading synonyms as index.LoadSynonyms(Utilities.synonymFilePath);
-            // and running synonym search so this option not supported 
-            SearchResults synonymSearchResults = index.Search(searchString, synonymSearchParameters);
-           
-            #endregion
+            // Run synonym search without loaded synonyms
+            SearchResults results2 = index.Search(searchString, synonymSearchParameters);
             //ExEnd:NotSupportedOptionWarning
 
         }
