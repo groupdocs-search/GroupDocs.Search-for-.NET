@@ -77,7 +77,7 @@ namespace UserInterfaceExample.Controllers
                 };
 
 
-                var docInfo = _htmlHandler.GetDocumentInfo(new GroupDocs.Viewer.Domain.Options.DocumentInfoOptions(fullName));
+                var docInfo = _htmlHandler.GetDocumentInfo(fullName);
 
                 result.documentDescription =
                     new FileDataJsonSerializer(docInfo.Pages, new FileDataOptions()).Serialize(false);

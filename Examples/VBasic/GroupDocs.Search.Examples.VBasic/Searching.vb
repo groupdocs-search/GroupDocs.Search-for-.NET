@@ -277,24 +277,20 @@ Public Class Searching
 
         Dim fuzzySearchParameters As New SearchParameters()
         fuzzySearchParameters.FuzzySearch.Enabled = True
-        ' fuzzySearchParameters.FuzzySearchParameters.UseFuzzySearch = true;
 
         ' Run fuzzy search
         Dim results As SearchResults = index.Search(searchString, fuzzySearchParameters)
 
         ' Run regex search
-        ' SearchResults regexSearchResults = index.Search(regexQuery);
-
+        Dim regexString As String = "dropbox ^[A-Z0-9._%+\-|A-Z0-9._%+-]+@++[A-Z0-9.\-|A-Z0-9.-]+\.[A-Z|A-Z]{2,}$ folder"
+        Dim results1 As SearchResults = index.Search(regexString)
 
         Dim synonymSearchParameters As New SearchParameters()
         synonymSearchParameters.UseSynonymSearch = True
 
-        '#Region "synonym search user warning"
-        ' we are not loading synonyms as index.LoadSynonyms(Utilities.synonymFilePath);
-        ' and running synonym search so this option not supported 
-        Dim synonymSearchResults As SearchResults = index.Search(searchString, synonymSearchParameters)
+        ' Run synonym search without loaded synonyms
+        Dim results2 As SearchResults = index.Search(searchString, synonymSearchParameters)
 
-        '#End Region
         'ExEnd:NotSupportedOptionWarning
 
     End Sub
