@@ -6,7 +6,7 @@ GroupDocs.Search for .NET is a UI-Less back-end API. In order to seek implementa
 # Pre-Requisites
 
 * Visual Studio 2012 or later.
-* Any latest browsers (Firefox, Chrome ,IE9 or greater, Safari etc. )
+* Any latest browsers (Firefox, Chrome ,IE9 or greater, Safari etc.)
 * GroupDocs.Search 16.10.0
 
 
