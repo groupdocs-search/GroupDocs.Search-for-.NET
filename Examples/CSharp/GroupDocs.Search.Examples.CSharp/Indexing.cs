@@ -12,7 +12,7 @@ namespace GroupDocs.Search_for_.NET
     class Indexing
     {
         /// <summary>
-        /// Update index
+        /// Updates index
         /// </summary>
         public static void UpdateIndex()
         {
@@ -24,7 +24,7 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
-        /// Update index repository
+        /// Updates index repository
         /// </summary>
         public static void UpdateIndexInRepository()
         {
@@ -38,7 +38,7 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
-        /// Update index asynchronously
+        /// Updates index asynchronously
         /// </summary>
         public static void UpdateIndexAsynchronously()
         {
@@ -52,7 +52,7 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
-        /// Update index in repository asynchronously
+        /// Updates index in repository asynchronously
         /// </summary>
         public static void UpdateIndexInRepoAsynchronously()
         {
@@ -69,7 +69,7 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
-        /// Create index in memory
+        /// Creates index in memory
         /// </summary>
         public static void CreateIndexInMemory()
         {
@@ -83,7 +83,7 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
-        /// Create index on disk
+        /// Creates index on disk
         /// </summary>
         public static void CreateIndexOnDisk()
         {
@@ -97,7 +97,7 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
-        /// Create index in memory with index settings
+        /// Creates index in memory with index settings
         /// </summary>
         public static void CreateIndexInMemoryWithIndexSettings()
         {
@@ -115,7 +115,7 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
-        /// Create with overwriting existed index
+        /// Creates with overwriting existed index
         /// </summary>
         public static void CreateWithOverwritingExistedIndex()
         {
@@ -130,7 +130,7 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
-        /// Load index
+        /// Loads index
         /// </summary>
         public static void LoadIndex()
         {
@@ -146,7 +146,7 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
-        /// Add document to index
+        /// Adds document to index
         /// </summary>
         public static void AddDocumentToIndex()
         {
@@ -159,7 +159,27 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
-        /// Add document to index asynchronously
+        /// Adds document to index with progress percentage event
+        /// </summary>
+        public static void GetIndexingProgressPercentage()
+        {
+            //ExStart:GetIndexingProgressPercentage
+            // Create index
+            Index index = new Index(Utilities.indexPath,true);
+
+            index.OperationProgressChanged += index_OperationProgressChanged; // event subscribing
+            // all files from folder and its subfolders will be added to the index
+            index.AddToIndex(Utilities.documentsPath);
+            //ExEnd:GetIndexingProgressPercentage
+        }
+
+        static void index_OperationProgressChanged(object sender, GroupDocs.Search.Events.OperationProgressArg e)
+        {
+            Console.WriteLine("Current progress: {0}\n{1}", e.ProgressPercentage, e.Message); // event argument contains information about the current progress of operation
+        }
+
+        /// <summary>
+        /// Adds document to index asynchronously
         /// </summary>
         public static void AddDocumentToIndexAsynchronously()
         {
@@ -201,7 +221,7 @@ namespace GroupDocs.Search_for_.NET
 
 
         /// <summary>
-        /// Add PowerPoint Document to index
+        /// Adds PowerPoint Document to index
         /// </summary>
         public static void AddPowerPointDocumentToIndex()
         {

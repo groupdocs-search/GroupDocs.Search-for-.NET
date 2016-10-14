@@ -143,6 +143,58 @@ Public Class Searching
     End Sub
 
     ''' <summary>
+    ''' Gets list of the words in found documents that matched the search query
+    ''' </summary>
+    ''' <param name="searchString">Search string</param>
+    ''' 
+    Public Shared Sub GetMatchingWordsInFuzzySearchResult(searchString As String)
+        'ExStart:GetMatchingWordsInFuzzySearchResult
+        Dim index As New Index(Utilities.indexPath)
+        index.AddToIndex(Utilities.documentsPath)
+
+        Dim parameters As New SearchParameters()
+        ' turning on Fuzzy search feature
+        parameters.FuzzySearch.Enabled = True
+
+        ' set low similarity level to search for less similar words and get more results
+        parameters.FuzzySearch.SimilarityLevel = 0.2
+
+        Dim fuzzySearchResults As SearchResults = index.Search(searchString, parameters)
+        For Each documentResultInfo As DocumentResultInfo In fuzzySearchResults
+            Console.WriteLine("Document {0} was found with query ""{1}""" & vbLf & "Words list that was found in document:", documentResultInfo.FileName, searchString)
+            For Each term As String In documentResultInfo.Terms
+                Console.Write("{0}; ", term)
+            Next
+            Console.WriteLine()
+        Next
+        'ExEnd:GetMatchingWordsInFuzzySearchResult
+    End Sub
+
+    ''' <summary>
+    ''' Gets list of the words in found documents that matched the search query
+    ''' </summary>
+    ''' <param name="searchString">Search string</param>
+    ''' 
+    Public Shared Sub GetMatchingWordsInRegexSearchResult(searchString As String)
+        'ExStart:GetMatchingWordsInRegexSearchResult
+        Dim index As New Index(Utilities.indexPath)
+        index.AddToIndex(Utilities.documentsPath)
+
+        Dim parameters As New SearchParameters()
+
+        Dim regexSearchResults As SearchResults = index.Search(searchString)
+
+        For Each documentResultInfo As DocumentResultInfo In regexSearchResults
+            Console.WriteLine("Document {0} was found with query ""{1}""" & vbLf & "Words list that was found in document:", documentResultInfo.FileName, regexSearchResults)
+            For Each term As String In documentResultInfo.Terms
+                Console.Write("{0}; ", term)
+            Next
+            Console.WriteLine()
+        Next
+        'ExEnd:GetMatchingWordsInRegexSearchResult
+    End Sub
+
+    ''' <summary>
     ''' Creates index, adds documents to index and searches file name that containes similar/inputted string 
     ''' </summary>
     ''' <param name="searchString">search string</param>
@@ -214,6 +266,26 @@ Public Class Searching
             Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName)
         Next
         'ExEnd:SynonymSearch
+    End Sub
+
+    ''' <summary>
+    ''' Searches documents wih exact phrase 
+    ''' </summary>
+    ''' <param name="searchString">string to search</param>
+    Public Shared Sub ExactPhraseSearch(searchString As String)
+        'ExStart:ExactPhraseSearch
+        ' Create or load index
+        Dim index As New Index(Utilities.indexPath, True)
+
+        index.AddToIndex(Utilities.documentsPath)
+
+        Dim searchResults As SearchResults = index.Search(searchString)
+
+        ' List of found files
+        For Each documentResultInfo As DocumentResultInfo In searchResults
+            Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName)
+        Next
+        'ExEnd:ExactPhraseSearch
     End Sub
 
     ''' <summary>

@@ -138,6 +138,7 @@ namespace GroupDocs.Search_for_.NET
             }
             //ExEnd:Fuzzysearch
         }
+                
 
         /// <summary>
         /// Creates index, adds documents to index and do faceted search
@@ -162,6 +163,64 @@ namespace GroupDocs.Search_for_.NET
                 Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
             //ExEnd:Facetedsearch
+        }
+
+        /// <summary>
+        /// Gets list of the words in found documents that matched the search query
+        /// </summary>
+        /// <param name="searchString">Search string</param>
+        /// 
+        public static void GetMatchingWordsInFuzzySearchResult(string searchString)
+        {
+            //ExStart:GetMatchingWordsInFuzzySearchResult
+            Index index = new Index(Utilities.indexPath);
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchParameters parameters = new SearchParameters();
+            // turning on Fuzzy search feature
+            parameters.FuzzySearch.Enabled = true;
+
+            // set low similarity level to search for less similar words and get more results
+            parameters.FuzzySearch.SimilarityLevel = 0.2;
+
+            SearchResults fuzzySearchResults = index.Search(searchString, parameters);
+            foreach (DocumentResultInfo documentResultInfo in fuzzySearchResults)
+            {
+                Console.WriteLine("Document {0} was found with query \"{1}\"\nWords list that was found in document:", documentResultInfo.FileName, searchString);
+                foreach (string term in documentResultInfo.Terms)
+                {
+                    Console.Write("{0}; ", term);
+                }
+                Console.WriteLine();
+            }
+            //ExEnd:GetMatchingWordsInFuzzySearchResult
+        }
+
+        /// <summary>
+        /// Gets list of the words in found documents that matched the search query
+        /// </summary>
+        /// <param name="searchString">Search string</param>
+        /// 
+        public static void GetMatchingWordsInRegexSearchResult(string searchString)
+        {
+            //ExStart:GetMatchingWordsInRegexSearchResult
+            Index index = new Index(Utilities.indexPath);
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchParameters parameters = new SearchParameters();
+
+            SearchResults regexSearchResults = index.Search(searchString);
+
+            foreach (DocumentResultInfo documentResultInfo in regexSearchResults)
+            {
+                Console.WriteLine("Document {0} was found with query \"{1}\"\nWords list that was found in document:", documentResultInfo.FileName, regexSearchResults);
+                foreach (string term in documentResultInfo.Terms)
+                {
+                    Console.Write("{0}; ", term);
+                }
+                Console.WriteLine();
+            }
+            //ExEnd:GetMatchingWordsInRegexSearchResult
         }
 
         /// <summary>
@@ -242,6 +301,28 @@ namespace GroupDocs.Search_for_.NET
                 Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
             //ExEnd:SynonymSearch
+        }
+
+        /// <summary>
+        /// Searches documents wih exact phrase 
+        /// </summary>
+        /// <param name="searchString">string to search</param>
+        public static void ExactPhraseSearch(string searchString)
+        {
+            //ExStart:ExactPhraseSearch
+            // Create or load index
+            Index index = new Index(Utilities.indexPath,true);
+            
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchResults searchResults = index.Search(searchString);
+
+            // List of found files
+            foreach (DocumentResultInfo documentResultInfo in searchResults)
+            {
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName);
+            }
+            //ExEnd:ExactPhraseSearch
         }
 
         /// <summary>
