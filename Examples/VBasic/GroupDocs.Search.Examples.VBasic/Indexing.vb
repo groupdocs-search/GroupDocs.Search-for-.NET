@@ -149,6 +149,26 @@ Public Class Indexing
     End Sub
 
     ''' <summary>
+    ''' Adds document to index with progress percentage event
+    ''' </summary>
+    Public Shared Sub GetIndexingProgressPercentage()
+        'ExStart:GetIndexingProgressPercentage
+        ' Create index
+        Dim index As New Index(Utilities.indexPath, True)
+
+        AddHandler index.OperationProgressChanged, AddressOf index_OperationProgressChanged
+        ' event subscribing
+        ' all files from folder and its subfolders will be added to the index
+        index.AddToIndex(Utilities.documentsPath)
+        'ExEnd:GetIndexingProgressPercentage
+    End Sub
+
+    Private Shared Sub index_OperationProgressChanged(sender As Object, e As GroupDocs.Search.Events.OperationProgressArg)
+        Console.WriteLine("Current progress: {0}" & vbLf & "{1}", e.ProgressPercentage, e.Message)
+        ' event argument contains information about the current progress of operation
+    End Sub
+
+    ''' <summary>
     ''' Subscription to events
     ''' </summary>
     Public Shared Sub SubscriptionToEvents()

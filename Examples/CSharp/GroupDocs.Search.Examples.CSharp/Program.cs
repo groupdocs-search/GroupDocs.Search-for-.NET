@@ -11,14 +11,14 @@ namespace GroupDocs.Search_for_.NET
         static void Main(string[] args)
         {
             //Uncomment to apply license
-            Utilities.ApplyLicense();
+            //Utilities.ApplyLicense();
 
             #region Searching
             ////Simple search, search a word
             //Searching.SimpleSearch("tools");
 
             ////Search term1 and term2 or term3 but not term4
-            Searching.BooleanSearch("(hail AND hydra)","(hydra NOT omega)");
+            //Searching.BooleanSearch("(hail AND hydra)","(hydra NOT omega)");
             
             ////Search for documents that contain a relevant word and term1, an email address or term2
             //Searching.RegexSearch("^.*turn.*$", @"dropbox ^[A-Z0-9._%+\-|A-Z0-9._%+-]+@++[A-Z0-9.\-|A-Z0-9.-]+\.[A-Z|A-Z]{2,}$ folder");
@@ -42,7 +42,6 @@ namespace GroupDocs.Search_for_.NET
 
             //Searching.DetailedResults("dropbox");
 
-
             //Searching src = new Searching();
             //src.OpenFoundMessageUsingAsposeEmail("text");
 
@@ -52,6 +51,14 @@ namespace GroupDocs.Search_for_.NET
             //count of total hit count of search query in found results
             //Searching.TotalHitCount("some search query");
 
+            //search documents wih exact phrase 
+            //Searching.ExactPhraseSearch("\"cost\"");
+
+            //Get list of the words in found documents that matched the search query
+            //Searching.GetMatchingWordsInRegexSearchResult("^.*co.*$");
+
+            //Get list of the words in found documents that matched the search query
+            //Searching.GetMatchingWordsInFuzzySearchResult("coat");
             #endregion
 
             #region Indexing
@@ -88,8 +95,11 @@ namespace GroupDocs.Search_for_.NET
 
             //Indexing.IndexSeparateFiles();
 
+            //Indexing.GetIndexingProgressPercentage();
+
             #endregion
 
+            Console.ReadKey();
         }
     }
 }
