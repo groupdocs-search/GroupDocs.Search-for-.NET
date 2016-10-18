@@ -76,7 +76,9 @@
     <Content Include="Scripts\app\uiExample.mainInterface.js" />
     <Content Include="Scripts\ThirdParty\bootstrap.js" />
     <Content Include="Scripts\ThirdParty\bootstrap.min.js" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\ThirdParty\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ThirdParty\jquery-1.10.2.js" />
     <Content Include="Scripts\ThirdParty\jquery-1.10.2.min.js" />
@@ -127,8 +129,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="GroupDocs.Viewer, Version=3.6.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>..\packages\groupdocs-viewer-dotnet.3.6.0\lib\GroupDocs.Viewer.dll</HintPath>
+    <Reference Include="GroupDocs.Search, Version=16.10.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\groupdocs-search-dotnet.16.10.0\lib\net2.0\GroupDocs.Search.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GroupDocs.Viewer, Version=3.7.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\groupdocs-viewer-dotnet.3.7.0\lib\GroupDocs.Viewer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System">

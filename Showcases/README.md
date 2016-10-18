@@ -5,5 +5,5 @@ GroupDocs.Search for .NET is a UI-Less back-end API. In order to seek implementa
 
 Directory | Description
 --------- | -----------
-[ASP.NET MVC Front End](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI)  | It is an MVC application which demonstrate that how UI less GroupDocs.Search 1.0.0 is being used to create a full Search UI project. 
+[ASP.NET MVC Front End](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI)  | It is an MVC application which demonstrate that how UI less GroupDocs.Search is being used to create a full Search UI project. 
 
