@@ -110,7 +110,8 @@ namespace UserInterfaceExample.Controllers
         [HttpPost]
         public JsonResult CreateIndex(string indexFolder)
         {
-            IndexHelper.AddIndex(indexFolder);
+            string indexFolderPath = _defaultIndexFolder + "\\" + indexFolder;
+            IndexHelper.AddIndex(indexFolderPath);
             AjaxResponse ajaxResponse = GetIndexAjaxResponse();
             return Json(ajaxResponse);
         }
