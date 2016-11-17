@@ -326,6 +326,42 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
+        /// Performs a case sensitive search
+        /// </summary>
+        /// <param name="searchString">string to search</param>
+        public static void CaseSensitiveSearch(string caseSensitiveSearchQuery)
+        {
+            //ExStart:CaseSensitiveSearch
+            bool inMemoryIndex = false;
+            bool caseSensitive = true;
+            IndexingSettings settings = new IndexingSettings(inMemoryIndex, caseSensitive);
+
+            // Create or load index
+            Index index = new Index(Utilities.indexPath, settings);
+
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchParameters parameters = new SearchParameters();
+            parameters.UseCaseSensitiveSearch = true; // using case sensitive search feature
+
+            SearchResults searchResults = index.Search(caseSensitiveSearchQuery, parameters);
+
+            if (searchResults.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in searchResults)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", caseSensitiveSearchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+            //ExEnd:CaseSensitiveSearch
+        }
+
+        /// <summary>
         /// Shows how to implement own custom extractor for outlook document for the extension .ost and .pst files
         /// </summary>
         /// <param name="searchString">string to search</param>

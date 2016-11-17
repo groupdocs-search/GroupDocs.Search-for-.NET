@@ -289,6 +289,37 @@ Public Class Searching
     End Sub
 
     ''' <summary>
+    ''' Performs a case sensitive search
+    ''' </summary>
+    ''' <param name="caseSensitiveSearchQuery">string to search</param>
+    Public Shared Sub CaseSensitiveSearch(caseSensitiveSearchQuery As String)
+        'ExStart:CaseSensitiveSearch
+        Dim inMemoryIndex As Boolean = False
+        Dim caseSensitive As Boolean = True
+        Dim settings As New IndexingSettings(inMemoryIndex, caseSensitive)
+
+        ' Create or load index
+        Dim index As New Index(Utilities.indexPath, settings)
+
+        index.AddToIndex(Utilities.documentsPath)
+
+        Dim parameters As New SearchParameters()
+        parameters.UseCaseSensitiveSearch = True
+        ' using case sensitive search feature
+        Dim searchResults As SearchResults = index.Search(caseSensitiveSearchQuery, parameters)
+
+        If searchResults.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In searchResults
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", caseSensitiveSearchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+        'ExEnd:CaseSensitiveSearch
+    End Sub
+
+    ''' <summary>
     ''' Shows how to implement own custom extractor for outlook document for the extension .ost and .pst files
     ''' </summary>
     ''' <param name="searchString">string to search</param>

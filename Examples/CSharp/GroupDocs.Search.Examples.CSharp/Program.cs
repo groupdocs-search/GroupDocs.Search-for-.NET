@@ -19,7 +19,7 @@ namespace GroupDocs.Search_for_.NET
 
             ////Search term1 and term2 or term3 but not term4
             //Searching.BooleanSearch("(hail AND hydra)","(hydra NOT omega)");
-            
+
             ////Search for documents that contain a relevant word and term1, an email address or term2
             //Searching.RegexSearch("^.*turn.*$", @"dropbox ^[A-Z0-9._%+\-|A-Z0-9._%+-]+@++[A-Z0-9.\-|A-Z0-9.-]+\.[A-Z|A-Z]{2,}$ folder");
 
@@ -59,6 +59,9 @@ namespace GroupDocs.Search_for_.NET
 
             //Get list of the words in found documents that matched the search query
             //Searching.GetMatchingWordsInFuzzySearchResult("coat");
+
+            //Performs a Case sensitive search 
+            //Searching.CaseSensitiveSearch("COAT");
             #endregion
 
             #region Indexing
