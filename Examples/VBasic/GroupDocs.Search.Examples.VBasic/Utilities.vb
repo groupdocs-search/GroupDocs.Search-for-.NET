@@ -6,7 +6,7 @@ Public Class Utilities
     Public Const indexPath2 As String = "../../../../Data/Documents Indexes2/"
     Public Const documentsPath As String = "../../../../Data/Documents/"
     Public Const synonymFilePath As String = "../../../../Data/synonyms.txt"
-    Public Const licensePath As String = "D:/GroupDocs.Search.lic"
+    Public Const licensePath As String = "D:/Aspose Projects/License/GroupDocs.Total.lic"
     Public Const pathToPstFile As String = "D:/MyOutlookDataFile.pst"
     ''' <summary>
     ''' Apply license 

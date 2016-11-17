@@ -3,9 +3,9 @@
     Sub Main()
 
         'Uncomment to apply license
-        Utilities.ApplyLicense()
+        'Utilities.ApplyLicense()
 
-        '#Region "Searching"
+        #Region "Searching"
         'Simple search, search a word
         'Searching.SimpleSearch("hydra")
 
@@ -37,9 +37,11 @@
         'Dim src As New Searching()
         'src.OpenFoundMessageUsingAsposeEmail("text")
 
-        '#End Region
+        'Performs a Case sensitive search 
+        'Searching.CaseSensitiveSearch("coat")
+        #End Region
 
-        '#Region "Indexing"
+        #Region "Indexing"
 
         'Indexing.LoadIndex()
 
@@ -73,7 +75,8 @@
 
         'Indexing.IndexSeparateFiles();
 
-        '#End Region
+        #End Region
+        Console.ReadKey()
 
     End Sub
 
