@@ -15,9 +15,13 @@ namespace GroupDocs.Search_for_.NET
         public const string indexPath2 = "../../../../Data/Documents Indexes2/";
         public const string documentsPath = "../../../../Data/Documents/";
         public const string synonymFilePath = "../../../../Data/synonyms.txt";
+        public const string stopWordsFilePath = "../../../../Data/MyStopWords.txt";
+        public const string exportedStopWordsFilePath = "../../../../Data/MyExportedStopWords.txt";
+        public const string mySynonymFilePath = "../../../../Data/mySynonyms.txt";
         public const string licensePath = "D:/Aspose Projects/License/GroupDocs.Total.lic";
         public const string pathToPstFile = "D:/MyOutlookDataFile.pst";
-        
+        public const string pathToPasswordProtectedFile =  "../../../../Data/Documents/Password Protected Document.docx";
+
         /// <summary>
         /// Apply license 
         /// </summary>

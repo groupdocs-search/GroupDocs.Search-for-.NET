@@ -11,7 +11,7 @@ namespace GroupDocs.Search_for_.NET
         static void Main(string[] args)
         {
             //Uncomment to apply license
-            //Utilities.ApplyLicense();
+            Utilities.ApplyLicense();
 
             #region Searching
             ////Simple search, search a word
@@ -62,6 +62,18 @@ namespace GroupDocs.Search_for_.NET
 
             //Performs a Case sensitive search 
             //Searching.CaseSensitiveSearch("COAT");
+            //Manages Synonyms search
+            //Searching.ManageSynonyms("big");
+            //Manages Stop Word dictionary
+            //Searching.ManageStopWords("three");
+            //Searches while disabling use of stop words
+            //Searching.DisableStopWords("coat");
+            //Searching Password protected document using Event arguments
+            //Searching.SearchingPasswordProtectedDocsUsingEvent("sample");
+            //Searching Password protected document using index.Dictionary.DocumentPasswords property
+            //Searching.SearchingPasswordProtectedDocsUsingProperty("sample");
+            //Searching Password protected document using both Event arguments and index.Dictionary.DocumentPasswords property
+            //Searching.SearchingPasswordProtectedDocs("sample");
             #endregion
 
             #region Indexing

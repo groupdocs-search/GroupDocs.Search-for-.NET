@@ -8,6 +8,10 @@ Public Class Utilities
     Public Const synonymFilePath As String = "../../../../Data/synonyms.txt"
     Public Const licensePath As String = "D:/Aspose Projects/License/GroupDocs.Total.lic"
     Public Const pathToPstFile As String = "D:/MyOutlookDataFile.pst"
+    Public Const mySynonymFilePath As String = "../../../../Data/mySynonyms.txt"
+    Public Const stopWordsFilePath As String = "../../../../Data/MyStopWords.txt"
+    Public Const exportedStopWordsFilePath As String = "../../../../Data/MyExportedStopWords.txt"
+    Public Const pathToPasswordProtectedFile As String = "../../../../Data/Documents/Password Protected Document.docx"
     ''' <summary>
     ''' Apply license 
     ''' </summary>

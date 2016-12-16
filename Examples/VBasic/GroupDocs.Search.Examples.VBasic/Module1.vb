@@ -5,7 +5,7 @@
         'Uncomment to apply license
         'Utilities.ApplyLicense()
 
-        #Region "Searching"
+#Region "Searching"
         'Simple search, search a word
         'Searching.SimpleSearch("hydra")
 
@@ -39,9 +39,23 @@
 
         'Performs a Case sensitive search 
         'Searching.CaseSensitiveSearch("coat")
-        #End Region
+        'Manages Synonyms functionality
+        'Searching.ManageSynonyms("text")
+        'Manages Stop words dictionary
+        'Searching.ManageStopWords("text")
+        'Searches while disabling use of stop words
+        'Searching.DisableStopWords("coat")
+        'Searching Password protected document using Event arguments
+        'Searching.SearchingPasswordProtectedDocsUsingEvent("sample")
+        'Searching Password protected document using index.Dictionary.DocumentPasswords property
+        'Searching.SearchingPasswordProtectedDocsUsingProperty("sample")
+        'Searching Password protected document using both Event arguments And index.Dictionary.DocumentPasswords property
+        'Searching.SearchingPasswordProtectedDocs("sample")
 
-        #Region "Indexing"
+
+#End Region
+
+#Region "Indexing"
 
         'Indexing.LoadIndex()
 
@@ -75,7 +89,7 @@
 
         'Indexing.IndexSeparateFiles();
 
-        #End Region
+#End Region
         Console.ReadKey()
 
     End Sub

@@ -1,4 +1,5 @@
 ﻿Imports Aspose.Email.Outlook.Pst
+Imports GroupDocs.Search.Events
 
 Public Class Searching
     ''' <summary>
@@ -476,5 +477,203 @@ Public Class Searching
         End If
         Return result
     End Function
+
+
+    ''' <summary>
+    ''' Managing synonyms functionality
+    ''' </summary>
+    ''' <param name="searchQuery">string to search</param> 
+    Public Shared Sub ManageSynonyms(searchQuery As String)
+        'ExStart:ManageSynonyms
+        'create or load index
+        Dim index As New Index(Utilities.indexPath)
+        index.AddToIndex(Utilities.documentsPath)
+
+        ' Clearing synonym dictionary
+        index.Dictionaries.SynonymDictionary.Clear()
+
+        ' Adding synonyms
+        Dim synonymGroup1 As String() = New String() {"big", "huge", "colossal", "massive"}
+        Dim synonymGroup2 As String() = New String() {"fast", "agile", "quick", "rapid", "swift"}
+        Dim synonymGroups As New List(Of String())()
+        synonymGroups.Add(synonymGroup1)
+        synonymGroups.Add(synonymGroup2)
+        index.Dictionaries.SynonymDictionary.AddRange(synonymGroups)
+
+        index.Dictionaries.SynonymDictionary.Import(Utilities.synonymFilePath)
+        ' Import synonyms from file. Existing synonyms are staying.
+        index.Dictionaries.SynonymDictionary.Export(Utilities.mySynonymFilePath)
+        ' Export synonyms to file
+        Dim parameters As New SearchParameters()
+        parameters.UseSynonymSearch = True
+        ' Turning on synonym search
+        Dim results As SearchResults = index.Search(searchQuery, parameters)
+        ' Enable synonym search in parameters
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+
+        'ExEnd:ManageSynonyms
+    End Sub
+
+
+
+    ''' <summary>
+    ''' Manage Stop Word dictionary
+    ''' </summary>
+    ''' <param name="searchQuery">string to search</param> 
+    Public Shared Sub ManageStopWords(searchQuery As String)
+        'ExStart:ManageStopWords
+        'create or load index
+        Dim index As New Index(Utilities.indexPath)
+        Dim stopWordsCount As Integer = index.Dictionaries.StopWordDictionary.Count
+        '  Get count of stop words
+        index.Dictionaries.StopWordDictionary.Clear()
+        ' Clear dictionary of stop words
+        index.Dictionaries.StopWordDictionary.AddRange(New List(Of String)() From {
+            "one",
+            "Two",
+            "three"
+        })
+        ' Add several stop words to dictionary. Words are case insensitive.
+        index.Dictionaries.StopWordDictionary.RemoveRange(New List(Of String)() From {
+            "one",
+            "three"
+        })
+        '  Remove stop words from dictionary. Words which are absent will be ignored.
+        index.AddToIndex(Utilities.documentsPath)
+
+        Dim isTwoPresent As Boolean = index.Dictionaries.StopWordDictionary.Contains("two")
+
+        index.Dictionaries.StopWordDictionary.Import(Utilities.stopWordsFilePath)
+        ' Import stop words from file. Existing stop words are staying.
+        index.Dictionaries.StopWordDictionary.Export(Utilities.exportedStopWordsFilePath)
+        ' Export stop words to file
+        Dim results As SearchResults = index.Search(searchQuery)
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+
+        'ExEnd:ManageStopWords
+    End Sub
+
+
+
+    ''' <summary>
+    ''' Disable using Stop Words
+    ''' </summary>
+    ''' <param name="searchQuery">string to search</param> 
+    Public Shared Sub DisableStopWords(searchQuery As String)
+        'ExStart:DisableStopWords
+        'create or load index
+        Dim index As New Index(Utilities.indexPath)
+
+        index.IndexingSettings.UseStopWords = False
+        ' This line disables using stop words and all of the words in documents will be indexed
+        index.AddToIndex(Utilities.documentsPath)
+        Dim results As SearchResults = index.Search(searchQuery)
+        'ExEnd:DisableStopWords
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+
+    End Sub
+
+
+    ''' <summary>
+    ''' Uses event to set password for protected document using event argument
+    ''' </summary>
+    ''' <param name="searchQuery">string to search</param> 
+    Public Shared Sub SearchingPasswordProtectedDocsUsingEvent(searchQuery As String)
+        'ExStart:SetPasswordUsingEventArg
+        Dim index As New Index(Utilities.indexPath)
+        AddHandler index.PasswordRequired, AddressOf index_PasswordRequired
+        ' User can subscribe to PasswordRequired event to be able to specify a password
+        index.AddToIndex(Utilities.documentsPath)
+        Dim results As SearchResults = index.Search(searchQuery)
+        'ExEnd:SetPasswordUsingEventArg
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+
+    ''' <summary>
+    ''' Sets password for protected document using Index.Dictionaries.DocumentPasswords property
+    ''' </summary>
+    ''' <param name="searchQuery">string to search</param> 
+    Public Shared Sub SearchingPasswordProtectedDocsUsingProperty(searchQuery As String)
+        'ExStart:SetPasswordUsingProperty
+        Dim index As New Index(Utilities.indexPath)
+        index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile,"test")
+        index.AddToIndex(Utilities.documentsPath)
+        Dim results As SearchResults = index.Search(searchQuery)
+        'ExEnd:SetPasswordUsingProperty
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+
+
+    ''' <summary>
+    ''' Dealing with password protected documents, using both methods
+    ''' </summary>
+    ''' <param name="searchQuery">string to search</param> 
+    Public Shared Sub SearchingPasswordProtectedDocs(searchQuery As String)
+        'ExStart:SetPassword
+        Dim index As New Index(Utilities.indexPath)
+        AddHandler index.PasswordRequired, AddressOf index_PasswordRequired
+        ' User can subscribe to PasswordRequired event to be able to specify a password
+        index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile, "test")
+        ' User can set passwords for some documents in this property
+        index.AddToIndex(Utilities.documentsPath)
+        Dim results As SearchResults = index.Search(searchQuery)
+        'ExEnd:SetPassword
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+    ' This event will appear for every password protected document
+    'ExStart:EventForPasswordRequired
+    Public Shared Sub index_PasswordRequired(sender As Object, e As PasswordRequiredArg)
+        If e.DocumentFullName = Utilities.pathToPasswordProtectedFile Then
+
+        End If
+        ' User should put password to Password field of event argument
+        e.Password = "test"
+    End Sub
+    'ExEnd:EventForPasswordRequired
 
 End Class
