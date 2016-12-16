@@ -1,5 +1,6 @@
 ﻿using Aspose.Email.Outlook.Pst;
 using GroupDocs.Search;
+using GroupDocs.Search.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,7 +72,7 @@ namespace GroupDocs.Search_for_.NET
             //ExStart:Regexsearch
             // Create index
             Index index = new Index(Utilities.indexPath);
-            
+
             // Add documents to index
             index.AddToIndex(Utilities.documentsPath);
 
@@ -138,7 +139,7 @@ namespace GroupDocs.Search_for_.NET
             }
             //ExEnd:Fuzzysearch
         }
-                
+
 
         /// <summary>
         /// Creates index, adds documents to index and do faceted search
@@ -311,8 +312,8 @@ namespace GroupDocs.Search_for_.NET
         {
             //ExStart:ExactPhraseSearch
             // Create or load index
-            Index index = new Index(Utilities.indexPath,true);
-            
+            Index index = new Index(Utilities.indexPath, true);
+
             index.AddToIndex(Utilities.documentsPath);
 
             SearchResults searchResults = index.Search(searchString);
@@ -422,9 +423,9 @@ namespace GroupDocs.Search_for_.NET
             //ExStart:NotSupportedOptionWarning
             //create index
             Index index = new Index(Utilities.indexPath);
-           // index.IndexingSettings.QuickIndexing = true;
+            // index.IndexingSettings.QuickIndexing = true;
             index.ErrorHappened += index_ErrorHappened;
-           // QuickIndex ad = new QuickIndex();
+            // QuickIndex ad = new QuickIndex();
             index.AddToIndex(Utilities.documentsPath);
 
             SearchParameters fuzzySearchParameters = new SearchParameters();
@@ -453,11 +454,11 @@ namespace GroupDocs.Search_for_.NET
         /// <param name="sender"></param>
         /// <param name="e"></param>
         static void index_ErrorHappened(object sender, Search.Events.BaseIndexArg e)
-        {            
+        {
             // e.Message contains corresponding message 
             //if search option is not supported
             //string notificationMessage = e.Message;
-            Console.WriteLine(e.Message);            
+            Console.WriteLine(e.Message);
         }
         //ExEnd:index_ErrorHappened
         /// <summary>
@@ -535,5 +536,217 @@ namespace GroupDocs.Search_for_.NET
             }
             return result;
         }
+
+        /// <summary>
+        /// Managing synonyms functionality
+        /// </summary>
+        /// <param name="searchQuery">string to search</param> 
+        public static void ManageSynonyms(string searchQuery)
+        {
+            //ExStart:ManageSynonyms
+            //create or load index
+            Index index = new Index(Utilities.indexPath);
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Clearing synonym dictionary
+            index.Dictionaries.SynonymDictionary.Clear();
+
+            // Adding synonyms
+            string[] synonymGroup1 = new string[] { "big", "huge", "colossal", "massive" };
+            string[] synonymGroup2 = new string[] { "fast", "agile", "quick", "rapid", "swift" };
+            List<string[]> synonymGroups = new List<string[]>();
+            synonymGroups.Add(synonymGroup1);
+            synonymGroups.Add(synonymGroup2);
+            index.Dictionaries.SynonymDictionary.AddRange(synonymGroups);
+
+            index.Dictionaries.SynonymDictionary.Import(Utilities.synonymFilePath); // Import synonyms from file. Existing synonyms are staying.
+            index.Dictionaries.SynonymDictionary.Export(Utilities.mySynonymFilePath); // Export synonyms to file
+
+            SearchParameters parameters = new SearchParameters();
+            parameters.UseSynonymSearch = true; // Turning on synonym search
+
+            SearchResults results = index.Search(searchQuery, parameters); // Enable synonym search in parameters
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+
+            //ExEnd:ManageSynonyms
+        }
+
+        /// <summary>
+        /// Manage Stop Word dictionary
+        /// </summary>
+        /// <param name="searchQuery">string to search</param> 
+        public static void ManageStopWords(string searchQuery)
+        {
+            //ExStart:ManageStopWords
+            //create or load index
+            Index index = new Index(Utilities.indexPath);
+            int stopWordsCount = index.Dictionaries.StopWordDictionary.Count; //  Get count of stop words
+            index.Dictionaries.StopWordDictionary.Clear(); // Clear dictionary of stop words
+            index.Dictionaries.StopWordDictionary.AddRange(new List<string>() { "one", "Two", "three" }); // Add several stop words to dictionary. Words are case insensitive.
+            index.Dictionaries.StopWordDictionary.RemoveRange(new List<string>() { "one", "three" }); //  Remove stop words from dictionary. Words which are absent will be ignored.
+
+            index.AddToIndex(Utilities.documentsPath);
+
+            bool isTwoPresent = index.Dictionaries.StopWordDictionary.Contains("two");
+
+            index.Dictionaries.StopWordDictionary.Import(Utilities.stopWordsFilePath); // Import stop words from file. Existing stop words are staying.
+            index.Dictionaries.StopWordDictionary.Export(Utilities.exportedStopWordsFilePath); // Export stop words to file
+
+            SearchResults results = index.Search(searchQuery);
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+
+            //ExEnd:ManageStopWords
+        }
+
+        /// <summary>
+        /// Disable using Stop Words
+        /// </summary>
+        /// <param name="searchQuery">string to search</param> 
+        public static void DisableStopWords(string searchQuery)
+        {
+            //ExStart:DisableStopWords
+            //create or load index
+            Index index = new Index(Utilities.indexPath);
+
+            index.IndexingSettings.UseStopWords = false; // This line disables using stop words and all of the words in documents will be indexed
+
+            index.AddToIndex(Utilities.documentsPath);
+            SearchResults results = index.Search(searchQuery);
+            //ExEnd:DisableStopWords
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+
+        }
+
+
+        /// <summary>
+        /// Uses event to set password for protected document using event argument
+        /// </summary>
+        /// <param name="searchQuery">string to search</param> 
+        public static void SearchingPasswordProtectedDocsUsingEvent(string searchQuery)
+        {
+            //ExStart:SetPasswordUsingEventArg
+            Index index = new Index(Utilities.indexPath);
+            index.PasswordRequired += index_PasswordRequired; // User can subscribe to PasswordRequired event to be able to specify a password
+            index.AddToIndex(Utilities.documentsPath);
+            SearchResults results = index.Search(searchQuery);
+            //ExEnd:SetPasswordUsingEventArg
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+
+        /// <summary>
+        /// Sets password for protected document using Index.Dictionaries.DocumentPasswords property
+        /// </summary>
+        /// <param name="searchQuery">string to search</param> 
+        public static void SearchingPasswordProtectedDocsUsingProperty(string searchQuery)
+        {
+            //ExStart:SetPasswordUsingProperty
+            Index index = new Index(Utilities.indexPath);
+            index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile, "test"); // User can set passwords for some documents in this property
+            index.AddToIndex(Utilities.documentsPath);
+            SearchResults results = index.Search(searchQuery);
+            //ExEnd:SetPasswordUsingProperty
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+
+
+        /// <summary>
+        /// Dealing with password protected documents, using both methods
+        /// </summary>
+        /// <param name="searchQuery">string to search</param> 
+        public static void SearchingPasswordProtectedDocs(string searchQuery)
+        {
+            //ExStart:SetPassword
+            Index index = new Index(Utilities.indexPath);
+            index.PasswordRequired += index_PasswordRequired; // User can subscribe to PasswordRequired event to be able to specify a password
+            index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile, "test"); // User can set passwords for some documents in this property
+            index.AddToIndex(Utilities.documentsPath);
+            SearchResults results = index.Search(searchQuery);
+            //ExEnd:SetPassword
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+        // This event will appear for every password protected document
+        //ExStart:EventForPasswordRequired
+        public static void index_PasswordRequired(object sender, PasswordRequiredArg e)
+        {
+            if (e.DocumentFullName == Utilities.pathToPasswordProtectedFile)
+            {
+                e.Password = "test";  // User should put password to Password field of event argument
+            }
+            else if (e.DocumentFullName == @"c:\MyDocuments\ProtectedDocument5.doc")
+            {
+                e.Password = "Password5";  // User should put password to Password field of event argument
+            }
+        }
+        //ExEnd:EventForPasswordRequired
     }
+
 }
