@@ -13,7 +13,12 @@ namespace GroupDocs.Search_for_.NET
     {
         public const string indexPath = "../../../../Data/Documents Indexes/";
         public const string indexPath2 = "../../../../Data/Documents Indexes2/";
+        public const string mergeIndexPath1 = "../../../../Data/Index Merging/Index1/";
+        public const string mergeIndexPath2 = "../../../../Data/Index Merging/Index2/";
+        public const string mainMergedIndexesPath = "../../../../Data/Index Merging/Main Merged Indexes/";
         public const string documentsPath = "../../../../Data/Documents/";
+        public const string documentsPath2 = "../../../../Data/Documents2/";
+        public const string documentsPath3 = "../../../../Data/Documents3/";
         public const string synonymFilePath = "../../../../Data/synonyms.txt";
         public const string stopWordsFilePath = "../../../../Data/MyStopWords.txt";
         public const string exportedStopWordsFilePath = "../../../../Data/MyExportedStopWords.txt";
@@ -21,6 +26,14 @@ namespace GroupDocs.Search_for_.NET
         public const string licensePath = "D:/Aspose Projects/License/GroupDocs.Total.lic";
         public const string pathToPstFile = "D:/MyOutlookDataFile.pst";
         public const string pathToPasswordProtectedFile =  "../../../../Data/Documents/Password Protected Document.docx";
+        public const string exportedHomophonesFilePath = "../../../../Data/MyExportedHomophones.txt";
+        public const string homophonesFilePath = "../../../../Data/MyHomophones.txt";
+        public const string aliasFilePath = "../../../../Data/MyAliases.txt";
+        public const string exportedAliasFilePath = "../../../../Data/MyExportedAliases.txt";
+        public const string spellingDictionaryFilePath = "../../../../Data/MySpellingDictionary.txt";
+        public const string exportedSpellingDictionaryFilePath = "../../../../Data/MyExportedSpellingDictionary.txt";
+        
+
 
         /// <summary>
         /// Apply license 

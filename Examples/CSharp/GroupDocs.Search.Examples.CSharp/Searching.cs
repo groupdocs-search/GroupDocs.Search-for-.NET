@@ -582,6 +582,7 @@ namespace GroupDocs.Search_for_.NET
             //ExEnd:ManageSynonyms
         }
 
+        #region Stop Words Functionality
         /// <summary>
         /// Manage Stop Word dictionary
         /// </summary>
@@ -649,8 +650,9 @@ namespace GroupDocs.Search_for_.NET
             }
 
         }
+        #endregion
 
-
+        #region Searching Password Protected Documents Functionality
         /// <summary>
         /// Uses event to set password for protected document using event argument
         /// </summary>
@@ -747,6 +749,251 @@ namespace GroupDocs.Search_for_.NET
             }
         }
         //ExEnd:EventForPasswordRequired
+        #endregion
+
+        #region Spelling Corrector Functionality
+        /// <summary>
+        /// Dealing with password protected documents, using both methods
+        /// </summary>
+        /// <param name="searchQuery">string to search</param> 
+        public static void SpellingCorrectorUsage(string searchQuery)
+        {
+            //ExStart:SpellingCorrectorUsage
+            //create or load index
+            Index index = new Index(Utilities.indexPath);
+            //Add documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchParameters parameters = new SearchParameters();
+            // Enabling spelling corrector
+            parameters.SpellingCorrector.Enabled = true;
+            // The default value for maximum mistake count is 2
+            parameters.SpellingCorrector.MaxMistakeCount = 1;
+
+            // Search for misspelled term 'structure'
+            SearchResults results = index.Search(searchQuery, parameters);
+            //ExEnd:SpellingCorrectorUsage
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+        /// <summary>
+        /// shows how to manage spelling corrector
+        /// </summary>
+        /// <param name="searchQuery">string to search</param> 
+        public static void SpellingCorrectorManagement(string searchQuery)
+        {
+            //ExStart:SpellingCorrectorManagement
+            Index index = new Index(Utilities.indexPath);
+            //Add documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Remove all words from spelling corrector dictionary
+            index.Dictionaries.SpellingCorrector.Clear();
+            // Import spelling dictionary from file. Existing words are staying.
+            index.Dictionaries.SpellingCorrector.Import(Utilities.spellingDictionaryFilePath);
+            string[] words = new string[] { "structure", "building", "rail", "house" };
+            // Add word array to the dictionary. Words are case insensitive.
+            index.Dictionaries.SpellingCorrector.AddRange(words);
+            // Export spelling dictionary to file.
+            index.Dictionaries.SpellingCorrector.Export(Utilities.exportedSpellingDictionaryFilePath);
+
+            SearchParameters parameters = new SearchParameters();
+            // Enabling spelling corrector
+            parameters.SpellingCorrector.Enabled = true;
+            // The default value for maximum mistake count is 2
+            parameters.SpellingCorrector.MaxMistakeCount = 1;
+
+            // Search for misspelled term 'structure'
+            SearchResults results = index.Search(searchQuery, parameters);
+            //ExEnd:SpellingCorrectorManagement
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+        #endregion
+
+        #region  Alias Dictionary functionality
+        /// <summary>
+        /// Adds an alias to the dictionary before search
+        /// </summary>
+        /// <param name="searchQuery">string to search</param> 
+        public static void AddingAliasToDictionaryBeforeSearch(string searchQuery)
+        {
+            //ExStart:AddingAliasToDictionaryBeforeSearch
+            //Create or load index
+            Index index = new Index(Utilities.indexPath);
+            //Add documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Add alias 's' to the dictionary
+            index.Dictionaries.AliasDictionary.Add("s", "structure");
+            // Search for term 'structure'
+            SearchResults results = index.Search(searchQuery);
+            //ExEnd:AddingAliasToDictionaryBeforeSearch
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+        /// <summary>
+        /// Dealing with password protected documents, using both methods
+        /// </summary>
+        /// <param name="searchQuery">string to search</param> 
+        public static void UseAliasDictionary(string searchQuery)
+        {
+            //ExStart:AliasDictionaryUsage
+            //Create or load Index
+            Index index = new Index(Utilities.indexPath);
+            //Add documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Clear dictionary of aliases
+            index.Dictionaries.AliasDictionary.Clear();
+            // Add alias 's' to the dictionary. Alias and aliased text are case insensitive.
+            index.Dictionaries.AliasDictionary.Add("s", "structure");
+            // Remove alias 'x' from the dictionary. Words which are absent will be ignored.
+            index.Dictionaries.AliasDictionary.Remove("x");
+            // Import aliases from file. Existing aliases are staying.
+            index.Dictionaries.AliasDictionary.Import(Utilities.aliasFilePath);
+            // Export aliases to file
+            index.Dictionaries.AliasDictionary.Export(Utilities.exportedAliasFilePath);
+
+            // Search for term 'structure'
+            SearchResults results = index.Search(searchQuery);
+            //ExEnd:AliasDictionaryUsage
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+        #endregion
+
+        #region Homophone Dictionary Functionality
+
+        /// <summary>
+        /// shows how to use homophone search
+        /// </summary>
+        /// <param name="searchQuery">the term to be searched</param>
+        public static void HomophoneSearchUsage(string searchQuery)
+        {
+            //ExStart:HomophoneSearchUsage
+            //Create or load index
+            Index index = new Index(Utilities.indexPath);
+            //Add documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchParameters parameters = new SearchParameters();
+            // Enable homophone search in parameters
+            parameters.UseHomophoneSearch = true;
+
+            // Search for "pause", "paws", "pores", "pours"
+            SearchResults results = index.Search(searchQuery, parameters);
+            //ExEnd:HomophoneSearchUsage
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+
+        /// <summary>
+        /// shows how to manage homophone dictionary
+        /// </summary>
+        /// <param name="searchQuery">The term to be searched</param>
+        public static void HomophoneDictionaryManagement(string searchQuery)
+        {
+            //ExStart:HomophoneDictionaryManagement
+            //Create or load index
+            Index index = new Index(Utilities.indexPath);
+            //Add documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Clearing homophone dictionary
+            index.Dictionaries.HomophoneDictionary.Clear();
+
+            // Adding homophones
+            string[] homophoneGroup1 = new string[] { "braise", "brays", "braze" };
+            string[] homophoneGroup2 = new string[] { "pause", "paws", "pores", "pours" };
+            List<string[]> homophoneGroups = new List<string[]>();
+            homophoneGroups.Add(homophoneGroup1);
+            homophoneGroups.Add(homophoneGroup2);
+            index.Dictionaries.HomophoneDictionary.AddRange(homophoneGroups);
+
+            // Import homophones from file. Existing homophones are staying.
+            index.Dictionaries.HomophoneDictionary.Import(Utilities.homophonesFilePath); 
+            // Export homophones to file
+            index.Dictionaries.HomophoneDictionary.Export(Utilities.exportedHomophonesFilePath); 
+
+            SearchParameters parameters = new SearchParameters();
+            // Enable homophone search in parameters
+            parameters.UseHomophoneSearch = true; 
+
+            // Search for "pause", "paws", "pores", "pours"
+            SearchResults results = index.Search(searchQuery, parameters);
+            //ExEnd:HomophoneDictionaryManagement
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+        #endregion
+
+       
     }
 
 }

@@ -260,4 +260,134 @@ Public Class Indexing
     End Sub
 
 
+#Region "Merge Indexes functionality"
+
+    ''' <summary>
+    ''' Merges index with delta indexes to improve search performance
+    ''' </summary>
+    Public Shared Sub MergingIndexWithDeltaIndexes()
+        'ExStart:MergingIndexWithDeltaIndexes
+        Dim myDocumentsFolder1 As String = Utilities.documentsPath
+        Dim myDocumentsFolder2 As String = Utilities.documentsPath2
+
+        ' Creating index
+        Dim index As New Index(Utilities.indexPath, True)
+
+        ' Adding documents to index
+        index.AddToIndex(myDocumentsFolder1)
+
+        ' Adding one more folder to index. Delta index will be created.
+        index.AddToIndex(myDocumentsFolder2)
+
+        ' Run merging
+        index.Merge()
+        'ExEnd:MergingIndexWithDeltaIndexes
+    End Sub
+
+    ''' <summary>
+    ''' Merges several indexes
+    ''' </summary>
+    Public Shared Sub MergingMultipleIndexes()
+
+        'ExStart:MergingMultipleIndexes
+        ' Creating/loading first index
+        Dim index1 As New Index(Utilities.indexPath)
+        index1.AddToIndex(Utilities.documentsPath)
+
+        ' Creating/loading second index
+        Dim index2 As New Index(Utilities.indexPath2)
+        index2.AddToIndex(Utilities.documentsPath)
+
+        ' Merging data from index2 to index1. The index2 remains unchanged.
+        index1.Merge(index2)
+        'ExEnd:MergingMultipleIndexes
+    End Sub
+
+    ''' <summary>
+    ''' Merges current index with index repository asyncronously
+    ''' </summary>
+    Public Shared Sub MergingCurrentIndexWithIndexRepository()
+        'ExStart:MergingCurrentIndexWithIndexRepository
+        Dim indexRepository As New IndexRepository()
+        Dim index1 As Index = indexRepository.Create(Utilities.mergeIndexPath1)
+        index1.AddToIndex(Utilities.documentsPath)
+
+        Dim index2 As Index = indexRepository.Create(Utilities.mergeIndexPath2)
+        index2.AddToIndex(Utilities.documentsPath2)
+
+        Dim mainIndex As New Index(Utilities.mainMergedIndexesPath)
+        mainIndex.AddToIndex(Utilities.documentsPath3)
+
+        ' Merge data from indexes in repository to main index. After merge index repository stays unmodified.
+        mainIndex.Merge(indexRepository)
+        'ExEnd:MergingCurrentIndexWithIndexRepository
+    End Sub
+
+    ''' <summary>
+    ''' Merges Index with delta indexes Asynchronously to improve search performance
+    ''' </summary>
+    Public Shared Sub MergingIndexWithDeltaIndexesAsync()
+        'ExStart:MergingIndexWithDeltaIndexesAsync
+        Dim myDocumentsFolder1 As String = Utilities.documentsPath
+        Dim myDocumentsFolder2 As String = Utilities.documentsPath2
+
+        ' Creating index
+        Dim index As New Index(Utilities.indexPath, True)
+
+        ' Adding documents to index
+        index.AddToIndex(myDocumentsFolder1)
+
+        ' Adding one more folder to index. Delta index will be created.
+        index.AddToIndex(myDocumentsFolder2)
+
+        ' Run merging asynchonously
+        index.MergeAsync()
+        'ExEnd:MergingIndexWithDeltaIndexesAsync
+    End Sub
+
+    ''' <summary>
+    ''' Merges several indexes asynchronously
+    ''' </summary>
+    Public Shared Sub MergingMultipleIndexesAsync()
+
+        'ExStart:MergingMultipleIndexesAsync
+        ' Creating/loading first index
+        Dim index1 As New Index(Utilities.mergeIndexPath1)
+        index1.AddToIndex(Utilities.documentsPath)
+
+        ' Creating/loading second index
+        Dim index2 As New Index(Utilities.mergeIndexPath2)
+        index2.AddToIndex(Utilities.documentsPath2)
+
+        ' Merging data from index2 to index1. The index2 remains unchanged.
+        index1.MergeAsync(index2)
+        'ExEnd:MergingMultipleIndexesAsync
+    End Sub
+
+    ''' <summary>
+    ''' Merges current index with index repository asyncronously
+    ''' </summary>
+    Public Shared Sub MergingCurrentIndexWithIndexRepositoryAsync()
+        'ExStart:MergingCurrentIndexWithIndexRepositoryAsync
+        Dim indexRepository As New IndexRepository()
+        'Add first index to index repository
+        Dim index1 As Index = indexRepository.Create(Utilities.mergeIndexPath1)
+        index1.AddToIndex(Utilities.documentsPath)
+
+        'Add secon index to index repository
+        Dim index2 As Index = indexRepository.Create(Utilities.mergeIndexPath2)
+        index2.AddToIndex(Utilities.documentsPath2)
+
+        'Create/load main index
+        Dim mainIndex As New Index(Utilities.mainMergedIndexesPath)
+        mainIndex.AddToIndex(Utilities.documentsPath3)
+
+        ' Merge data from indexes in repository to main index. After merge index repository stays unmodified.
+        mainIndex.MergeAsync(indexRepository)
+        'ExEnd:MergingCurrentIndexWithIndexRepositoryAsync
+    End Sub
+#End Region
+
+
+
 End Class

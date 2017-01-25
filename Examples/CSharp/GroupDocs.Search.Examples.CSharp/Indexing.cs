@@ -165,7 +165,7 @@ namespace GroupDocs.Search_for_.NET
         {
             //ExStart:GetIndexingProgressPercentage
             // Create index
-            Index index = new Index(Utilities.indexPath,true);
+            Index index = new Index(Utilities.indexPath, true);
 
             index.OperationProgressChanged += index_OperationProgressChanged; // event subscribing
             // all files from folder and its subfolders will be added to the index
@@ -273,7 +273,7 @@ namespace GroupDocs.Search_for_.NET
             // Edited documents will be reindexed
             // Added documents will be added to index
         }
-           
+
         /// <summary>
         /// Indexes separate files 
         /// </summary>
@@ -282,9 +282,143 @@ namespace GroupDocs.Search_for_.NET
             //ExStart:IndexSeparateFiles
             Index index = new Index(Utilities.indexPath);
             // adding just one file to index
-            index.AddToIndex(Utilities.pathToPstFile); 
+            index.AddToIndex(Utilities.pathToPstFile);
             //ExEnd:IndexSeparateFiles
         }
-        
+
+        #region Merge Indexes functionality
+
+        /// <summary>
+        /// Merges index with delta indexes to improve search performance
+        /// </summary>
+        public static void MergingIndexWithDeltaIndexes()
+        {
+            //ExStart:MergingIndexWithDeltaIndexes
+            string myDocumentsFolder1 = Utilities.documentsPath;
+            string myDocumentsFolder2 = Utilities.documentsPath2;
+
+            // Creating index
+            Index index = new Index(Utilities.indexPath, true);
+
+            // Adding documents to index
+            index.AddToIndex(myDocumentsFolder1);
+
+            // Adding one more folder to index. Delta index will be created.
+            index.AddToIndex(myDocumentsFolder2);
+
+            // Run merging
+            index.Merge();
+            //ExEnd:MergingIndexWithDeltaIndexes
+        }
+
+        /// <summary>
+        /// Merges several indexes
+        /// </summary>
+        public static void MergingMultipleIndexes()
+        {
+
+            //ExStart:MergingMultipleIndexes
+            // Creating/loading first index
+            Index index1 = new Index(Utilities.indexPath);
+            index1.AddToIndex(Utilities.documentsPath);
+
+            // Creating/loading second index
+            Index index2 = new Index(Utilities.indexPath2);
+            index2.AddToIndex(Utilities.documentsPath);
+
+            // Merging data from index2 to index1. The index2 remains unchanged.
+            index1.Merge(index2);
+            //ExEnd:MergingMultipleIndexes
+        }
+
+        /// <summary>
+        /// Merges current index with index repository asyncronously
+        /// </summary>
+        public static void MergingCurrentIndexWithIndexRepository()
+        {
+            //ExStart:MergingCurrentIndexWithIndexRepository
+            IndexRepository indexRepository = new IndexRepository();
+            Index index1 = indexRepository.Create(Utilities.mergeIndexPath1);
+            index1.AddToIndex(Utilities.documentsPath);
+
+            Index index2 = indexRepository.Create(Utilities.mergeIndexPath2);
+            index2.AddToIndex(Utilities.documentsPath2);
+
+            Index mainIndex = new Index(Utilities.mainMergedIndexesPath);
+            mainIndex.AddToIndex(Utilities.documentsPath3);
+
+            // Merge data from indexes in repository to main index. After merge index repository stays unmodified.
+            mainIndex.Merge(indexRepository);
+            //ExEnd:MergingCurrentIndexWithIndexRepository
+        }
+
+        /// <summary>
+        /// Merges Index with delta indexes Asynchronously to improve search performance
+        /// </summary>
+        public static void MergingIndexWithDeltaIndexesAsync()
+        {
+            //ExStart:MergingIndexWithDeltaIndexesAsync
+            string myDocumentsFolder1 = Utilities.documentsPath;
+            string myDocumentsFolder2 = Utilities.documentsPath2;
+
+            // Creating index
+            Index index = new Index(Utilities.indexPath, true);
+
+            // Adding documents to index
+            index.AddToIndex(myDocumentsFolder1);
+
+            // Adding one more folder to index. Delta index will be created.
+            index.AddToIndex(myDocumentsFolder2);
+
+            // Run merging asynchonously
+            index.MergeAsync();
+            //ExEnd:MergingIndexWithDeltaIndexesAsync
+        }
+
+        /// <summary>
+        /// Merges several indexes asynchronously
+        /// </summary>
+        public static void MergingMultipleIndexesAsync()
+        {
+
+            //ExStart:MergingMultipleIndexesAsync
+            // Creating/loading first index
+            Index index1 = new Index(Utilities.mergeIndexPath1);
+            index1.AddToIndex(Utilities.documentsPath);
+
+            // Creating/loading second index
+            Index index2 = new Index(Utilities.mergeIndexPath2);
+            index2.AddToIndex(Utilities.documentsPath2);
+
+            // Merging data from index2 to index1. The index2 remains unchanged.
+            index1.MergeAsync(index2);
+            //ExEnd:MergingMultipleIndexesAsync
+        }
+
+        /// <summary>
+        /// Merges current index with index repository asyncronously
+        /// </summary>
+        public static void MergingCurrentIndexWithIndexRepositoryAsync()
+        {
+            //ExStart:MergingCurrentIndexWithIndexRepositoryAsync
+            IndexRepository indexRepository = new IndexRepository();
+            //Add first index to index repository
+            Index index1 = indexRepository.Create(Utilities.mergeIndexPath1);
+            index1.AddToIndex(Utilities.documentsPath);
+
+            //Add secon index to index repository
+            Index index2 = indexRepository.Create(Utilities.mergeIndexPath2);
+            index2.AddToIndex(Utilities.documentsPath2);
+
+            //Create/load main index
+            Index mainIndex = new Index(Utilities.mainMergedIndexesPath);
+            mainIndex.AddToIndex(Utilities.documentsPath3);
+
+            // Merge data from indexes in repository to main index. After merge index repository stays unmodified.
+            mainIndex.MergeAsync(indexRepository);
+            //ExEnd:MergingCurrentIndexWithIndexRepositoryAsync
+        }
+        #endregion
+
     }
 }
