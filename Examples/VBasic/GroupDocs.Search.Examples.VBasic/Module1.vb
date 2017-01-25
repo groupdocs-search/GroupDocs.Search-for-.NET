@@ -39,12 +39,15 @@
 
         'Performs a Case sensitive search 
         'Searching.CaseSensitiveSearch("coat")
+
         'Manages Synonyms functionality
         'Searching.ManageSynonyms("text")
+
         'Manages Stop words dictionary
         'Searching.ManageStopWords("text")
         'Searches while disabling use of stop words
         'Searching.DisableStopWords("coat")
+
         'Searching Password protected document using Event arguments
         'Searching.SearchingPasswordProtectedDocsUsingEvent("sample")
         'Searching Password protected document using index.Dictionary.DocumentPasswords property
@@ -52,6 +55,21 @@
         'Searching Password protected document using both Event arguments And index.Dictionary.DocumentPasswords property
         'Searching.SearchingPasswordProtectedDocs("sample")
 
+        'Search using Spelling Corrector
+        'Searching.SpellingCorrectorUsage("strukture")
+        'Manage spelling corrector
+        'Searching.SpellingCorrectorManagement("strukture")
+
+
+        'Adding an alias to dictionary before search
+        'Searching.AddingAliasToDictionaryBeforeSearch("@s")
+        'Using alias dictionary
+        'Searching.UseAliasDictionary("@s")
+
+        'Using homophone search
+        'Searching.HomophoneSearchUsage("pause")
+        'Manage homephone dictionary
+        'Searching.HomophoneDictionaryManagement("braise")
 
 #End Region
 
@@ -87,7 +105,19 @@
 
         'Indexing.TrackAllChanges()
 
-        'Indexing.IndexSeparateFiles();
+        'Indexing.IndexSeparateFiles()
+
+        'Indexing.MergingIndexWithDeltaIndexes()
+
+        'Indexing.MergingMultipleIndexes()
+
+        'Indexing.MergingCurrentIndexWithIndexRepository()
+
+        'Indexing.MergingIndexWithDeltaIndexesAsync()
+
+        'Indexing.MergingMultipleIndexesAsync()
+
+        'Indexing.MergingCurrentIndexWithIndexRepositoryAsync()
 
 #End Region
         Console.ReadKey()

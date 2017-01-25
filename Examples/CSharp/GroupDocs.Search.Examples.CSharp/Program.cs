@@ -62,18 +62,39 @@ namespace GroupDocs.Search_for_.NET
 
             //Performs a Case sensitive search 
             //Searching.CaseSensitiveSearch("COAT");
+
             //Manages Synonyms search
             //Searching.ManageSynonyms("big");
+
             //Manages Stop Word dictionary
             //Searching.ManageStopWords("three");
             //Searches while disabling use of stop words
             //Searching.DisableStopWords("coat");
+
             //Searching Password protected document using Event arguments
             //Searching.SearchingPasswordProtectedDocsUsingEvent("sample");
             //Searching Password protected document using index.Dictionary.DocumentPasswords property
             //Searching.SearchingPasswordProtectedDocsUsingProperty("sample");
             //Searching Password protected document using both Event arguments and index.Dictionary.DocumentPasswords property
             //Searching.SearchingPasswordProtectedDocs("sample");
+
+            //Search using Spelling Corrector
+            //Searching.SpellingCorrectorUsage("strukture");
+            //Manage spelling corrector
+            //Searching.SpellingCorrectorManagement("strukture");
+
+
+            //Adding an alias to dictionary before search
+            //Searching.AddingAliasToDictionaryBeforeSearch("@s");
+            //Using alias dictionary
+            //Searching.UseAliasDictionary("@s");
+
+            //Using homophone search
+            //Searching.HomophoneSearchUsage("pause");
+            //Manage homephone dictionary
+            //Searching.HomophoneDictionaryManagement("braise");
+
+
             #endregion
 
             #region Indexing
@@ -111,6 +132,13 @@ namespace GroupDocs.Search_for_.NET
             //Indexing.IndexSeparateFiles();
 
             //Indexing.GetIndexingProgressPercentage();
+
+            //Indexing.MergingIndexWithDeltaIndexes();
+            //Indexing.MergingMultipleIndexes();
+            //Indexing.MergingCurrentIndexWithIndexRepository();
+            //Indexing.MergingIndexWithDeltaIndexesAsync();
+            //Indexing.MergingMultipleIndexesAsync();
+            //Indexing.MergingCurrentIndexWithIndexRepositoryAsync();
 
             #endregion
 

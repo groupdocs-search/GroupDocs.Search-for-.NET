@@ -625,7 +625,7 @@ Public Class Searching
     Public Shared Sub SearchingPasswordProtectedDocsUsingProperty(searchQuery As String)
         'ExStart:SetPasswordUsingProperty
         Dim index As New Index(Utilities.indexPath)
-        index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile,"test")
+        index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile, "test")
         index.AddToIndex(Utilities.documentsPath)
         Dim results As SearchResults = index.Search(searchQuery)
         'ExEnd:SetPasswordUsingProperty
@@ -675,5 +675,219 @@ Public Class Searching
         e.Password = "test"
     End Sub
     'ExEnd:EventForPasswordRequired
+
+
+#Region "Spelling Corrector Functionality"
+    ''' <summary>
+    ''' Dealing with password protected documents, using both methods
+    ''' </summary>
+    ''' <param name="searchQuery">string to search</param> 
+    Public Shared Sub SpellingCorrectorUsage(searchQuery As String)
+        'ExStart:SpellingCorrectorUsage
+        'create or load index
+        Dim index As New Index(Utilities.indexPath)
+        'Add documents to index
+        index.AddToIndex(Utilities.documentsPath)
+
+        Dim parameters As New SearchParameters()
+        ' Enabling spelling corrector
+        parameters.SpellingCorrector.Enabled = True
+        ' The default value for maximum mistake count is 2
+        parameters.SpellingCorrector.MaxMistakeCount = 1
+
+        ' Search for misspelled term 'structure'
+        Dim results As SearchResults = index.Search(searchQuery, parameters)
+        'ExEnd:SpellingCorrectorUsage
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' shows how to manage spelling corrector
+    ''' </summary>
+    ''' <param name="searchQuery">string to search</param> 
+    Public Shared Sub SpellingCorrectorManagement(searchQuery As String)
+        'ExStart:SpellingCorrectorManagement
+        Dim index As New Index(Utilities.indexPath)
+        'Add documents to index
+        index.AddToIndex(Utilities.documentsPath)
+
+        ' Remove all words from spelling corrector dictionary
+        index.Dictionaries.SpellingCorrector.Clear()
+        ' Import spelling dictionary from file. Existing words are staying.
+        index.Dictionaries.SpellingCorrector.Import(Utilities.spellingDictionaryFilePath)
+        Dim words As String() = New String() {"structure", "building", "rail", "house"}
+        ' Add word array to the dictionary. Words are case insensitive.
+        index.Dictionaries.SpellingCorrector.AddRange(words)
+        ' Export spelling dictionary to file.
+        index.Dictionaries.SpellingCorrector.Export(Utilities.exportedSpellingDictionaryFilePath)
+
+        Dim parameters As New SearchParameters()
+        ' Enabling spelling corrector
+        parameters.SpellingCorrector.Enabled = True
+        ' The default value for maximum mistake count is 2
+        parameters.SpellingCorrector.MaxMistakeCount = 1
+
+        ' Search for misspelled term 'structure'
+        Dim results As SearchResults = index.Search(searchQuery, parameters)
+        'ExEnd:SpellingCorrectorManagement
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+#End Region
+
+#Region "Alias Dictionary functionality"
+    ''' <summary>
+    ''' Adds an alias to the dictionary before search
+    ''' </summary>
+    ''' <param name="searchQuery">string to search</param> 
+    Public Shared Sub AddingAliasToDictionaryBeforeSearch(searchQuery As String)
+        'ExStart:AddingAliasToDictionaryBeforeSearch
+        'Create or load index
+        Dim index As New Index(Utilities.indexPath)
+        'Add documents to index
+        index.AddToIndex(Utilities.documentsPath)
+
+        ' Add alias 's' to the dictionary
+        index.Dictionaries.AliasDictionary.Add("s", "structure")
+        ' Search for term 'structure'
+        Dim results As SearchResults = index.Search(searchQuery)
+        'ExEnd:AddingAliasToDictionaryBeforeSearch
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Dealing with password protected documents, using both methods
+    ''' </summary>
+    ''' <param name="searchQuery">string to search</param> 
+    Public Shared Sub UseAliasDictionary(searchQuery As String)
+        'ExStart:AliasDictionaryUsage
+        'Create or load Index
+        Dim index As New Index(Utilities.indexPath)
+        'Add documents to index
+        index.AddToIndex(Utilities.documentsPath)
+
+        ' Clear dictionary of aliases
+        index.Dictionaries.AliasDictionary.Clear()
+        ' Add alias 's' to the dictionary. Alias and aliased text are case insensitive.
+        index.Dictionaries.AliasDictionary.Add("s", "structure")
+        ' Remove alias 'x' from the dictionary. Words which are absent will be ignored.
+        index.Dictionaries.AliasDictionary.Remove("x")
+        ' Import aliases from file. Existing aliases are staying.
+        index.Dictionaries.AliasDictionary.Import(Utilities.aliasFilePath)
+        ' Export aliases to file
+        index.Dictionaries.AliasDictionary.Export(Utilities.exportedAliasFilePath)
+
+        ' Search for term 'structure'
+        Dim results As SearchResults = index.Search(searchQuery)
+        'ExEnd:AliasDictionaryUsage
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+#End Region
+
+#Region "Homophone Dictionary Functionality"
+
+    ''' <summary>
+    ''' shows how to use homophone search
+    ''' </summary>
+    ''' <param name="searchQuery">the term to be searched</param>
+    Public Shared Sub HomophoneSearchUsage(searchQuery As String)
+        'ExStart:HomophoneSearchUsage
+        'Create or load index
+        Dim index As New Index(Utilities.indexPath)
+        'Add documents to index
+        index.AddToIndex(Utilities.documentsPath)
+
+        Dim parameters As New SearchParameters()
+        ' Enable homophone search in parameters
+        parameters.UseHomophoneSearch = True
+
+        ' Search for "pause", "paws", "pores", "pours"
+        Dim results As SearchResults = index.Search(searchQuery, parameters)
+        'ExEnd:HomophoneSearchUsage
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+
+    ''' <summary>
+    ''' shows how to manage homophone dictionary
+    ''' </summary>
+    ''' <param name="searchQuery">The term to be searched</param>
+    Public Shared Sub HomophoneDictionaryManagement(searchQuery As String)
+        'ExStart:HomophoneDictionaryManagement
+        'Create or load index
+        Dim index As New Index(Utilities.indexPath)
+        'Add documents to index
+        index.AddToIndex(Utilities.documentsPath)
+
+        ' Clearing homophone dictionary
+        index.Dictionaries.HomophoneDictionary.Clear()
+
+        ' Adding homophones
+        Dim homophoneGroup1 As String() = New String() {"braise", "brays", "braze"}
+        Dim homophoneGroup2 As String() = New String() {"pause", "paws", "pores", "pours"}
+        Dim homophoneGroups As New List(Of String())()
+        homophoneGroups.Add(homophoneGroup1)
+        homophoneGroups.Add(homophoneGroup2)
+        index.Dictionaries.HomophoneDictionary.AddRange(homophoneGroups)
+
+        ' Import homophones from file. Existing homophones are staying.
+        index.Dictionaries.HomophoneDictionary.Import(Utilities.homophonesFilePath)
+        ' Export homophones to file
+        index.Dictionaries.HomophoneDictionary.Export(Utilities.exportedHomophonesFilePath)
+
+        Dim parameters As New SearchParameters()
+        ' Enable homophone search in parameters
+        parameters.UseHomophoneSearch = True
+
+        ' Search for "pause", "paws", "pores", "pours"
+        Dim results As SearchResults = index.Search(searchQuery, parameters)
+        'ExEnd:HomophoneDictionaryManagement
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+#End Region
+
 
 End Class
