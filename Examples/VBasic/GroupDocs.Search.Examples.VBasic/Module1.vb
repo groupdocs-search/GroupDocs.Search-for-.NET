@@ -71,6 +71,16 @@
         'Manage homephone dictionary
         'Searching.HomophoneDictionaryManagement("braise")
 
+        'Search using Keyboard Layout Corrector
+        'Use word "pause" in Russian keyboard layout as a search query
+        'Searching.KeyboardLayoutCorrectorUsage("зфгыу")
+
+        ' Query with alias, ordinary term, regex And term for spelling corrector
+        'Searching.UsingAllSearchFeatures("@alias term ^reg.ex зфгыу")
+
+        'Inherits Password Dictionary from IEnumerable to make it Like other dictionaries
+        'Searching.InheritPasswordDictionary()
+
 #End Region
 
 #Region "Indexing"
