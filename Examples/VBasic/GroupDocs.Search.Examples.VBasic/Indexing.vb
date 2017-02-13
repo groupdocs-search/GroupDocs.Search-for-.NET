@@ -374,7 +374,7 @@ Public Class Indexing
         Dim index1 As Index = indexRepository.Create(Utilities.mergeIndexPath1)
         index1.AddToIndex(Utilities.documentsPath)
 
-        'Add secon index to index repository
+        'Add second index to index repository
         Dim index2 As Index = indexRepository.Create(Utilities.mergeIndexPath2)
         index2.AddToIndex(Utilities.documentsPath2)
 

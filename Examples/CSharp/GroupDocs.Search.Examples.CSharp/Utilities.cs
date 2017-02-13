@@ -26,6 +26,8 @@ namespace GroupDocs.Search_for_.NET
         public const string licensePath = "D:/Aspose Projects/License/GroupDocs.Total.lic";
         public const string pathToPstFile = "D:/MyOutlookDataFile.pst";
         public const string pathToPasswordProtectedFile =  "../../../../Data/Documents/Password Protected Document.docx";
+        public const string pathToPasswordProtectedFile2 = "../../../../Data/Documents/Password Protected Document2.docx";
+        public const string pathToPasswordProtectedFile3 = "../../../../Data/Documents/Password Protected Document3.docx";
         public const string exportedHomophonesFilePath = "../../../../Data/MyExportedHomophones.txt";
         public const string homophonesFilePath = "../../../../Data/MyHomophones.txt";
         public const string aliasFilePath = "../../../../Data/MyAliases.txt";

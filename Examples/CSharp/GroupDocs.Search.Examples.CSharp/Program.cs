@@ -11,7 +11,7 @@ namespace GroupDocs.Search_for_.NET
         static void Main(string[] args)
         {
             //Uncomment to apply license
-            Utilities.ApplyLicense();
+            //Utilities.ApplyLicense();
 
             #region Searching
             ////Simple search, search a word
@@ -94,6 +94,15 @@ namespace GroupDocs.Search_for_.NET
             //Manage homephone dictionary
             //Searching.HomophoneDictionaryManagement("braise");
 
+            //Search using Keyboard Layout Corrector
+            //Use word "pause" in Russian keyboard layout as a search query
+            //Searching.KeyboardLayoutCorrectorUsage("зфгыу");
+
+            // Query with alias, ordinary term, regex and term for spelling corrector
+            //Searching.UsingAllSearchFeatures("@alias term ^reg.ex зфгыу");
+
+            //Inherits Password Dictionary from IEnumerable to make it like other dictionaries
+            //Searching.InheritPasswordDictionary();
 
             #endregion
 

@@ -594,6 +594,8 @@ Public Class Searching
 
     End Sub
 
+#Region "Searching Password Protected Documents Functionality"
+
 
     ''' <summary>
     ''' Uses event to set password for protected document using event argument
@@ -675,6 +677,38 @@ Public Class Searching
         e.Password = "test"
     End Sub
     'ExEnd:EventForPasswordRequired
+
+    ''' <summary>
+    ''' Allows to use privileges of IEnumerable for Password dictionary.
+    ''' This enhancement is introduced in v17.02
+    ''' </summary>
+    Public Shared Sub InheritPasswordDictionary()
+        'ExStart:InheritPasswordDictionary
+        Dim index As New Index(Utilities.indexPath)
+        index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile, "test")
+        index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile2, "password1")
+        index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile3, "password2")
+
+        For Each documentName As String In index.Dictionaries.DocumentPasswords
+            Dim password As String = index.Dictionaries.DocumentPasswords(documentName)
+        Next
+        'ExEnd:InheritPasswordDictionary
+
+        'adding all these documents to index after password has been set
+        index.AddToIndex(Utilities.documentsPath)
+        Dim searchQuery As String = "content"
+        Dim results As SearchResults = index.Search(searchQuery)
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+#End Region
 
 
 #Region "Spelling Corrector Functionality"
@@ -889,5 +923,93 @@ Public Class Searching
 
 #End Region
 
+#Region "Keyboard Layout Corrector Functionality"
+    'This enhancement is introduced in v17.02
+    ''' <summary>
+    ''' Shows how to use keyboard layout corrector
+    ''' </summary>
+    ''' <param name="searchQuery">The term to be searched</param>
+    Public Shared Sub KeyboardLayoutCorrectorUsage(searchQuery As String)
+        'ExStart:KeyboardLayoutCorrectorUsage
+        'Create or load index
+        Dim index As New Index(Utilities.indexPath)
+        'Add documents to index
+        index.AddToIndex(Utilities.documentsPath)
+
+        Dim parameters As New SearchParameters()
+        ' Enable keyboard layout correction in parameters
+        parameters.KeyboardLayoutCorrector.Enabled = True
+
+        ' Search for "pause", using "зфгыу", its equilient in Russian keyboard layout as search query 
+        Dim results As SearchResults = index.Search(searchQuery, parameters)
+        'ExEnd:KeyboardLayoutCorrectorUsage
+
+        'display results
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+#End Region
+
+#Region "Use all search features"
+    'This enhancement is introduced in v17.02
+    ''' <summary>
+    ''' Shows how to enable multiple search features in a single search operation
+    ''' </summary>
+    ''' <param name="searchQuery">The term to be searched</param>
+    Public Shared Sub UsingAllSearchFeatures(searchQuery As String)
+        'ExStart:UsingAllSearchFeatures
+        'Create or load index
+        Dim index As New Index(Utilities.indexPath)
+        'Add documents to index
+        index.AddToIndex(Utilities.documentsPath)
+        ' Adding alias to dictionary
+        index.Dictionaries.AliasDictionary.Add("alias", "alias subquery")
+        ' Adding homophones to dictionary
+        index.Dictionaries.HomophoneDictionary.AddRange(New List(Of String())() From {
+            New String() {"cell", "sell"}
+        })
+        ' Adding synonyms to dictionary
+        index.Dictionaries.SynonymDictionary.AddRange(New List(Of String())() From {
+            New String() {"little", "small"}
+        })
+
+        Dim searchParams As New SearchParameters()
+        ' Turning on layout corrector
+        searchParams.KeyboardLayoutCorrector.Enabled = True
+        ' Turning on spelling corrector
+        searchParams.SpellingCorrector.Enabled = True
+        searchParams.SpellingCorrector.MaxMistakeCount = 1
+        ' Turning on synonym search feature
+        searchParams.UseSynonymSearch = True
+        ' Turning on homophone search feature
+        searchParams.UseHomophoneSearch = True
+        ' Turning on fuzzy search feature
+        searchParams.FuzzySearch.Enabled = True
+        ' Turning on fuzzy search feature
+        searchParams.FuzzySearch.SimilarityLevel = 0.9
+
+        ' Run searching with all search features
+        Dim results As SearchResults = index.Search(searchQuery, searchParams)
+        'ExEnd:UsingAllSearchFeatures
+
+        'display results
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+#End Region
 
 End Class

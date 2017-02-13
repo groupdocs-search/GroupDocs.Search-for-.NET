@@ -18,6 +18,8 @@ Public Class Utilities
     Public Const licensePath As String = "D:/Aspose Projects/License/GroupDocs.Total.lic"
     Public Const pathToPstFile As String = "D:/MyOutlookDataFile.pst"
     Public Const pathToPasswordProtectedFile As String = "../../../../Data/Documents/Password Protected Document.docx"
+    Public Const pathToPasswordProtectedFile2  As String= "../../../../Data/Documents/Password Protected Document2.docx"
+    Public Const pathToPasswordProtectedFile3 As String = "../../../../Data/Documents/Password Protected Document3.docx"
     Public Const exportedHomophonesFilePath As String = "../../../../Data/MyExportedHomophones.txt"
     Public Const homophonesFilePath As String = "../../../../Data/MyHomophones.txt"
     Public Const aliasFilePath As String = "../../../../Data/MyAliases.txt"

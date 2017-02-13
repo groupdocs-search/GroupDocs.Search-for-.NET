@@ -406,7 +406,7 @@ namespace GroupDocs.Search_for_.NET
             Index index1 = indexRepository.Create(Utilities.mergeIndexPath1);
             index1.AddToIndex(Utilities.documentsPath);
 
-            //Add secon index to index repository
+            //Add second index to index repository
             Index index2 = indexRepository.Create(Utilities.mergeIndexPath2);
             index2.AddToIndex(Utilities.documentsPath2);
 

@@ -583,6 +583,7 @@ namespace GroupDocs.Search_for_.NET
         }
 
         #region Stop Words Functionality
+        //This feature is introduced in v16.12
         /// <summary>
         /// Manage Stop Word dictionary
         /// </summary>
@@ -716,8 +717,10 @@ namespace GroupDocs.Search_for_.NET
         {
             //ExStart:SetPassword
             Index index = new Index(Utilities.indexPath);
-            index.PasswordRequired += index_PasswordRequired; // User can subscribe to PasswordRequired event to be able to specify a password
-            index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile, "test"); // User can set passwords for some documents in this property
+            // User can subscribe to PasswordRequired event to be able to specify a password
+            index.PasswordRequired += index_PasswordRequired;
+            // User can set passwords for some documents in this property
+            index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile, "test"); 
             index.AddToIndex(Utilities.documentsPath);
             SearchResults results = index.Search(searchQuery);
             //ExEnd:SetPassword
@@ -741,17 +744,55 @@ namespace GroupDocs.Search_for_.NET
         {
             if (e.DocumentFullName == Utilities.pathToPasswordProtectedFile)
             {
-                e.Password = "test";  // User should put password to Password field of event argument
+                // User should put password to Password field of event argument
+                e.Password = "test";  
             }
-            else if (e.DocumentFullName == @"c:\MyDocuments\ProtectedDocument5.doc")
+            else if (e.DocumentFullName == Utilities.pathToPasswordProtectedFile3)
             {
-                e.Password = "Password5";  // User should put password to Password field of event argument
+                // User should put password to Password field of event argument
+                e.Password = "password2";  
             }
         }
         //ExEnd:EventForPasswordRequired
+
+        /// <summary>
+        /// Allows to use privileges of IEnumerable for Password dictionary.
+        /// This enhancement is introduced in v17.02
+        /// </summary>
+        public static void InheritPasswordDictionary() {
+            //ExStart:InheritPasswordDictionary
+            Index index = new Index(Utilities.indexPath);
+            index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile, "test");
+            index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile2, "password1");
+            index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile3, "password2");
+
+            foreach (string documentName in index.Dictionaries.DocumentPasswords)
+            {
+                string password = index.Dictionaries.DocumentPasswords[documentName];
+            }
+            //ExEnd:InheritPasswordDictionary
+
+            //adding all these documents to index after password has been set
+            index.AddToIndex(Utilities.documentsPath);
+            string searchQuery = "content";
+            SearchResults results = index.Search(searchQuery);
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
         #endregion
 
         #region Spelling Corrector Functionality
+        //This spelling correction feature is introduced in v17.01
         /// <summary>
         /// Dealing with password protected documents, using both methods
         /// </summary>
@@ -834,6 +875,7 @@ namespace GroupDocs.Search_for_.NET
         #endregion
 
         #region  Alias Dictionary functionality
+        //This alias dictionary feature is introduced in v17.01
         /// <summary>
         /// Adds an alias to the dictionary before search
         /// </summary>
@@ -907,6 +949,7 @@ namespace GroupDocs.Search_for_.NET
         #endregion
 
         #region Homophone Dictionary Functionality
+        //This homophone dictionary feature is introduced in v17.01
 
         /// <summary>
         /// shows how to use homophone search
@@ -966,13 +1009,13 @@ namespace GroupDocs.Search_for_.NET
             index.Dictionaries.HomophoneDictionary.AddRange(homophoneGroups);
 
             // Import homophones from file. Existing homophones are staying.
-            index.Dictionaries.HomophoneDictionary.Import(Utilities.homophonesFilePath); 
+            index.Dictionaries.HomophoneDictionary.Import(Utilities.homophonesFilePath);
             // Export homophones to file
-            index.Dictionaries.HomophoneDictionary.Export(Utilities.exportedHomophonesFilePath); 
+            index.Dictionaries.HomophoneDictionary.Export(Utilities.exportedHomophonesFilePath);
 
             SearchParameters parameters = new SearchParameters();
             // Enable homophone search in parameters
-            parameters.UseHomophoneSearch = true; 
+            parameters.UseHomophoneSearch = true;
 
             // Search for "pause", "paws", "pores", "pours"
             SearchResults results = index.Search(searchQuery, parameters);
@@ -993,7 +1036,101 @@ namespace GroupDocs.Search_for_.NET
 
         #endregion
 
-       
+        #region Keyboard Layout Corrector Functionality
+        //This enhancement is introduced in v17.02
+        /// <summary>
+        /// Shows how to use keyboard layout corrector
+        /// </summary>
+        /// <param name="searchQuery">The term to be searched</param>
+        public static void KeyboardLayoutCorrectorUsage(string searchQuery)
+        {
+            //ExStart:KeyboardLayoutCorrectorUsage
+            //Create or load index
+            Index index = new Index(Utilities.indexPath);
+            //Add documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchParameters parameters = new SearchParameters();
+            // Enable keyboard layout correction in parameters
+            parameters.KeyboardLayoutCorrector.Enabled = true;
+
+            // Search for "pause", using "зфгыу", its equilient in Russian keyboard layout as search query 
+            SearchResults results = index.Search(searchQuery, parameters);
+            //ExEnd:KeyboardLayoutCorrectorUsage
+
+            //display results
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+        #endregion
+
+        #region Use all search features
+        //This enhancement is introduced in v17.02
+        /// <summary>
+        /// Shows how to enable multiple search features in a single search operation
+        /// </summary>
+        /// <param name="searchQuery">The term to be searched</param>
+        public static void UsingAllSearchFeatures(string searchQuery)
+        {
+            //ExStart:UsingAllSearchFeatures
+            //Create or load index
+            Index index = new Index(Utilities.indexPath);
+            //Add documents to index
+            index.AddToIndex(Utilities.documentsPath);
+            // Adding alias to dictionary
+            index.Dictionaries.AliasDictionary.Add("alias", "alias subquery");
+            // Adding homophones to dictionary
+            index.Dictionaries.HomophoneDictionary.AddRange(new List<string[]> { new string[] { "cell", "sell" } });
+            // Adding synonyms to dictionary
+            index.Dictionaries.SynonymDictionary.AddRange(new List<string[]> { new string[] { "little", "small" } });
+
+            SearchParameters searchParams = new SearchParameters();
+            // Turning on layout corrector
+            searchParams.KeyboardLayoutCorrector.Enabled = true;
+            // Turning on spelling corrector
+            searchParams.SpellingCorrector.Enabled = true;
+            searchParams.SpellingCorrector.MaxMistakeCount = 1;
+            // Turning on synonym search feature
+            searchParams.UseSynonymSearch = true;
+            // Turning on homophone search feature
+            searchParams.UseHomophoneSearch = true;
+            // Turning on fuzzy search feature
+            searchParams.FuzzySearch.Enabled = true;
+            // Turning on fuzzy search feature
+            searchParams.FuzzySearch.SimilarityLevel = 0.9;
+
+            // Run searching with all search features
+            SearchResults results = index.Search(searchQuery, searchParams);
+            //ExEnd:UsingAllSearchFeatures
+
+            //display results
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+        #endregion
+
     }
 
 }
