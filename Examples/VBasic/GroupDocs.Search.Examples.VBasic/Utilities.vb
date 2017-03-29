@@ -26,6 +26,7 @@ Public Class Utilities
     Public Const exportedAliasFilePath As String = "../../../../Data/MyExportedAliases.txt"
     Public Const spellingDictionaryFilePath As String = "../../../../Data/MySpellingDictionary.txt"
     Public Const exportedSpellingDictionaryFilePath As String = "../../../../Data/MyExportedSpellingDictionary.txt"
+    Public Const oldIndexFolderPath As String = "../../../../Data/Old index"
 
     ''' <summary>
     ''' Apply license 

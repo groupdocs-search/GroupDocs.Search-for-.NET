@@ -363,6 +363,37 @@ namespace GroupDocs.Search_for_.NET
         }
 
         /// <summary>
+        /// Performs search on numeric range
+        /// This feature is supported in version 17.03 or greater
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void NumericRangeSearch(string searchQuery)
+        {
+            //ExStart:NumericRangeSearch
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+            index.AddToIndex(documentsFolder);
+
+            // Search for numbers
+            SearchResults searchResults = index.Search(searchQuery);
+            if (searchResults.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in searchResults)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+            //ExEnd:NumericRangeSearch
+        }
+
+        /// <summary>
         /// Shows how to implement own custom extractor for outlook document for the extension .ost and .pst files
         /// </summary>
         /// <param name="searchString">string to search</param>
@@ -720,7 +751,7 @@ namespace GroupDocs.Search_for_.NET
             // User can subscribe to PasswordRequired event to be able to specify a password
             index.PasswordRequired += index_PasswordRequired;
             // User can set passwords for some documents in this property
-            index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile, "test"); 
+            index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile, "test");
             index.AddToIndex(Utilities.documentsPath);
             SearchResults results = index.Search(searchQuery);
             //ExEnd:SetPassword
@@ -745,12 +776,12 @@ namespace GroupDocs.Search_for_.NET
             if (e.DocumentFullName == Utilities.pathToPasswordProtectedFile)
             {
                 // User should put password to Password field of event argument
-                e.Password = "test";  
+                e.Password = "test";
             }
             else if (e.DocumentFullName == Utilities.pathToPasswordProtectedFile3)
             {
                 // User should put password to Password field of event argument
-                e.Password = "password2";  
+                e.Password = "password2";
             }
         }
         //ExEnd:EventForPasswordRequired
@@ -759,7 +790,8 @@ namespace GroupDocs.Search_for_.NET
         /// Allows to use privileges of IEnumerable for Password dictionary.
         /// This enhancement is introduced in v17.02
         /// </summary>
-        public static void InheritPasswordDictionary() {
+        public static void InheritPasswordDictionary()
+        {
             //ExStart:InheritPasswordDictionary
             Index index = new Index(Utilities.indexPath);
             index.Dictionaries.DocumentPasswords.Add(Utilities.pathToPasswordProtectedFile, "test");
@@ -1130,6 +1162,156 @@ namespace GroupDocs.Search_for_.NET
         }
 
         #endregion
+
+        #region Implement Functions Showing Relation Between Max Mistake Count and Word Length for Fuzzy Search
+        /// <summary>
+        /// Shows how to use max mistake count function as fuzzy algorithm
+        /// feature is supported in version 17.03 or greater
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void UseMaxMistakeCountFuncAsFuzzyAlgorithm(string searchQuery)
+        {
+            //ExStart:UseMaxMistakeCountFuncAsFuzzyAlgorithm
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+            index.AddToIndex(documentsFolder);
+
+            SearchParameters parameters = new SearchParameters();
+            // Turning on fuzzy search feature
+            parameters.FuzzySearch.Enabled = true;
+            // Setting up fuzzy algorithm
+            parameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(3, new int[] { 0, 1, 1, 2 });
+            // This function returns 0 when input value is 3 or less,
+            // returns 1 when input value is 4 or 5,
+            // and returns 2 when input value is 6 or greater.
+
+            // Search for the query with a maximum of 2 mistakes
+            SearchResults results = index.Search(searchQuery, parameters);
+            //ExEnd:UseMaxMistakeCountFuncAsFuzzyAlgorithm
+
+            //display results
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+        /// <summary>
+        /// Shows how to use constant value of max mistake count for each term in query regardless of its length
+        /// feature is supported in version 17.03 or greater
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void UseConstMaxMistakeCount(string searchQuery)
+        {
+            //ExStart:UseConstMaxMistakeCount
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+            index.AddToIndex(documentsFolder);
+
+            SearchParameters parameters = new SearchParameters();
+            // Turning on fuzzy search feature
+            parameters.FuzzySearch.Enabled = true;
+            // This function returns 2 for terms of any length
+            parameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(0, new int[] { 2 });
+
+            // Search for "discree" with a maximum of 2 mistakes
+            SearchResults results = index.Search(searchQuery, parameters);
+            //ExEnd:UseConstMaxMistakeCount
+
+            //display results
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+
+        /// <summary>
+        /// Shows how to use similarity level object as fuzzy algorithm
+        /// feature is supported in version 17.03 or greater
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void UseSimilarityLevelObjAsFuzzyAlgo(string searchQuery)
+        {
+            //ExStart:UseSimilarityLevelObjAsFuzzyAlgo
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+            index.AddToIndex(documentsFolder);
+
+            SearchParameters parameters = new SearchParameters();
+            // Turning on fuzzy search feature
+            parameters.FuzzySearch.Enabled = true;
+            // Setting up fuzzy algorithm
+            parameters.FuzzySearch.FuzzyAlgorithm = new SimilarityLevel(0.7);
+
+            // Search for "discree" with a maximum of 2 mistakes
+            SearchResults results = index.Search(searchQuery, parameters);
+            //ExEnd:UseSimilarityLevelObjAsFuzzyAlgo
+
+            //display results
+            if (results.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in results)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// Limits the number of search results
+        /// feature is supported in version 17.03 or greater
+        /// </summary>
+        public static void LimitSearchResults(string searchQuery)
+        {
+            //ExStart:LimitSearchResults
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+            index.AddToIndex(documentsFolder);
+
+            SearchParameters parameters = new SearchParameters();
+            // Setting the limitation of result count for each term in a query. The default value is 100000.
+            parameters.MaxHitCountPerTerm = 200;
+            // Setting the limitation of total result count for a query. The default value is 500000. 
+            parameters.MaxTotalHitCount = 800;
+
+            // Search for the query with limitation of 200 occurrences
+            SearchResults results = index.Search(searchQuery, parameters);
+            if (results.Truncated)
+            {
+                Console.WriteLine(results.Message);
+            }
+            //ExEnd:LimitSearchResults
+        }
 
     }
 

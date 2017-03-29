@@ -389,5 +389,21 @@ Public Class Indexing
 #End Region
 
 
+    ''' <summary>
+    ''' adds documents to old version of the index
+    ''' </summary>
+    Public Shared Sub AddDocsToOldIndexVersion()
+        'ExStart:AddDocsToOldIndexVersion
+        ' This index should be exist and should have one of previous version
+        Dim oldIndexFolder As String = Utilities.oldIndexFolderPath
+        Dim documentsFolder As String = Utilities.documentsPath3
+
+        ' Load index
+        Dim index As New Index(oldIndexFolder)
+        ' Add documents to index. Index will be updated to actual version before adding new documents.
+        index.AddToIndex(documentsFolder, True)
+        'ExEnd:AddDocsToOldIndexVersion
+    End Sub
+
 
 End Class

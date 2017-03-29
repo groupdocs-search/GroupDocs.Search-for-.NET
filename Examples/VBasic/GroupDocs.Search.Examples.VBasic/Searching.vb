@@ -320,6 +320,35 @@ Public Class Searching
         'ExEnd:CaseSensitiveSearch
     End Sub
 
+
+    ''' <summary>
+    ''' Performs search on numeric range
+    ''' This feature is supported in version 17.03 or greater
+    ''' </summary>
+    ''' <param name="searchQuery"></param>
+    Public Shared Sub NumericRangeSearch(searchQuery As String)
+        'ExStart:NumericRangeSearch
+        Dim indexFolder As String = Utilities.indexPath
+        Dim documentsFolder As String = Utilities.documentsPath
+
+        Dim index As New Index(indexFolder)
+        index.AddToIndex(documentsFolder)
+
+        ' Search for numbers
+        Dim searchResults As SearchResults = index.Search(searchQuery)
+        If searchResults.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In searchResults
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+        'ExEnd:NumericRangeSearch
+    End Sub
+
+
+
     ''' <summary>
     ''' Shows how to implement own custom extractor for outlook document for the extension .ost and .pst files
     ''' </summary>
@@ -1011,5 +1040,139 @@ Public Class Searching
     End Sub
 
 #End Region
+
+
+#Region "Implement Functions Showing Relation Between Max Mistake Count and Word Length for Fuzzy Search"
+    ''' <summary>
+    ''' Shows how to use max mistake count function as fuzzy algorithm
+    ''' feature is supported in version 17.03 or greater
+    ''' </summary>
+    ''' <param name="searchQuery"></param>
+    Public Shared Sub UseMaxMistakeCountFuncAsFuzzyAlgorithm(searchQuery As String)
+        'ExStart:UseMaxMistakeCountFuncAsFuzzyAlgorithm
+        Dim indexFolder As String = Utilities.indexPath
+        Dim documentsFolder As String = Utilities.documentsPath
+
+        Dim index As New Index(indexFolder)
+        index.AddToIndex(documentsFolder)
+
+        Dim parameters As New SearchParameters()
+        ' Turning on fuzzy search feature
+        parameters.FuzzySearch.Enabled = True
+        ' Setting up fuzzy algorithm
+        parameters.FuzzySearch.FuzzyAlgorithm = New TableDiscreteFunction(3, New Integer() {0, 1, 1, 2})
+        ' This function returns 0 when input value is 3 or less,
+        ' returns 1 when input value is 4 or 5,
+        ' and returns 2 when input value is 6 or greater.
+
+        ' Search for the query with a maximum of 2 mistakes
+        Dim results As SearchResults = index.Search(searchQuery, parameters)
+        'ExEnd:UseMaxMistakeCountFuncAsFuzzyAlgorithm
+
+        'display results
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Shows how to use constant value of max mistake count for each term in query regardless of its length
+    ''' feature is supported in version 17.03 or greater
+    ''' </summary>
+    ''' <param name="searchQuery"></param>
+    Public Shared Sub UseConstMaxMistakeCount(searchQuery As String)
+        'ExStart:UseConstMaxMistakeCount
+        Dim indexFolder As String = Utilities.indexPath
+        Dim documentsFolder As String = Utilities.documentsPath
+
+        Dim index As New Index(indexFolder)
+        index.AddToIndex(documentsFolder)
+
+        Dim parameters As New SearchParameters()
+        ' Turning on fuzzy search feature
+        parameters.FuzzySearch.Enabled = True
+        ' This function returns 2 for terms of any length
+        parameters.FuzzySearch.FuzzyAlgorithm = New TableDiscreteFunction(0, New Integer() {2})
+
+        ' Search for "discree" with a maximum of 2 mistakes
+        Dim results As SearchResults = index.Search(searchQuery, parameters)
+        'ExEnd:UseConstMaxMistakeCount
+
+        'display results
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Shows how to use similarity level object as fuzzy algorithm
+    ''' feature is supported in version 17.03 or greater
+    ''' </summary>
+    ''' <param name="searchQuery"></param>
+    Public Shared Sub UseSimilarityLevelObjAsFuzzyAlgo(searchQuery As String)
+        'ExStart:UseSimilarityLevelObjAsFuzzyAlgo
+        Dim indexFolder As String = Utilities.indexPath
+        Dim documentsFolder As String = Utilities.documentsPath
+
+        Dim index As New Index(indexFolder)
+        index.AddToIndex(documentsFolder)
+
+        Dim parameters As New SearchParameters()
+        ' Turning on fuzzy search feature
+        parameters.FuzzySearch.Enabled = True
+        ' Setting up fuzzy algorithm
+        parameters.FuzzySearch.FuzzyAlgorithm = New SimilarityLevel(0.7)
+
+        ' Search for "discree" with a maximum of 2 mistakes
+        Dim results As SearchResults = index.Search(searchQuery, parameters)
+        'ExEnd:UseSimilarityLevelObjAsFuzzyAlgo
+
+        'display results
+        If results.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In results
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+    End Sub
+#End Region
+
+    ''' <summary>
+    ''' Limits the number of search results
+    ''' feature is supported in version 17.03 or greater
+    ''' </summary>
+    Public Shared Sub LimitSearchResults(searchQuery As String)
+        'ExStart:LimitSearchResults
+        Dim indexFolder As String = Utilities.indexPath
+        Dim documentsFolder As String = Utilities.documentsPath
+
+        Dim index As New Index(indexFolder)
+        index.AddToIndex(documentsFolder)
+
+        Dim parameters As New SearchParameters()
+        ' Setting the limitation of result count for each term in a query. The default value is 100000.
+        parameters.MaxHitCountPerTerm = 200
+        ' Setting the limitation of total result count for a query. The default value is 500000. 
+        parameters.MaxTotalHitCount = 800
+
+        ' Search for the query with limitation of 200 occurrences
+        Dim results As SearchResults = index.Search(searchQuery, parameters)
+        If results.Truncated Then
+            Console.WriteLine(results.Message)
+        End If
+        'ExEnd:LimitSearchResults
+    End Sub
 
 End Class
