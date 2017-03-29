@@ -34,7 +34,8 @@ namespace GroupDocs.Search_for_.NET
         public const string exportedAliasFilePath = "../../../../Data/MyExportedAliases.txt";
         public const string spellingDictionaryFilePath = "../../../../Data/MySpellingDictionary.txt";
         public const string exportedSpellingDictionaryFilePath = "../../../../Data/MyExportedSpellingDictionary.txt";
-        
+        public const string oldIndexFolderPath = "../../../../Data/Old index";
+
 
 
         /// <summary>

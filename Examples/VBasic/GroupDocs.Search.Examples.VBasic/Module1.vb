@@ -81,6 +81,19 @@
         'Inherits Password Dictionary from IEnumerable to make it Like other dictionaries
         'Searching.InheritPasswordDictionary()
 
+        'Performs numeric range search, here we are passing numeric range query for searching any number in range beetween 13 and 42
+        'Searching.NumericRangeSearch("13~~42")
+
+        'Shows how to limit the number of search results
+        'Searching.LimitSearchResults("pause")
+
+        'Shows how to use max mistake count function as fuzzy algorithm
+        'Searching.UseMaxMistakeCountFuncAsFuzzyAlgorithm("paus")
+        'Shows how to use constant value of max mistake count for each term in query regardless of its length
+        'Searching.UseConstMaxMistakeCount("paose")
+        'Shows how to use similarity level object as fuzzy algorithm
+        'Searching.UseSimilarityLevelObjAsFuzzyAlgo("paose")
+
 #End Region
 
 #Region "Indexing"
@@ -128,6 +141,8 @@
         'Indexing.MergingMultipleIndexesAsync()
 
         'Indexing.MergingCurrentIndexWithIndexRepositoryAsync()
+
+        'Indexing.AddDocsToOldIndexVersion()
 
 #End Region
         Console.ReadKey()

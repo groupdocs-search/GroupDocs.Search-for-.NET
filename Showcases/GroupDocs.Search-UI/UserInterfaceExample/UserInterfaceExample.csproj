@@ -130,8 +130,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="GroupDocs.Search, Version=17.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>..\packages\groupdocs-search-dotnet.17.02.0\lib\net2.0\GroupDocs.Search.dll</HintPath>
+    <Reference Include="GroupDocs.Search, Version=17.3.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\groupdocs-search-dotnet.17.3.0\lib\net2.0\GroupDocs.Search.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="GroupDocs.Viewer, Version=16.10.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">

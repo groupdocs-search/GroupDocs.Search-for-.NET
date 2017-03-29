@@ -420,5 +420,21 @@ namespace GroupDocs.Search_for_.NET
         }
         #endregion
 
+        /// <summary>
+        /// adds documents to old version of the index
+        /// </summary>
+        public static void AddDocsToOldIndexVersion() {
+            //ExStart:AddDocsToOldIndexVersion
+            // This index should be exist and should have one of previous version
+            string oldIndexFolder = Utilities.oldIndexFolderPath;
+            string documentsFolder = Utilities.documentsPath3;
+
+            // Load index
+            Index index = new Index(oldIndexFolder);
+            // Add documents to index. Index will be updated to actual version before adding new documents.
+            index.AddToIndex(documentsFolder, true);
+            //ExEnd:AddDocsToOldIndexVersion
+        }
+
     }
 }
