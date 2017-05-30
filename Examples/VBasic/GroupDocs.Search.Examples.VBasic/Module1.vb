@@ -84,6 +84,13 @@
         'Performs numeric range search, here we are passing numeric range query for searching any number in range beetween 13 and 42
         'Searching.NumericRangeSearch("13~~42")
 
+        'Performs date range search
+        'This query will find all dates between beginning of 2000 year and ending of 2017 in any documents fields ' (content, creation date, modification date and other). 
+        'Searching.DateRangeSearch("daterange(1.1.2015~~12.31.2017)")
+        'Performs date range search with faceted search
+        'This query will find all dates between beginning of 2000 year and ending of 2017 only in documents content. 
+        'Searching.DateRangeWithFacetedSearch("content:daterange(1.1.2015~~12.31.2017)")
+
         'Shows how to limit the number of search results
         'Searching.LimitSearchResults("pause")
 
@@ -93,6 +100,11 @@
         'Searching.UseConstMaxMistakeCount("paose")
         'Shows how to use similarity level object as fuzzy algorithm
         'Searching.UseSimilarityLevelObjAsFuzzyAlgo("paose")
+
+        'shows how to use table discrete function as step function
+        'Searching.TableDiscreteFuncAsStepFunction()
+        'Shows how to use step function in fuzzy search
+        'Searching.UseStepFunctionInFuzzySearch("pause")
 
 #End Region
 
