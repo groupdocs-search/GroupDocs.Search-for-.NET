@@ -250,8 +250,12 @@ Public Class Searching
         ' Create or load index
         Dim index As New Index(Utilities.indexPath)
 
-        ' load synonyms
-        index.LoadSynonyms(Utilities.synonymFilePath)
+        'index.LoadSynonyms(filepath) method is maked obsolete from version 17.05 onwards, use Import instead
+        'index.LoadSynonyms(Utilities.synonymFilePath)
+
+        'below mentioned method to load synonyms is available from version 17.05 or greater
+        'Import synonyms from file. Existing synonyms are staying.
+        index.Dictionaries.SynonymDictionary.Import(Utilities.synonymFilePath)
 
         index.AddToIndex(Utilities.documentsPath)
 
@@ -347,6 +351,55 @@ Public Class Searching
         'ExEnd:NumericRangeSearch
     End Sub
 
+
+    ''' <summary>
+    ''' Shows how to use date range search
+    ''' This feature is supported by version 17.04 or greater
+    ''' </summary>
+    ''' <param name="searchQuery"></param>
+    Public Shared Sub DateRangeSearch(searchQuery As String)
+        'ExStart:DateRangeSearch
+        Dim indexFolder As String = Utilities.indexPath
+        Dim documentsFolder As String = Utilities.documentsPath
+
+        Dim index As New Index(indexFolder)
+        index.AddToIndex(documentsFolder)
+
+        Dim searchResults As SearchResults = index.Search(searchQuery)
+        If searchResults.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In searchResults
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+        'ExEnd:DateRangeSearch
+    End Sub
+
+    ''' <summary>
+    ''' Shows how to Perform date range search with faceted search
+    ''' This feature is supported by version 17.04 or greater
+    ''' </summary>
+    Public Shared Sub DateRangeWithFacetedSearch(searchQuery As String)
+        'ExStart:DateRangeWithFacetedSearch
+        Dim indexFolder As String = Utilities.indexPath
+        Dim documentsFolder As String = Utilities.documentsPath
+
+        Dim index As New Index(indexFolder)
+        index.AddToIndex(documentsFolder)
+
+        Dim searchResults As SearchResults = index.Search(searchQuery)
+        If searchResults.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In searchResults
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+        'ExEnd:DateRangeWithFacetedSearch
+    End Sub
 
 
     ''' <summary>
@@ -1174,5 +1227,65 @@ Public Class Searching
         End If
         'ExEnd:LimitSearchResults
     End Sub
+
+
+    ''' <summary>
+    ''' Shows how to define table discrete function as step function
+    ''' Feature is supported in version 17.04 or greater
+    ''' </summary>
+    Public Shared Sub TableDiscreteFuncAsStepFunction()
+        'ExStart:TableDiscreteFuncAsStepFunction
+        ' Defining as table function 
+        Dim table1 = New TableDiscreteFunction(3, New Integer() {0, 1, 1, 2, 3})
+        ' Defining as step function 
+        ' Both of these functions return 0 when input value is 3 or less, return 1 when input value is 4 or 5, 
+        ' return 2 when input value is 6 and return 3 when input value is 7 or greater.
+        Dim table2 = New TableDiscreteFunction(0, New [Step](4, 1), New [Step](6, 2), New [Step](7, 3))
+        'ExEnd:TableDiscreteFuncAsStepFunction
+    End Sub
+
+    ''' <summary>
+    ''' Shows how to use step function in fuzzy search
+    ''' Feature is supported in version 17.04 or greater
+    ''' </summary>
+    ''' <param name="searchQuery"></param>
+    Public Shared Sub UseStepFunctionInFuzzySearch(searchQuery As String)
+        'ExStart:UseStepFunctionInFuzzySearch
+        Dim indexFolder As String = Utilities.indexPath
+        Dim documentsFolder As String = Utilities.documentsPath
+
+        Dim index As New Index(indexFolder)
+        index.AddToIndex(documentsFolder)
+
+        Dim adaptiveDiscreteFunction As New TableDiscreteFunction(0, New [Step](4, 1), New [Step](5, 2), New [Step](6, 3))
+        ' Function returns 0 mistakes for words of less than 4 characters, // 1 mistake for words of 4 characters, // 2 mistakes for words of 5 characters, // and 3 mistakes for words of 6 and more characters 
+        Dim adaptiveSearchParameters As New SearchParameters()
+        adaptiveSearchParameters.FuzzySearch.Enabled = True
+        adaptiveSearchParameters.FuzzySearch.FuzzyAlgorithm = adaptiveDiscreteFunction
+        ' Fuzzy search will allow 1 mistake for "user" word, 2 mistakes for "query" word and 3 mistakes for "search" word 
+        Dim adaptiveResults As SearchResults = index.Search(searchQuery, adaptiveSearchParameters)
+
+        'This line below shows how to define constant function
+        'This function returns 2 for terms of any length
+        Dim constanDiscreteFunction As New TableDiscreteFunction(2)
+        ' Function returns 2 mistakes for word of any length
+        Dim constantSearchParameters As New SearchParameters()
+        constantSearchParameters.FuzzySearch.Enabled = True
+        constantSearchParameters.FuzzySearch.FuzzyAlgorithm = constanDiscreteFunction
+        ' Fuzzy search will allow 2 mistakes for all three words in query
+        Dim constantResults As SearchResults = index.Search("user search query", constantSearchParameters)
+
+        'display results
+        If constantResults.Count > 0 Then
+            ' List of found files
+            For Each documentResultInfo As DocumentResultInfo In constantResults
+                Console.WriteLine("Query ""{0}"" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName)
+            Next
+        Else
+            Console.WriteLine("No results found")
+        End If
+        'ExEnd:UseStepFunctionInFuzzySearch
+    End Sub
+
 
 End Class

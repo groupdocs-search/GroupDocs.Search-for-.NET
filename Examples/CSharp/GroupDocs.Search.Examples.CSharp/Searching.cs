@@ -284,8 +284,12 @@ namespace GroupDocs.Search_for_.NET
             // Create or load index
             Index index = new Index(Utilities.indexPath);
 
-            // load synonyms
-            index.LoadSynonyms(Utilities.synonymFilePath);
+            //index.LoadSynonyms(filepath) method is marked obsolete from version 17.05 onwards, use Import instead
+            //index.LoadSynonyms(Utilities.synonymFilePath);
+
+            //below mentioned method to load synonyms is available from version 17.05 or greater
+            // Import synonyms from file. Existing synonyms are staying.
+            index.Dictionaries.SynonymDictionary.Import(Utilities.synonymFilePath);
 
             index.AddToIndex(Utilities.documentsPath);
 
@@ -391,6 +395,65 @@ namespace GroupDocs.Search_for_.NET
                 Console.WriteLine("No results found");
             }
             //ExEnd:NumericRangeSearch
+        }
+
+        /// <summary>
+        /// Shows how to use date range search
+        /// This feature is supported by version 17.04 or greater
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void DateRangeSearch(string searchQuery)
+        {
+            //ExStart:DateRangeSearch
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+            index.AddToIndex(documentsFolder);
+
+            SearchResults searchResults = index.Search(searchQuery);
+            if (searchResults.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in searchResults)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+            //ExEnd:DateRangeSearch
+        }
+
+        /// <summary>
+        /// Shows how to Perform date range search with faceted search
+        /// This feature is supported by version 17.04 or greater
+        /// </summary>
+        public static void DateRangeWithFacetedSearch(string searchQuery)
+        {
+            //ExStart:DateRangeWithFacetedSearch
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+            index.AddToIndex(documentsFolder);
+
+            SearchResults searchResults = index.Search(searchQuery);
+            if (searchResults.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in searchResults)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+            //ExEnd:DateRangeWithFacetedSearch
         }
 
         /// <summary>
@@ -1313,6 +1376,68 @@ namespace GroupDocs.Search_for_.NET
             //ExEnd:LimitSearchResults
         }
 
+        /// <summary>
+        /// Shows how to define table discrete function as step function
+        /// Feature is supported in version 17.04 or greater
+        /// </summary>
+        public static void TableDiscreteFuncAsStepFunction()
+        {
+            //ExStart:TableDiscreteFuncAsStepFunction
+            // Defining as table function 
+            var table1 = new TableDiscreteFunction(3, new int[] { 0, 1, 1, 2, 3 });
+            // Defining as step function 
+            // Both of these functions return 0 when input value is 3 or less, return 1 when input value is 4 or 5, 
+            // return 2 when input value is 6 and return 3 when input value is 7 or greater.
+            var table2 = new TableDiscreteFunction(0, new Step(4, 1), new Step(6, 2), new Step(7, 3));
+            //ExEnd:TableDiscreteFuncAsStepFunction
+        }
+
+        /// <summary>
+        /// Shows how to use step function in fuzzy search
+        /// Feature is supported in version 17.04 or greater
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void UseStepFunctionInFuzzySearch(string searchQuery) {
+            //ExStart:UseStepFunctionInFuzzySearch
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+            index.AddToIndex(documentsFolder);
+
+            TableDiscreteFunction adaptiveDiscreteFunction = new TableDiscreteFunction(0, new Step(4, 1), new Step(5, 2), new Step(6, 3));
+            // Function returns 0 mistakes for words of less than 4 characters, // 1 mistake for words of 4 characters, // 2 mistakes for words of 5 characters, // and 3 mistakes for words of 6 and more characters 
+            SearchParameters adaptiveSearchParameters = new SearchParameters();
+            adaptiveSearchParameters.FuzzySearch.Enabled = true;
+            adaptiveSearchParameters.FuzzySearch.FuzzyAlgorithm = adaptiveDiscreteFunction;
+            // Fuzzy search will allow 1 mistake for "user" word, 2 mistakes for "query" word and 3 mistakes for "search" word 
+            SearchResults adaptiveResults = index.Search(searchQuery, adaptiveSearchParameters);
+
+            //This line below shows how to define constant function
+            //This function returns 2 for terms of any length
+            TableDiscreteFunction constanDiscreteFunction = new TableDiscreteFunction(2);
+            // Function returns 2 mistakes for word of any length
+            SearchParameters constantSearchParameters = new SearchParameters();
+            constantSearchParameters.FuzzySearch.Enabled = true;
+            constantSearchParameters.FuzzySearch.FuzzyAlgorithm = constanDiscreteFunction;
+            // Fuzzy search will allow 2 mistakes for all three words in query
+            SearchResults constantResults = index.Search("user search query", constantSearchParameters);
+
+            //display results
+            if (constantResults.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in constantResults)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+            //ExEnd:UseStepFunctionInFuzzySearch
+        }
     }
 
 }
