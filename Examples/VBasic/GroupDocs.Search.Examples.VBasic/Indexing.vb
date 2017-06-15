@@ -406,4 +406,35 @@ Public Class Indexing
     End Sub
 
 
+    ''' <summary>
+    ''' shows how to manage dictionary of letters
+    ''' Feature is supported in version 17.06 or greater
+    ''' </summary>
+    Public Shared Sub AddLetterstoDictionary()
+        'ExStart:AddLetterstoDictionary
+        Dim indexFolder As String = Utilities.indexPath
+        Dim documentsFolder As String = Utilities.documentsPath
+        Dim alphabetFileName As String = Utilities.alphabetFilePath
+
+        Dim index As New Index(indexFolder)
+
+        ' Clearing dictionary of letters
+        index.Dictionaries.Alphabet.Clear()
+
+        ' Adding letters
+        Dim letters As Char() = New Char() {"Ł"c, "ł"c, "Ń"c, "ń"c}
+        index.Dictionaries.Alphabet.AddRange(letters)
+
+        ' Import alphabet from file. Existing letters are staying.
+        index.Dictionaries.Alphabet.Import(alphabetFileName)
+        ' Export alphabet to file
+        index.Dictionaries.Alphabet.Export(Utilities.exportedAlphabetFilePath)
+
+        ' Indexing
+        index.AddToIndex(documentsFolder)
+        'ExEnd:AddLetterstoDictionary
+    End Sub
+
+
+
 End Class

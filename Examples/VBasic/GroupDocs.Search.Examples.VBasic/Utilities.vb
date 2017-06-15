@@ -18,7 +18,7 @@ Public Class Utilities
     Public Const licensePath As String = "D:/Aspose Projects/License/GroupDocs.Total.lic"
     Public Const pathToPstFile As String = "D:/MyOutlookDataFile.pst"
     Public Const pathToPasswordProtectedFile As String = "../../../../Data/Documents/Password Protected Document.docx"
-    Public Const pathToPasswordProtectedFile2  As String= "../../../../Data/Documents/Password Protected Document2.docx"
+    Public Const pathToPasswordProtectedFile2 As String = "../../../../Data/Documents/Password Protected Document2.docx"
     Public Const pathToPasswordProtectedFile3 As String = "../../../../Data/Documents/Password Protected Document3.docx"
     Public Const exportedHomophonesFilePath As String = "../../../../Data/MyExportedHomophones.txt"
     Public Const homophonesFilePath As String = "../../../../Data/MyHomophones.txt"
@@ -27,6 +27,10 @@ Public Class Utilities
     Public Const spellingDictionaryFilePath As String = "../../../../Data/MySpellingDictionary.txt"
     Public Const exportedSpellingDictionaryFilePath As String = "../../../../Data/MyExportedSpellingDictionary.txt"
     Public Const oldIndexFolderPath As String = "../../../../Data/Old index"
+    Public Const alphabetFilePath As String = "../../../../Data/MyAlphabet.txt"
+    Public Const exportedAlphabetFilePath As String = "../../../../Data/MyExportedAlphabet.txt"
+    Public Const publicKey As String = "[Your Dynabic.Metered public key]"
+    Public Const privateKey As String = "[Your Dynabic.Metered private key]"
 
     ''' <summary>
     ''' Apply license 
@@ -54,6 +58,20 @@ Public Class Utilities
         Dim operationType As OperationType = e.OperationType
         ' Operation Type.
     End Sub
+
+    ''' <summary>
+    ''' Allows using Dynabic.Metered account to run library in licensed mode
+    ''' Feature is supported for version 17.06 or greater
+    ''' </summary>
+    Public Shared Sub UseDynabicMeteredAccount()
+        'ExStart:UseDynabicMeteredAccount
+        ' initialize Metered API and set-up credentials
+        Dim metered As Metered = New Metered()
+        metered.SetMeteredKey(publicKey, privateKey)
+        ' do indexing and searching in licensed mode 
+        'ExEnd:UseDynabicMeteredAccount
+    End Sub
+
     ''' <summary>
     ''' Index operation finished
     ''' </summary>

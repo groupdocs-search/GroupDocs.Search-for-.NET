@@ -1131,6 +1131,39 @@ namespace GroupDocs.Search_for_.NET
 
         #endregion
 
+        #region Letters Dictionary Functionality
+        /// <summary>
+        /// shows how to manage dictionary of letters
+        /// Feature is supported in version 17.06 or greater
+        /// </summary>
+        public static void AddLetterstoDictionary(string searchQuery)
+        {
+            //ExStart:AddLetterstoDictionary
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+            string alphabetFileName = Utilities.alphabetFilePath;
+
+            Index index = new Index(indexFolder);
+
+            // Clearing dictionary of letters
+            index.Dictionaries.Alphabet.Clear();
+
+            // Adding letters
+            char[] letters = new char[] { '\u0141', '\u0142', '\u0143', '\u0144' };
+            index.Dictionaries.Alphabet.AddRange(letters);
+
+            // Import alphabet from file. Existing letters are staying.
+            index.Dictionaries.Alphabet.Import(alphabetFileName);
+            // Export alphabet to file
+            index.Dictionaries.Alphabet.Export(Utilities.exportedAlphabetFilePath);
+
+            // Indexing
+            index.AddToIndex(documentsFolder);
+            //ExEnd:AddLetterstoDictionary
+        }
+
+        #endregion
+
         #region Keyboard Layout Corrector Functionality
         //This enhancement is introduced in v17.02
         /// <summary>

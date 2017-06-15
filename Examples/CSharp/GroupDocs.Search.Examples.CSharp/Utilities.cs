@@ -35,6 +35,10 @@ namespace GroupDocs.Search_for_.NET
         public const string spellingDictionaryFilePath = "../../../../Data/MySpellingDictionary.txt";
         public const string exportedSpellingDictionaryFilePath = "../../../../Data/MyExportedSpellingDictionary.txt";
         public const string oldIndexFolderPath = "../../../../Data/Old index";
+        public const string alphabetFilePath = "../../../../Data/MyAlphabet.txt";
+        public const string exportedAlphabetFilePath = "../../../../Data/MyExportedAlphabet.txt";
+        public const string publicKey = "[Your Dynabic.Metered public key]";
+        public const string privateKey = "[Your Dynabic.Metered private key]";
 
 
 
@@ -47,6 +51,18 @@ namespace GroupDocs.Search_for_.NET
             License lic = new License();
             //Set license
             lic.SetLicense(licensePath);
+        }
+
+        /// <summary>
+        /// Allows using Dynabic.Metered account to run library in licensed mode
+        /// Feature is supported for version 17.06 or greater
+        /// </summary>
+        public static void UseDynabicMeteredAccount() {
+            //ExStart:UseDynabicMeteredAccount
+            // initialize Metered API and set-up credentials
+            new Metered().SetMeteredKey(publicKey, privateKey);
+            // do indexing and searching in licensed mode 
+            //ExEnd:UseDynabicMeteredAccount
         }
 
         /// <summary>
