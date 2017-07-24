@@ -1288,4 +1288,34 @@ Public Class Searching
     End Sub
 
 
+    ''' <summary>
+    ''' shows how to get search report
+    ''' Feature is supported in version 17.7 or greater
+    ''' </summary>
+    Public Shared Sub GetSearchReport()
+        'ExStart:GetSearchReport
+
+        Dim index As New Index(Utilities.indexPath)
+        index.AddToIndex(Utilities.documentsPath)
+        Dim query1 As String = "sample"
+        Dim param1 As New SearchParameters()
+        Dim query2 As String = "pause"
+        Dim param2 As New SearchParameters()
+        param2.UseHomophoneSearch = True
+        Dim query3 As String = "Sample"
+        Dim param3 As New SearchParameters()
+        param3.UseCaseSensitiveSearch = True
+        Dim results1 As SearchResults = index.Search(query1, param1)
+        Dim results2 As SearchResults = index.Search(query2, param2)
+        Dim results3 As SearchResults = index.Search(query3, param3)
+
+        ' Get searching report
+        Dim report As SearchingReport() = index.GetSearchingReport()
+
+        For Each record As SearchingReport In report
+            Console.WriteLine("Searching takes {0}, {1} results was found.", record.SearchingTime, record.ResultCount)
+        Next
+        'ExEnd:GetSearchReport
+    End Sub
+
 End Class

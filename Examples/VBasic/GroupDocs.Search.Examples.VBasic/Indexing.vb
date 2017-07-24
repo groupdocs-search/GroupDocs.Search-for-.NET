@@ -437,4 +437,26 @@ Public Class Indexing
 
 
 
+    ''' <summary>
+    ''' shows how to get indexing report
+    ''' Feature is supported in version 17.7 or greater
+    ''' </summary>
+    Public Shared Sub GetIndexReport()
+        'ExStart:GetIndexReport
+        Dim index As New Index(Utilities.indexPath)
+        index.AddToIndex(Utilities.documentsPath)
+
+        ' Get indexing report
+        Dim report As IndexingReport() = index.GetIndexingReport()
+
+        For Each record As IndexingReport In report
+            Console.WriteLine("Indexing takes {0}, index size: {1}.", record.IndexingTime, record.TotalIndexSize)
+        Next
+
+        'ExEnd:GetIndexReport
+    End Sub
+
+
+
+
 End Class

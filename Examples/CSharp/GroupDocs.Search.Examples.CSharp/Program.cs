@@ -11,10 +11,10 @@ namespace GroupDocs.Search_for_.NET
         static void Main(string[] args)
         {
             //Uncomment to apply license
-            Utilities.ApplyLicense();
+            //Utilities.ApplyLicense();
 
             //Use Dynabic.Metered account
-            Utilities.UseDynabicMeteredAccount();
+            //Utilities.UseDynabicMeteredAccount();
 
             #region Searching
             ////Simple search, search a word
@@ -131,6 +131,9 @@ namespace GroupDocs.Search_for_.NET
             //Searching.TableDiscreteFuncAsStepFunction();
             //Shows how to use step function in fuzzy search
             //Searching.UseStepFunctionInFuzzySearch("pause");
+
+            //get search report
+            //Searching.GetSearchReport();
             #endregion
 
             #region Indexing
@@ -179,6 +182,8 @@ namespace GroupDocs.Search_for_.NET
             //Indexing.AddDocsToOldIndexVersion();
 
             //Indexing.AddLetterstoDictionary();
+
+            //Indexing.GetIndexReport();
 
             #endregion
 
