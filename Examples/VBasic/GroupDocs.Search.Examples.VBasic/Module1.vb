@@ -106,6 +106,9 @@
         'Shows how to use step function in fuzzy search
         'Searching.UseStepFunctionInFuzzySearch("pause")
 
+        'Searching.GetSearchReport()
+            
+
 #End Region
 
 #Region "Indexing"
@@ -156,6 +159,7 @@
 
         'Indexing.AddDocsToOldIndexVersion()
 
+        'Indexing.GetIndexReport()
 #End Region
         Console.ReadKey()
 

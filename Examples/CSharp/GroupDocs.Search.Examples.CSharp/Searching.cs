@@ -1471,6 +1471,37 @@ namespace GroupDocs.Search_for_.NET
             }
             //ExEnd:UseStepFunctionInFuzzySearch
         }
+
+        /// <summary>
+        /// shows how to get search report
+        /// Feature is supported in version 17.7 or greater
+        /// </summary>
+        public static void GetSearchReport() {
+            //ExStart:GetSearchReport
+
+            Index index = new Index(Utilities.indexPath);
+            index.AddToIndex(Utilities.documentsPath);
+            string query1 = "sample";
+            SearchParameters param1= new SearchParameters();
+            string query2 = "pause";
+            SearchParameters param2 = new SearchParameters();
+            param2.UseHomophoneSearch = true;
+            string query3 = "Sample";
+            SearchParameters param3 = new SearchParameters();
+            param3.UseCaseSensitiveSearch = true;
+            SearchResults results1 = index.Search(query1,param1);
+            SearchResults results2 = index.Search(query2,param2);
+            SearchResults results3 = index.Search(query3,param3);
+
+            // Get searching report
+            SearchingReport[] report = index.GetSearchingReport();
+
+            foreach (SearchingReport record in report)
+            {
+                Console.WriteLine("Searching takes {0}, {1} results was found.", record.SearchingTime, record.ResultCount);
+            }
+            //ExEnd:GetSearchReport
+        }
     }
 
 }

@@ -436,6 +436,24 @@ namespace GroupDocs.Search_for_.NET
             //ExEnd:AddDocsToOldIndexVersion
         }
 
-        
+        /// <summary>
+        /// shows how to get indexing report
+        /// Feature is supported in version 17.7 or greater
+        /// </summary>
+        public static void GetIndexReport() {
+            //ExStart:GetIndexReport
+            Index index = new Index(Utilities.indexPath);
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Get indexing report
+            IndexingReport[] report = index.GetIndexingReport();
+
+            foreach (IndexingReport record in report)
+            {
+                Console.WriteLine("Indexing takes {0}, index size: {1}.", record.IndexingTime, record.TotalIndexSize);
+            }
+
+            //ExEnd:GetIndexReport
+        }
     }
 }
