@@ -11,7 +11,7 @@ namespace GroupDocs.Search_for_.NET
         static void Main(string[] args)
         {
             //Uncomment to apply license
-            //Utilities.ApplyLicense();
+            Utilities.ApplyLicense();
 
             //Use Dynabic.Metered account
             //Utilities.UseDynabicMeteredAccount();
@@ -28,6 +28,8 @@ namespace GroupDocs.Search_for_.NET
 
             ////Search results from misspelled search query
             //Searching.FuzzySearch("retur");
+            //Show only best results from a fuzzy search
+            Searching.FuzzySearchBestResults("return");
 
             ////Searching for any document in index that contain word "return" in file content
             //Searching.FacetedSearch("return");
@@ -85,6 +87,8 @@ namespace GroupDocs.Search_for_.NET
             //Searching.SpellingCorrectorUsage("strukture");
             //Manage spelling corrector
             //Searching.SpellingCorrectorManagement("strukture");
+            //Searh only best results
+            Searching.SpellingCorrectorBestResults("strukture");
 
 
             //Adding an alias to dictionary before search
@@ -134,6 +138,11 @@ namespace GroupDocs.Search_for_.NET
 
             //get search report
             //Searching.GetSearchReport();
+            Searching.LimitSearchReport();
+
+            //highlighted search results functionality
+            //Searching.GenerateHighlightedTextSearchResults("pause");
+            Searching.GenerateHighlightedTextResultsToFile("pause");
             #endregion
 
             #region Indexing
@@ -183,7 +192,15 @@ namespace GroupDocs.Search_for_.NET
 
             //Indexing.AddLetterstoDictionary();
 
+            Indexing.AccentInsensitiveIndexing();
+
             //Indexing.GetIndexReport();
+            Indexing.LimitIndexReport();
+
+            Indexing.SkipIndexingByFileName();
+            Indexing.SetFileEncoding();
+            Indexing.SetCustomTextExtractor();
+            Indexing.StatusChangedEventUsage();
 
             #endregion
 

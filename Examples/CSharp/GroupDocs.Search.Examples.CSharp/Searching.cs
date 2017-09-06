@@ -120,24 +120,58 @@ namespace GroupDocs.Search_for_.NET
             parameters.FuzzySearch.Enabled = true;
 
             // set low similarity level to search for less similar words and get more results
-            parameters.FuzzySearch.SimilarityLevel = 0.1;
+            //This method of setting similarity level has been marked obsolete from version 17.8.0 onwards
+            //parameters.FuzzySearch.SimilarityLevel = 0.1;
+
+            //From version 17.8 onwards,this is the way to set similarity level
+            parameters.FuzzySearch.FuzzyAlgorithm = new SimilarityLevel(0.1);
             SearchResults lessSimilarResults = index.Search(searchString, parameters);
-            Console.WriteLine("Results with less similarity level that is currently set to =" + parameters.FuzzySearch.SimilarityLevel);
+            Console.WriteLine("Results with less similarity level that is currently set to =" + parameters.FuzzySearch.FuzzyAlgorithm);
             foreach (DocumentResultInfo lessSimilarResultsDoc in lessSimilarResults)
             {
                 Console.WriteLine(lessSimilarResultsDoc.FileName + "\n");
             }
 
             // set high similarity level to search for more similar words and get less results
-            parameters.FuzzySearch.SimilarityLevel = 0.9;
+            parameters.FuzzySearch.FuzzyAlgorithm = new SimilarityLevel(0.1);
             SearchResults moreSimilarResults = index.Search(searchString, parameters);
 
-            Console.WriteLine("Results with high similarity level that is currently set to =" + parameters.FuzzySearch.SimilarityLevel);
+            Console.WriteLine("Results with high similarity level that is currently set to =" + parameters.FuzzySearch.FuzzyAlgorithm);
             foreach (DocumentResultInfo highSimilarityLevelDoc in moreSimilarResults)
             {
                 Console.WriteLine(highSimilarityLevelDoc.FileName + "\n");
             }
             //ExEnd:Fuzzysearch
+        }
+
+        /// <summary>
+        /// Shows how to show only best results from a fuzzy search
+        /// Feature is supported in version 17.8.0 of the API
+        /// </summary>
+        /// <param name="searchString"></param>
+        public static void FuzzySearchBestResults(string searchString)
+        {
+            //ExStart:FuzzySearchBestResults
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            // Creating index
+            Index index = new Index(indexFolder);
+
+            // Indexing
+            index.AddToIndex(documentsFolder);
+
+            SearchParameters searchParameters = new SearchParameters();
+            // Enabling fuzzy search
+            searchParameters.FuzzySearch.Enabled = true;
+            // Setting maximum mistake count to 5
+            searchParameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(5);
+            // Enabling OnlyBestResults option
+            searchParameters.FuzzySearch.OnlyBestResults = true;
+
+            // Searching
+            SearchResults searchResults = index.Search(searchString, searchParameters);
+            //ExEnd:FuzzySearchBestResults
         }
 
 
@@ -182,7 +216,7 @@ namespace GroupDocs.Search_for_.NET
             parameters.FuzzySearch.Enabled = true;
 
             // set low similarity level to search for less similar words and get more results
-            parameters.FuzzySearch.SimilarityLevel = 0.2;
+            parameters.FuzzySearch.FuzzyAlgorithm = new SimilarityLevel(0.2);
 
             SearchResults fuzzySearchResults = index.Search(searchString, parameters);
             foreach (DocumentResultInfo documentResultInfo in fuzzySearchResults)
@@ -337,9 +371,7 @@ namespace GroupDocs.Search_for_.NET
         public static void CaseSensitiveSearch(string caseSensitiveSearchQuery)
         {
             //ExStart:CaseSensitiveSearch
-            bool inMemoryIndex = false;
-            bool caseSensitive = true;
-            IndexingSettings settings = new IndexingSettings(inMemoryIndex, caseSensitive);
+            IndexingSettings settings = new IndexingSettings();
 
             // Create or load index
             Index index = new Index(Utilities.indexPath, settings);
@@ -547,7 +579,7 @@ namespace GroupDocs.Search_for_.NET
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        static void index_ErrorHappened(object sender, Search.Events.BaseIndexArg e)
+        static void index_ErrorHappened(object sender, Search.Events.BaseIndexEventArgs e)
         {
             // e.Message contains corresponding message 
             //if search option is not supported
@@ -834,7 +866,7 @@ namespace GroupDocs.Search_for_.NET
 
         // This event will appear for every password protected document
         //ExStart:EventForPasswordRequired
-        public static void index_PasswordRequired(object sender, PasswordRequiredArg e)
+        public static void index_PasswordRequired(object sender, PasswordRequiredEventArgs e)
         {
             if (e.DocumentFullName == Utilities.pathToPasswordProtectedFile)
             {
@@ -965,6 +997,36 @@ namespace GroupDocs.Search_for_.NET
             {
                 Console.WriteLine("No results found");
             }
+        }
+
+        /// <summary>
+        /// Shows how to get only best results in a spelling corrector search
+        /// Feature is supported in version 17.8.0 of the API
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void SpellingCorrectorBestResults(string searchQuery)
+        {
+            //ExStart:SpellingCorrectorBestResults
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            // Creating index
+            Index index = new Index(indexFolder);
+
+            // Indexing
+            index.AddToIndex(documentsFolder);
+
+            SearchParameters searchParameters = new SearchParameters();
+            // Enabling spelling correction
+            searchParameters.SpellingCorrector.Enabled = true;
+            // Setting maximum mistake count to 5
+            searchParameters.SpellingCorrector.MaxMistakeCount = 5;
+            // Enabling OnlyBestResults option
+            searchParameters.SpellingCorrector.OnlyBestResults = true;
+
+            // Searching
+            SearchResults searchResults = index.Search(searchQuery, searchParameters);
+            //ExEnd:SpellingCorrectorBestResults
         }
 
         #endregion
@@ -1236,7 +1298,7 @@ namespace GroupDocs.Search_for_.NET
             // Turning on fuzzy search feature
             searchParams.FuzzySearch.Enabled = true;
             // Turning on fuzzy search feature
-            searchParams.FuzzySearch.SimilarityLevel = 0.9;
+            searchParams.FuzzySearch.FuzzyAlgorithm = new SimilarityLevel(0.9);
 
             // Run searching with all search features
             SearchResults results = index.Search(searchQuery, searchParams);
@@ -1430,7 +1492,8 @@ namespace GroupDocs.Search_for_.NET
         /// Feature is supported in version 17.04 or greater
         /// </summary>
         /// <param name="searchQuery"></param>
-        public static void UseStepFunctionInFuzzySearch(string searchQuery) {
+        public static void UseStepFunctionInFuzzySearch(string searchQuery)
+        {
             //ExStart:UseStepFunctionInFuzzySearch
             string indexFolder = Utilities.indexPath;
             string documentsFolder = Utilities.documentsPath;
@@ -1476,22 +1539,23 @@ namespace GroupDocs.Search_for_.NET
         /// shows how to get search report
         /// Feature is supported in version 17.7 or greater
         /// </summary>
-        public static void GetSearchReport() {
+        public static void GetSearchReport()
+        {
             //ExStart:GetSearchReport
 
             Index index = new Index(Utilities.indexPath);
             index.AddToIndex(Utilities.documentsPath);
             string query1 = "sample";
-            SearchParameters param1= new SearchParameters();
+            SearchParameters param1 = new SearchParameters();
             string query2 = "pause";
             SearchParameters param2 = new SearchParameters();
             param2.UseHomophoneSearch = true;
             string query3 = "Sample";
             SearchParameters param3 = new SearchParameters();
             param3.UseCaseSensitiveSearch = true;
-            SearchResults results1 = index.Search(query1,param1);
-            SearchResults results2 = index.Search(query2,param2);
-            SearchResults results3 = index.Search(query3,param3);
+            SearchResults results1 = index.Search(query1, param1);
+            SearchResults results2 = index.Search(query2, param2);
+            SearchResults results3 = index.Search(query3, param3);
 
             // Get searching report
             SearchingReport[] report = index.GetSearchingReport();
@@ -1501,6 +1565,92 @@ namespace GroupDocs.Search_for_.NET
                 Console.WriteLine("Searching takes {0}, {1} results was found.", record.SearchingTime, record.ResultCount);
             }
             //ExEnd:GetSearchReport
+        }
+
+        /// <summary>
+        /// Shows how to limit searc report
+        /// Feature is supported in version 17.8.0 of the API
+        /// </summary>
+        public static void LimitSearchReport()
+        {
+            //ExStart:LimitSearchReport
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+
+            // Setting the maximum count of search reports
+            index.IndexingSettings.MaxSearchingReportCount = 3;
+
+            // Indexing
+            index.AddToIndex(documentsFolder);
+
+            // Running 100 of searches
+            for (int i = 0; i < 100; i++)
+            {
+                index.Search("Query");
+            }
+
+            // Getting search report. Array contains only 3 last records.
+            SearchingReport[] report = index.GetSearchingReport();
+
+            // This code writes to console information about 3 last searches only
+            foreach (SearchingReport record in report)
+            {
+                Console.WriteLine("Searching takes {0}, {1} results was found.", record.SearchingTime, record.ResultCount);
+            }
+            //ExEnd:LimitSearchReport
+        }
+
+        /// <summary>
+        /// Shows how to generate highlighted text search results
+        /// Feature is supported by version 17.8.0 of the API
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void GenerateHighlightedTextSearchResults(string searchQuery)
+        {
+            //ExStart:GenerateHighlightedTextSearchResults
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            // Creating index
+            Index index = new Index(indexFolder);
+
+            // Indexing
+            index.AddToIndex(documentsFolder);
+
+            // Searching
+            SearchResults results = index.Search(searchQuery);
+
+            // Generating HTML-formatted text for the first document in search results
+            string text = index.HighlightInText(results[0]);
+            //ExEnd:GenerateHighlightedTextSearchResults
+        }
+
+
+        /// <summary>
+        /// Shows how to generate highlighted text search results directly to a file
+        /// Feature is supported by version 17.8.0 of the API
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void GenerateHighlightedTextResultsToFile(string searchQuery)
+        {
+            //ExStart:GenerateHighlightedTextResultsFile
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            // Creating index
+            Index index = new Index(indexFolder);
+
+            // Indexing
+            index.AddToIndex(documentsFolder);
+
+            // Searching
+            SearchResults results = index.Search(searchQuery);
+
+            // Generating HTML-formatted text for the first document directly to the file 'HighlightedResults.html'
+            index.HighlightInText(Utilities.highlightedTextFile, results[0]);
+            //ExEnd:GenerateHighlightedTextResultsFile
         }
     }
 
