@@ -173,7 +173,7 @@ namespace GroupDocs.Search_for_.NET
             //ExEnd:GetIndexingProgressPercentage
         }
 
-        static void index_OperationProgressChanged(object sender, GroupDocs.Search.Events.OperationProgressArg e)
+        static void index_OperationProgressChanged(object sender, GroupDocs.Search.Events.OperationProgressEventArgs e)
         {
             Console.WriteLine("Current progress: {0}\n{1}", e.ProgressPercentage, e.Message); // event argument contains information about the current progress of operation
         }
@@ -423,7 +423,8 @@ namespace GroupDocs.Search_for_.NET
         /// <summary>
         /// adds documents to old version of the index
         /// </summary>
-        public static void AddDocsToOldIndexVersion() {
+        public static void AddDocsToOldIndexVersion()
+        {
             //ExStart:AddDocsToOldIndexVersion
             // This index should be exist and should have one of previous version
             string oldIndexFolder = Utilities.oldIndexFolderPath;
@@ -440,7 +441,8 @@ namespace GroupDocs.Search_for_.NET
         /// shows how to get indexing report
         /// Feature is supported in version 17.7 or greater
         /// </summary>
-        public static void GetIndexReport() {
+        public static void GetIndexReport()
+        {
             //ExStart:GetIndexReport
             Index index = new Index(Utilities.indexPath);
             index.AddToIndex(Utilities.documentsPath);
@@ -455,5 +457,179 @@ namespace GroupDocs.Search_for_.NET
 
             //ExEnd:GetIndexReport
         }
+
+        /// <summary>
+        /// Shows how to perform accent insensitive indexing
+        /// Feature is supported in version 17.8.0 of the API
+        /// </summary>
+        public static void AccentInsensitiveIndexing()
+        {
+            //ExStart:AccentInsensitiveIndexing
+            // Enabling replacements during indexing
+            var settings = new IndexingSettings();
+            settings.UseCharacterReplacements = true;
+
+            // Creating index
+            Index index = new Index(Utilities.indexPath, settings);
+
+            // Clearing dictionary of replacements
+            index.Dictionaries.CharacterReplacements.Clear();
+
+            // Adding replacements
+            KeyValuePair<char, char>[] replacements = new KeyValuePair<char, char>[]
+            {
+                new KeyValuePair<char, char>('Ṝ', 'R'),
+                new KeyValuePair<char, char>('ṝ', 'r'),
+            };
+            index.Dictionaries.CharacterReplacements.AddRange(replacements);
+
+            // Import replacements from file. Existing replacements are staying.
+            index.Dictionaries.CharacterReplacements.Import(Utilities.replacementsFileName);
+            // Export replacements to file
+            index.Dictionaries.CharacterReplacements.Export(Utilities.exportedReplacementsFileName);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+            //ExEnd:AccentInsensitiveIndexing
+        }
+
+        /// <summary>
+        /// Shows how to limit index report
+        /// Feature is supported in version 17.8.0 of the API
+        /// </summary>
+        public static void LimitIndexReport()
+        {
+            //ExStart:LimitIndexReport
+            Index index = new Index(Utilities.indexPath);
+
+            // Setting the maximum count of indexing reports
+            index.IndexingSettings.MaxIndexingReportCount = 2;
+
+            index.AddToIndex(Utilities.documentsPath);
+            index.AddToIndex(Utilities.documentsPath2);
+            index.AddToIndex(Utilities.documentsPath3);
+
+            // Getting indexing report. Array contains only 2 last records about indexing.
+            IndexingReport[] report = index.GetIndexingReport();
+
+            // Three indexing operations were performed, but only 2 last operations will be printed on the console in this example
+            foreach (IndexingReport record in report)
+            {
+                Console.WriteLine("Indexing takes {0}, index size: {1}.", record.IndexingTime, record.TotalIndexSize);
+            }
+            //ExEnd:LimitIndexReport
+        }
+
+        /// <summary>
+        /// Shows how to skip indexing by file name
+        /// Feature is supported in version 17.8.0 of the API
+        /// </summary>
+        public static void SkipIndexingByFileName()
+        {
+            //ExStart:SkipIndexingByFileName
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+
+            // Subscrubing to event FileIndexing where we skip all files which contain 'Started' in file name
+            index.FileIndexing += (sender, arg) =>
+            {
+                if (arg.DocumentFullName.Contains("Started"))
+                {
+                    arg.SkipIndexing = true;
+                }
+            };
+
+            index.AddToIndex(documentsFolder);
+            //ExEnd:SkipIndexingByFileName
+        }
+
+        /// <summary>
+        /// Shows how to set encoding for some files
+        /// Feature is supported in version 17.8.0
+        /// </summary>
+        public static void SetFileEncoding()
+        {
+            //ExStart:SetFileEncoding
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+
+            // Subscrubing to event FileIndexing where we set encoding for some files
+            index.FileIndexing += (sender, arg) =>
+            {
+                if (arg.DocumentFullName.Contains("not_english"))
+                {
+                    // Use GroupDocs.Search.Encodings constants to select encoding
+                    arg.Encoding = GroupDocs.Search.Encodings.windows_1251;
+                }
+            };
+
+            index.AddToIndex(documentsFolder);
+            //ExEnd:SetFileEncoding
+        }
+
+        /// <summary>
+        /// Shows how to use status changed event
+        /// Feature is supported in version 17.8.0
+        /// </summary>
+        public static void StatusChangedEventUsage()
+        {
+            //ExStart:StatusChangedEventUsage
+            string indexFolder = Utilities.indexPath;
+
+            // Creating index
+            Index index = new Index(indexFolder);
+
+            IndexStatus status;
+            // Subscribing to StatusChanged event
+            index.StatusChanged += (sender, args) =>
+            {
+                status = args.Status;
+            };
+            //ExEnd:StatusChangedEventUsage
+        }
+
+        /// <summary>
+        /// Shows how to set custom text extractor for some files
+        /// Feature is supported in version 17.8.0 of the API
+        /// </summary>
+        public static void SetCustomTextExtractor()
+        {
+            //ExStart:SetCustomTextExtractor
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+
+            // Subscrubing to event FileIndexing where we set custom text extractor for some files
+            index.FileIndexing += (sender, arg) =>
+            {
+                if (arg.DocumentFullName.Contains(".txt"))
+                {
+                    arg.CustomExtractor = new CustomTextExtractor();
+                }
+            };
+
+            index.AddToIndex(documentsFolder);
+            //ExEnd:SetCustomTextExtractor
+        }
+
+        //ExStart:CustomExtractorClass
+        class CustomTextExtractor : IFieldExtractor
+        {
+            public string[] Extensions { get { return new[] { ".txt" }; } }
+
+            public GroupDocs.Search.FieldInfo[] GetFields(string fileName)
+            {
+                System.Collections.Generic.List<GroupDocs.Search.FieldInfo> fields =
+                    new System.Collections.Generic.List<GroupDocs.Search.FieldInfo>();
+                fields.Add(new Search.FieldInfo("content", "extracted text"));
+                return fields.ToArray();
+            }
+        }
+        //ExEnd:CustomExtractorClass
     }
 }
