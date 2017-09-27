@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GroupDocs.Search;
 using GroupDocs.Search.Events;
-
+using System.Globalization;
 
 namespace GroupDocs.Search_for_.NET
 {
@@ -102,8 +102,14 @@ namespace GroupDocs.Search_for_.NET
         public static void CreateIndexInMemoryWithIndexSettings()
         {
             //ExStart:CreateIndexInMemoryWithIndexSettings
-            bool quickIndexing = true;
-            IndexingSettings settings = new IndexingSettings(quickIndexing);
+
+            //From version 17.9.0 quickIndexing has been marked obsolter and removed from the API
+            //These 2 lines of code are no more valid from version 17.9.0 onward
+            //bool quickIndexing = true;
+            //IndexingSettings settings = new IndexingSettings(quickIndexing);
+
+
+            IndexingSettings settings = new IndexingSettings();
 
             // Create index on disk
             Index index1 = new Index(settings);
@@ -590,6 +596,106 @@ namespace GroupDocs.Search_for_.NET
                 status = args.Status;
             };
             //ExEnd:StatusChangedEventUsage
+        }
+
+        /// <summary>
+        /// Shows how to cache text of Indexed Documents in index
+        /// Feature is supported in version 17.9.0 or greater of the API
+        /// </summary>
+        public static void CacheTextOfIndexedDocsInIndex()
+        {
+            //ExStart:CacheTextOfIndexedDocsInIndex
+            // Creating indexing settings object
+            IndexingSettings settings = new IndexingSettings();
+            // Enabling source document text caching with normal compression level
+            settings.TextStorageSettings = new TextStorageSettings(Compression.Normal);
+
+            // Creating index
+            Index index = new Index(Utilities.indexPath, settings);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+            //ExEnd:CacheTextOfIndexedDocsInIndex
+        }
+
+        /// <summary>
+        /// Shows how to filter files during indexing
+        /// Feature is supported in version 17.9.0 or greater of the API
+        /// </summary>
+        public static void FilterFilesDuringIndexing()
+        {
+            //ExStart:FilterFilesDuringIndexing
+            // Creating indexing settings object
+            IndexingSettings settings = new IndexingSettings();
+
+            // Creating filter that only passes files from 600 KB to 1 MB in length
+            DocumentFilter byLength = DocumentFilter.CreateFileLengthRange(614400, 1048576);
+
+            // Creating filter that only passes text files
+            DocumentFilter byExtension = DocumentFilter.CreateFileExtension(".txt");
+
+            // Creating composite filter that only passes text files from 600 KB to 1 MB in length
+            DocumentFilter compositeFilter = DocumentFilter.CreateConjunction(byLength, byExtension);
+
+            // Setting filter
+            settings.DocumentFilter = compositeFilter;
+
+            // Creating index
+            Index index = new Index(Utilities.indexPath, settings);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+            //ExEnd:FilterFilesDuringIndexing
+        }
+
+        /// <summary>
+        /// Shows how to sutomatically detect encoding in text files
+        /// Feature is supported in version 17.9.0 or greater
+        /// </summary>
+        public static void AutomaticDetectEncoding()
+        {
+            //ExStart:AutomaticDetectEncoding
+            // Creating indexing settings object
+            IndexingSettings settings = new IndexingSettings();
+            // Enabling automatic encoding detection
+            settings.AutoDetectEncoding = true;
+
+            // Creating index
+            Index index = new Index(Utilities.indexPath, settings);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+            //ExEnd:AutomaticDetectEncoding
+        }
+
+        /// <summary>
+        /// Shows how to detect encoding selectively for some text files
+        /// Feature is supported in version 17.9.0 or greater
+        /// </summary>
+        public static void DetectEncodingSelectively()
+        {
+            //ExStart:DetectEncodingSelectively
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Creating default encoding that is used when encoding was not detected
+            Encoding defaultEncoding = Encoding.GetEncoding(Encodings.Windows_1252);
+
+            // Subscribing to FileIndexing event
+            index.FileIndexing += (sender, args) =>
+            {
+                // Detecting encoding only for text files located in the 'documentsPath3' folder
+                string fileName = args.DocumentFullName;
+                if (fileName.EndsWith(".txt", true, CultureInfo.InvariantCulture) &&
+                    fileName.StartsWith(Utilities.documentsPath3))
+                {
+                    args.DetectEncoding(defaultEncoding, true);
+                }
+            };
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+            //ExEnd:DetectEncodingSelectively
         }
 
         /// <summary>

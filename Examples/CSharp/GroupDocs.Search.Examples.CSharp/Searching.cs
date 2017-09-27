@@ -100,6 +100,7 @@ namespace GroupDocs.Search_for_.NET
             //ExEnd:Regexsearch
         }
 
+        #region Fuzzy Searh
         /// <summary>
         /// Creates index, 
         /// Adds documents to index 
@@ -173,6 +174,79 @@ namespace GroupDocs.Search_for_.NET
             SearchResults searchResults = index.Search(searchString, searchParameters);
             //ExEnd:FuzzySearchBestResults
         }
+
+        /// <summary>
+        /// Shows how to use OnlyBestResultsRange in fuzzy search
+        /// Feature is supported by version 17.9.0 or greater
+        /// </summary>
+        /// <param name="searchString"></param>
+        public static void FuzzySearchOnlyBestResultsRange(string searchString)
+        {
+
+            //ExStart:FuzzySearchOnlyBestResultsRange
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchParameters searchParameters = new SearchParameters();
+            // Enabling fuzzy search
+            searchParameters.FuzzySearch.Enabled = true;
+            // Setting maximum mistake count to 10
+            searchParameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(10);
+            // Enabling OnlyBestResults option
+            searchParameters.FuzzySearch.OnlyBestResults = true;
+            // Setting best results range to 2
+            searchParameters.FuzzySearch.OnlyBestResultsRange = 2;
+
+            // Searching
+            SearchResults searchResults = index.Search(searchString, searchParameters);
+            // If there is no 'aaaaa' word in the index then
+            // there will be found 'aaaax' - 1 mistake, 'aaaxx' - 2 mistakes, 'aaxxx' - 3 mistakes
+            //ExEnd:FuzzySearchOnlyBestResultsRange
+            // List of found files
+            foreach (DocumentResultInfo documentResultInfo in searchResults)
+            {
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName);
+            }
+
+        }
+
+        /// <summary>
+        /// Shows how to consider transposition for Fuzzy search
+        /// Feature is supported by version 17.9.0 or greater
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void FuzzySearchConsiderTransposition(string searchQuery)
+        {
+            //ExStart:FuzzySearchConsiderTransposition
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchParameters searchParameters = new SearchParameters();
+            // Enabling fuzzy search
+            searchParameters.FuzzySearch.Enabled = true;
+            // Setting maximum mistake count to 1
+            searchParameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(1);
+            // Setting not to consider transposition as a single mistake
+            searchParameters.FuzzySearch.ConsiderTranspositions = false;
+
+            // Searching for word 'Mail'
+            SearchResults searchResults = index.Search(searchQuery, searchParameters);
+            // There will be found word 'mails' - 1 mistake, but will not be found word 'Mali' - 2 mistakes
+            //ExEnd:FuzzySearchConsiderTransposition
+
+            // List of found files
+            foreach (DocumentResultInfo documentResultInfo in searchResults)
+            {
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+            }
+        }
+        #endregion 
 
 
         /// <summary>
@@ -1029,6 +1103,77 @@ namespace GroupDocs.Search_for_.NET
             //ExEnd:SpellingCorrectorBestResults
         }
 
+        /// <summary>
+        /// Shows how to consider transposition in spelling corrector
+        /// Feature is supported in version 17.9.0 of the API
+        /// </summary>
+        public static void SpellingCorrectorConsiderTranspositions(string searchQuery)
+        {
+            //ExStart:SpellingCorrectorConsiderTranspositions
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchParameters searchParameters = new SearchParameters();
+            // Enabling spelling corrector
+            searchParameters.SpellingCorrector.Enabled = true;
+            // Setting maximum mistake count to 1
+            searchParameters.SpellingCorrector.MaxMistakeCount = 1;
+            // Setting not to consider transposition as a single mistake
+            searchParameters.SpellingCorrector.ConsiderTranspositions = false;
+
+            // Searching for word 'Mail'
+            SearchResults searchResults = index.Search(searchQuery, searchParameters);
+            // There will be found word 'mails' - 1 mistake, but will not be found word 'Mali' - 2 mistakes.
+            // Note that word 'mails' must be present both in the spelling corrector dictionary and in the index.
+            //ExEnd:SpellingCorrectorConsiderTranspositions
+
+            // List of found files
+            foreach (DocumentResultInfo documentResultInfo in searchResults)
+            {
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+            }
+        }
+
+        /// <summary>
+        /// Shows how to use OnlyBestResultsRange property
+        /// Feature is supported by version 17.9.0 or greater
+        /// </summary>
+        public static void SpellingCorrectorBestResultsRange(string searchQuery)
+        {
+            //ExStart:SpellingCorrectorBestResultsRange
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+
+            SearchParameters searchParameters = new SearchParameters();
+            // Enabling spelling correction
+            searchParameters.SpellingCorrector.Enabled = true;
+            // Setting maximum mistake count to 10
+            searchParameters.SpellingCorrector.MaxMistakeCount = 10;
+            // Enabling OnlyBestResults option
+            searchParameters.SpellingCorrector.OnlyBestResults = true;
+            // Setting best results range to 2
+            searchParameters.SpellingCorrector.OnlyBestResultsRange = 2;
+
+            // Searching
+            SearchResults searchResults = index.Search(searchQuery, searchParameters);
+            // If there is no 'aaaaa' word in the spelling corrector dictionary then
+            // there will be found 'aaaax' - 1 mistake, 'aaaxx' - 2 mistakes, 'aaxxx' - 3 mistakes
+            // if this last three words are presented both in the spelling corrector dictionary and in the index
+            //ExEnd:SpellingCorrectorBestResultsRange
+
+            // List of found files
+            foreach (DocumentResultInfo documentResultInfo in searchResults)
+            {
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+            }
+        }
+
         #endregion
 
         #region  Alias Dictionary functionality
@@ -1651,6 +1796,22 @@ namespace GroupDocs.Search_for_.NET
             // Generating HTML-formatted text for the first document directly to the file 'HighlightedResults.html'
             index.HighlightInText(Utilities.highlightedTextFile, results[0]);
             //ExEnd:GenerateHighlightedTextResultsFile
+        }
+
+        /// <summary>
+        /// Feature is supported in cversion 17.9.0 or greater
+        /// </summary>
+        public static void UsePublicConstantsAsFieldNames(string searchQuery) {
+            //ExStart:UsePublicConstantsAsFieldNames
+            string searchQuery2 = "test";
+            // creating index.
+            Index index = new Index(Utilities.indexPath);
+            index.AddToIndex(Utilities.documentsPath);
+
+            // searching using public constants as field names.
+            SearchResults results1 = index.Search(string.Format("{0}:{1}", FieldNames.Content, searchQuery));
+            SearchResults results2 = index.Search(string.Format("{0}:{1}", ExcelFieldNames.Subject, searchQuery2));
+            //ExEnd:UsePublicConstantsAsFieldNames
         }
     }
 

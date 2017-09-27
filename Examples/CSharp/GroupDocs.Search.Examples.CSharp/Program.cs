@@ -11,7 +11,7 @@ namespace GroupDocs.Search_for_.NET
         static void Main(string[] args)
         {
             //Uncomment to apply license
-            Utilities.ApplyLicense();
+            //Utilities.ApplyLicense();
 
             //Use Dynabic.Metered account
             //Utilities.UseDynabicMeteredAccount();
@@ -29,7 +29,11 @@ namespace GroupDocs.Search_for_.NET
             ////Search results from misspelled search query
             //Searching.FuzzySearch("retur");
             //Show only best results from a fuzzy search
-            Searching.FuzzySearchBestResults("return");
+            //Searching.FuzzySearchBestResults("return");
+            //Show only best results range from a fuzzy search
+            //Searching.FuzzySearchOnlyBestResultsRange("retur");
+            //Fuzzy search with consider transposition option
+            //Searching.FuzzySearchConsiderTransposition("return");
 
             ////Searching for any document in index that contain word "return" in file content
             //Searching.FacetedSearch("return");
@@ -88,7 +92,11 @@ namespace GroupDocs.Search_for_.NET
             //Manage spelling corrector
             //Searching.SpellingCorrectorManagement("strukture");
             //Searh only best results
-            Searching.SpellingCorrectorBestResults("strukture");
+            //Searching.SpellingCorrectorBestResults("strukture");
+            //Consider transpositions in Spelling corrector 
+            //Searching.SpellingCorrectorConsiderTranspositions("strukture");
+            //Shows how to use OnlyBestResultsRange property
+            //Searching.SpellingCorrectorBestResultsRange("strukture");
 
 
             //Adding an alias to dictionary before search
@@ -138,11 +146,11 @@ namespace GroupDocs.Search_for_.NET
 
             //get search report
             //Searching.GetSearchReport();
-            Searching.LimitSearchReport();
+            //Searching.LimitSearchReport();
 
             //highlighted search results functionality
             //Searching.GenerateHighlightedTextSearchResults("pause");
-            Searching.GenerateHighlightedTextResultsToFile("pause");
+            //Searching.GenerateHighlightedTextResultsToFile("pause");
             #endregion
 
             #region Indexing
@@ -192,16 +200,21 @@ namespace GroupDocs.Search_for_.NET
 
             //Indexing.AddLetterstoDictionary();
 
-            Indexing.AccentInsensitiveIndexing();
+            //Indexing.AccentInsensitiveIndexing();
 
             //Indexing.GetIndexReport();
-            Indexing.LimitIndexReport();
+            //Indexing.LimitIndexReport();
 
-            Indexing.SkipIndexingByFileName();
-            Indexing.SetFileEncoding();
-            Indexing.SetCustomTextExtractor();
-            Indexing.StatusChangedEventUsage();
+            //Indexing.SkipIndexingByFileName();
+            //Indexing.SetFileEncoding();
+            //Indexing.SetCustomTextExtractor();
+            //Indexing.StatusChangedEventUsage();
 
+            //Indexing.CacheTextOfIndexedDocsInIndex();
+            //Indexing.FilterFilesDuringIndexing();
+
+            //Indexing.AutomaticDetectEncoding();
+            //Indexing.DetectEncodingSelectively();
             #endregion
 
             Console.ReadKey();
