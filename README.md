@@ -23,5 +23,5 @@ Directory | Description
 + **Product Home:** [GroupDocs.Search for .NET](https://www.groupdocs.com/products/search/net)
 + **Download:** [Download GroupDocs.Search for .NET](https://downloads.groupdocs.com/search/net)
 + **Documentation:** [GroupDocs.Search for .NET Documentation](https://docs.groupdocs.com/display/searchnet/Getting+Started)
-+ **Forum:** [GroupDocs.Search for .NET Forum](http://groupdocs.com/Community/forums/groupdocs.search-product-family/52/showforum.aspx)
++ **Forum:** [GroupDocs.Search for .NET Forum](https://forum.groupdocs.com/c/search)
 + **Blog:** [GroupDocs.Search for .NET Blog](https://blog.groupdocs.com/category/groupdocs-search-product-family/)
