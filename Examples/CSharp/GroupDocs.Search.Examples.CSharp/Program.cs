@@ -11,7 +11,7 @@ namespace GroupDocs.Search_for_.NET
         static void Main(string[] args)
         {
             //Uncomment to apply license
-            //Utilities.ApplyLicense();
+            Utilities.ApplyLicense();
 
             //Use Dynabic.Metered account
             //Utilities.UseDynabicMeteredAccount();
@@ -188,6 +188,10 @@ namespace GroupDocs.Search_for_.NET
             //Indexing.IndexSeparateFiles();
 
             //Indexing.GetIndexingProgressPercentage();
+
+            Indexing.CheckNeedForIndexReload();
+            
+            Indexing.CallProgressChangedEvent();
 
             //Indexing.MergingIndexWithDeltaIndexes();
             //Indexing.MergingMultipleIndexes();
