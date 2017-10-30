@@ -608,6 +608,8 @@ namespace GroupDocs.Search_for_.NET
             // Creating indexing settings object
             IndexingSettings settings = new IndexingSettings();
             // Enabling source document text caching with normal compression level
+            // From version 17.10 onwards, value "High" has been added to GroupDocs.Search.Compression enumeration.
+            // So in order to cache document's text with high compression level use "Compression.High"
             settings.TextStorageSettings = new TextStorageSettings(Compression.Normal);
 
             // Creating index
@@ -696,6 +698,58 @@ namespace GroupDocs.Search_for_.NET
             // Indexing
             index.AddToIndex(Utilities.documentsPath);
             //ExEnd:DetectEncodingSelectively
+        }
+
+
+        /// <summary>
+        /// The API implements safe updating of index files to increase reliability
+        /// Below example shows how to check if index should be reloaded
+        /// Feature is supported in version 17.10 or greater
+        /// </summary>
+        public static void CheckNeedForIndexReload()
+        {
+            //ExStart:CheckNeedForIndexReload
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Checking the need to reload
+            if (index.IndexStatus == IndexStatus.Failed)
+            {
+                // Reloading index
+                index = new Index(Utilities.indexPath);
+            }
+            //ExEnd:CheckNeedForIndexReload
+        }
+
+        /// <summary>
+        /// Shows how to check skipped document count and 
+        /// how to get just processed document's name and processing result
+        /// Feature is supported in version 17.10 or greater
+        /// </summary>
+        public static void CallProgressChangedEvent()
+        {
+            //ExStart:CallProgressChangedEvent
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+            Index index = new Index(indexFolder);
+
+            index.OperationProgressChanged += (sender, args) =>
+            {
+                Console.WriteLine(
+                   "Document {0}\t{1}\nprocessed {2} of {3} (skipped: {4}\tsuccessfuly processed: {5}\nProgress: {6:F2}%\n",
+                   args.LastDocumentStatus,
+                   args.LastDocumentPath,
+                   args.SkippedDocumentsCount + args.ProcessedDocumentsCount,
+                   args.TotalDocumentsCount,
+                   args.SkippedDocumentsCount,
+                   args.ProcessedDocumentsCount,
+                   args.ProgressPercentage);
+            };
+            index.AddToIndex(documentsFolder);
+            //ExEnd:CallProgressChangedEvent
         }
 
         /// <summary>
