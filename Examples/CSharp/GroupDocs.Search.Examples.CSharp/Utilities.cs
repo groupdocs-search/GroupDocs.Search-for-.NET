@@ -23,7 +23,7 @@ namespace GroupDocs.Search_for_.NET
         public const string stopWordsFilePath = "../../../../Data/Dictionaries/MyStopWords.txt";
         public const string exportedStopWordsFilePath = "../../../../Data/Dictionaries/MyExportedStopWords.txt";
         public const string mySynonymFilePath = "../../../../Data/Dictionaries/mySynonyms.txt";
-        public const string licensePath = "D:/Aspose Projects/License/GroupDocs.Total.lic";
+        public const string licensePath = "E:/Groupdocs/Licenses/GroupDocs.Total.lic";
         public const string pathToPstFile = "D:/MyOutlookDataFile.pst";
         public const string pathToPasswordProtectedFile =  "../../../../Data/Documents/Password Protected Document.docx";
         public const string pathToPasswordProtectedFile2 = "../../../../Data/Documents/Password Protected Document2.docx";
