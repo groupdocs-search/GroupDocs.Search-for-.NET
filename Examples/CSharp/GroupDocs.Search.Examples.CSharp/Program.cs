@@ -189,9 +189,9 @@ namespace GroupDocs.Search_for_.NET
 
             //Indexing.GetIndexingProgressPercentage();
 
-            Indexing.CheckNeedForIndexReload();
-            
-            Indexing.CallProgressChangedEvent();
+            //Indexing.CheckNeedForIndexReload();
+
+            //Indexing.CallProgressChangedEvent();
 
             //Indexing.MergingIndexWithDeltaIndexes();
             //Indexing.MergingMultipleIndexes();
@@ -219,6 +219,7 @@ namespace GroupDocs.Search_for_.NET
 
             //Indexing.AutomaticDetectEncoding();
             //Indexing.DetectEncodingSelectively();
+            Indexing.IndexMetaData();
             #endregion
 
             Console.ReadKey();

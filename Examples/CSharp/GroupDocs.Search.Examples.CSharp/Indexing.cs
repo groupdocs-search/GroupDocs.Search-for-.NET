@@ -259,6 +259,21 @@ namespace GroupDocs.Search_for_.NET
             //ExEnd: PreventUnnecessaryFileIndex
         }
 
+        internal static void IndexMetaData()
+        {
+            //ExStart: IndexMetaData
+            // Creating indexing settings object
+            IndexingSettings settings = new IndexingSettings();
+            settings.IndexType = IndexType.MetadataIndex;
+
+            // Creating index
+            Index index = new Index(Utilities.indexPath, settings);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+            //ExEnd: IndexMetaData
+        }
+
         /// <summary>
         /// Tracks all the changes in the index folder
         /// </summary>
