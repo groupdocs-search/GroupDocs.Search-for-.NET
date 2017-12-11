@@ -15,7 +15,7 @@ namespace GroupDocs.Search_for_.NET
 
             //Use Dynabic.Metered account
             //Utilities.UseDynabicMeteredAccount();
-
+            Searching.ExactPhraseSearchWithHighlightedResults();
             #region Searching
             ////Simple search, search a word
             //Searching.SimpleSearch("tools");
