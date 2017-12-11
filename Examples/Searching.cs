@@ -11,6 +11,7 @@ namespace GroupDocs.Search_for_.NET
 {
     class Searching
     {
+
         /// <summary>
         /// Creates index, adds documents to index and search string in index
         /// </summary>
@@ -101,15 +102,7 @@ namespace GroupDocs.Search_for_.NET
         }
 
         #region Fuzzy Searh
-        /// <summary>
-        /// Creates index, 
-        /// Adds documents to index 
-        /// Enable fuzzy search
-        /// Set similarity level from 0.0 to 1.0
-        /// Do Fuzzy search
-        /// </summary>
-        /// <param name="searchString">Misspelled string</param>
-        /// 
+
         public static void FuzzySearch(string searchString)
         {
             //ExStart:Fuzzysearch
@@ -246,8 +239,92 @@ namespace GroupDocs.Search_for_.NET
                 Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
         }
-        #endregion 
 
+        /// <summary>
+        /// Shows how to perform the exact phrase search and get results
+        /// </summary> 
+        public static void FuzzySearchWithExactPhraseSearching()
+        {
+            //ExStart:FuzzySearchWithExactPhraseSearching_17.12
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Creating search parameters object
+            SearchParameters searchParameters = new SearchParameters();
+            // Enabling fuzzy search
+            searchParameters.FuzzySearch.Enabled = true;
+            // Setting maximum mistake count to 1
+            searchParameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(1);
+
+            // Searching for phrase 'cumulative distribution function' or phrase 'cumulative density function'
+            SearchResults searchResults = index.Search("\"cumulative distribution function\" OR \"cumulative density function\"", searchParameters);
+
+            // Displaying results
+            foreach (DocumentResultInfo document in searchResults)
+            {
+                Console.WriteLine(document.FileName);
+                foreach (DetailedResultInfo field in document.DetailedResults)
+                {
+                    Console.WriteLine(field.FieldName);
+                    foreach (string[] phrase in field.TermSequences)
+                    {
+                        Console.Write("\t");
+                        foreach (string word in phrase)
+                        {
+                            Console.Write(word + " ");
+                        }
+                        Console.WriteLine();
+                    }
+                }
+            }
+
+            // The results may contain the following phrases:
+            // cumulative distribution function
+            // cumulative distribution functions
+            // cumulative density function
+            // cumulative density functions
+
+            //ExEnd:FuzzySearchWithExactPhraseSearching_17.12
+        }
+
+        /// <summary>
+        /// Shows how to perform search and sort results by relevance
+        /// </summary> 
+        public static void SearchAndSortResultsByRelevance()
+        {
+            //ExStart:SearchAndSortResultsByRelevance_17.12
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Creating search parameters object
+            SearchParameters searchParameters = new SearchParameters();
+            // Enabling fuzzy search
+            searchParameters.FuzzySearch.Enabled = true;
+            // Setting maximum mistake count to 1
+            searchParameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(1);
+
+            // Searching for term 'database'
+            // Using fuzzy search allows to find the plural form of the term 'databases'
+            SearchResults searchResults = index.Search("database", searchParameters);
+
+            // Creating and filling array for sorting
+            DocumentResultInfo[] array = new DocumentResultInfo[searchResults.Count];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = searchResults[i];
+            }
+
+            // Sorting results in array by relevance in descending order
+            Array.Sort(array, new Comparer());
+            //ExEnd:SearchAndSortResultsByRelevance_17.12
+        }
+        #endregion 
 
         /// <summary>
         /// Creates index, adds documents to index and do faceted search
@@ -436,6 +513,25 @@ namespace GroupDocs.Search_for_.NET
                 Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
             //ExEnd:ExactPhraseSearch
+        }
+
+        /// <summary>
+        /// Shows how to generate text with highlighted results of exact phrase search
+        /// </summary> 
+        public static void ExactPhraseSearchWithHighlightedResults()
+        {
+            //ExStart:ExactPhraseSearchWithHighlightedResults_17.12
+            // Create or load index
+            Index index = new Index(Utilities.indexPath, true);
+
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Searching for phrase 'cumulative distribution function'
+            SearchResults results = index.Search("\"cumulative distribution function\"");
+
+            // Generating HTML-formatted text for the first document directly to the file i.e. 'HighlightedResults.html'
+            index.HighlightInText(Utilities.highlightedTextFilePath, results[0]);
+            //ExEnd:ExactPhraseSearchWithHighlightedResults_17.12
         }
 
         /// <summary>
@@ -1794,14 +1890,15 @@ namespace GroupDocs.Search_for_.NET
             SearchResults results = index.Search(searchQuery);
 
             // Generating HTML-formatted text for the first document directly to the file 'HighlightedResults.html'
-            index.HighlightInText(Utilities.highlightedTextFile, results[0]);
+            index.HighlightInText(Utilities.highlightedTextFilePath, results[0]);
             //ExEnd:GenerateHighlightedTextResultsFile
         }
 
         /// <summary>
         /// Feature is supported in cversion 17.9.0 or greater
         /// </summary>
-        public static void UsePublicConstantsAsFieldNames(string searchQuery) {
+        public static void UsePublicConstantsAsFieldNames(string searchQuery)
+        {
             //ExStart:UsePublicConstantsAsFieldNames
             string searchQuery2 = "test";
             // creating index.
