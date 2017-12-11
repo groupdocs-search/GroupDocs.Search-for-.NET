@@ -24,7 +24,7 @@ GroupDocs.Search for .NET is a UI-Less back-end API. In order to seek implementa
 * Open Engine folder and Licensing.cs
 * Set license file path in fullPathToLicense variable
 
-### Add Missing APIs
+# Add Missing APIs
 
 Follow the given steps to rebuild the solution which would automatically add missing references:
 * Extract the downloaded project and open the solution file in Visual Studio
