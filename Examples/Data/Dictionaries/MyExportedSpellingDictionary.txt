@@ -1,0 +1,7 @@
+building	0
+house	0
+newspaper	571
+opera	571
+rail	0
+sensibility	571
+structure	0

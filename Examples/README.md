@@ -1,6 +1,6 @@
-##GroupDocs.Search for .NET Examples
+## GroupDocs.Search for .NET Examples
 
-This package contains C# and VB.NET Example Projects for [GroupDocs.Search for .NET](#) and data folder with sample documents used in the examples.
+This package contains C# Example Projects for [GroupDocs.Search for .NET](#) and data folder with sample documents used in the examples.
 
 <p align="center">
   <a title="Download complete GroupDocs.Search for .NET Example source code" href="https://codeload.github.com/groupdocs-search/GroupDocs.Search-for-.NET/zip/master">

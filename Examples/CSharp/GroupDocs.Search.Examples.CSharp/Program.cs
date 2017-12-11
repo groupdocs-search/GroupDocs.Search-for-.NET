@@ -11,7 +11,10 @@ namespace GroupDocs.Search_for_.NET
         static void Main(string[] args)
         {
             //Uncomment to apply license
-            //Utilities.ApplyLicense();
+            Utilities.ApplyLicense();
+
+            //Use Dynabic.Metered account
+            //Utilities.UseDynabicMeteredAccount();
 
             #region Searching
             ////Simple search, search a word
@@ -19,12 +22,18 @@ namespace GroupDocs.Search_for_.NET
 
             ////Search term1 and term2 or term3 but not term4
             //Searching.BooleanSearch("(hail AND hydra)","(hydra NOT omega)");
-            
+
             ////Search for documents that contain a relevant word and term1, an email address or term2
             //Searching.RegexSearch("^.*turn.*$", @"dropbox ^[A-Z0-9._%+\-|A-Z0-9._%+-]+@++[A-Z0-9.\-|A-Z0-9.-]+\.[A-Z|A-Z]{2,}$ folder");
 
             ////Search results from misspelled search query
             //Searching.FuzzySearch("retur");
+            //Show only best results from a fuzzy search
+            //Searching.FuzzySearchBestResults("return");
+            //Show only best results range from a fuzzy search
+            //Searching.FuzzySearchOnlyBestResultsRange("retur");
+            //Fuzzy search with consider transposition option
+            //Searching.FuzzySearchConsiderTransposition("return");
 
             ////Searching for any document in index that contain word "return" in file content
             //Searching.FacetedSearch("return");
@@ -59,6 +68,89 @@ namespace GroupDocs.Search_for_.NET
 
             //Get list of the words in found documents that matched the search query
             //Searching.GetMatchingWordsInFuzzySearchResult("coat");
+
+            //Performs a Case sensitive search 
+            //Searching.CaseSensitiveSearch("COAT");
+
+            //Manages Synonyms search
+            //Searching.ManageSynonyms("big");
+
+            //Manages Stop Word dictionary
+            //Searching.ManageStopWords("three");
+            //Searches while disabling use of stop words
+            //Searching.DisableStopWords("coat");
+
+            //Searching Password protected document using Event arguments
+            //Searching.SearchingPasswordProtectedDocsUsingEvent("sample");
+            //Searching Password protected document using index.Dictionary.DocumentPasswords property
+            //Searching.SearchingPasswordProtectedDocsUsingProperty("sample");
+            //Searching Password protected document using both Event arguments and index.Dictionary.DocumentPasswords property
+            //Searching.SearchingPasswordProtectedDocs("sample");
+
+            //Search using Spelling Corrector
+            //Searching.SpellingCorrectorUsage("strukture");
+            //Manage spelling corrector
+            //Searching.SpellingCorrectorManagement("strukture");
+            //Searh only best results
+            //Searching.SpellingCorrectorBestResults("strukture");
+            //Consider transpositions in Spelling corrector 
+            //Searching.SpellingCorrectorConsiderTranspositions("strukture");
+            //Shows how to use OnlyBestResultsRange property
+            //Searching.SpellingCorrectorBestResultsRange("strukture");
+
+
+            //Adding an alias to dictionary before search
+            //Searching.AddingAliasToDictionaryBeforeSearch("@s");
+            //Using alias dictionary
+            //Searching.UseAliasDictionary("@s");
+
+            //Using homophone search
+            //Searching.HomophoneSearchUsage("pause");
+            //Manage homephone dictionary
+            //Searching.HomophoneDictionaryManagement("braise");
+
+            //Search using Keyboard Layout Corrector
+            //Use word "pause" in Russian keyboard layout as a search query
+            //Searching.KeyboardLayoutCorrectorUsage("зфгыу");
+
+            // Query with alias, ordinary term, regex and term for spelling corrector
+            //Searching.UsingAllSearchFeatures("@alias term ^reg.ex зфгыу");
+
+            //Inherits Password Dictionary from IEnumerable to make it like other dictionaries
+            //Searching.InheritPasswordDictionary();
+
+            //Performs numeric range search, here we are passing numeric range query for searching any number in range beetween 13 and 42
+            //Searching.NumericRangeSearch("13~~42");
+
+            //Performs date range search
+            //This query will find all dates between beginning of 2000 year and ending of 2017 in any documents fields // (content, creation date, modification date and other). 
+            //Searching.DateRangeSearch("daterange(1.1.2015~~12.31.2017)");
+            //Performs date range search with faceted search
+            //This query will find all dates between beginning of 2000 year and ending of 2017 only in documents content. 
+            //Searching.DateRangeWithFacetedSearch("content:daterange(1.1.2015~~12.31.2017)");
+
+            //Shows how to limit the number of search results
+            //Searching.LimitSearchResults("pause");
+
+            //Shows how to use max mistake count function as fuzzy algorithm
+            //Searching.UseMaxMistakeCountFuncAsFuzzyAlgorithm("paus");
+            //Shows how to use constant value of max mistake count for each term in query regardless of its length
+            //Searching.UseConstMaxMistakeCount("paose");
+            //Shows how to use similarity level object as fuzzy algorithm
+            //Searching.UseSimilarityLevelObjAsFuzzyAlgo("paose");
+
+            //shows how to use table discrete function as step function
+            //Searching.TableDiscreteFuncAsStepFunction();
+            //Shows how to use step function in fuzzy search
+            //Searching.UseStepFunctionInFuzzySearch("pause");
+
+            //get search report
+            //Searching.GetSearchReport();
+            //Searching.LimitSearchReport();
+
+            //highlighted search results functionality
+            //Searching.GenerateHighlightedTextSearchResults("pause");
+            //Searching.GenerateHighlightedTextResultsToFile("pause");
             #endregion
 
             #region Indexing
@@ -97,6 +189,37 @@ namespace GroupDocs.Search_for_.NET
 
             //Indexing.GetIndexingProgressPercentage();
 
+            //Indexing.CheckNeedForIndexReload();
+
+            //Indexing.CallProgressChangedEvent();
+
+            //Indexing.MergingIndexWithDeltaIndexes();
+            //Indexing.MergingMultipleIndexes();
+            //Indexing.MergingCurrentIndexWithIndexRepository();
+            //Indexing.MergingIndexWithDeltaIndexesAsync();
+            //Indexing.MergingMultipleIndexesAsync();
+            //Indexing.MergingCurrentIndexWithIndexRepositoryAsync();
+
+            //Indexing.AddDocsToOldIndexVersion();
+
+            //Indexing.AddLetterstoDictionary();
+
+            //Indexing.AccentInsensitiveIndexing();
+
+            //Indexing.GetIndexReport();
+            //Indexing.LimitIndexReport();
+
+            //Indexing.SkipIndexingByFileName();
+            //Indexing.SetFileEncoding();
+            //Indexing.SetCustomTextExtractor();
+            //Indexing.StatusChangedEventUsage();
+
+            //Indexing.CacheTextOfIndexedDocsInIndex();
+            //Indexing.FilterFilesDuringIndexing();
+
+            //Indexing.AutomaticDetectEncoding();
+            //Indexing.DetectEncodingSelectively();
+            Indexing.IndexMetaData();
             #endregion
 
             Console.ReadKey();

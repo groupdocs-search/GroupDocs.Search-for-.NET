@@ -38,7 +38,7 @@ namespace GroupDocs.Search_for_.NET
             fields[7] = new FieldInfo("MailArrivalTime", "11:30");
             fields[8] = new FieldInfo("MailMessageFlags", "Message flags");
 
-            result[0] = new ExtractedItemInfo(DocumentType.OutlookEmailMessage, "EntryIdString", fields);
+            result[0] = new ExtractedItemInfo(DocumentType.OutlookEmailMessage, "EntryIdString", fileName ,fields);
 
             return result;
         }
