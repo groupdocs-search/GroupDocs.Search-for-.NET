@@ -1,9 +1,8 @@
-##GroupDocs.Search for .NET
+## GroupDocs.Search for .NET
 
-This package contains [Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Examples) and [Showcases](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI) for [GroupDocs.Search for .NET](http://groupdocs.com/dot-net/document-search-library) that will help you in understanding the API's working and writing your own applications.
+This package contains [Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Examples) and [Showcases](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI) for [GroupDocs.Search for .NET](https://products.groupdocs.com/search/net) that will help you in understanding the API's working and writing your own applications.
 
 GroupDocs.Search for .NET API helps user to perform various search operations. It extracts text and metadata from different file formats and performs search over all user documents. In order to make search process fast and accurate, index is created and documents are added to it. Hence all the search queries or advanced searches are performed over the index.
-Example project is compatible with **GroupDocs.Search for .NET 1.1.0**.
 
 <p align="center">
 
@@ -14,14 +13,14 @@ Example project is compatible with **GroupDocs.Search for .NET 1.1.0**.
 
 Directory | Description
 --------- | -----------
-[Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Examples)  | Contains the package of all .NET examples (C# & VB) and sample files that will help you learn how to use product features. 
-[Showcases](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI)  | The UI project is an efficient ASP.NET MVC Application that demonstrates the core functionalities provided by GroupDocs.Search for .NET
+[Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Examples)  | Contains the package of all .NET examples and sample files that will help you learn how to use product features. 
+[Showcases](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI)  | The UI project is an efficient ASP.NET MVC Application that demonstrates the core functionalities provided by GroupDocs.Search for .NET.
 
 ## Resources
 
 + **Website:** [www.groupdocs.com](http://www.groupdocs.com)
-+ **Product Home:** [GroupDocs.Search for .NET](http://groupdocs.com/dot-net/document-search-api)
-+ **Download:** [Download GroupDocs.Search for .NET](http://groupdocs.com/Community/files/8/.net-libraries/groupdocs_search_for_.net/default.aspx)
-+ **Documentation:** [GroupDocs.Search for .NET Documentation](http://www.groupdocs.com/docs/display/searchnet/Getting+Started)
-+ **Forum:** [GroupDocs.Search for .NET Forum](http://groupdocs.com/Community/forums/groupdocs.search-product-family/52/showforum.aspx)
-+ **Blog:** [GroupDocs.Search for .NET Blog](#)
++ **Product Home:** [GroupDocs.Search for .NET](https://products.groupdocs.com/search/net)
++ **Download:** [Download GroupDocs.Search for .NET](https://downloads.groupdocs.com/search/net)
++ **Documentation:** [GroupDocs.Search for .NET Documentation](https://docs.groupdocs.com/display/searchnet/Getting+Started)
++ **Forum:** [GroupDocs.Search for .NET Forum](https://forum.groupdocs.com/c/search)
++ **Blog:** [GroupDocs.Search for .NET Blog](https://blog.groupdocs.com/category/groupdocs-search-product-family/)
