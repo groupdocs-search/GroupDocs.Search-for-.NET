@@ -15,7 +15,7 @@ namespace GroupDocs.Search_for_.NET
 
             //Use Dynabic.Metered account
             //Utilities.UseDynabicMeteredAccount();
-            Searching.ExactPhraseSearchWithHighlightedResults();
+            //Searching.ExactPhraseSearchWithHighlightedResults();
             #region Searching
             ////Simple search, search a word
             //Searching.SimpleSearch("tools");
@@ -28,12 +28,22 @@ namespace GroupDocs.Search_for_.NET
 
             ////Search results from misspelled search query
             //Searching.FuzzySearch("retur");
+
             //Show only best results from a fuzzy search
             //Searching.FuzzySearchBestResults("return");
             //Show only best results range from a fuzzy search
             //Searching.FuzzySearchOnlyBestResultsRange("retur");
             //Fuzzy search with consider transposition option
             //Searching.FuzzySearchConsiderTransposition("return");
+
+            //Cancel Search Operation 
+            //Searching.CancelSearchOperation("is");
+
+            //Cancel Search Operation with time limitation
+            //Searching.CancelSearchOperationWithTimeLimitation("is");
+
+            //Search with Query as a parameter 
+            //Searching.SearchWithQuery();
 
             ////Searching for any document in index that contain word "return" in file content
             //Searching.FacetedSearch("return");
@@ -126,8 +136,18 @@ namespace GroupDocs.Search_for_.NET
             //This query will find all dates between beginning of 2000 year and ending of 2017 in any documents fields // (content, creation date, modification date and other). 
             //Searching.DateRangeSearch("daterange(1.1.2015~~12.31.2017)");
             //Performs date range search with faceted search
+
             //This query will find all dates between beginning of 2000 year and ending of 2017 only in documents content. 
-            //Searching.DateRangeWithFacetedSearch("content:daterange(1.1.2015~~12.31.2017)");
+            //Searching.DateRangeWithFacetedSearch("content:daterange(1.1.2000~~12.31.2017)");
+
+            //This method allows searchigg with date range provided in ISO 8601 format
+            //Searching.DateRangeISO8601Search("content:daterange(2000-10-25~~2017-01-03)");
+
+            //This method provides the ability to set a collection of date formats for date range search.
+            //Searching.DateRangeCollectionSearch("content:daterange(2000-10-25~~2017-01-03)");
+
+            //This method is implemented to make it possible to search phrase with wildcards.
+            Searching.WildCardSearch();
 
             //Shows how to limit the number of search results
             //Searching.LimitSearchResults("pause");
