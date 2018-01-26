@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GroupDocs.Search_for_.NET
@@ -61,6 +62,160 @@ namespace GroupDocs.Search_for_.NET
                 Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", secondTerm, documentResultInfo.HitCount, documentResultInfo.FileName);
             }
             //ExEnd:BooleanSearch
+        }
+        /// <summary>
+        /// Allows user to search with queries as a parameter
+        /// Feature is supported in version 18.1 of the API
+        /// </summary>
+        public static void SearchWithQuery()
+        {
+            //ExStart:SearchWithQuery
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            // Creating index
+            Index index = new Index(indexFolder);
+
+            // Indexing
+            index.AddToIndex(documentsFolder);
+
+            // Creating subquery 1
+            SearchQuery subquery1 = SearchQuery.CreateWordQuery("is");
+            subquery1.SearchParameters = new SearchParameters();
+            subquery1.SearchParameters.FuzzySearch.Enabled = true;
+            subquery1.SearchParameters.FuzzySearch.ConsiderTranspositions = true;
+            subquery1.SearchParameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(3);
+
+            // Creating subquery 2
+            SearchQuery subquery2 = SearchQuery.CreateNumericRangeQuery(1, 1000000);
+
+            // Creating subquery 3
+            SearchQuery subquery3 = SearchQuery.CreateRegexQuery(@"(.)\1");
+
+            // Combining subqueries into one query
+            SearchQuery query = SearchQuery.CreatePhraseSearchQuery(subquery1, subquery2, subquery3);
+
+            // Creating search parameters object with increased capacity of results
+            SearchParameters searchParameters = new SearchParameters();
+            searchParameters.MaxHitCountPerTerm = 1000000;
+            searchParameters.MaxTotalHitCount = 10000000;
+
+            // Searching
+            SearchResults searchResults = index.Search(query, searchParameters);
+            if (searchResults.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in searchResults)
+                {
+                    Console.WriteLine("Query has {0} hit count in file: {1}", documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+
+            // The results may contain the following word sequences:
+            // futile 12 blessed
+            // father 7 excellent
+            // tyre 8 assyria
+            // return 147 229
+            //ExEnd:SearchWithQuery
+        }
+
+        /// <summary>
+        /// Cancels Search Operation with time limitation
+        /// Feature is supported in version 18.1 of the API
+        /// </summary>
+        /// <param name="searchString"></param>
+        public static void CancelSearchOperationWithTimeLimitation(string searchString)
+        {
+            //ExStart:CancelSearchOperationWithTimeLimitation
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            // Creating index
+            Index index = new Index(indexFolder);
+
+            // Indexing
+            index.AddToIndex(documentsFolder);
+
+            // Creating cancellation object
+            Cancellation cancellation = new Cancellation();
+            // Cancelling after 1 second of searching
+            cancellation.CancelAfter(1000);
+
+            // Creating search parameters object
+            SearchParameters searchParameters = new SearchParameters();
+            searchParameters.FuzzySearch.Enabled = true;
+            searchParameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(3);
+
+            // Searching
+            SearchResults searchResults = index.Search(searchString, searchParameters, cancellation);
+            if (searchResults.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in searchResults)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+            //ExEnd:CancelSearchOperationWithTimeLimitation
+        }
+
+        /// <summary>
+        /// Cancels Search Operation
+        /// Feature is supported in version 18.1 of the API
+        /// </summary>
+        /// <param name="searchString"></param>
+        public static void CancelSearchOperation(string searchString)
+        {
+
+            //ExStart:CancelSearchOperation
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            // Creating index
+            Index index = new Index(indexFolder);
+
+            // Indexing
+            index.AddToIndex(documentsFolder);
+
+            // Creating cancellation object
+            Cancellation cancellation = new Cancellation();
+            // Imitating cancelling by request
+            Thread thread = new Thread(() =>
+            {
+                // Cancelling after 1 second of searching
+                Thread.Sleep(100000);
+                cancellation.Cancel();
+            });
+            thread.Start();
+
+            // Creating search parameters object
+            SearchParameters searchParameters = new SearchParameters();
+            searchParameters.FuzzySearch.Enabled = true;
+            searchParameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(3);
+
+            // Searching
+            SearchResults searchResults = index.Search(searchString, searchParameters);
+            if (searchResults.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in searchResults)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchString, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+            //ExEnd:CancelSearchOperation
         }
 
         /// <summary>
@@ -628,7 +783,141 @@ namespace GroupDocs.Search_for_.NET
             }
             //ExEnd:DateRangeSearch
         }
+        /// <summary>
+        /// Shows how to use date range search in ISO 8601 format
+        /// This feature is supported by version 18.1 or greater
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void DateRangeISO8601Search(string searchQuery)
+        {
+            //ExStart:DateRangeISO8601Search
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
 
+            Index index = new Index(indexFolder);
+            index.AddToIndex(documentsFolder);
+
+            SearchResults searchResults = index.Search(searchQuery);
+            if (searchResults.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in searchResults)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+            //ExEnd:DateRangeISO8601Search
+        }
+        /// <summary>
+        /// This method is implemented to make it possible to search phrase with wildcards.
+        /// This feature is supported by version 18.1 or greater
+        /// </summary>
+    
+        public static void WildCardSearch()
+        {
+            //ExStart:WildCardSearch
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+
+            Index index = new Index(indexFolder);
+            index.AddToIndex(documentsFolder);
+
+            // Creating subquery of date range search
+            SearchQuery subquery1 = SearchQuery.CreateDateRangeQuery(new DateTime(2011, 6, 17), new DateTime(2013, 1, 1));
+
+            // Creating subquery of wildcard with number of missed words from 0 to 2
+            SearchQuery subquery2 = SearchQuery.CreateWildcardQuery(0, 2);
+
+            // Creating subquery of simple word
+            SearchQuery subquery3 = SearchQuery.CreateWordQuery("birth");
+            subquery3.SearchParameters = new SearchParameters();
+            subquery3.SearchParameters.FuzzySearch.Enabled = true;
+            subquery3.SearchParameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(1);
+
+            // Combining subqueries into one query
+            SearchQuery query = SearchQuery.CreatePhraseSearchQuery(subquery1, subquery2, subquery3);
+
+            // Creating search parameters object with increased capacity of results
+            SearchParameters searchParameters = new SearchParameters();
+            searchParameters.MaxHitCountPerTerm = 1000000;
+            searchParameters.MaxTotalHitCount = 10000000;
+
+            // Searching
+            SearchResults searchResults = index.Search(query, searchParameters);
+
+            // The results may contain the following word sequences:
+            // 03/29/2012 * * births
+            // 29.07.2011 * birth
+            // 2013-01-01 birth
+            //ExEnd:WildCardSearch
+        }
+
+        /// <summary>
+        /// Shows how to use date collection in range search
+        /// This feature is supported by version 18.1 or greater
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public static void DateRangeCollectionSearch(string searchQuery)
+        {
+            //ExStart:DateRangeCollectionSearch
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
+            // Creating index
+            Index index = new Index(indexFolder);
+
+            // Indexing
+            index.AddToIndex(documentsFolder);
+
+            // Creating search parameters object
+            SearchParameters searchParameters = new SearchParameters();
+
+            // Deleting default formats
+            searchParameters.DateFormats.Clear();
+
+            // Adding format 'MM/dd/yyyy'
+            DateFormatElement[] formatElements1 = new DateFormatElement[]
+            {
+                DateFormatElement.MonthTwoDigits,
+                DateFormatElement.DateSeparator,
+                DateFormatElement.DayOfMonthTwoDigits,
+                DateFormatElement.DateSeparator,
+                DateFormatElement.YearFourDigits,
+            };
+            DateFormat format1 = new DateFormat(formatElements1, "/");
+            searchParameters.DateFormats.Add(format1);
+
+            // Adding format 'dd.MM.yyyy'
+            DateFormatElement[] formatElements2 = new DateFormatElement[]
+            {
+                DateFormatElement.DayOfMonthTwoDigits,
+                DateFormatElement.DateSeparator,
+                DateFormatElement.MonthTwoDigits,
+                DateFormatElement.DateSeparator,
+                DateFormatElement.YearFourDigits,
+            };
+            DateFormat format2 = new DateFormat(formatElements2, ".");
+            searchParameters.DateFormats.Add(format2);
+
+            // Searching
+            SearchResults searchResults = index.Search(searchQuery, searchParameters);
+            if (searchResults.Count > 0)
+            {
+                // List of found files
+                foreach (DocumentResultInfo documentResultInfo in searchResults)
+                {
+                    Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", searchQuery, documentResultInfo.HitCount, documentResultInfo.FileName);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No results found");
+            }
+            //ExEnd:DateRangeCollectionSearch
+        }
         /// <summary>
         /// Shows how to Perform date range search with faceted search
         /// This feature is supported by version 17.04 or greater
