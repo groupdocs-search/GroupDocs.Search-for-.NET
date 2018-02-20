@@ -295,6 +295,74 @@ namespace GroupDocs.Search_for_.NET
             // Added documents will be added to index
         }
 
+        public static void MultiThreadedIndexingAsync()
+        {
+            try
+            {
+                // Creating index
+                Index index = new Index(Utilities.indexPath);
+
+                // Indexing in 2 threads
+                index.AddToIndexAsync(Utilities.documentsPath, 2);
+
+                // User can perform a search after the completion of the indexing operation
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public static void MultiThreadedIndexing()
+        {
+            try
+            {
+                // Creating index
+                Index index = new Index(Utilities.indexPath);
+
+                // Indexing in 2 threads
+                index.AddToIndex(Utilities.documentsPath, 2);
+
+                // Searching
+                SearchResults result = index.Search("Einstein");
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+           
+        }
+
+        public static void CompactIndexing()
+        {
+            try
+            {
+                // Creating indexing settings object
+                IndexingSettings indexingSettings = new IndexingSettings();
+                // Setting compact index type
+                indexingSettings.IndexType = IndexType.CompactIndex;
+
+                // Creating index
+                Index index = new Index(Utilities.indexPath, indexingSettings);
+
+                // Indexing
+                index.AddToIndex(Utilities.documentsPath);
+
+                // Searching
+                SearchResults result = index.Search("Einstein");
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         /// <summary>
         /// Indexes separate files 
         /// </summary>

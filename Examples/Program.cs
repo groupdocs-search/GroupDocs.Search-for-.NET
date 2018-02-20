@@ -239,7 +239,14 @@ namespace GroupDocs.Search_for_.NET
 
             //Indexing.AutomaticDetectEncoding();
             //Indexing.DetectEncodingSelectively();
-            Indexing.IndexMetaData();
+
+            Indexing.CompactIndexing();
+
+            Indexing.MultiThreadedIndexing();
+
+            Indexing.MultiThreadedIndexingAsync();
+
+            //Indexing.IndexMetaData();
             #endregion
 
             Console.ReadKey();
