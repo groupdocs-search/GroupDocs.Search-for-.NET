@@ -11,7 +11,7 @@ namespace GroupDocs.Search_for_.NET
         static void Main(string[] args)
         {
             //Uncomment to apply license
-            Utilities.ApplyLicense();
+            //Utilities.ApplyLicense();
 
             //Use Dynabic.Metered account
             //Utilities.UseDynabicMeteredAccount();
@@ -147,7 +147,7 @@ namespace GroupDocs.Search_for_.NET
             //Searching.DateRangeCollectionSearch("content:daterange(2000-10-25~~2017-01-03)");
 
             //This method is implemented to make it possible to search phrase with wildcards.
-            Searching.WildCardSearch();
+            //Searching.WildCardSearch();
 
             //Shows how to limit the number of search results
             //Searching.LimitSearchResults("pause");
@@ -239,7 +239,14 @@ namespace GroupDocs.Search_for_.NET
 
             //Indexing.AutomaticDetectEncoding();
             //Indexing.DetectEncodingSelectively();
-            Indexing.IndexMetaData();
+
+            //Indexing.CompactIndexing();
+
+            //Indexing.MultiThreadedIndexing();
+
+            //Indexing.MultiThreadedIndexingAsync();
+
+            //Indexing.IndexMetaData();
             #endregion
 
             Console.ReadKey();
