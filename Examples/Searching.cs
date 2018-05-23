@@ -217,6 +217,78 @@ namespace GroupDocs.Search_for_.NET
             }
             //ExEnd:CancelSearchOperation
         }
+        /// <summary>
+        /// This example shows how to specify the number of searching threads for index
+        /// Feature is supported in version 18.5 of the API
+        /// </summary>
+        /// <param name="searchString"></param>
+        public static void SpecifySearcingTime(string searchString)
+        {
+            string indexFolder = Utilities.indexPath;
+            string documentFolder = Utilities.documentsPath;
+         
+            Index index = new Index(indexFolder, true);
+            index.AddToIndex(documentFolder);
+            SearchResults result = index.Search(searchString);
+
+            Console.WriteLine("Searching starts: {0}\nSearching ends: {1}\tSearching time: {2}", result.StartTime, result.EndTime, result.SearchingTime);
+        }
+
+        /// <summary>
+        /// This example shows how to specify the number of searching threads for index
+        /// Feature is supported in version 18.5 of the API
+        /// </summary>
+        /// <param name="searchString"></param>
+        public static void SpecicyNumberOfThreads(string searchString)
+        {
+            string indexFolder = Utilities.indexPath;
+            string documentFolder = Utilities.documentsPath;
+
+            IndexingSettings settings = new IndexingSettings();
+            // specifying count of threads for searching
+            settings.SearchingThreads = NumberOfThreads.One;
+
+            Index index = new Index(indexFolder, true, settings);
+            index.AddToIndex(documentFolder);
+
+            // searching using specified above count of threads
+            SearchResults result = index.Search(searchString);
+        }
+
+        /// This example shows how to perform the search of all chunks consistently
+        /// Feature is supported in version 18.5 of the API
+        /// </summary>
+        /// <param name="searchString"></param>
+        public static void SearchingByParts(string searchString)
+        {
+            string indexFolder = Utilities.indexPath;
+            string documentFolder1 = Utilities.documentsPath;
+            string documentFolder2 = Utilities.documentsPath2;
+            string documentFolder3 = Utilities.documentsPath3;
+         
+
+            Index index = new Index(indexFolder, true);
+
+            index.AddToIndex(documentFolder1);
+            index.AddToIndex(documentFolder2);
+            index.AddToIndex(documentFolder3);
+
+            SearchParameters sp = new SearchParameters();
+            sp.IsChunkSearch = true;
+
+            SearchResults result = index.Search(searchString, sp);
+            int chankCount = 1;
+
+            while (result.NextChunkSearchToken != null)
+            {
+                Console.WriteLine("Document count " + chankCount + " ('" + searchString + "'): " + result.Count);
+                Console.WriteLine("Occurrence count " + chankCount + " ('" + searchString + "'): " + result.TotalHitCount);
+
+                result = index.Search(result.NextChunkSearchToken);
+                chankCount++;
+            }
+
+        }
 
         /// <summary>
         /// Creates index, adds documents to index and do regex search
