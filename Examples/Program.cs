@@ -11,7 +11,7 @@ namespace GroupDocs.Search_for_.NET
         static void Main(string[] args)
         {
             //Uncomment to apply license
-            //Utilities.ApplyLicense();
+            Utilities.ApplyLicense();
 
             //Use Dynabic.Metered account
             //Utilities.UseDynabicMeteredAccount();
@@ -171,6 +171,15 @@ namespace GroupDocs.Search_for_.NET
             //highlighted search results functionality
             //Searching.GenerateHighlightedTextSearchResults("pause");
             //Searching.GenerateHighlightedTextResultsToFile("pause");
+
+            //Searching by parts(Chunks)
+            //Searching.SearchingByParts("return");
+
+            //Specify number of thread for searching 
+            //Searching.SpecicyNumberOfThreads("return");
+
+            //Specify searching time feild to search results
+            //Searching.SpecifySearcingTime("return");
             #endregion
 
             #region Indexing
