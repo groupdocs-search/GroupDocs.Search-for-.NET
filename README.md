@@ -18,9 +18,11 @@ Directory | Description
 
 ## Resources
 
-+ **Website:** [www.groupdocs.com](http://www.groupdocs.com)
-+ **Product Home:** [GroupDocs.Search for .NET](https://products.groupdocs.com/search/net)
-+ **Download:** [Download GroupDocs.Search for .NET](https://downloads.groupdocs.com/search/net)
-+ **Documentation:** [GroupDocs.Search for .NET Documentation](https://docs.groupdocs.com/display/searchnet/Getting+Started)
-+ **Forum:** [GroupDocs.Search for .NET Forum](https://forum.groupdocs.com/c/search)
++ **Website:** [www.groupdocs.com](https://www.groupdocs.com/)
++ **Product Home:** [GroupDocs.Search for .NET](https://products.groupdocs.com/search/net) 
++ **API Reference:** [GroupDocs.Search for .NET API Reference](https://apireference.groupdocs.com/net/search)
++ **Documentation:** [GroupDocs.Search for .NET Documentation](https://docs.groupdocs.com/display/searchnet/Home)
++ **Installation:** [GroupDocs.Search for .NET NuGet Package](https://www.nuget.org/packages/GroupDocs.Search/)
++ **Free Support:** [GroupDocs.Search for .NET Free Support Forum](https://forum.groupdocs.com/c/search)
++ **Paid Support:** [GroupDocs.Search for .NET Paid Support Helpdesk](https://helpdesk.groupdocs.com/)
 + **Blog:** [GroupDocs.Search for .NET Blog](https://blog.groupdocs.com/category/groupdocs-search-product-family/)
