@@ -20,9 +20,9 @@ Directory | Description
 
 + **Website:** [www.groupdocs.com](https://www.groupdocs.com/)
 + **Product Home:** [GroupDocs.Search for .NET](https://products.groupdocs.com/search/net) 
++ **Installation:** [GroupDocs.Search for .NET NuGet Package](https://www.nuget.org/packages/GroupDocs.Search/)
 + **API Reference:** [GroupDocs.Search for .NET API Reference](https://apireference.groupdocs.com/net/search)
 + **Documentation:** [GroupDocs.Search for .NET Documentation](https://docs.groupdocs.com/display/searchnet/Home)
-+ **Installation:** [GroupDocs.Search for .NET NuGet Package](https://www.nuget.org/packages/GroupDocs.Search/)
 + **Free Support:** [GroupDocs.Search for .NET Free Support Forum](https://forum.groupdocs.com/c/search)
 + **Paid Support:** [GroupDocs.Search for .NET Paid Support Helpdesk](https://helpdesk.groupdocs.com/)
 + **Blog:** [GroupDocs.Search for .NET Blog](https://blog.groupdocs.com/category/groupdocs-search-product-family/)
