@@ -7,6 +7,7 @@ using GroupDocs.Search;
 using GroupDocs.Search.Events;
 using System.Globalization;
 
+
 namespace GroupDocs.Search_for_.NET
 {
     class Indexing
@@ -293,6 +294,29 @@ namespace GroupDocs.Search_for_.NET
             // removed documents will be marked as deleted in index and will not be added to search results
             // Edited documents will be reindexed
             // Added documents will be added to index
+        }
+        /// <summary>
+        /// Tracks all the changes in the index folder
+        /// This method is support by version 18.6 or greater
+        /// </summary>
+        public static void BreakIndexingManually()
+        {
+            try
+            {
+                // Creating index 
+                Index index = new Index(Utilities.indexPath);
+                // Subscribing on Operation Finished event  
+                index.OperationFinished += Utilities.index_OperationFinished;
+                // Indexing selected folder asynchronously 
+                index.AddToIndexAsync(Utilities.documentsPath); 
+                //
+                index.Break();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public static void MultiThreadedIndexingAsync()
