@@ -217,12 +217,38 @@ namespace GroupDocs.Search_for_.NET
             }
             //ExEnd:CancelSearchOperation
         }
-        /// <summary>
-        /// This example shows how to specify the number of searching threads for index
-        /// Feature is supported in version 18.5 of the API
-        /// </summary>
-        /// <param name="searchString"></param>
-        public static void SpecifySearcingTime(string searchString)
+		/// <summary>
+		/// This example shows how to search using morphological word form 
+		/// Feature is supported in version 18.7 of the API
+		/// </summary>
+		public static void SearchUsingMorphologicalWordForm()
+		{			
+			Index index = new Index(Utilities.indexPath); // Creating index
+			index.AddToIndex(Utilities.documentsPath); // Indexing folder with documents
+			SearchParameters parameters = new SearchParameters();
+			parameters.UseWordFormsSearch = true; // Enabling word forms search
+			SearchResults searchResult = index.Search("swimming", parameters); // Searching for words "swim", "swims", "swimming", "swam", "swum"
+			
+			if (searchResult.Count > 0)
+			{
+				// List of found files
+				foreach (DocumentResultInfo documentResultInfo in searchResult)
+				{
+					Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", "swimming", documentResultInfo.HitCount, documentResultInfo.FileName);
+				}
+			}
+			else
+			{
+				Console.WriteLine("No results found");
+			}
+		}
+
+		/// <summary>
+		/// This example shows how to specify the number of searching threads for index
+		/// Feature is supported in version 18.5 of the API
+		/// </summary>
+		/// <param name="searchString"></param>
+		public static void SpecifySearcingTime(string searchString)
         {
             string indexFolder = Utilities.indexPath;
             string documentFolder = Utilities.documentsPath;

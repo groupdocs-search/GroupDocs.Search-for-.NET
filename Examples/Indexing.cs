@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GroupDocs.Search;
 using GroupDocs.Search.Events;
 using System.Globalization;
+using System.Threading;
 
 namespace GroupDocs.Search_for_.NET
 {
@@ -258,8 +259,82 @@ namespace GroupDocs.Search_for_.NET
             index.AddToIndex(Utilities.documentsPath); // Already indexed files will not be reindexed.
             //ExEnd: PreventUnnecessaryFileIndex
         }
+		/// <summary>
+		/// Break indexing with cancellation object 
+		/// This method is support by version 18.7 or greater
+		/// </summary>
+		public static void BreakIndexingWithCancellationObject()
+		{
+			// Creating cancellation object
+			Cancellation cancellation = new Cancellation();
 
-        internal static void IndexMetaData()
+			// Creating index
+			Index index = new Index(Utilities.indexPath);
+
+			// Indexing
+			index.AddToIndexAsync(Utilities.documentsPath, cancellation);
+
+			// Cancelling after 1 second of indexing
+			Thread.Sleep(1000);
+			cancellation.Cancel();
+		}
+
+		/// <summary>
+		/// Break Merging Operation manually
+		/// This method is support by version 18.7 or greater
+		/// </summary>
+		public static void BreakMergingManually()
+		{
+			// Creating cancellation object 
+			Cancellation cancellation = new Cancellation();
+			// cancelation after 5 seconds
+			cancellation.CancelAfter(5000);
+
+			// Load index
+			Index index = new Index(Utilities.indexPath);
+			index.Merge(cancellation);
+
+		}
+
+		/// <summary>
+		/// Break Updating Operation using cancellation object
+		/// This method is support by version 18.7 or greater
+		/// </summary>
+		public static void BreakUpdatingUsingCancellationObject()
+		{
+			
+			// Creating cancellation object
+			Cancellation cancellation = new Cancellation();
+
+			// Load index
+			Index index = new Index(Utilities.indexPath);
+
+			// Updating
+			index.UpdateAsync(cancellation);
+
+
+			// Cancelling
+			cancellation.Cancel();
+		}
+
+		/// <summary>
+		/// Break Updating Operation Manually
+		/// This method is support by version 18.7 or greater
+		/// </summary>
+		public static void BreakUpdatingManually()
+		{
+			// Load index
+			Index index = new Index(Utilities.indexPath);
+
+			// Updating index
+			index.UpdateAsync();
+
+			// Breaking updating
+			index.Break();
+
+		}
+
+		internal static void IndexMetaData()
         {
             //ExStart: IndexMetaData
             // Creating indexing settings object
@@ -293,6 +368,29 @@ namespace GroupDocs.Search_for_.NET
             // removed documents will be marked as deleted in index and will not be added to search results
             // Edited documents will be reindexed
             // Added documents will be added to index
+        }
+        /// <summary>
+        /// Tracks all the changes in the index folder
+        /// This method is support by version 18.6 or greater
+        /// </summary>
+        public static void BreakIndexingManually()
+        {
+            try
+            {
+                // Creating index 
+                Index index = new Index(Utilities.indexPath);
+                // Subscribing on Operation Finished event  
+                index.OperationFinished += Utilities.index_OperationFinished;
+                // Indexing selected folder asynchronously 
+                index.AddToIndexAsync(Utilities.documentsPath); 
+                //
+                index.Break();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public static void MultiThreadedIndexingAsync()
