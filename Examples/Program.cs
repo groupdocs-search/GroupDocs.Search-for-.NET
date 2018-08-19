@@ -274,6 +274,12 @@ namespace GroupDocs.Search_for_.NET
 			//Break indexing with cancellation object 
 			//Indexing.BreakIndexingWithCancellationObject();
 
+			//Break Index Repository 
+			//Indexing.BreakIndexRepository();
+
+			//Break Index Repository using Cancellation Object 
+			Indexing.BreakIndexRepositoryUsingCancellationObject();
+
 
 			#endregion
 

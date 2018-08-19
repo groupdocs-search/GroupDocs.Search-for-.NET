@@ -278,6 +278,42 @@ namespace GroupDocs.Search_for_.NET
 			Thread.Sleep(1000);
 			cancellation.Cancel();
 		}
+		/// <summary>
+		/// Break Index Repository using Cancellation Object
+		/// This method is support by version 18.8 or greater
+		/// </summary>
+		public static void BreakIndexRepositoryUsingCancellationObject()
+		{
+			string documentsFolder = Utilities.documentsPath;
+			IndexRepository repository = new IndexRepository();
+			Index index = repository.Create();
+			index.AddToIndex(documentsFolder);
+
+			Cancellation cnc = new Cancellation();
+
+			// Updating all indexes in repository
+			repository.UpdateAsync(cnc);
+
+			// Canceling all operations in index repository
+			cnc.Cancel();
+		}
+
+		/// <summary>
+		/// Break Index Repository
+		/// This method is support by version 18.8 or greater
+		/// </summary>
+		public static void BreakIndexRepository()
+		{
+			string indexFolder = Utilities.indexPath;
+			string documentsFolder = Utilities.documentsPath;
+
+			IndexRepository repository = new IndexRepository();
+			Index index = repository.Create(indexFolder);
+			index.AddToIndexAsync(documentsFolder);
+
+			// Breaking all processes in all indexes in repository
+			repository.Break();
+		}
 
 		/// <summary>
 		/// Break Merging Operation manually
