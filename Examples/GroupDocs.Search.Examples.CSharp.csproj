@@ -39,8 +39,8 @@
       <HintPath>packages\Aspose.Email.6.9.0\lib\net40\Aspose.Email.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="GroupDocs.Search, Version=18.7.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>packages\GroupDocs.Search.18.7.0\lib\net2.0\GroupDocs.Search.dll</HintPath>
+    <Reference Include="GroupDocs.Search, Version=18.8.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>packages\GroupDocs.Search.18.8.0\lib\net2.0\GroupDocs.Search.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
