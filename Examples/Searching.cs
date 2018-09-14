@@ -218,6 +218,33 @@ namespace GroupDocs.Search_for_.NET
             //ExEnd:CancelSearchOperation
         }
 		/// <summary>
+		/// Generate HTML formatted text with highlighted found words
+		/// Feature is supported in version 18.9 of the API
+		/// </summary>
+		public static void GenerateHighlightedTextResultsHtml()
+		{
+			// Creating index
+			Index index = new Index(Utilities.indexPath);
+
+			// Subscribing to file indexing event
+			index.FileIndexing += (sender, args) =>
+			{
+				// Setting encoding for each text file during indexing
+				args.Encoding = Encodings.windows_1251;
+			};
+
+			// Adding text documents encoded in windows-1251 to index
+			index.AddToIndex(Utilities.documentsPath);
+
+			// Searching for word 'человеческий'
+			SearchResults results = index.Search("pause");
+
+			// Generating HTML formatted text with highlighted found words
+			// There is no need to provide the encoding again - it is saved in the index
+			string htmlText = index.HighlightInText(results[0]);
+		}
+
+		/// <summary>
 		/// This example shows how to search using morphological word form 
 		/// Feature is supported in version 18.7 of the API
 		/// </summary>

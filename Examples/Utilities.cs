@@ -42,12 +42,12 @@ namespace GroupDocs.Search_for_.NET
         public const string replacementsFileName = "../../Data/Dictionaries/Replacements.txt";
         public const string exportedReplacementsFileName  = "../../Data/Dictionaries/MyExportedReplacements.txt";
         public const string highlightedTextFilePath = "../../Data/Output/HighlightedResults.html";
+		public const string documentTextPath = "../../Data/Output/DocumentText.html";
 
-
-        /// <summary>
-        /// Apply license 
-        /// </summary>
-        public static void ApplyLicense()
+		/// <summary>
+		/// Apply license 
+		/// </summary>
+		public static void ApplyLicense()
         {
             //initialize License
             License lic = new License();
