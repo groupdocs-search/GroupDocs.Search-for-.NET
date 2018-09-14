@@ -261,7 +261,7 @@ namespace GroupDocs.Search_for_.NET
         }
 		/// <summary>
 		/// Break indexing with cancellation object 
-		/// This method is support by version 18.7 or greater
+		/// This method is supported by version 18.7 or greater
 		/// </summary>
 		public static void BreakIndexingWithCancellationObject()
 		{
@@ -278,9 +278,54 @@ namespace GroupDocs.Search_for_.NET
 			Thread.Sleep(1000);
 			cancellation.Cancel();
 		}
+
+		public static void ExtracDocumentTextToFileFromIndex()
+		{
+			// Creating index from existing folder
+			Index index = new Index(Utilities.indexPath);
+
+			// Getting list of indexed documents
+			DocumentInfo[] documents = index.GetIndexedDocuments();
+
+			// Extracting HTML formatted document text to a file
+			index.ExtractDocumentText(Utilities.documentTextPath, documents[0], null);
+		}
+
+		/// <summary>
+		/// Extract Document Text from Index
+		/// This method is supported by version 18.9 or greater
+		/// </summary>
+		public static void ExtracDocumentTextFromIndex()
+		{
+			// Creating index from existing folder
+			Index index = new Index(Utilities.indexPath);
+
+			// Getting list of indexed documents
+			DocumentInfo[] documents = index.GetIndexedDocuments();
+
+			// Extracting HTML formatted document text
+			string htmlText = index.ExtractDocumentText(documents[0], null);
+		}
+
+		/// <summary>
+		/// Get a list of indexed documents from an index
+		/// This method is supported by version 18.9 or greater
+		/// </summary>
+		public static void GetListOfIndexedDocuments()
+		{
+			// Creating index from existing folder
+			Index index = new Index(Utilities.indexPath);
+
+			// Getting list of indexed documents
+			DocumentInfo[] documents = index.GetIndexedDocuments();
+
+			// Getting items of container document
+			DocumentInfo[] items = index.GetIndexedDocumentItems(documents[0]);
+		}
+
 		/// <summary>
 		/// Break Index Repository using Cancellation Object
-		/// This method is support by version 18.8 or greater
+		/// This method is supported by version 18.8 or greater
 		/// </summary>
 		public static void BreakIndexRepositoryUsingCancellationObject()
 		{
@@ -300,7 +345,7 @@ namespace GroupDocs.Search_for_.NET
 
 		/// <summary>
 		/// Break Index Repository
-		/// This method is support by version 18.8 or greater
+		/// This method is supported by version 18.8 or greater
 		/// </summary>
 		public static void BreakIndexRepository()
 		{
@@ -317,7 +362,7 @@ namespace GroupDocs.Search_for_.NET
 
 		/// <summary>
 		/// Break Merging Operation manually
-		/// This method is support by version 18.7 or greater
+		/// This method is supported by version 18.7 or greater
 		/// </summary>
 		public static void BreakMergingManually()
 		{
@@ -334,7 +379,7 @@ namespace GroupDocs.Search_for_.NET
 
 		/// <summary>
 		/// Break Updating Operation using cancellation object
-		/// This method is support by version 18.7 or greater
+		/// This method is supported by version 18.7 or greater
 		/// </summary>
 		public static void BreakUpdatingUsingCancellationObject()
 		{
@@ -355,7 +400,7 @@ namespace GroupDocs.Search_for_.NET
 
 		/// <summary>
 		/// Break Updating Operation Manually
-		/// This method is support by version 18.7 or greater
+		/// This method is supported by version 18.7 or greater
 		/// </summary>
 		public static void BreakUpdatingManually()
 		{

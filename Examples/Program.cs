@@ -183,6 +183,9 @@ namespace GroupDocs.Search_for_.NET
 
 			//Searching using morphological word forms
 			//Searching.SearchUsingMorphologicalWordForm();
+
+			//Generate HTML formatted text with highlighted found words
+			//Searching.GenerateHighlightedTextResultsHtml();
 			#endregion
 
 			#region Indexing
@@ -278,7 +281,16 @@ namespace GroupDocs.Search_for_.NET
 			//Indexing.BreakIndexRepository();
 
 			//Break Index Repository using Cancellation Object 
-			Indexing.BreakIndexRepositoryUsingCancellationObject();
+			//Indexing.BreakIndexRepositoryUsingCancellationObject();
+
+			//Get a list of indexed documents from an index
+			//Indexing.GetListOfIndexedDocuments();
+
+			//Extract Document Text from Index
+			//Indexing.ExtracDocumentTextFromIndex();
+
+			//Extract Document Text from Index to File
+			//Indexing.ExtracDocumentTextToFileFromIndex();
 
 
 			#endregion
