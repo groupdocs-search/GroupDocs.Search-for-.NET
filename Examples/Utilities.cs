@@ -11,6 +11,8 @@ namespace GroupDocs.Search_for_.NET
     //ExStart:commonutilitiesclass
     public class Utilities
     {
+        public const string books = "../../Data/Books/";
+        public const string booksIndex = "../../Data/Books Index/";
         public const string indexPath = "../../Data/Documents Indexes/";
         public const string indexPath2 = "../../Data/Documents Indexes2/";
         public const string mergeIndexPath1 = "../../Data/Index Merging/Index1/";
@@ -43,7 +45,8 @@ namespace GroupDocs.Search_for_.NET
         public const string exportedReplacementsFileName  = "../../Data/Dictionaries/MyExportedReplacements.txt";
         public const string highlightedTextFilePath = "../../Data/Output/HighlightedResults.html";
 		public const string documentTextPath = "../../Data/Output/DocumentText.html";
-
+     
+            
 		/// <summary>
 		/// Apply license 
 		/// </summary>

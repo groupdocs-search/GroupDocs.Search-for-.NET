@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessCases.cs" />
     <Compile Include="Comparer.cs" />
     <Compile Include="CustomFieldExtractor.cs" />
     <Compile Include="CustomOstPstExtractor.cs" />
