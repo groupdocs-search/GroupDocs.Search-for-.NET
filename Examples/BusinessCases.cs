@@ -9,9 +9,9 @@ namespace GroupDocs.Search_for_.NET
 {
     public class BusinessCases
     {
-        /**
-    * Creates a new books index, add documents in it and performs a search operation in it
-    */
+        /// <summary>
+        /// Creates a new books index, add documents in it and performs a search operation in it
+        /// </summary>
         public static void SearchBooks()
         {
             // Creating index folder
@@ -29,9 +29,9 @@ namespace GroupDocs.Search_for_.NET
                 Console.WriteLine((result.FileName));
             }
         }
-        /**
-         * Performs a search operation in existing books index
-         */
+        /// <summary>
+        /// Performs a search operation in existing books index
+        /// </summary>
         public static void SearchBooksInExistingIndex()
         {
             // Loading index
@@ -45,9 +45,9 @@ namespace GroupDocs.Search_for_.NET
                 Console.WriteLine((result.FileName));
             }
         }
-        /**
-         * Adds documents in books index
-         */
+        /// <summary>
+        /// Adds documents in books index
+        /// </summary>
         public static void AddDocumentsInBooksIndex()
         {
             // Loading index
@@ -56,9 +56,9 @@ namespace GroupDocs.Search_for_.NET
             // Adding to index folder
             index.AddToIndex(Utilities.documentsPath);
         }
-        /**
-         * Updates books index
-         */
+        /// <summary>
+        /// Updates books index
+        /// </summary>
         public static void UpdateBooksIndex()
         {
             // Loading index
@@ -75,9 +75,9 @@ namespace GroupDocs.Search_for_.NET
                 Console.WriteLine((result.FileName));
             }
         }
-        /**
-         * Performs a search operation in several indexes using IndexRepository
-         */
+        /// <summary>
+        /// Performs a search operation in several indexes using IndexRepository
+        /// </summary>
         public static void SearchInSeveralIndexes()
         {
             // Creating Index Repository
