@@ -97,15 +97,5 @@ namespace GroupDocs.Search_for_.NET
                 Console.WriteLine((result.FileName));
             }
         }
-        /// <summary>
-        /// Performs a search operation in several indexes using IndexRepository
-        /// </summary>
-        public static void IndexEmailMessages()
-        {
-            Index index = new Index(Utilities.indexPath);
-
-            // Indexing pst file
-            index.AddToIndex(Utilities.pathToPstFile);
-        }
     }
 }
