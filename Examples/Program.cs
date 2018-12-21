@@ -147,7 +147,7 @@ namespace GroupDocs.Search_for_.NET
             //Searching.DateRangeCollectionSearch("content:daterange(2000-10-25~~2017-01-03)");
 
             //This method is implemented to make it possible to search phrase with wildcards.
-            //Searching.WildCardSearch();
+            //Searching.WildCardInPhraseSearch();
 
             //Shows how to limit the number of search results
             //Searching.LimitSearchResults("pause");
@@ -186,6 +186,16 @@ namespace GroupDocs.Search_for_.NET
 
             //Generate HTML formatted text with highlighted found words
             //Searching.GenerateHighlightedTextResultsHtml();
+
+            //Perform blended characters search
+            //Searching.SearchBlendedCharacters();
+
+            //Perfrom wild card search
+            //Searching.WildCardSearch();
+
+            //Perform wild card search with query in object form
+            //Searching.WildCardSearchUsingObject();
+
             #endregion
 
             #region Indexing
@@ -298,19 +308,19 @@ namespace GroupDocs.Search_for_.NET
             # region Business Cases
 
             // Create new books index, add documents and search
-             BusinessCases.SearchBooks();
+            // BusinessCases.SearchBooks();
 
             // Search in existing books index
-             BusinessCases.SearchBooksInExistingIndex();
+            // BusinessCases.SearchBooksInExistingIndex();
 
             // Add documents in index
-             BusinessCases.AddDocumentsInBooksIndex();
+            // BusinessCases.AddDocumentsInBooksIndex();
 
             // Update books index
-             BusinessCases.UpdateBooksIndex();
+            // BusinessCases.UpdateBooksIndex();
 
             // Search in several indexes
-             BusinessCases.SearchInSeveralIndexes();
+            // BusinessCases.SearchInSeveralIndexes();
 
             # endregion
 

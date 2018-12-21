@@ -243,12 +243,110 @@ namespace GroupDocs.Search_for_.NET
 			// There is no need to provide the encoding again - it is saved in the index
 			string htmlText = index.HighlightInText(results[0]);
 		}
+        /// <summary>
+        /// Performs wild card search with query in object form
+        /// This method is supported by version 18.12 or greater
+        /// </summary>
+        public static void WildCardSearchUsingObject()
+        {
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
 
-		/// <summary>
-		/// This example shows how to search using morphological word form 
-		/// Feature is supported in version 18.7 of the API
-		/// </summary>
-		public static void SearchUsingMorphologicalWordForm()
+            // Adding documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Constructing query 1
+            // Word 1 in the query is a pattern '?ffect' for wildcard search
+            WordPattern pattert11 = new WordPattern();
+            pattert11.AppendOneCharacterWildcard();
+            pattert11.AppendString("ffect");
+            SearchQuery subquery11 = SearchQuery.CreateWordPatternQuery(pattert11);
+
+            // Word 2 in the query is a pattern 'princip?(2~4)' for wildcard search
+            WordPattern pattert12 = new WordPattern();
+            pattert12.AppendString("princip");
+            pattert12.AppendWildcard(2, 4);
+            SearchQuery subquery12 = SearchQuery.CreateWordPatternQuery(pattert12);
+
+            // Creating boolean search query
+            SearchQuery query1 = SearchQuery.CreateAndQuery(subquery11, subquery12);
+
+            // Searching with query 1
+            SearchResults results1 = index.Search(query1, new SearchParameters());
+
+            // Constructing query 2
+            // Word 1 in the phrase is a pattern '?(0~2)sure' for wildcard search
+            WordPattern pattert21 = new WordPattern();
+            pattert21.AppendWildcard(0, 2);
+            pattert21.AppendString("sure");
+            SearchQuery subquery21 = SearchQuery.CreateWordPatternQuery(pattert21);
+
+            // Word 2 in the phrase is searched with different word forms ('equal', 'equals', 'equally', etc.)
+            SearchQuery subquery22 = SearchQuery.CreateWordQuery("equal");
+            subquery22.SearchParameters = new SearchParameters() { UseWordFormsSearch = true };
+
+            // Word 3 in the phrase is searched with maximum 2 differences of fuzzy search
+            SearchQuery subquery23 = SearchQuery.CreateWordQuery("opportunities");
+            subquery23.SearchParameters = new SearchParameters();
+            subquery23.SearchParameters.FuzzySearch.Enabled = true;
+            subquery23.SearchParameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(2);
+
+            // Creating phrase search query
+            SearchQuery query2 = SearchQuery.CreatePhraseSearchQuery(subquery21, subquery22, subquery23);
+
+            // Searching with query 2
+            SearchResults results2 = index.Search(query2, new SearchParameters());
+        }
+
+        /// <summary>
+        /// Performs wild card search
+        /// This method is supported by version 18.12 or greater
+        /// </summary>
+        public static void WildCardSearch()
+        {
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Adding documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Searching for words 'affect' or 'effect' in a one document with 'principal', 'principle', 'principles', or 'principally'
+            SearchResults results1 = index.Search("?ffect & princip?(2~4)");
+
+            // Searching with a single query for phrases 'assure equal opportunities', 'ensure equal opportunities', and 'sure equal opportunities'
+            SearchResults results2 = index.Search("\"?(0~2)sure equal opportunities\"");
+        }
+
+        /// <summary>
+        /// Performs blended characters search
+        /// This method is supported by version 18.12 or greater 
+        /// </summary>
+        public static void SearchBlendedCharacters()
+        {
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Marking hyphen as blended character
+            index.Dictionaries.Alphabet.SetRange(new char[] { '-' }, CharacterType.Blended);
+
+            // Adding documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Searching for word 'silver-gray'
+            SearchResults results = index.Search("silver-gray");
+
+            // List of found files
+            foreach (DocumentResultInfo documentResultInfo in results)
+            {
+                Console.WriteLine("Query \"{0}\" has {1} hit count in file: {2}", "silver-gray", documentResultInfo.HitCount, documentResultInfo.FileName);
+            }
+        }
+
+        /// <summary>
+        /// This example shows how to search using morphological word form 
+        /// Feature is supported in version 18.7 of the API
+        /// </summary>
+        public static void SearchUsingMorphologicalWordForm()
 		{			
 			Index index = new Index(Utilities.indexPath); // Creating index
 			index.AddToIndex(Utilities.documentsPath); // Indexing folder with documents
@@ -941,8 +1039,7 @@ namespace GroupDocs.Search_for_.NET
         /// This method is implemented to make it possible to search phrase with wildcards.
         /// This feature is supported by version 18.1 or greater
         /// </summary>
-    
-        public static void WildCardSearch()
+        public static void WildCardInPhraseSearch()
         {
             //ExStart:WildCardSearch
             string indexFolder = Utilities.indexPath;
