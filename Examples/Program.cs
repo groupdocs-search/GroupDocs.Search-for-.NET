@@ -196,6 +196,12 @@ namespace GroupDocs.Search_for_.NET
             //Perform wild card search with query in object form
             //Searching.WildCardSearchUsingObject();
 
+            //Escaping special characters in search queries
+            //Searching.EscapingSpecialCharacterInSearch();
+
+            /// Searching indexed ZIP archives inside other ZIP archives of any nesting level
+            //Searching.SearchZipArchives();
+
             #endregion
 
             #region Indexing

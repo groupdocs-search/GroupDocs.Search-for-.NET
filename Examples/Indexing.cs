@@ -752,9 +752,9 @@ namespace GroupDocs.Search_for_.NET
             index.Dictionaries.CharacterReplacements.AddRange(replacements);
 
             // Import replacements from file. Existing replacements are staying.
-            index.Dictionaries.CharacterReplacements.Import(Utilities.replacementsFileName);
+            index.Dictionaries.CharacterReplacements.ImportDictionary(Utilities.replacementsFileName);
             // Export replacements to file
-            index.Dictionaries.CharacterReplacements.Export(Utilities.exportedReplacementsFileName);
+            index.Dictionaries.CharacterReplacements.ExportDictionary(Utilities.exportedReplacementsFileName);
 
             // Indexing
             index.AddToIndex(Utilities.documentsPath);

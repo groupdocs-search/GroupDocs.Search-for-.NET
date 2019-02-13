@@ -852,7 +852,7 @@ namespace GroupDocs.Search_for_.NET
 
             //below mentioned method to load synonyms is available from version 17.05 or greater
             // Import synonyms from file. Existing synonyms are staying.
-            index.Dictionaries.SynonymDictionary.Import(Utilities.synonymFilePath);
+            index.Dictionaries.SynonymDictionary.ImportDictionary(Utilities.synonymFilePath);
 
             index.AddToIndex(Utilities.documentsPath);
 
@@ -1366,8 +1366,8 @@ namespace GroupDocs.Search_for_.NET
             synonymGroups.Add(synonymGroup2);
             index.Dictionaries.SynonymDictionary.AddRange(synonymGroups);
 
-            index.Dictionaries.SynonymDictionary.Import(Utilities.synonymFilePath); // Import synonyms from file. Existing synonyms are staying.
-            index.Dictionaries.SynonymDictionary.Export(Utilities.mySynonymFilePath); // Export synonyms to file
+            index.Dictionaries.SynonymDictionary.ImportDictionary(Utilities.synonymFilePath); // Import synonyms from file. Existing synonyms are staying.
+            index.Dictionaries.SynonymDictionary.ExportDictionary(Utilities.mySynonymFilePath); // Export synonyms to file
 
             SearchParameters parameters = new SearchParameters();
             parameters.UseSynonymSearch = true; // Turning on synonym search
@@ -1409,8 +1409,8 @@ namespace GroupDocs.Search_for_.NET
 
             bool isTwoPresent = index.Dictionaries.StopWordDictionary.Contains("two");
 
-            index.Dictionaries.StopWordDictionary.Import(Utilities.stopWordsFilePath); // Import stop words from file. Existing stop words are staying.
-            index.Dictionaries.StopWordDictionary.Export(Utilities.exportedStopWordsFilePath); // Export stop words to file
+            index.Dictionaries.StopWordDictionary.ImportDictionary(Utilities.stopWordsFilePath); // Import stop words from file. Existing stop words are staying.
+            index.Dictionaries.StopWordDictionary.ExportDictionary(Utilities.exportedStopWordsFilePath); // Export stop words to file
 
             SearchResults results = index.Search(searchQuery);
             if (results.Count > 0)
@@ -1650,12 +1650,12 @@ namespace GroupDocs.Search_for_.NET
             // Remove all words from spelling corrector dictionary
             index.Dictionaries.SpellingCorrector.Clear();
             // Import spelling dictionary from file. Existing words are staying.
-            index.Dictionaries.SpellingCorrector.Import(Utilities.spellingDictionaryFilePath);
+            index.Dictionaries.SpellingCorrector.ImportDictionary(Utilities.spellingDictionaryFilePath);
             string[] words = new string[] { "structure", "building", "rail", "house" };
             // Add word array to the dictionary. Words are case insensitive.
             index.Dictionaries.SpellingCorrector.AddRange(words);
             // Export spelling dictionary to file.
-            index.Dictionaries.SpellingCorrector.Export(Utilities.exportedSpellingDictionaryFilePath);
+            index.Dictionaries.SpellingCorrector.ExportDictionary(Utilities.exportedSpellingDictionaryFilePath);
 
             SearchParameters parameters = new SearchParameters();
             // Enabling spelling corrector
@@ -1835,9 +1835,9 @@ namespace GroupDocs.Search_for_.NET
             // Remove alias 'x' from the dictionary. Words which are absent will be ignored.
             index.Dictionaries.AliasDictionary.Remove("x");
             // Import aliases from file. Existing aliases are staying.
-            index.Dictionaries.AliasDictionary.Import(Utilities.aliasFilePath);
+            index.Dictionaries.AliasDictionary.ImportDictionary(Utilities.aliasFilePath);
             // Export aliases to file
-            index.Dictionaries.AliasDictionary.Export(Utilities.exportedAliasFilePath);
+            index.Dictionaries.AliasDictionary.ExportDictionary(Utilities.exportedAliasFilePath);
 
             // Search for term 'structure'
             SearchResults results = index.Search(searchQuery);
@@ -1918,9 +1918,9 @@ namespace GroupDocs.Search_for_.NET
             index.Dictionaries.HomophoneDictionary.AddRange(homophoneGroups);
 
             // Import homophones from file. Existing homophones are staying.
-            index.Dictionaries.HomophoneDictionary.Import(Utilities.homophonesFilePath);
+            index.Dictionaries.HomophoneDictionary.ImportDictionary(Utilities.homophonesFilePath);
             // Export homophones to file
-            index.Dictionaries.HomophoneDictionary.Export(Utilities.exportedHomophonesFilePath);
+            index.Dictionaries.HomophoneDictionary.ExportDictionary(Utilities.exportedHomophonesFilePath);
 
             SearchParameters parameters = new SearchParameters();
             // Enable homophone search in parameters
@@ -1967,9 +1967,9 @@ namespace GroupDocs.Search_for_.NET
             index.Dictionaries.Alphabet.AddRange(letters);
 
             // Import alphabet from file. Existing letters are staying.
-            index.Dictionaries.Alphabet.Import(alphabetFileName);
+            index.Dictionaries.Alphabet.ImportDictionary(alphabetFileName);
             // Export alphabet to file
-            index.Dictionaries.Alphabet.Export(Utilities.exportedAlphabetFilePath);
+            index.Dictionaries.Alphabet.ExportDictionary(Utilities.exportedAlphabetFilePath);
 
             // Indexing
             index.AddToIndex(documentsFolder);
@@ -2420,6 +2420,55 @@ namespace GroupDocs.Search_for_.NET
             SearchResults results1 = index.Search(string.Format("{0}:{1}", FieldNames.Content, searchQuery));
             SearchResults results2 = index.Search(string.Format("{0}:{1}", ExcelFieldNames.Subject, searchQuery2));
             //ExEnd:UsePublicConstantsAsFieldNames
+        }
+        /// <summary>
+        /// Escaping special characters in search queries
+        /// Feature is supported in version 19.2 of the API
+        /// </summary>
+        public static void EscapingSpecialCharacterInSearch()
+        {
+            //ExStart:EscapingSpecialCharacterInSearch
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Marking character '&' as a valid letter, not a separator
+            index.Dictionaries.Alphabet.SetRange(new char[] { '&' }, CharacterType.Letter);
+
+            // Indexing
+            index.AddToIndex(Utilities.documentsPath);
+            
+            // Searching for word 'R&B'
+            SearchResults results0 = index.Search(@"R\&B");
+
+            // Searching for word 'R&B'
+            SearchResults results1 = index.Search(@"R\u0026B");
+
+            //ExEnd:EscapingSpecialCharacterInSearch
+
+
+        }
+        /// <summary>
+        /// Searching indexed ZIP archives inside other ZIP archives of any nesting level
+        /// Feature is supported in version 19.2 of the API
+        /// </summary>
+        public static void SearchZipArchives()
+        {
+            //ExStart:SearchZipArchives
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Before indexing, please make sure that Zip archives exist in the documents directory
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Searching for Zips
+            SearchResults results = index.Search("Zip");
+
+            // Display the counts of Zips
+            Console.WriteLine("Zips Found: {0}", results.Count);
+
+            //ExEnd:SearchZipArchives
+
+
         }
     }
 
