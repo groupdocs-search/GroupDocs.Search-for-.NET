@@ -212,6 +212,48 @@ namespace GroupDocs.Search_for_.NET
             index.UpdateAsync();
             //ExEnd:SubscriptionToEvents
         }
+        /// <summary>
+        /// Event that notifies about search phase is finished and provides intermediate results.
+        /// Feature is supported in version 19.3 of the API
+        /// </summary>
+        public static void FinshedSearchNotificationEvent()
+        {
+            //ExStart:FinshedSearchNotification_19.3
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Adding synonyms
+            index.Dictionaries.SynonymDictionary.AddRange(new string[][] { new string[] { "big", "large" } });
+
+            // Adding documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Subscribing to the event
+            index.SearchPhaseCompleted += (sender, args) =>
+            {
+                Console.WriteLine(args.SearchPhase + ": " + args.Words.Length);
+            };
+
+            // Creating search parameters
+            SearchParameters parameters = new SearchParameters();
+            parameters.UseCaseSensitiveSearch = false;
+            parameters.KeyboardLayoutCorrector.Enabled = true;
+            parameters.SpellingCorrector.Enabled = true;
+            parameters.SpellingCorrector.MaxMistakeCount = 1;
+            parameters.UseHomophoneSearch = true;
+            parameters.UseSynonymSearch = true;
+            parameters.UseWordFormsSearch = true;
+            parameters.FuzzySearch.Enabled = true;
+            parameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(1);
+
+            // Searching for word 'big'.
+            // Note that enabling many of search options at a time may give many results and take a long time.
+            SearchResults results = index.Search("big", parameters);
+
+            //ExEnd:FinshedSearchNotification_19.3
+
+
+        }
 
         /// <summary>
         /// Custom extractor test

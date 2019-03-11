@@ -89,6 +89,7 @@ namespace GroupDocs.Search_for_.NET
             //Searching.ManageStopWords("three");
             //Searches while disabling use of stop words
             //Searching.DisableStopWords("coat");
+            //Searching.SearchwithStopWords();
 
             //Searching Password protected document using Event arguments
             //Searching.SearchingPasswordProtectedDocsUsingEvent("sample");
@@ -221,6 +222,8 @@ namespace GroupDocs.Search_for_.NET
             //Indexing.CreateWithOverwritingExistedIndex();
 
             //Indexing.UpdateIndex();
+
+            //Indexing.FinshedSearchNotificationEvent();
 
             //Indexing.UpdateIndexAsynchronously();
 

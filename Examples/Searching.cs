@@ -2470,6 +2470,41 @@ namespace GroupDocs.Search_for_.NET
 
 
         }
+       
+        /// <summary>
+        /// Searching for a complete phrase with stop words
+        /// Feature is supported in version 19.3 of the API
+        /// </summary>
+        public static void SearchwithStopWords()
+        {
+            //ExStart:SearchwithStopWords_19.3
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Adding stop words to dictionary
+            // Note that words 'in' and 'these' are stop words by default. This line of code is here for demonstration purposes only.
+            index.Dictionaries.StopWordDictionary.AddRange(new string[] { "in", "these" });
+
+            // Adding documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Searching for phrase without stop words
+            SearchResults results1 = index.Search("\"information contained *1 *1 materials\"");
+
+            // Searching for phrase containing stop words
+            // This search gives the same results as the previous one
+            SearchResults results2 = index.Search("\"information contained in these materials\"");
+
+            // Display the counts of searches 
+            Console.WriteLine("Searching count without stop words: {0}", results1.Count);
+
+            Console.WriteLine("Searching count with stop words: {0}", results2.Count);
+
+            //ExEnd:SearchwithStopWords_19.3
+
+
+        }
+       
     }
 
 }
