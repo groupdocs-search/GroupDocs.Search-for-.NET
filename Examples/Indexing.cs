@@ -1080,7 +1080,89 @@ namespace GroupDocs.Search_for_.NET
             index.AddToIndex(documentsFolder);
             //ExEnd:SetCustomTextExtractor
         }
+        /// <summary>
+        /// Set log file path while indexing
+        /// Feature is supported in version 19.5 of the API
+        /// </summary>
+        public static void SetLogFileConfigs()
+        {
+            //ExStart:SetLogFileConfigs_19.5
+            string indexFolder = Utilities.indexPath;
+            string documentsFolder = Utilities.documentsPath;
 
+            Index index = new Index(indexFolder);
+
+            // Setting the log file name. The log file name can be relative or absolute.
+            index.LogSettings.FileName = @"Log.txt";
+
+            // Setting the maximum size of the log file in megabytes. This value must be in the range from 0.1 to 1000.
+            index.LogSettings.MaxSize = 2.0;
+
+            // Adding documents to index
+            index.AddToIndex(documentsFolder);
+
+            //ExEnd:SetLogFileConfigs_19.5
+        }
+        /// <summary>
+        /// Optimization of index storage format
+        /// Feature is supported in version 19.5 of the API
+        /// </summary>
+        public static void OptimizeIndex()
+        {
+            //ExStart:OptimizeIndex_19.5
+            string oldIndexFolder = Utilities.indexPath;
+            string newIndexFolder = Utilities.newIndexPath;
+            
+
+            // Creating updater instance
+            IndexVersionUpdater updater = new IndexVersionUpdater();
+
+            // Updating index version
+            if (updater.CanUpdate(oldIndexFolder))
+            {
+                VersionUpdateResult updateResult = updater.Update(oldIndexFolder, newIndexFolder);
+                Console.WriteLine(updateResult);
+            }
+
+            // Loading updated index
+            Index index = new Index(newIndexFolder);
+                     
+            //ExEnd:OptimizeIndex_19.5
+        }
+
+        /// <summary>
+        /// Attach arbitrary additional fields to a document 
+        /// Feature is supported in version 19.5 of the API
+        /// </summary>
+        public static void AttachAbritraryFields()
+        {
+            //ExStart:AttachAbritraryFields_19.5
+            string indexFolder = Utilities.indexPath;
+            string documentFolder = Utilities.documentsPath;
+
+            // Creating index
+            Index index = new Index(indexFolder);
+
+            /// Subscribing to event
+            index.FileIndexing += (sender, args) =>
+            {
+                FieldInfo[] additionalFields = new FieldInfo[]
+                {
+                     new FieldInfo("Tags", "arbitrary additional fields"),
+                };
+                args.AdditionalFields = additionalFields;
+            };
+
+            // Searching
+            SearchResults results = index.Search("arbitrary");
+
+            // Adding documents to index
+            index.AddToIndex(documentFolder);
+
+
+
+            //ExEnd:AttachAbritraryFields_19.5
+        }
         //ExStart:CustomExtractorClass
         class CustomTextExtractor : IFieldExtractor
         {

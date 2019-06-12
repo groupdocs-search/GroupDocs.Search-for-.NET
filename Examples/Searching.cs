@@ -1,4 +1,4 @@
-﻿using Aspose.Email.Outlook.Pst;
+﻿using Aspose.Email.Storage.Pst;
 using GroupDocs.Search;
 using GroupDocs.Search.Events;
 using System;
@@ -1964,7 +1964,7 @@ namespace GroupDocs.Search_for_.NET
 
             // Adding letters
             char[] letters = new char[] { '\u0141', '\u0142', '\u0143', '\u0144' };
-            index.Dictionaries.Alphabet.AddRange(letters);
+            index.Dictionaries.Alphabet.SetRange(letters,CharacterType.Blended);
 
             // Import alphabet from file. Existing letters are staying.
             index.Dictionaries.Alphabet.ImportDictionary(alphabetFileName);
@@ -2504,7 +2504,78 @@ namespace GroupDocs.Search_for_.NET
 
 
         }
-       
+        /// <summary>
+        /// Document filtering for searching
+        /// Feature is supported in version 19.5 of the API
+        /// </summary>
+        public static void SearchwithFilters()
+        {
+            //ExStart:SearchwithFilters_19.5
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Adding documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Configuring document filter
+            // Filter filter3 will only accept TXT and DOC documents with text 'Tolkien' in file names
+            SearchParameters parameters = new SearchParameters();
+            ISearchDocumentFilter filter1 = SearchDocumentFilter.CreateFileExtension(".txt", ".doc");
+            ISearchDocumentFilter filter2 = SearchDocumentFilter.CreateFileNameRegularExpression("Tolkien");
+            ISearchDocumentFilter filter3 = SearchDocumentFilter.CreateConjunction(filter1, filter2);
+            parameters.SearchDocumentFilter = filter3;
+
+            // Searching
+            SearchResults results = index.Search("sample", parameters);
+
+            Console.WriteLine("Searching count {0}", results.Count);
+
+            //ExEnd:SearchwithFilters_19.5
+
+
+        }
+        /// <summary>
+        /// Get search hits count against each word.
+        /// Feature is supported in version 19.5 of the API
+        /// </summary>
+        public static void GetSearchHits()
+        {
+            //ExStart:GetSearchHits_19.5
+            // Creating index
+            Index index = new Index(Utilities.indexPath);
+
+            // Adding documents to index
+            index.AddToIndex(Utilities.documentsPath);
+
+            // Configuring search parameters
+            SearchParameters parameters = new SearchParameters();
+
+            // Enabling maximum 2 misprints per word
+            parameters.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(2);
+            parameters.FuzzySearch.Enabled = true;
+
+            // Searching
+            SearchResults results = index.Search("sample", parameters);
+
+            // Getting number of occurrences for each found word
+            foreach (DocumentResultInfo doc in results)
+            {
+                foreach (DetailedResultInfo field in doc.DetailedResults)
+                {
+                    for (int i = 0; i < field.Terms.Length; i++)
+                    {
+                        string word = field.Terms[i];
+                        int hits = field.TermsOccurrences[i];
+                        Console.WriteLine(word + " - " + hits);
+                    }
+                }
+            }
+
+            //ExEnd:GetSearchHits_19.5
+
+
+        }
+
     }
 
 }

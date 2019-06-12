@@ -14,7 +14,9 @@ namespace GroupDocs.Search_for_.NET
         public const string books = "../../Data/Books/";
         public const string booksIndex = "../../Data/Books Index/";
         public const string indexPath = "../../Data/Documents Indexes/";
+        public const string newIndexPath = "../../Data/New Index/";
         public const string indexPath2 = "../../Data/Documents Indexes2/";
+
         public const string mergeIndexPath1 = "../../Data/Index Merging/Index1/";
         public const string mergeIndexPath2 = "../../Data/Index Merging/Index2/";
         public const string mainMergedIndexesPath = "../../Data/Index Merging/Main Merged Indexes/";
@@ -66,7 +68,22 @@ namespace GroupDocs.Search_for_.NET
             //ExStart:UseDynabicMeteredAccount
             // initialize Metered API and set-up credentials
             new Metered().SetMeteredKey(publicKey, privateKey);
+            
             // do indexing and searching in licensed mode 
+            Index index = new Index(indexPath);
+
+            // Adding documents to index
+            index.AddToIndex(documentsPath);
+
+            // Searching
+            SearchResults results = index.Search("arbitrary");
+
+            // and get consumption quantity
+            decimal consumptionQuantitiy = GroupDocs.Search.Metered.GetConsumptionQuantity();
+
+            // get consumption credit (Supported since version 19.5)
+            decimal consumptionCredit = GroupDocs.Search.Metered.GetConsumptionCredit();
+
             //ExEnd:UseDynabicMeteredAccount
         }
 

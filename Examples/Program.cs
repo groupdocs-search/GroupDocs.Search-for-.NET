@@ -200,9 +200,11 @@ namespace GroupDocs.Search_for_.NET
             //Escaping special characters in search queries
             //Searching.EscapingSpecialCharacterInSearch();
 
-            /// Searching indexed ZIP archives inside other ZIP archives of any nesting level
+            //Searching indexed ZIP archives inside other ZIP archives of any nesting level
             //Searching.SearchZipArchives();
 
+            //Searching with filters
+            //Searching.SearchwithFilters();
             #endregion
 
             #region Indexing
@@ -311,7 +313,14 @@ namespace GroupDocs.Search_for_.NET
             //Extract Document Text from Index to File
             //Indexing.ExtracDocumentTextToFileFromIndex();
 
+            //Optimization of index storage format
+            //Indexing.OptimizeIndex();
 
+            //Set log file path while indexing
+            //Indexing.SetLogFileConfigs();
+
+            //Attach arbitrary additional fields to a document 
+            //Indexing.AttachAbritraryFields();
             #endregion
 
             # region Business Cases
