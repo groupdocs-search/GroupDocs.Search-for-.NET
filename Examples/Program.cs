@@ -205,6 +205,9 @@ namespace GroupDocs.Search_for_.NET
 
             //Searching with filters
             //Searching.SearchwithFilters();
+
+            // Get search hits count against each word.
+            //Searching.GetSearchHits();
             #endregion
 
             #region Indexing

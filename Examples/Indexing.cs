@@ -1153,15 +1153,13 @@ namespace GroupDocs.Search_for_.NET
                 args.AdditionalFields = additionalFields;
             };
 
-            // Searching
-            SearchResults results = index.Search("arbitrary");
-
             // Adding documents to index
             index.AddToIndex(documentFolder);
 
+            // Searching
+            SearchResults results = index.Search("arbitrary");
 
-
-            //ExEnd:AttachAbritraryFields_19.5
+         //ExEnd:AttachAbritraryFields_19.5
         }
         //ExStart:CustomExtractorClass
         class CustomTextExtractor : IFieldExtractor
