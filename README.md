@@ -11,6 +11,11 @@ GroupDocs.Search for .NET API helps user to perform various search operations. I
   </a>
 </p>
 
+Directory | Description
+--------- | -----------
+[Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Examples)  | Contains the package of all .NET examples and sample files that will help you learn how to use product features. 
+[Showcases](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI)  | The UI project is an efficient ASP.NET MVC Application that demonstrates the core functionalities provided by GroupDocs.Search for .NET.
+
 ## How to Run the Examples
 
 + You can either clone the repository using your favorite GitHub client or download the ZIP file from the above button.
@@ -24,11 +29,6 @@ GroupDocs.Search for .NET API helps user to perform various search operations. I
 + Uncomment the examples you want to run from within the project.
 
 Please find more details for how to run the examples [here](https://docs.groupdocs.com/display/searchnet/How+to+Run+Examples).
-
-Directory | Description
---------- | -----------
-[Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Examples)  | Contains the package of all .NET examples and sample files that will help you learn how to use product features. 
-[Showcases](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI)  | The UI project is an efficient ASP.NET MVC Application that demonstrates the core functionalities provided by GroupDocs.Search for .NET.
 
 ## Resources
 
