@@ -1,9 +1,0 @@
-@s
-structure
-
-@y
-example
-
-@z
-example AND usage
-
