@@ -26,15 +26,11 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
 
             // Then we assume that the input word is in the singular, we add the plural
             if (word.Length > 1 &&
-                word.EndsWith("e", StringComparison.InvariantCultureIgnoreCase))
-            {
-                result.Add(word + "s");
-            }
-            if (word.Length > 1 &&
             word.EndsWith("y", StringComparison.InvariantCultureIgnoreCase))
             {
                 result.Add(word.Substring(0, word.Length - 1) + "is");
             }
+            result.Add(word + "s");
             result.Add(word + "es");
             // All rules are implemented in the EnglishWordFormsProvider class
 
