@@ -67,5 +67,29 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             Utils.TraceResult(query1, result1);
             Utils.TraceResult(rootQuery.ToString(), result2);
         }
+
+        public static void UsingStandardFieldNames()
+        {
+            string indexFolder = @".\AdvancedUsage\Searching\FacetedSearch\UsingStandardFieldNames";
+            string documentsFolder = Utils.DocumentsPath;
+
+            // Creating an index in the specified folder
+            Index index = new Index(indexFolder);
+
+            // Indexing documents from the specified folder
+            index.Add(documentsFolder);
+
+            // Search in the content field with text query
+            string query1 = WordsFieldNames.Company + ": Dycum";
+            SearchResult result1 = index.Search(query1);
+
+            // Search in the content field with object query
+            SearchQuery wordQuery = SearchQuery.CreateWordQuery("Dycum");
+            SearchQuery fieldQuery = SearchQuery.CreateFieldQuery(WordsFieldNames.Company, wordQuery);
+            SearchResult result2 = index.Search(fieldQuery);
+
+            Utils.TraceResult(query1, result1);
+            Utils.TraceResult(fieldQuery.ToString(), result2);
+        }
     }
 }

@@ -124,6 +124,7 @@ namespace GroupDocs.Search.Examples.CSharp
 
             //FacetedSearch.SimpleFacetedSearch();
             //FacetedSearch.ComplexQuery();
+            //FacetedSearch.UsingStandardFieldNames();
 
             //FuzzySearch.SettingFuzzySearchAlgorithm();
             //FuzzySearch.SettingStepFunction();

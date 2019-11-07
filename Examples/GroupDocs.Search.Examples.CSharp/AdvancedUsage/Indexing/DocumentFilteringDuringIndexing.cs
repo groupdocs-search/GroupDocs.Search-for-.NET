@@ -86,8 +86,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string documentsFolder = Utils.DocumentsPath;
 
             IndexSettings settings = new IndexSettings();
-            // Creating a filter that skips files that do not contain the word 'ipsum' in their paths
-            DocumentFilter filter = DocumentFilter.CreateFilePathRegularExpression("ipsum", RegexOptions.IgnoreCase);
+            // Creating a filter that skips files that do not contain the word 'Ipsum' in their paths
+            DocumentFilter filter = DocumentFilter.CreateFilePathRegularExpression("Ipsum", RegexOptions.IgnoreCase);
             settings.DocumentFilter = filter;
 
             // Creating an index in the specified folder
