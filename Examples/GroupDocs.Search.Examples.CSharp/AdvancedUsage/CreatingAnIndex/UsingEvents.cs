@@ -151,7 +151,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
             // Subscribing to the event
             index.Events.StatusChanged += (sender, args) =>
             {
-                if (args.Status != IndexStatus.InProgress)
+                if (args.Status == IndexStatus.Ready || args.Status == IndexStatus.Failed)
                 {
                     // A notification of the operation completion should be here
                     Console.WriteLine("Operation finished!");

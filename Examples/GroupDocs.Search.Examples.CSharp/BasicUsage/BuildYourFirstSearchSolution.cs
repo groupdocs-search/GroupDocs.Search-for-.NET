@@ -76,7 +76,7 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
             // c) Subscribe to StatusChanged event
             index.Events.StatusChanged += (sender, args) =>
             {
-                if (args.Status != IndexStatus.InProgress)
+                if (args.Status == IndexStatus.Ready || args.Status == IndexStatus.Failed)
                 {
                     // There should be a code indicating the completion of the operation
                     Console.WriteLine("Indexing completed.");
