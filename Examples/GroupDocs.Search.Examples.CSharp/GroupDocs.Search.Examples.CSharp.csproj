@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GroupDocs.Search, Version=20.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>packages\GroupDocs.Search.20.1.0\lib\net20\GroupDocs.Search.dll</HintPath>
+    <Reference Include="GroupDocs.Search, Version=20.4.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>packages\GroupDocs.Search.20.4.0\lib\net20\GroupDocs.Search.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,7 +52,9 @@
     <Compile Include="AdvancedUsage\Indexing\CharacterTypes.cs" />
     <Compile Include="AdvancedUsage\Indexing\CustomTextExtractors.cs" />
     <Compile Include="AdvancedUsage\Indexing\DeleteIndexedPaths.cs" />
+    <Compile Include="AdvancedUsage\Indexing\DocumentAttributes.cs" />
     <Compile Include="AdvancedUsage\Indexing\DocumentFilteringDuringIndexing.cs" />
+    <Compile Include="AdvancedUsage\Indexing\DocumentRenaming.cs" />
     <Compile Include="AdvancedUsage\Indexing\IndexingAdditionalFields.cs" />
     <Compile Include="AdvancedUsage\Indexing\IndexingMetadataOfDocuments.cs" />
     <Compile Include="AdvancedUsage\Indexing\IndexingOptionsProperties.cs" />

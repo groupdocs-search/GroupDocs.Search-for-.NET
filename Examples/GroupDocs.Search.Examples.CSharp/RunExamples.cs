@@ -22,6 +22,7 @@ namespace GroupDocs.Search.Examples.CSharp
             SetLicenseFromFile.Run();
             //SetLicenseFromStream.Run();
             //SetMeteredLicense.Run();
+
             HelloWorld.Run();
 
             #endregion Getting Started ----------------------------------------------------------------------------------------------------
@@ -65,6 +66,9 @@ namespace GroupDocs.Search.Examples.CSharp
 
             //DeleteIndexedPaths.Run();
 
+            //DocumentAttributes.ChangeAttributes();
+            //DocumentAttributes.AddAttributesDuringIndexing();
+
             //DocumentFilteringDuringIndexing.SettingAFilter();
             //DocumentFilteringDuringIndexing.CreationTimeFilters();
             //DocumentFilteringDuringIndexing.ModificationTimeFilters();
@@ -74,6 +78,8 @@ namespace GroupDocs.Search.Examples.CSharp
             //DocumentFilteringDuringIndexing.LogicalNotFilter();
             //DocumentFilteringDuringIndexing.LogicalAndFilter();
             //DocumentFilteringDuringIndexing.LogicalOrFilter();
+
+            //DocumentRenaming.Run();
 
             //IndexingAdditionalFields.Run();
 
@@ -120,6 +126,7 @@ namespace GroupDocs.Search.Examples.CSharp
             //DocumentFilteringInSearchResult.SettingAFilter();
             //DocumentFilteringInSearchResult.FilePathFilters();
             //DocumentFilteringInSearchResult.FileExtensionFilter();
+            //DocumentFilteringInSearchResult.AttributeFilter();
             //DocumentFilteringInSearchResult.CombiningFilters();
 
             //FacetedSearch.SimpleFacetedSearch();

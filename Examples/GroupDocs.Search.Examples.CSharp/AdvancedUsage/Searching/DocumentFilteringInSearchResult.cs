@@ -1,5 +1,6 @@
 ﻿using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
+using System;
 using System.Text.RegularExpressions;
 
 namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
@@ -50,7 +51,6 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             options.SearchDocumentFilter = filter;
 
             // Search in the index
-            // Only text documents will be returned as the result of the search
             string query = "Advantages";
             SearchResult result = index.Search(query, options);
 
@@ -78,8 +78,43 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             options.SearchDocumentFilter = filter;
 
             // Search in the index
-            // Only text documents will be returned as the result of the search
             string query = "ipsum";
+            SearchResult result = index.Search(query, options);
+
+            Utils.TraceResult(query, result);
+        }
+
+        public static void AttributeFilter()
+        {
+            string indexFolder = @".\AdvancedUsage\Searching\DocumentFilteringInSearchResult\AttributeFilter";
+            string documentsFolder = Utils.DocumentsPath;
+
+            // Creating an index in the specified folder
+            Index index = new Index(indexFolder);
+
+            string[] mainAttribute = new string[] { "main" };
+            index.Events.FileIndexing += (sender, args) =>
+            {
+                if (args.DocumentFullPath.EndsWith(".txt", System.StringComparison.OrdinalIgnoreCase))
+                {
+                    args.Attributes = mainAttribute;
+                }
+            };
+
+            // Indexing documents from the specified folder
+            index.Add(documentsFolder);
+
+            // Creating a search options object
+            SearchOptions options = new SearchOptions();
+
+            // This filter returns only documents that have attribute "main"
+            ISearchDocumentFilter filter = SearchDocumentFilter.CreateAttribute("main");
+
+            // Setting a document filter
+            options.SearchDocumentFilter = filter;
+
+            // Search in the index
+            string query = "ipsum OR length";
             SearchResult result = index.Search(query, options);
 
             Utils.TraceResult(query, result);
@@ -118,7 +153,6 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             options.SearchDocumentFilter = notFilter;
 
             // Search in the index
-            // Only text documents will be returned as the result of the search
             string query = "ipsum";
             SearchResult result = index.Search(query, options);
 
