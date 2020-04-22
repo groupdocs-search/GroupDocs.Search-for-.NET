@@ -69,5 +69,28 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
             Utils.TraceIndexedDocuments(index);
         }
+
+        public static void MetadataIndexingOptionsProperty()
+        {
+            string indexFolder = @".\AdvancedUsage\Indexing\IndexingOptionsProperties\MetadataIndexingOptionsProperty";
+            string documentFolder = Utils.DocumentsPath;
+
+            // Creating an index
+            Index index = new Index(indexFolder);
+
+            // Setting the metadata indexing options
+            var options = new IndexingOptions();
+            options.MetadataIndexingOptions.DefaultFieldName = "default";
+            options.MetadataIndexingOptions.SeparatorInCompoundName = @"\";
+            options.MetadataIndexingOptions.MaxBytesToIndexField = 10;
+            options.MetadataIndexingOptions.MaxIntsToIndexField = 10;
+            options.MetadataIndexingOptions.MaxLongsToIndexField = 10;
+            options.MetadataIndexingOptions.MaxDoublesToIndexField = 10;
+
+            // Starting indexing operation
+            index.Add(documentFolder, options);
+
+            Utils.TraceIndexedDocuments(index);
+        }
     }
 }

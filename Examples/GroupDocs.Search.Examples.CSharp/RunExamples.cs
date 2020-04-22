@@ -88,6 +88,7 @@ namespace GroupDocs.Search.Examples.CSharp
             //IndexingOptionsProperties.CancellationProperty();
             //IndexingOptionsProperties.IsAsyncProperty();
             //IndexingOptionsProperties.ThreadsProperty();
+            //IndexingOptionsProperties.MetadataIndexingOptionsProperty();
 
             //IndexingPasswordProtectedDocuments.IndexingUsingThePasswordDictionary();
             //IndexingPasswordProtectedDocuments.IndexingUsingThePasswordRequiredEvent();
