@@ -8,4 +8,3 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-### Release Notes
