@@ -1,8 +1,6 @@
-## GroupDocs.Search for .NET
+# Document Indexing & Search API
 
-This package contains [Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Examples) and [Showcases](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI) for [GroupDocs.Search for .NET](https://products.groupdocs.com/search/net) that will help you in understanding the API's working and writing your own applications.
-
-GroupDocs.Search for .NET API helps user to perform various search operations. It extracts text and metadata from different file formats and performs search over all user documents. In order to make search process fast and accurate, index is created and documents are added to it. Hence all the search queries or advanced searches are performed over the index.
+[GroupDocs.Search for .NET](https://products.groupdocs.com/search/net) helps build reliable, smart and feature-rich search application for your end-users, supporting all popular document formats. It extracts text and metadata from different files and performs search over all documents. In order to make search process fast and accurate, index is created and documents are added to it. Hence all the search queries or advanced searches are performed over the index.
 
 <p align="center">
 
@@ -13,30 +11,100 @@ GroupDocs.Search for .NET API helps user to perform various search operations. I
 
 Directory | Description
 --------- | -----------
-[Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Examples)  | Contains the package of all .NET examples and sample files that will help you learn how to use product features. 
-[Showcases](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI)  | The UI project is an efficient ASP.NET MVC Application that demonstrates the core functionalities provided by GroupDocs.Search for .NET.
+[Docs](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Docs)  | Product documentation containing Developer's Guide, Release Notes and more.
+[Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Examples)  | C# based examples and sample files for quick start. 
+[Showcases](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI)  | ASP.NET MVC based application demonstrating the core features.
 
-## How to Run the Examples
+## Document Indexing Features
 
-+ You can either clone the repository using your favorite GitHub client or download the ZIP file from the above button.
-+ Extract the contents of the ZIP file to any folder on your computer. All the examples are located in the Examples folder.
-+ In the extracted files and folders, you can see solution file for C# Project..
-+ The project is created in Visual Studio 2012.
-+ Open the solution file in Visual Studio and build the project.
-+ On the first run, the dependencies will automatically be downloaded via NuGet.
-+ Data folder at the root folder of Examples contains some sample input templates used in code examples. It is mandatory that you download the Data folder along with the examples project.
-+ Open Program.cs file, all the examples are called from here.
-+ Uncomment the examples you want to run from within the project.
+- [70+ supported file formats](https://docs.groupdocs.com/search/net/supported-document-formats/).
+- Create index in memory or on disk.
+- Update index to take into account changed, deleted and added documents.
+- Merge several indexes into one.
+- Optimize index to improve search performance.
+- Index password protected documents.
+- Index with stop words.
+- Option for compact and metadata index.
+- Ability to save extracted text in index with different level of compression.
+- Document filtering during indexing.
+- Deleting indexed paths from index.
 
-Please find more details for how to run the examples [here](https://docs.groupdocs.com/display/searchnet/How+to+Run+Examples).
+## Document Search Features
+- Simple word search.
+- Boolean search.
+- Search based on regular expression.
+- Faceted search.
+- Case sensitive search.
+- Flexible fuzzy search.
+- Synonym search.
+- Homophone search.
+- Wildcard search.
+- Phrase search with wildcards.
+- Search for different word forms.
+- Date range search.
+- Numeric range search.
+- Search by chunks (pages).
 
-## Resources
+## Develop & Deploy GroupDocs.Search Anywhere
 
-+ **Website:** [www.groupdocs.com](https://www.groupdocs.com/)
-+ **Product Home:** [GroupDocs.Search for .NET](https://products.groupdocs.com/search/net) 
-+ **Installation:** [GroupDocs.Search for .NET NuGet Package](https://www.nuget.org/packages/GroupDocs.Search/)
-+ **API Reference:** [GroupDocs.Search for .NET API Reference](https://apireference.groupdocs.com/net/search)
-+ **Documentation:** [GroupDocs.Search for .NET Documentation](https://docs.groupdocs.com/display/searchnet/Home)
-+ **Free Support:** [GroupDocs.Search for .NET Free Support Forum](https://forum.groupdocs.com/c/search)
-+ **Paid Support:** [GroupDocs.Search for .NET Paid Support Helpdesk](https://helpdesk.groupdocs.com/)
-+ **Blog:** [GroupDocs.Search for .NET Blog](https://blog.groupdocs.com/category/groupdocs-search-product-family/)
+**Microsoft Windows:** Windows Desktop & Server (x86, x64), Windows Azure\
+**macOS:** Mac OS X\
+**Linux:** Ubuntu, OpenSUSE, CentOS, and others\
+**Development Environments:** Microsoft Visual Studio, Xamarin.Android, Xamarin.IOS, Xamarin.Mac, MonoDevelop\
+**Supported Frameworks:** .NET Framework 2.0 or higher, .NET Standard 2.0, .NET Core 2.1 & 2.0, Mono Framework 1.2 or higher
+
+## Getting Started with GroupDocs.Search for .NET
+
+Are you ready to give GroupDocs.Search for .NET a try? Simply execute `Install-Package GroupDocs.Search` from Package Manager Console in Visual Studio to fetch & reference GroupDocs.Search assembly in your project. If you already have GroupDocs.Search for .NET and want to upgrade it, please execute `Update-Package GroupDocs.Search` to get the latest version.
+
+## Perform Regular Expression Search
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+string documentsFolder = @"c:\MyDocuments\";
+
+// creating an index in the specified folder
+Index index = new Index(indexFolder);
+
+// indexing documents from the specified folder
+index.Add(documentsFolder);
+
+// search for the phrase in text form
+// the first caret character at the beginning indicates that this is a regular expression search query
+string query1 = "^^(.)\\1{1,}";
+// search for two or more identical characters at the beginning of a word
+SearchResult result1 = index.Search(query1); 
+
+// search for the phrase in object form
+// search for two or more identical characters at the beginning of a word
+SearchQuery query2 = SearchQuery.CreateRegexQuery("^(.)\\1{1,}");
+SearchResult result2 = index.Search(query2);
+```
+
+## Spell Check with Smart Search
+
+```csharp
+string indexFolder = @"c:\MyIndex\";
+string documentsFolder = @"c:\MyDocuments\";
+
+// creating an index in the specified folder
+Index index = new Index(indexFolder);
+
+// indexing documents from the specified folder
+index.Add(documentsFolder);
+
+// creating a search options instance
+SearchOptions options = new SearchOptions();
+// enabling the spelling correction
+options.SpellingCorrector.Enabled = true;
+// setting the maximum number of mistakes
+options.SpellingCorrector.MaxMistakeCount = 1;
+// enabling the option for only the best results of the spelling correction
+options.SpellingCorrector.OnlyBestResults = true;
+
+// search for the word "Rleativity" containing a spelling error
+// the word "Relativity" will be found that differs from the search query in two transposed letters
+SearchResult result = index.Search("Rleativity", options);
+```
+
+[Product Page](https://products.groupdocs.com/search/net) | [Documentation](https://docs.groupdocs.com/search/net/) | [Demo](https://products.groupdocs.app/search/family) | [API Reference](https://apireference.groupdocs.com/net/search) | [Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET) | [Blog](https://blog.groupdocs.com/category/search/) | [Free Support](https://forum.groupdocs.com/c/search) | [Temporary License](https://purchase.groupdocs.com/temporary-license)
