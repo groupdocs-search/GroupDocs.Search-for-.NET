@@ -30,6 +30,10 @@ GroupDocs.Search for .NET supports any 32-bit or 64-bit operating system where 
 *   Microsoft Windows 8, 8.1 ( x64, x86)
 *   Microsoft Windows 10 ( x64, x86)
 
+### Linux
+
+- Linux (Ubuntu, OpenSUSE, CentOS and others)
+
 ## Supported Frameworks
 
 GroupDocs.Search for .NET  supports .NET frameworks as follows:
@@ -51,6 +55,9 @@ GroupDocs.Search for .NET  supports .NET frameworks as follows:
 *   .NET Framework 4.6.2
 *   .NET Framework 4.7
 *   .NET Framework 4.7.2
+*   .NET Standard 2.0 
+*   .NET Core 2.0
+*   .NET Core 2.1
 
 ## Development Environments
 

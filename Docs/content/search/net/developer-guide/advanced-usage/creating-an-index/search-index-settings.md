@@ -64,6 +64,12 @@ The [UseCharacterReplacements](https://apireference.groupdocs.com/net/search/gro
 
 The [UseStopWords](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/usestopwords) property allows you to specify a value indicating whether to use stop words during indexing or not. Stop words are frequently used words that do not carry a semantic load, which are removed from an index to reduce its size. The default value for this parameter is true. Detailed information on stop words and their use is presented on the page [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}).
 
+## UseRawTextExtraction property
+
+Property [UseRawTextExtraction](https://apireference.groupdocs.com/search/net/groupdocs.search/indexsettings/properties/userawtextextraction) allows you to specify a value indicating whether to use raw text  extraction mode whenever possible during indexing. The raw text  extraction mode can significantly speed up the indexing process at the  cost of losing the formatting quality of the extracted text. The default value for this property is true.
+
+
+
 ## More resources
 
 ### GitHub examples
