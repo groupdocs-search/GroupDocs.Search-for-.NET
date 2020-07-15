@@ -12,7 +12,7 @@ Synonym search allows you to find not only the words specified in the search que
 
 To enable synonym search, you must set the [UseSynonymSearch](https://apireference.groupdocs.com/net/search/groupdocs.search.options/searchoptions/properties/usesynonymsearch) property of the [SearchOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/searchoptions) class to true. By default, synonym search is disabled.
 
-The default synonym dictionary contains synonyms only for the English language. To manage the synonym dictionary, see the [Synonym search]({{< ref "search/net/developer-guide/advanced-usage/searching/synonym-search.md" >}}) page in the [Synonym search]({{< ref "search/net/developer-guide/advanced-usage/searching/synonym-search.md" >}}) section.
+The default synonym dictionary contains synonyms only for the English language. To manage the synonym dictionary, see the [Synonym dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/synonym-dictionary.md" >}}) page in the [Managing dictionaries]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}}) section.
 
 The following example demonstrates the synonym search.
 

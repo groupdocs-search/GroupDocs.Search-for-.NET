@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-An instance of the [AliasDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary) class contains all the aliases defined in an index. Information on using aliases to search is provided on the [Alias dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/alias-dictionary.md" >}}) page.
+An instance of the [AliasDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary) class contains all the aliases defined in an index. Information on using aliases to search is provided on the [Using aliases]({{< ref "search/net/developer-guide/advanced-usage/searching/using-aliases.md" >}}) page.
 
 To get the number of existing aliases, use the [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/aliasdictionary/properties/count) property.
 

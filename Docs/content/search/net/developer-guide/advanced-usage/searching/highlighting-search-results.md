@@ -23,7 +23,7 @@ The Index class also represents an overload of the [Highlight](https://apirefere
 
 The other options are used for highlighting occurrences in text fragments.
 
-To highlight search results in the text of the whole document, a highlighter of the [HtmlHighlighter](https://apireference.groupdocs.com/net/search/groupdocs.search.highlighters/htmlhighlighter) class is used. To create a highlighter of this type, you must pass an object of a class derived from the abstract class **[OutputAdapter](https://apireference.groupdocs.com/net/search/groupdocs.search.common/outputadapter)** to its constructor. Details on the output adapters are presented on the page [Highlighting search results]({{< ref "search/net/developer-guide/advanced-usage/searching/highlighting-search-results.md" >}}).
+To highlight search results in the text of the whole document, a highlighter of the [HtmlHighlighter](https://apireference.groupdocs.com/net/search/groupdocs.search.highlighters/htmlhighlighter) class is used. To create a highlighter of this type, you must pass an object of a class derived from the abstract class **[OutputAdapter](https://apireference.groupdocs.com/net/search/groupdocs.search.common/outputadapter)** to its constructor. Details on the output adapters are presented on the page [Output adapters]({{< ref "search/net/developer-guide/advanced-usage/searching/output-adapters.md" >}}).
 
 If after generation the text of a document was saved to a file, this file can be opened by an Internet browser to navigate the occurrences of the words found. To navigate the occurrences, the following text is added to the URL in a browser:
 

@@ -12,7 +12,7 @@ Regular expression (RegEx) search queries are universal and very flexible, but 
 
 Queries of this type always starts with the caret character, and if the regular expression itself also starts with the caret character, then there will be two caret characters at the beginning of the query.
 
-A regex search query in text form cannot be combined with other types of queries. See the [Regular expression search]({{< ref "search/net/developer-guide/advanced-usage/searching/regular-expression-search.md" >}}) page. However, in object form, regular expressions can be combined with other queries. See the [Regular expression search]({{< ref "search/net/developer-guide/advanced-usage/searching/regular-expression-search.md" >}}) page.
+A regex search query in text form cannot be combined with other types of queries. See the  [Query language specification]({{< ref "search/net/developer-guide/advanced-usage/searching/query-language-specification.md" >}}) page. However, in object form, regular expressions can be combined with other queries. See the [Nesting search queries in object form]({{< ref "search/net/developer-guide/advanced-usage/searching/nesting-search-queries-in-object-form.md" >}}) page.
 
 The following example demonstrates the regex search in text and object forms.
 

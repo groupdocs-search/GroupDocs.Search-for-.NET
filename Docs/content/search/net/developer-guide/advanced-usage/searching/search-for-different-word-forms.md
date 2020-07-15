@@ -12,7 +12,7 @@ The search for different word forms allows you to search for nouns in the singu
 
 Search for different word forms is enabled if the [UseWordFormsSearch](https://apireference.groupdocs.com/net/search/groupdocs.search.options/searchoptions/properties/usewordformssearch) property of the [SearchOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/searchoptions) class is set to true. By default, the search for different word forms is disabled.
 
-To generate various forms of words, a class that implements the [IWordFormsProvider](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/iwordformsprovider) interface is used. The default class is [EnglishWordFormsProvider](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/englishwordformsprovider), which supports English-only word forms. To add support for word forms in other languages, see the [Search for different word forms]({{< ref "search/net/developer-guide/advanced-usage/searching/search-for-different-word-forms.md" >}}) page.
+To generate various forms of words, a class that implements the [IWordFormsProvider](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/iwordformsprovider) interface is used. The default class is [EnglishWordFormsProvider](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/englishwordformsprovider), which supports English-only word forms. To add support for word forms in other languages, see the [Word forms provider]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/word-forms-provider.md" >}}) page.
 
 The following example demonstrates how to perform search for different word forms in an index.
 

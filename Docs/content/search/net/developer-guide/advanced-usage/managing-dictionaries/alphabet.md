@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-An instance of the [Alphabet](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet) class contains types of characters used for indexing. For detailed information on the types of characters, see the [Alphabet]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/alphabet.md" >}}) page.
+An instance of the [Alphabet](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet) class contains types of characters used for indexing. For detailed information on the types of characters, see the [Character types]({{< ref "search/net/developer-guide/advanced-usage/indexing/character-types.md" >}}) page.
 
 The [GetCharacterType](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/alphabet/methods/getcharactertype) method is used to get the type of a specific character.
 

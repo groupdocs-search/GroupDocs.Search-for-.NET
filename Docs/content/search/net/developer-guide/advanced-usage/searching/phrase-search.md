@@ -95,7 +95,7 @@ SearchResult result2 = index.Search(query2);
 // "theory of special relativity"
 ```
 
-Phrase search can be combined with other types of searches. The specification of search queries in text form is presented on the [Phrase search]({{< ref "search/net/developer-guide/advanced-usage/searching/phrase-search.md" >}}) page. A table of the possibility of nesting search queries in object form is presented on the [Phrase search]({{< ref "search/net/developer-guide/advanced-usage/searching/phrase-search.md" >}}) page.
+Phrase search can be combined with other types of searches. The specification of search queries in text form is presented on the [Query language specification]({{< ref "search/net/developer-guide/advanced-usage/searching/query-language-specification.md" >}}) page. A table of the possibility of nesting search queries in object form is presented on the [Nesting search queries in object form]({{< ref "search/net/developer-guide/advanced-usage/searching/nesting-search-queries-in-object-form.md" >}}) page.
 
 The following example demonstrates the use of both wildcards representing words and characters in words.
 

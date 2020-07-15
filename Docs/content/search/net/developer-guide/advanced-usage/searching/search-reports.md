@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Each time you perform a search in an index, a report is generated for that search. An array of search reports can be obtained by calling [GetSearchReports](https://apireference.groupdocs.com/net/search/groupdocs.search/index/methods/getsearchreports) method of the [Index](https://apireference.groupdocs.com/net/search/groupdocs.search/index) class. Reports are stored in the index only while the index is loaded into RAM for use. If you reload the index, the reports will not be restored.
 
-You can configure the maximum number of stored reports using the [MaxSearchReportCount](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/maxsearchreportcount) property of the [IndexSettings](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings) class. The default value is 10. Learn more about index settings on the page [Search reports]({{< ref "search/net/developer-guide/advanced-usage/searching/search-reports.md" >}}).
+You can configure the maximum number of stored reports using the [MaxSearchReportCount](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/maxsearchreportcount) property of the [IndexSettings](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings) class. The default value is 10. Learn more about index settings on the page [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}).
 
 Each index search report contains the following information:
 

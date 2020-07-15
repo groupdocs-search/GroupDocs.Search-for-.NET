@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-This page contains descriptions of all character types. Character types differ in how characters of these types are indexed. For more information on managing the Alphabet, see the [Character types]({{< ref "search/net/developer-guide/advanced-usage/indexing/character-types.md" >}}) page in the [Character types]({{< ref "search/net/developer-guide/advanced-usage/indexing/character-types.md" >}}) section.
+This page contains descriptions of all character types. Character types differ in how characters of these types are indexed. For more information on managing the Alphabet, see the [Alphabet]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/alphabet.md" >}}) page in the [Managing dictionaries]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}}) section.
 
 ## Regular characters
 

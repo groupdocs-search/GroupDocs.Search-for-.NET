@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Indexing reports are created for indexing and updating operations. Indexing reports can be retrieved from the index using the [GetIndexingReports](https://apireference.groupdocs.com/net/search/groupdocs.search/index/methods/getindexingreports) method. Reports are stored in the index only while the index is loaded into RAM for use. If you reload the index, the reports will not be restored.
 
-You can configure the maximum number of stored reports using the [MaxIndexingReportCount](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/maxindexingreportcount) property of the [IndexSettings](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings) class. The default value is 5. Learn more about index settings on the page [Indexing reports]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-reports.md" >}}).
+You can configure the maximum number of stored reports using the [MaxIndexingReportCount](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/maxindexingreportcount) property of the [IndexSettings](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings) class. The default value is 5. Learn more about index settings on the page [Search index settings]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-settings.md" >}}.
 
 Each index report contains the following information:
 

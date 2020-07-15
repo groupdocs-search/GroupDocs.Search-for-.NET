@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [StopWordDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary) class is designed to store stop words in an index. Information on using stop words during indexing is provided on the [Stop word dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/stop-word-dictionary.md" >}}) page.
+The [StopWordDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary) class is designed to store stop words in an index. Information on using stop words during indexing is provided on the [Indexing with stop words]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-with-stop-words.md" >}}) page.
 
 To get the number of stop words in the dictionary, use the [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/stopworddictionary/properties/count) property.
 

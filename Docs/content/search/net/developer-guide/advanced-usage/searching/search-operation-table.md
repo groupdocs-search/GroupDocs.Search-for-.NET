@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The table below provides syntax of all elements allowed in text search queries. See also [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}), [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}).
+The table below provides syntax of all elements allowed in text search queries. See also [Query language specification]({{< ref "search/net/developer-guide/advanced-usage/searching/query-language-specification.md" >}}), [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}}).
 
 | Element | Syntax | Description | Examples |
 | --- | --- | --- | --- |

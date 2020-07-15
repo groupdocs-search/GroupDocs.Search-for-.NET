@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The table below shows the internal stages of each search operation. See also [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}}), [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}}).
+The table below shows the internal stages of each search operation. See also [Query language specification]({{< ref "search/net/developer-guide/advanced-usage/searching/query-language-specification.md" >}}), [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}).
 
 | Operation | Search flow |
 | --- | --- |

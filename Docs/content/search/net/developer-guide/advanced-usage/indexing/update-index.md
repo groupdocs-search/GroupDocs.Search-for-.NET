@@ -14,7 +14,7 @@ This page contains a description of updating indexed documents, as well as updat
 
 The update operation is used to reindex documents that have been changed, deleted or added to indexed folders. Changing a filter specified by the [DocumentFilter](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings/properties/documentfilter) property of the [IndexSettings](https://apireference.groupdocs.com/net/search/groupdocs.search/indexsettings) class can also lead to a change in the list of indexed documents.
 
-When updating, the same options can be specified in the instance of the [UpdateOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/updateoptions) class, which are set in the [IndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions) class to specify indexing options. See the [Update index]({{< ref "search/net/developer-guide/advanced-usage/indexing/update-index.md" >}}) page.
+When updating, the same options can be specified in the instance of the [UpdateOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/updateoptions) class, which are set in the [IndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/indexingoptions) class to specify indexing options. See the [Indexing options]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-options.md" >}}) page.
 
 The following example demonstrates how to update an index using 2 threads.
 

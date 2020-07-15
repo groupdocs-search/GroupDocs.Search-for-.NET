@@ -35,7 +35,7 @@ Other notable features and improvements:
 
 ### Implement highlighting search results in short fragments
 
-This improvement allows highlighting the search results in separate short fragments of the text, and not in the whole document. A detailed description of the feature is presented in the documentation on the [GroupDocs.Search for .NET 19.10 Release Notes]({{< ref "search/net/release-notes/release-notes-2019/groupdocs.search-for-.net-19.10-release-notes.md" >}}) page.
+This improvement allows highlighting the search results in separate short fragments of the text, and not in the whole document. A detailed description of the feature is presented in the documentation on the [Highlighting search results]({{< ref "search/net/developer-guide/advanced-usage/searching/highlighting-search-results.md" >}}) page.
 
 ##### Usecases
 

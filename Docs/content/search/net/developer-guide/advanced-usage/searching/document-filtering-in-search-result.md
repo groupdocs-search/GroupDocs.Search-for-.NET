@@ -59,7 +59,7 @@ ISearchDocumentFilter filter = SearchDocumentFilter.CreateFileExtension(".fb2", 
 
 ## Attribute filter
 
-The next supported type of search document filters allows you to search only those documents with which the specified text attribute is associated. You can learn more about attributes on the [Document filtering in search result]({{< ref "search/net/developer-guide/advanced-usage/searching/document-filtering-in-search-result.md" >}}) page.
+The next supported type of search document filters allows you to search only those documents with which the specified text attribute is associated. You can learn more about attributes on the [Document attributes]({{< ref "search/net/developer-guide/advanced-usage/indexing/document-attributes.md" >}}) page.
 
 **C#**
 

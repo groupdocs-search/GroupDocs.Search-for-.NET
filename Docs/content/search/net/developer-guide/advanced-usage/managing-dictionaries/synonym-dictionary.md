@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [SynonymDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary) class is designed to store synonyms in an index. For information on searching using synonyms, see the [Synonym dictionary]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/synonym-dictionary.md" >}}) page.
+The [SynonymDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary) class is designed to store synonyms in an index. For information on searching using synonyms, see the [Synonym search]({{< ref "search/net/developer-guide/advanced-usage/searching/synonym-search.md" >}}) page.
 
 To get the number of synonyms in the dictionary, use the [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/properties/count) property.
 

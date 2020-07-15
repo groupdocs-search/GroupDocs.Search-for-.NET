@@ -12,7 +12,7 @@ During the search, a search query can be checked for spelling errors in words. T
 
 The spelling corrector considers the following types of misprints: adding a character, deleting a character, replacing a character, and, optionally, transposing two adjacent characters.
 
-By default, the spelling corrector dictionary contains only English words. To manage the spelling corrector dictionary, see the [Spell checking]({{< ref "search/net/developer-guide/advanced-usage/searching/spell-checking.md" >}}) page of the [Spell checking]({{< ref "search/net/developer-guide/advanced-usage/searching/spell-checking.md" >}}) section.
+By default, the spelling corrector dictionary contains only English words. To manage the spelling corrector dictionary, see the [Spelling corrector]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/spelling-corrector.md" >}}) page of the [Managing dictionaries]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/_index.md" >}}) section.
 
 The [SpellingCorrectorOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/spellingcorrectoroptions) class contains the following properties:
 

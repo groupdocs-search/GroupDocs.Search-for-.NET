@@ -18,7 +18,7 @@ Simultaneous search from different threads is a thread safe operation and can be
 
 However, indexing, updating, optimizing, and merging operations themselves cannot be performed at the same time. A new start of one of these operations before the completion of the previous operation will result in an error.
 
-Details on performing these operations can be found in the [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}) section and on the [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}), [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}), and [Search thread safety]({{< ref "search/net/developer-guide/advanced-usage/searching/search-thread-safety.md" >}}) pages.
+Details on performing these operations can be found in the [Indexing]({{< ref "search/net/developer-guide/advanced-usage/indexing/_index.md" >}}) section and on the [Merge indexes]({{< ref "search/net/developer-guide/advanced-usage/indexing/merge-indexes.md" >}}), [Optimize index]({{< ref "search/net/developer-guide/advanced-usage/indexing/optimize-index.md" >}}), and [Update index]({{< ref "search/net/developer-guide/advanced-usage/indexing/update-index.md" >}}) pages.
 
 ## More resources
 

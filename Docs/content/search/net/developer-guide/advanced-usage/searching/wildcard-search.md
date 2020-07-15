@@ -15,7 +15,7 @@ In text form of a search query, there are 2 forms of wildcard characters:
 *   ? for a single character;
 *   ?(*n*~*m*) for a group of characters, where *n* and *m* are numbers from 0 to 255, and *n* <= *m*.
 
-Wildcard search is similar to [regular expression search]({{< ref "search/net/developer-guide/advanced-usage/searching/wildcard-search.md" >}}), but it works significantly faster when groups of wildcard characters are less and closer to the end of a search query.
+Wildcard search is similar to [regular expression search]({{< ref "search/net/developer-guide/advanced-usage/searching/regular-expression-search.md" >}}), but it works significantly faster when groups of wildcard characters are less and closer to the end of a search query.
 
 It is important to know that wildcard search is flexible enough to use for prefix queries, since prefix query is a special case of a wildcard query.
 

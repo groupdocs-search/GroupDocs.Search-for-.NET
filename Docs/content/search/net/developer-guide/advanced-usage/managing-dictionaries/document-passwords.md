@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-The [PasswordDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary) class is designed to store passwords for documents to be indexed. Information on indexing password protected documents is presented on the [Document passwords]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/document-passwords.md" >}}) page.
+The [PasswordDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary) class is designed to store passwords for documents to be indexed. Information on indexing password protected documents is presented on the [Indexing password protected documents]({{< ref "search/net/developer-guide/advanced-usage/indexing/indexing-password-protected-documents.md" >}}) page.
 
 To get the number of passwords in the dictionary, use the [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/passworddictionary/properties/count) property.
 

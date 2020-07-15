@@ -123,10 +123,10 @@ index.Add(documentsFolder);
 
 The [FileIndexing](https://apireference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/fileindexing) event occurs immediately before the start of indexing a document. This event can be used for
 
-*   Skipping indexing of the current document (see also [Search index events]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-events.md" >}}) page);
-*   Specifying the encoding of the current text document (see also [Search index events]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-events.md" >}}) page);
-*   Specifying a custom text extractor for the current document (see also [Search index events]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-events.md" >}}) page);
-*   Setting additional arbitrary fields for the current document.
+*   Skipping indexing of the current document (see also [Document filtering during indexing]({{< ref "search/net/developer-guide/advanced-usage/indexing/document-filtering-during-indexing.md" >}}) page);
+*   Specifying the encoding of the current text document (see also [Text file encoding detection]({{< ref "search/net/developer-guide/advanced-usage/indexing/text-file-encoding-detection.md" >}}) page);
+*   Specifying a custom text extractor for the current document (see also [Custom text extractors]({{< ref "search/net/developer-guide/advanced-usage/indexing/custom-text-extractors.md" >}}) page);
+*   Setting additional arbitrary fields for the current document..
 
 The following example demonstrates how to add additional fields to documents ending in "Protected.pdf" and how to skip indexing documents containing "important" text in their paths.
 
@@ -192,7 +192,7 @@ index.Add(documentsFolder, options);
 
 ## SearchPhaseCompleted event
 
-The [SearchPhaseCompleted](https://apireference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/searchphasecompleted) event occurs when a phase (or stage) of a search operation in an index completes. This event is used to study intermediate search results when tuning search queries. Information on the phases of different types of search is presented on the page [Search index events]({{< ref "search/net/developer-guide/advanced-usage/creating-an-index/search-index-events.md" >}}). The following example demonstrates the use of this event.
+The [SearchPhaseCompleted](https://apireference.groupdocs.com/net/search/groupdocs.search.events/eventhub/events/searchphasecompleted) event occurs when a phase (or stage) of a search operation in an index completes. This event is used to study intermediate search results when tuning search queries. Information on the phases of different types of search is presented on the page [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}}). The following example demonstrates the use of this event.
 
 **C#**
 

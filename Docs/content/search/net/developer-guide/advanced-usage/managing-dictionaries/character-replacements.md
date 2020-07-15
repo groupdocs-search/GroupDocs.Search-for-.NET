@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-An instance of the [CharacterReplacementDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary) class contains all the character replacements defined in an index. For detailed information on character replacement, see the [Character replacements]({{< ref "search/net/developer-guide/advanced-usage/managing-dictionaries/character-replacements.md" >}}) page.
+An instance of the [CharacterReplacementDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary) class contains all the character replacements defined in an index. For detailed information on character replacement, see the [Character replacement during Indexing]({{< ref "search/net/developer-guide/advanced-usage/indexing/character-replacement-during-indexing.md" >}}) page.
 
 The [Count](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/characterreplacementdictionary/properties/count) property allows you to get the number of character replacements defined in the dictionary.
 

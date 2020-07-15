@@ -10,7 +10,7 @@ hideChildren: False
 ---
 Case-sensitive search allows you to find words considering uppercase and lowercase letters as distinct. For example, words in context of case-sensitive search 'Theory', 'theory', and 'THEORY' are all different.
 
-Note that case-sensitive search is not compatible with other types of search (see [Case sensitive search]({{< ref "search/net/developer-guide/advanced-usage/searching/case-sensitive-search.md" >}})).
+Note that case-sensitive search is not compatible with other types of search (see [Search flow]({{< ref "search/net/developer-guide/advanced-usage/searching/search-flow.md" >}})).
 
 The following example demonstrates how to perform case-sensitive search with a query in text form.
 
