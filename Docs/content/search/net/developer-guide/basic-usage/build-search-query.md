@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-This page contains information about building text search queries of various types. More examples on building search queries are provided on the page [Search operation table](Search%2Boperation%2Btable.html). A detailed specification of search query language is presented on the page [Query language specification]({{< ref "search/net/developer-guide/advanced-usage/searching/query-language-specification.md" >}}).
+This page contains information about building text search queries of various types. More examples on building search queries are provided on the page [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}). A detailed specification of search query language is presented on the page [Query language specification]({{< ref "search/net/developer-guide/advanced-usage/searching/query-language-specification.md" >}}).
 
 In addition to text search queries, there is also the ability to create queries in an object form. Search query forms are described on the page [Queries in text and object form]({{< ref "search/net/developer-guide/advanced-usage/searching/queries-in-text-and-object-form.md" >}}).
 

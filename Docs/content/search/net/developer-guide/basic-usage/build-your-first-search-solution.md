@@ -142,7 +142,7 @@ if (result.DocumentCount > 0)
 
 ### Advanced usage topics
 
-To learn more about search features and get familiar how to enhance your search solution, please refer to the [advanced usage section](https://docs.groupdocs.com/display/searchjava/Advanced+Usage).
+To learn more about search features and get familiar how to enhance your search solution, please refer to the [advanced usage section]({{< ref "search/net/developer-guide/advanced-usage/_index.md" >}}).
 
 ### GitHub examples
 

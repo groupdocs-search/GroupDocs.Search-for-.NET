@@ -14,7 +14,7 @@ A search query in text form is simpler but less flexible. The flexibility of 
 
 The correlation of two forms of search queries is that each text query before search is transformed to query in object form. Therefore, processor handles queries in object form faster.
 
-The full specification of the query language in text form is presented on the page [Query language specification](Query%2Blanguage%2Bspecification.html). Syntax with examples of all elements allowed in text search queries is presented on the page [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}).
+The full specification of the query language in text form is presented on the page [Query language specification]({{< ref "search/net/developer-guide/advanced-usage/searching/query-language-specification.md" >}}). Syntax with examples of all elements allowed in text search queries is presented on the page [Search operation table]({{< ref "search/net/developer-guide/advanced-usage/searching/search-operation-table.md" >}}).
 
 Each example in this documentation is usually given with the search query in text and object form.
 
