@@ -95,6 +95,7 @@ The following table contains file formats supported by GroupDocs.Search.
 | [VSS](https://wiki.fileformat.com/image/vss/) | Visio Stencil File |   | ![(tick)](search/net/images/check.png) |   |   |
 | Medicine |   |   |   |   |   |
 | [DCM](https://wiki.fileformat.com/image/dcm/) | DICOM Image |   | ![(tick)](search/net/images/check.png) |   |   |
+| [DICOM](https://wiki.fileformat.com/image/dcm/) | DICOM Image |   | ![(tick)](search/net/images/check.png) |   |   |
 | Video |   |   |   |   |   |
 | [AVI](https://wiki.fileformat.com/video/avi/) | Audio Video Interleave File |   | ![(tick)](search/net/images/check.png) |   |   |
 | [MOV](https://wiki.fileformat.com/video/mov/) | Apple QuickTime Movie |   | ![(tick)](search/net/images/check.png) |   |   |
