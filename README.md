@@ -107,4 +107,4 @@ options.SpellingCorrector.OnlyBestResults = true;
 SearchResult result = index.Search("Rleativity", options);
 ```
 
-[Product Page](https://products.groupdocs.com/search/net) | [Documentation](https://docs.groupdocs.com/search/net/) | [Demo](https://products.groupdocs.app/search/family) | [API Reference](https://apireference.groupdocs.com/net/search) | [Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET) | [Blog](https://blog.groupdocs.com/category/search/) | [Free Support](https://forum.groupdocs.com/c/search) | [Temporary License](https://purchase.groupdocs.com/temporary-license)
+[Home](https://www.groupdocs.com/) | [Product Page](https://products.groupdocs.com/search/net) | [Documentation](https://docs.groupdocs.com/search/net/) | [Demo](https://products.groupdocs.app/search/family) | [API Reference](https://apireference.groupdocs.com/search/net) | [Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET) | [Blog](https://blog.groupdocs.com/category/search/) | [Free Support](https://forum.groupdocs.com/c/search) | [Temporary License](https://purchase.groupdocs.com/temporary-license)
