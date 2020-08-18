@@ -1,5 +1,6 @@
 ﻿using GroupDocs.Search.Common;
 using GroupDocs.Search.Results;
+using System;
 using System.Globalization;
 using System.IO;
 
@@ -24,6 +25,11 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
                 new DocumentField("Content", ExtractContent(filePath)),
             };
             return fields;
+        }
+
+        public DocumentField[] GetFields(Stream stream)
+        {
+            throw new NotSupportedException();
         }
 
         private string ExtractContent(string filePath)

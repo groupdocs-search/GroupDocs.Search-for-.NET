@@ -18,6 +18,7 @@ GroupDocs.Search provides the following indexing features:
 *   Update index to take into account changed, deleted and added documents.
 *   Merge several indexes into one.
 *   Optimize index to improve search performance.
+*   Ability of indexing from a file, stream or structure.
 *   Indexing password protected documents.
 *   Indexing with stop words.
 *   Support for indexing additional fields.
@@ -25,7 +26,7 @@ GroupDocs.Search provides the following indexing features:
 *   Support for characters indexed as a whole word.
 *   Support for character replacement during indexing.
 *   Support for custom text extractors.
-*   Option for compact and metadata index.
+*   Options for compact and metadata index.
 *   Ability to save extracted text in index with different level of compression.
 *   Document filtering during indexing.
 *   Deleting indexed paths from index.

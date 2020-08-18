@@ -83,6 +83,14 @@ namespace GroupDocs.Search.Examples.CSharp
 
             //IndexingAdditionalFields.Run();
 
+            //IndexingFromDifferentSources.IndexingFromFile();
+            //IndexingFromDifferentSources.IndexingFromStream();
+            //IndexingFromDifferentSources.IndexingFromStructure();
+            //IndexingFromDifferentSources.IndexingFromUrl();
+            //IndexingFromDifferentSources.IndexingFromFtp();
+            //IndexingFromDifferentSources.IndexingFromAmazon();
+            //IndexingFromDifferentSources.IndexingFromAzure();
+
             //IndexingMetadataOfDocuments.Run();
 
             //IndexingOptionsProperties.CancellationProperty();

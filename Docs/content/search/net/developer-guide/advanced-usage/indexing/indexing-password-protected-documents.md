@@ -2,7 +2,7 @@
 id: indexing-password-protected-documents
 url: search/net/indexing-password-protected-documents
 title: Indexing password protected documents
-weight: 11
+weight: 12
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET
@@ -28,7 +28,8 @@ string documentsFolder = @"c:\MyDocuments\";
 Index index = new Index(indexFolder);
  
 // Adding document passwords to the dictionary
-index.Dictionaries.DocumentPasswords.Add(@"C:\MyDocuments\ProtectedDocument.pdf", "123456");
+string key = Path.GetFullPath(@"C:\MyDocuments\ProtectedDocument.pdf");
+index.Dictionaries.DocumentPasswords.Add(key, "123456");
 // ...
  
 // Indexing documents from the specified folder

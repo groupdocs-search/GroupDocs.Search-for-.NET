@@ -38,7 +38,7 @@ if (index.Dictionaries.DocumentPasswords.Count > 0)
     index.Dictionaries.DocumentPasswords.Clear();
 }
  
-string path = @"c:\MyIndex\Protected.pdf";
+string path = Path.GetFullPath(@"c:\MyIndex\Protected.pdf");
 if (index.Dictionaries.DocumentPasswords.Contains(path))
 {
     // Getting a password for a document

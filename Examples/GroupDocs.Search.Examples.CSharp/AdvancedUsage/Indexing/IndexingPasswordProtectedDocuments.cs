@@ -1,10 +1,6 @@
 ﻿using GroupDocs.Search.Results;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 {
@@ -19,8 +15,10 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             Index index = new Index(indexFolder);
 
             // Adding document passwords to the dictionary
-            index.Dictionaries.DocumentPasswords.Add(Path.Combine(Utils.PasswordProtectedDocumentsPath, "English.docx"), "123456");
-            index.Dictionaries.DocumentPasswords.Add(Path.Combine(Utils.PasswordProtectedDocumentsPath, "Lorem ipsum.docx"), "123456");
+            string key1 = Path.GetFullPath(Path.Combine(Utils.PasswordProtectedDocumentsPath, "English.docx"));
+            index.Dictionaries.DocumentPasswords.Add(key1, "123456");
+            string key2 = Path.GetFullPath(Path.Combine(Utils.PasswordProtectedDocumentsPath, "Lorem ipsum.docx"));
+            index.Dictionaries.DocumentPasswords.Add(key2, "123456");
 
             // Indexing documents from the specified folder
             // Passwords will be automatically retrieved from the dictionary when necessary
