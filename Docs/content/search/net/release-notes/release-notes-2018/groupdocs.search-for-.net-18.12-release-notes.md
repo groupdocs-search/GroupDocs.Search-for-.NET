@@ -38,12 +38,12 @@ For example, if the hyphen is marked as a blended character then indexing of te
 ##### Public API changes
 
 Enum **CharacterType** has been added to **GroupDocs.Search** namespace.  
-Value **Separator** has been added to **GroupDocs.Search.****CharacterType** enum.  
-Value **Letter** has been added to **GroupDocs.Search.****CharacterType** enum.  
-Value **Blended** has been added to **GroupDocs.Search.****CharacterType** enum.
+Value **Separator** has been added to **GroupDocs.Search.CharacterType** enum.  
+Value **Letter** has been added to **GroupDocs.Search.CharacterType** enum.  
+Value **Blended** has been added to **GroupDocs.Search.CharacterType** enum.
 
-Indexer **CharacterType ****Item(char)** has been added to **GroupDocs.Search.Alphabet**class.  
-Method **SetRange(char\[\], CharacterType)** nas been added to **GroupDocs.Search.**Alphabet**** class.
+Indexer **CharacterType Item(char)** has been added to **GroupDocs.Search.Alphabet** class.  
+Method **SetRange(char\[\], CharacterType)** nas been added to **GroupDocs.Search.Alphabet** class.
 
 ##### Usecases
 
@@ -83,18 +83,18 @@ As well implemented the ability to perform wildcard search using the more flexib
 ##### Public API changes
 
 Class **WordPattern** has been added to **GroupDocs.Search** namespace.  
-Constructor **WordPattern()** nas been added to ****GroupDocs.Search.**WordPattern****** class.  
-Method **AppendString(string)** nas been added to ****GroupDocs.Search.**WordPattern****** class.  
-Method **AppendCharacter(char)** nas been added to ****GroupDocs.Search.**WordPattern****** class.  
-Method **AppendOneCharacterWildcard()** nas been added to ****GroupDocs.Search.**WordPattern****** class.  
-Method **AppendZeroOrOneCharacterWildcard()** nas been added to ****GroupDocs.Search.**WordPattern****** class.  
-Method **AppendZeroOrMoreCharactersWildcard()** nas been added to ****GroupDocs.Search.**WordPattern****** class.  
-Method **AppendOneOrMoreCharactersWildcard()** nas been added to ****GroupDocs.Search.**WordPattern****** class.  
-Method **AppendWildcard(int, int)** nas been added to ****GroupDocs.Search.**WordPattern****** class.
+Constructor **WordPattern()** nas been added to **GroupDocs.Search.WordPattern** class.  
+Method **AppendString(string)** nas been added to **GroupDocs.Search.WordPattern** class.  
+Method **AppendCharacter(char)** nas been added to **GroupDocs.Search.WordPattern** class.  
+Method **AppendOneCharacterWildcard()** nas been added to **GroupDocs.Search.WordPattern** class.  
+Method **AppendZeroOrOneCharacterWildcard()** nas been added to **GroupDocs.Search.WordPattern** class.  
+Method **AppendZeroOrMoreCharactersWildcard()** nas been added to **GroupDocs.Search.WordPattern** class.  
+Method **AppendOneOrMoreCharactersWildcard()** nas been added to **GroupDocs.Search.WordPattern** class.  
+Method **AppendWildcard(int, int)** nas been added to **GroupDocs.Search.WordPattern** class.
 
 Method **SearchQuery CreateWordPatternQuery(WordPattern)** nas been added to **GroupDocs.Search.SearchQuery** class.
 
-Method ****SearchQuery G**etChild(int)** nas been added to **GroupDocs.Search.SearchQuery** class.
+Method **SearchQuery GetChild(int)** nas been added to **GroupDocs.Search.SearchQuery** class.
 
 ##### Usecases
 

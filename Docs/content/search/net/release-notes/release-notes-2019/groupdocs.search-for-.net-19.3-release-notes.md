@@ -39,22 +39,22 @@ This improvement adds event that notifies about search phase is finished and pro
 **Public API changes**
 
 Enum **SearchPhase** has been added to **GroupDocs.Search.Events** namespace.  
-Value **AliasSubstitution** has been added to ****GroupDocs.Search**.Events**.**SearchPhase****** enum.  
-Value **KeyboardLayoutCorrection** has been added to ****GroupDocs.Search**.Events**.**SearchPhase****** enum.  
-Value **SpellingCorrection** has been added to ****GroupDocs.Search**.Events**.**SearchPhase****** enum.  
-Value **HomophoneSearch** has been added to ****GroupDocs.Search**.Events**.**SearchPhase****** enum.  
-Value **SynonymSearch** has been added to ****GroupDocs.Search**.Events**.**SearchPhase****** enum.  
-Value **WordFormsSearch** has been added to ****GroupDocs.Search**.Events**.**SearchPhase****** enum.  
-Value **FuzzySearch** has been added to ****GroupDocs.Search**.Events**.**SearchPhase****** enum.  
-Value **WildcardMatching** has been added to ****GroupDocs.Search**.Events**.**SearchPhase****** enum.  
-Value **RegexMatching** has been added to ****GroupDocs.Search**.Events**.**SearchPhase****** enum.
+Value **AliasSubstitution** has been added to **GroupDocs.Search.Events.SearchPhase** enum.  
+Value **KeyboardLayoutCorrection** has been added to **GroupDocs.Search.Events.SearchPhase** enum.  
+Value **SpellingCorrection** has been added to **GroupDocs.Search.Events.SearchPhase** enum.  
+Value **HomophoneSearch** has been added to **GroupDocs.Search.Events.SearchPhase** enum.  
+Value **SynonymSearch** has been added to **GroupDocs.Search.Events.SearchPhase** enum.  
+Value **WordFormsSearch** has been added to **GroupDocs.Search.Events.SearchPhase** enum.  
+Value **FuzzySearch** has been added to **GroupDocs.Search.Events.SearchPhase** enum.  
+Value **WildcardMatching** has been added to **GroupDocs.Search.Events.SearchPhase** enum.  
+Value **RegexMatching** has been added to **GroupDocs.Search.Events.SearchPhase** enum.
 
 Class **SearchPhaseEventArgs** has been added to **GroupDocs.Search.Events** namespace.  
-Property **SearchPhase SearchPhase** has been added to ****GroupDocs.Search**.Events**.**SearchPhaseEventArgs****** class.  
-Property **string Query** has been added to ****GroupDocs.Search**.Events**.**SearchPhaseEventArgs****** class.  
-Property **string\[\] Words** has been added to ****GroupDocs.Search**.Events**.**SearchPhaseEventArgs****** class.
+Property **SearchPhase SearchPhase** has been added to **GroupDocs.Search.Events.SearchPhaseEventArgs** class.  
+Property **string Query** has been added to **GroupDocs.Search.Events.SearchPhaseEventArgs** class.  
+Property **string\[\] Words** has been added to **GroupDocs.Search.Events.SearchPhaseEventArgs** class.
 
-Event **EventHandler<SearchPhaseEventArgs> SearchPhaseCompleted** has been added to **GroupDocs.Search.Index** class
+Event **EventHandler\<SearchPhaseEventArgs> SearchPhaseCompleted** has been added to **GroupDocs.Search.Index** class
 
 The example to perform that how to use **SearchPhaseCompleted** event.
 
@@ -137,19 +137,19 @@ This improvement adds overloads of **AddRange()** methods to dictionary classes
 **Public API changes**
 
 Class **AliasReplacementPair** has been added to **GroupDocs.Search** namespace.  
-Constructor **AliasReplacementPair(string, string)** has been added to ****GroupDocs.Search.**AliasReplacementPair****** class.  
-Property **string Alias** has been added to ****GroupDocs.Search.******AliasReplacementPair********** class.  
-Property **string Replacement** has been added to ****GroupDocs.Search.******AliasReplacementPair********** class.
+Constructor **AliasReplacementPair(string, string)** has been added to **GroupDocs.Search.AliasReplacementPair** class.  
+Property **string Alias** has been added to **GroupDocs.Search.AliasReplacementPair** class.  
+Property **string Replacement** has been added to **GroupDocs.Search.AliasReplacementPair** class.
 
 Class **CharacterReplacementPair** has been added to **GroupDocs.Search** namespace.  
 Constructor **CharacterReplacementPair(char, char)** has been added to **GroupDocs.Search.CharacterReplacementPair** class.  
 Property **char Character** has been added to **GroupDocs.Search.CharacterReplacementPair** class.  
 Property **char Replacement** has been added to **GroupDocs.Search.CharacterReplacementPair** class.
 
-Method **AddRange(IEnumerable<AliasReplacementPair>)** has been added to **GroupDocs.Search.AliasDictionary** class.  
+Method **AddRange(IEnumerable\<AliasReplacementPair>)** has been added to **GroupDocs.Search.AliasDictionary** class.  
 Method **AddRange(AliasReplacementPair\[\])** has been added to **GroupDocs.Search.AliasDictionary** class.
 
-Method **AddRange(IEnumerable<CharacterReplacementPair>)** has been added to **GroupDocs.Search.CharacterReplacementDictionary** class.  
+Method **AddRange(IEnumerable\<CharacterReplacementPair>)** has been added to **GroupDocs.Search.CharacterReplacementDictionary** class.  
 Method **AddRange(CharacterReplacementPair\[\])** has been added to **GroupDocs.Search.CharacterReplacementDictionary** class.
 
 Method **AddRange(string\[\])** has been added to **GroupDocs.Search.SpellingCorrector** class. 

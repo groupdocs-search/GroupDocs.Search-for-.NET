@@ -37,10 +37,10 @@ This improvement adds the **MailFieldNames** class, which contains constants w
 ##### Public API changes
 
 Static class **MailMessageBody** has been added to **GroupDocs.Search.Options** namespace.  
-Constant **string MailMessageBody**has been added to **GroupDocs.Search.Options.**MailMessageBody**** class.  
-Constant **string MailSenderName** has been added to **GroupDocs.Search.Options.**MailMessageBody**** class.  
-Constant **string MailDisplayTo** has been added to **GroupDocs.Search.Options.**MailMessageBody**** class.  
-Constant **string MailSubject** has been added to **GroupDocs.Search.Options.**MailMessageBody**** class.
+Constant **string MailMessageBody**has been added to **GroupDocs.Search.Options.MailMessageBody** class.  
+Constant **string MailSenderName** has been added to **GroupDocs.Search.Options.MailMessageBody** class.  
+Constant **string MailDisplayTo** has been added to **GroupDocs.Search.Options.MailMessageBody** class.  
+Constant **string MailSubject** has been added to **GroupDocs.Search.Options.MailMessageBody** class.
 
 ##### Usecases
 

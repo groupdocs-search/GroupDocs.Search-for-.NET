@@ -71,14 +71,14 @@ This enhancement allows performing indexing in multiple threads. Multithreaded i
 
 ##### Public API changes
 
-Method **void AddToIndex(string item, int threads)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndex(string item, int threads, bool updateIfNecessary)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string item, int threads)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string item, int threads, bool updateIfNecessary)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndex(string\[\] items, int threads)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndex(string\[\] items, int threads, bool updateIfNecessary)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string\[\] items, int threads)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string\[\] items, int threads, bool updateIfNecessary)** has been added to **GroupDocs.Search.Index** class.
+Method **void AddToIndex(string, int)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndex(string, int, bool)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string, int)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string, int, bool)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndex(string\[\], int)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndex(string\[\], int, bool)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string\[\], int)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string\[\], int, bool)** has been added to **GroupDocs.Search.Index** class.
 
 ##### Usecases
 

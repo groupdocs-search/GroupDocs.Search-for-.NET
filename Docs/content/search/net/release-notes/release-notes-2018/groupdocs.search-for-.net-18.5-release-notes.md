@@ -41,8 +41,8 @@ This enhancement allows a user to run searching by parts (chunks). In huge index
 Class **ChunkSearchToken** has been added to **GroupDocs.Search** namespace.  
 Property **ChunkSearchToken NextChunkSearchToken** has been added to **GroupDocs.Search.SearchResults** class.  
 Property **bool IsChunkSearch** has been added to **GroupDocs.Search.SearchParameters** class.  
-Method **Search(GroupDocs.Search.Searching.ChunkSearchToken)** has been added to **GroupDocs.Search.Index** class.  
-Method **GroupDocs.Search.Index.Search(GroupDocs.Search.Searching.ChunkSearchToken,GroupDocs.Search.Cancellation)** has been added to **GroupDocs.Search.Index** class.
+Method **Search(ChunkSearchToken)** has been added to **GroupDocs.Search.Index** class.  
+Method **Search(ChunkSearchToken, Cancellation)** has been added to **GroupDocs.Search.Index** class.
 
 ##### Usecases
 

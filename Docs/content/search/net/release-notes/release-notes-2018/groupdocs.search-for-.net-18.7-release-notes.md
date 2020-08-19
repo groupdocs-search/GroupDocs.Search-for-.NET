@@ -138,13 +138,13 @@ This enhancement is implemented for the possibility of cancelling the merging op
 
 ##### Public API changes
 
-Method **void Merge(GroupDocs.Search.Cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void Merge(System.Boolean,GroupDocs.Search.Cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void Merge(GroupDocs.Search.Index,System.Boolean,GroupDocs.Search.Cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void Merge(GroupDocs.Search.IndexRepository,System.Boolean,GroupDocs.Search.Cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void MergeAsync(System.Boolean,GroupDocs.Search.Cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void MergeAsync(GroupDocs.Search.Index,System.Boolean,GroupDocs.Search.Cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void MergeAsync(GroupDocs.Search.IndexRepository,System.Boolean,GroupDocs.Search.Cancellation)** has been added to **GroupDocs.Search.Index** class.
+Method **void Merge(Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void Merge(bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void Merge(Index, bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void Merge(IndexRepository, bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void MergeAsync(bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void MergeAsync(Index, bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void MergeAsync(IndexRepository, bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.
 
 ##### Usecases
 
@@ -174,20 +174,20 @@ This enhancement is implemented for the possibility of cancelling the indexing o
 
 ##### Public API changes
 
-Method **void AddToIndex(string item, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndex(string item, int threads, bool updateIfNecessary, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndex(string\[\] items, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndex(string\[\] items, int threads, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndex(string\[\] items, bool updateIfNecessary, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndex(string\[\] items, int threads, bool updateIfNecessary, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string item, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string item, int threads, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string item, bool updateIfNecessary, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string item, int threads, bool updateIfNecessary, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string\[\] items, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string\[\] items, int threads, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string\[\] items, bool updateIfNecessary, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void AddToIndexAsync(string\[\] items, int threads, bool updateIfNecessary, Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.
+Method **void AddToIndex(string, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndex(string, int, bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndex(string\[\], Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndex(string\[\], int, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndex(string\[\], bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndex(string\[\], int, bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string, int, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string, bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string, int, bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string\[\], Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string\[\], int, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string\[\], bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void AddToIndexAsync(string\[\], int, bool, Cancellation)** has been added to **GroupDocs.Search.Index** class.
 
 ##### Usecases
 

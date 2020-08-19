@@ -45,13 +45,13 @@ This enhancement is implemented for the possibility of canceling the search oper
 Class **Cancellation** has been added to **GroupDocs.Search** namespace.  
 Property **bool IsCancelled** has been added to **GroupDocs.Search.Cancellation** class.  
 Method **void Cancel()** has been added to **GroupDocs.Search.Cancellation** class.  
-Method **void CancelAfter(int milliseconds)** has been added to **GroupDocs.Search.Cancellation** class.
+Method **void CancelAfter(int)** has been added to **GroupDocs.Search.Cancellation** class.
 
-Method **GroupDocs.Search.SearchResults Search(string query, GroupDocs.Search.SearchParameters searchParameters, GroupDocs.Search.Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **GroupDocs.Search.SearchResults Search(GroupDocs.Search.SearchQuery query, GroupDocs.Search.SearchParameters searchParameters, GroupDocs.Search.Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.
+Method **SearchResults Search(string, SearchParameters, Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **SearchResults Search(SearchQuery, SearchParameters, Cancellation)** has been added to **GroupDocs.Search.Index** class.
 
-Method **GroupDocs.Search.SearchResults Search(string query, GroupDocs.Search.SearchParameters searchParameters, GroupDocs.Search.Cancellation cancellation)** has been added to **GroupDocs.Search.IndexRepository** class.  
-Method **GroupDocs.Search.SearchResults Search(GroupDocs.Search.SearchQuery query, GroupDocs.Search.SearchParameters searchParameters, GroupDocs.Search.Cancellation cancellation)** has been added to **GroupDocs.Search.IndexRepository** class.
+Method **SearchResults Search(string, SearchParameters, Cancellation)** has been added to **GroupDocs.Search.IndexRepository** class.  
+Method **SearchResults Search(SearchQuery, SearchParameters, Cancellation)** has been added to **GroupDocs.Search.IndexRepository** class.
 
 ##### Usecases
 
@@ -124,23 +124,23 @@ This enhancement facilitates the creation of complex queries and reduces the num
 Class **SearchQuery** has been added to **GroupDocs.Search** namespace.  
 Property **string FieldName** has been added to **GroupDocs.Search.SearchQuery** class.  
 Property **int ChildCount** has been added to **GroupDocs.Search.SearchQuery** class.  
-Property **GroupDocs.Search.SearchQuery FirstChild** has been added to **GroupDocs.Search.SearchQuery** class.  
-Property **GroupDocs.Search.SearchQuery SecondChild** has been added to **GroupDocs.Search.SearchQuery** class.  
-Property **GroupDocs.Search.SearchParameters SearchParameters** has been added to **GroupDocs.Search.SearchQuery** class.  
-Method **GroupDocs.Search.SearchQuery CreateWordQuery(string term)** has been added to **GroupDocs.Search.SearchQuery** class.  
-Method **GroupDocs.Search.SearchQuery CreateRegexQuery(string pattern, RegexOptions options)** has been added to **GroupDocs.Search.SearchQuery** class.  
-Method **GroupDocs.Search.SearchQuery CreateNumericRangeQuery(long start, long end)** has been added to **GroupDocs.Search.SearchQuery** class.  
-Method **GroupDocs.Search.SearchQuery CreateDateRangeQuery(DateTime start, DateTime end)** has been added to **GroupDocs.Search.SearchQuery** class.  
-Method **GroupDocs.Search.SearchQuery CreatePhraseSearchQuery(GroupDocs.Search.SearchQuery\[\] queries)** has been added to **GroupDocs.Search.SearchQuery** class.  
-Method **GroupDocs.Search.SearchQuery CreateFieldQuery(string fieldName, GroupDocs.Search.SearchQuery query)** has been added to **GroupDocs.Search.SearchQuery** class.  
-Method **GroupDocs.Search.SearchQuery CreateNotQuery(GroupDocs.Search.SearchQuery query)** has been added to **GroupDocs.Search.SearchQuery** class.  
-Method **GroupDocs.Search.SearchQuery CreateAndQuery(GroupDocs.Search.SearchQuery leftQuery, GroupDocs.Search.SearchQuery rightQuery)** has been added to **GroupDocs.Search.SearchQuery** class.  
-Method **GroupDocs.Search.SearchQuery CreateOrQuery(GroupDocs.Search.SearchQuery leftQuery, GroupDocs.Search.SearchQuery rightQuery)** has been added to **GroupDocs.Search.SearchQuery** class.
+Property **SearchQuery FirstChild** has been added to **GroupDocs.Search.SearchQuery** class.  
+Property **SearchQuery SecondChild** has been added to **GroupDocs.Search.SearchQuery** class.  
+Property **SearchParameters SearchParameters** has been added to **GroupDocs.Search.SearchQuery** class.  
+Method **SearchQuery CreateWordQuery(string)** has been added to **GroupDocs.Search.SearchQuery** class.  
+Method **SearchQuery CreateRegexQuery(string, RegexOptions)** has been added to **GroupDocs.Search.SearchQuery** class.  
+Method **SearchQuery CreateNumericRangeQuery(long, long)** has been added to **GroupDocs.Search.SearchQuery** class.  
+Method **SearchQuery CreateDateRangeQuery(DateTime, DateTime)** has been added to **GroupDocs.Search.SearchQuery** class.  
+Method **SearchQuery CreatePhraseSearchQuery(SearchQuery\[\])** has been added to **GroupDocs.Search.SearchQuery** class.  
+Method **SearchQuery CreateFieldQuery(string, SearchQuery)** has been added to **GroupDocs.Search.SearchQuery** class.  
+Method **SearchQuery CreateNotQuery(SearchQuery)** has been added to **GroupDocs.Search.SearchQuery** class.  
+Method **SearchQuery CreateAndQuery(SearchQuery, SearchQuery)** has been added to **GroupDocs.Search.SearchQuery** class.  
+Method **SearchQuery CreateOrQuery(SearchQuery, SearchQuery)** has been added to **GroupDocs.Search.SearchQuery** class.
 
-Property **GroupDocs.Search.SearchQuery SearchQuery** has been added to **GroupDocs.Search.SearchingReport** class.
+Property **SearchQuery SearchQuery** has been added to **GroupDocs.Search.SearchingReport** class.
 
-Method **GroupDocs.Search.SearchResults Search(GroupDocs.Search.SearchQuery query, GroupDocs.Search.SearchParameters searchParameters)** has been added to **GroupDocs.Search.Index** class.  
-Method **GroupDocs.Search.SearchResults Search(GroupDocs.Search.SearchQuery query, GroupDocs.Search.SearchParameters searchParameters)** has been added to **GroupDocs.Search.IndexRepository** class.
+Method **SearchResults Search(SearchQuery, SearchParameters)** has been added to **GroupDocs.Search.Index** class.  
+Method **SearchResults Search(SearchQuery, SearchParameters)** has been added to **GroupDocs.Search.IndexRepository** class.
 
 ##### Usecases
 
@@ -230,15 +230,15 @@ Class **DateFormatElement** has been added to **GroupDocs.Search** namespace
 Property **string Format** has been added to **GroupDocs.Search.DateFormatElement** class.  
 Property **string SingleFormat** has been added to **GroupDocs.Search.DateFormatElement** class.  
 Property **string DateSeparator** has been added to **GroupDocs.Search.DateFormatElement** class.  
-Property **GroupDocs.Search.DateFormatElement DayOfMonth** has been added to **GroupDocs.Search.DateFormatElement** class.  
-Property **GroupDocs.Search.DateFormatElement DayOfMonthTwoDigits** has been added to **GroupDocs.Search.DateFormatElement** class.  
-Property **GroupDocs.Search.DateFormatElement Month** has been added to **GroupDocs.Search.DateFormatElement** class.  
-Property **GroupDocs.Search.DateFormatElement MonthTwoDigits** has been added to **GroupDocs.Search.DateFormatElement** class.  
-Property **GroupDocs.Search.DateFormatElement MonthAbbreviatedName** has been added to **GroupDocs.Search.DateFormatElement** class.  
-Property **GroupDocs.Search.DateFormatElement MonthFullName** has been added to **GroupDocs.Search.DateFormatElement** class.  
-Property **GroupDocs.Search.DateFormatElement Year** has been added to **GroupDocs.Search.DateFormatElement** class.  
-Property **GroupDocs.Search.DateFormatElement YearTwoDigits** has been added to **GroupDocs.Search.DateFormatElement** class.  
-Property **GroupDocs.Search.DateFormatElement YearFourDigits** has been added to **GroupDocs.Search.DateFormatElement** class.
+Property **DateFormatElement DayOfMonth** has been added to **GroupDocs.Search.DateFormatElement** class.  
+Property **DateFormatElement DayOfMonthTwoDigits** has been added to **GroupDocs.Search.DateFormatElement** class.  
+Property **DateFormatElement Month** has been added to **GroupDocs.Search.DateFormatElement** class.  
+Property **DateFormatElement MonthTwoDigits** has been added to **GroupDocs.Search.DateFormatElement** class.  
+Property **DateFormatElement MonthAbbreviatedName** has been added to **GroupDocs.Search.DateFormatElement** class.  
+Property **DateFormatElement MonthFullName** has been added to **GroupDocs.Search.DateFormatElement** class.  
+Property **DateFormatElement Year** has been added to **GroupDocs.Search.DateFormatElement** class.  
+Property **DateFormatElement YearTwoDigits** has been added to **GroupDocs.Search.DateFormatElement** class.  
+Property **DateFormatElement YearFourDigits** has been added to **GroupDocs.Search.DateFormatElement** class.
 
 Class **DateFormat** has been added to **GroupDocs.Search** namespace.  
 Property **string DateSeparator** has been added to **GroupDocs.Search.DateFormat** class.
@@ -246,14 +246,14 @@ Property **string DateSeparator** has been added to **GroupDocs.Search.DateFo
 Class **DateFormatCollection** has been added to **GroupDocs.Search** namespace.  
 Property **int Count** has been added to **GroupDocs.Search.DateFormatCollection** class.  
 Property **bool IsReadOnly** has been added to **GroupDocs.Search.DateFormatCollection** class.  
-Method **void Add(GroupDocs.Search.DateFormat format)** has been added to **GroupDocs.Search.DateFormatCollection** class.  
+Method **void Add(DateFormat)** has been added to **GroupDocs.Search.DateFormatCollection** class.  
 Method **void Clear()** has been added to **GroupDocs.Search.DateFormatCollection** class.  
-Method **void Contains(GroupDocs.Search.DateFormat format)** has been added to **GroupDocs.Search.DateFormatCollection** class.  
-Method **void CopyTo(GroupDocs.Search.DateFormat\[\] array, int arrayIndex)** has been added to **GroupDocs.Search.DateFormatCollection** class.  
-Method **void Remove(GroupDocs.Search.DateFormat format)** has been added to **GroupDocs.Search.DateFormatCollection** class.  
+Method **void Contains(DateFormat)** has been added to **GroupDocs.Search.DateFormatCollection** class.  
+Method **void CopyTo(DateFormat\[\], int)** has been added to **GroupDocs.Search.DateFormatCollection** class.  
+Method **void Remove(DateFormat)** has been added to **GroupDocs.Search.DateFormatCollection** class.  
 Method **void GetEnumerator()** has been added to **GroupDocs.Search.DateFormatCollection** class.
 
-Property **GroupDocs.Search.DateFormatCollection DateFormats** has been added to **GroupDocs.Search.SearchParameters** class.
+Property **DateFormatCollection DateFormats** has been added to **GroupDocs.Search.SearchParameters** class.
 
 ##### Usecases
 
@@ -316,8 +316,8 @@ where **D** is constant distance between consecutive terms in phrase; **N** 
 
 ##### Public API changes
 
-Method **GroupDocs.Search.SearchQuery CreateWildcardQuery(byte count)** has been added to **GroupDocs.Search.SearchQuery** class.  
-Method **GroupDocs.Search.SearchQuery CreateWildcardQuery(byte minCount, byte maxCount)** has been added to **GroupDocs.Search.SearchQuery** class.
+Method **SearchQuery CreateWildcardQuery(byte)** has been added to **GroupDocs.Search.SearchQuery** class.  
+Method **SearchQuery CreateWildcardQuery(byte, byte)** has been added to **GroupDocs.Search.SearchQuery** class.
 
 ##### Usecases
 

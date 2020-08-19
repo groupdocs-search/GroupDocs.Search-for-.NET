@@ -95,7 +95,7 @@ Method **Export** has been marked as obsolete in **GroupDocs.Search.Alphabet*
 Method **ImportDictionary** has been added to **GroupDocs.Search.SpellingCorrector** class.  
 Method **ExportDictionary** has been added to **GroupDocs.Search.SpellingCorrector** class.  
 Method **Import** has been marked as obsolete in **GroupDocs.Search.SpellingCorrector** class.  
-  
+
 Method **ImportDictionary** has been added to **GroupDocs.Search.HomophoneDictionary** class.  
 Method **ExportDictionary** has been added to **GroupDocs.Search.HomophoneDictionary** class.  
 Method **Import** has been marked as obsolete in **GroupDocs.Search.HomophoneDictionary** class.  

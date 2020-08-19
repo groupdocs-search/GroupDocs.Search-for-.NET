@@ -35,8 +35,8 @@ Method **SetRange(char\[\] characters, CharacterType type)** should be used in
 
 ##### Public API changes
 
-Method **AddRange(IEnumerable<char>)** has been removed from **GroupDocs.Search.Alphabet** class.  
-Method **RemoveRange**(IEnumerable<char>)**** has been removed from **GroupDocs.Search.Alphabet** class.
+Method **AddRange(IEnumerable\<char>)** has been removed from **GroupDocs.Search.Alphabet** class.  
+Method **RemoveRange(IEnumerable\<char>)** has been removed from **GroupDocs.Search.Alphabet** class.
 
 ##### Usecases
 

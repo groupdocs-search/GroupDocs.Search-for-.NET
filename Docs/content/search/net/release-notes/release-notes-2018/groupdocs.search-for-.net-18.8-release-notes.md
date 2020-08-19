@@ -34,8 +34,8 @@ This enhancement is implemented for the possibility of cancelling the operations
 
 ##### Public API changes
 
-Method **void Update(Cancellation cancellation)** has been added to **GroupDocs.Search.IndexRepository** class.  
-Method **void UpdateAsync(Cancellation cancellation)** has been added to **GroupDocs.Search.IndexRepository** class.  
+Method **void Update(Cancellation)** has been added to **GroupDocs.Search.IndexRepository** class.  
+Method **void UpdateAsync(Cancellation)** has been added to **GroupDocs.Search.IndexRepository** class.  
 Method **void Break()** has been added to **GroupDocs.Search.IndexRepository** class.
 
 ##### Usecases

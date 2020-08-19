@@ -57,10 +57,13 @@ Method **Export(string)** has been removed from **GroupDocs.Search.SynonymDic
 
 ### Implement escaping special characters in search queries
 
-*   This improvement provides ability to escape special characters and use them in text queries.
-*   The following characters are special and can be escaped: (, ), :, ", &, |, !, ^, ~, \*, ?, \\.
-*   The space character can be escaped with sequence '\\s'.
-*   Also it is possible to use any Unicode character by writing escape sequence in the form '\\uhhhh'. Where h is a hexadecimal digit.
+This improvement provides ability to escape special characters and use them in text queries.
+
+The following characters are special and can be escaped: (, ), :, ", &, |, !, ^, ~, \*, ?, \\.
+
+The space character can be escaped with sequence '\\s'.
+
+Also it is possible to use any Unicode character by writing escape sequence in the form '\\uhhhh'. Where h is a hexadecimal digit.
 
 The example to perform search with special character escaping is given below.
 

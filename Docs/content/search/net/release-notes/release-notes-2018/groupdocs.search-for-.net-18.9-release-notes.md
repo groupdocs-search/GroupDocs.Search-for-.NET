@@ -39,8 +39,8 @@ This enhancement allows getting a list of indexed documents and items from cont
 ##### Public API changes
 
 Class **DocumentInfo** has been added to **GroupDocs.Search** namespace.  
-Property **string DocumentFullPath** has been added to **GroupDocs.Search.**DocumentInfo ****class.  
-Property **string ItemPath **has been added to **GroupDocs.Search.**DocumentInfo ****class.
+Property **string DocumentFullPath** has been added to **GroupDocs.Search.DocumentInfo** class.  
+Property **string ItemPath **has been added to **GroupDocs.Search.DocumentInfo** class.
 
 Method **DocumentInfo\[\] GetIndexedDocuments()** nas been added to **GroupDocs.Search.Index** class.  
 Method **DocumentInfo\[\] GetIndexedDocumentItems(DocumentInfo)** nas been added to **GroupDocs.Search.Index** class.

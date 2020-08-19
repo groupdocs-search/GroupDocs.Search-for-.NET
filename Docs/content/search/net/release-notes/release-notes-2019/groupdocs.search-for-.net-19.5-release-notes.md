@@ -49,14 +49,14 @@ This improvement allows to filter found documents.
 Inverface **ISearchDocumentFilter** has been added to **GroupDocs.Search** namespace.
 
 Static class **SearchDocumentFilter** has been added to **GroupDocs.Search** namespace.  
-Static method ****ISearchDocumentFilter** CreateFileNameRegularExpression(string)** has been added to ****GroupDocs.Search**.**SearchDocumentFilter******** class.  
-Static method ****ISearchDocumentFilter** CreateFileNameRegularExpression(string, RegexOptions)** has been added to ****GroupDocs.Search**.**SearchDocumentFilter******** class.  
-Static method ****ISearchDocumentFilter** CreateFileExtension(string\[\])** has been added to ****GroupDocs.Search**.**SearchDocumentFilter******** class.  
-Static method ****ISearchDocumentFilter** CreateInverted(****ISearchDocumentFilter****)** has been added to ****GroupDocs.Search**.**SearchDocumentFilter******** class.  
-Static method ****ISearchDocumentFilter** CreateConjunction(****ISearchDocumentFilter\[\]****)** has been added to ****GroupDocs.Search**.**SearchDocumentFilter******** class.  
-Static method ****ISearchDocumentFilter** CreateDisjunction(******ISearchDocumentFilter\[\]******)** has been added to ****GroupDocs.Search**.**SearchDocumentFilter******** class.
+Static method **ISearchDocumentFilter CreateFileNameRegularExpression(string)** has been added to **GroupDocs.Search.SearchDocumentFilter** class.  
+Static method **ISearchDocumentFilter CreateFileNameRegularExpression(string, RegexOptions)** has been added to **GroupDocs.Search.SearchDocumentFilter** class.  
+Static method **ISearchDocumentFilter CreateFileExtension(string\[\])** has been added to **GroupDocs.Search.SearchDocumentFilter** class.  
+Static method **ISearchDocumentFilter CreateInverted(ISearchDocumentFilter)** has been added to **GroupDocs.Search.SearchDocumentFilter** class.  
+Static method **ISearchDocumentFilter CreateConjunction(ISearchDocumentFilter\[\])** has been added to **GroupDocs.Search.SearchDocumentFilter** class.  
+Static method **ISearchDocumentFilter CreateDisjunction(ISearchDocumentFilter\[\])** has been added to **GroupDocs.Search.SearchDocumentFilter** class.
 
-Property **ISearchDocumentFilter**** ****SearchDocumentFilter****** has been added to **GroupDocs.Search.SearchParameters** class.
+Property **ISearchDocumentFilter SearchDocumentFilter** has been added to **GroupDocs.Search.SearchParameters** class.
 
 ##### Usecases
 
@@ -93,10 +93,10 @@ This improvement allows to set up log file name and maximum log file size.
 ##### Public API changes
 
 Class **LogSettings** has been added to **GroupDocs.Search** namespace.  
-Property **string FileName** has been added to ****GroupDocs.Search**.LogSettings****** class.  
-Property **double MaxSize** has been added to ****GroupDocs.Search**.LogSettings****** class.
+Property **string FileName** has been added to **GroupDocs.Search.LogSettings** class.  
+Property **double MaxSize** has been added to **GroupDocs.Search.LogSettings** class.
 
-Property ********LogSettings****** ******LogSettings******** has been added to **GroupDocs.Search.Index** class.
+Property **LogSettings LogSettings** has been added to **GroupDocs.Search.Index** class.
 
 ##### Usecases
 
@@ -215,15 +215,15 @@ This improvement reduces index storage size more than by 30%.
 ##### Public API changes
 
 Enum **VersionUpdateResult** has been added to **GroupDocs.Search** namespace.  
-Value **Updated** has been added to **GroupDocs.Search.**VersionUpdateResult**** enum.  
-Value **AlreadyUpToDate** has been added to **GroupDocs.Search.**VersionUpdateResult**** enum.  
-Value **Unsupported** has been added to **GroupDocs.Search.**VersionUpdateResult**** enum.
+Value **Updated** has been added to **GroupDocs.Search.VersionUpdateResult** enum.  
+Value **AlreadyUpToDate** has been added to **GroupDocs.Search.VersionUpdateResult** enum.  
+Value **Unsupported** has been added to **GroupDocs.Search.VersionUpdateResult** enum.
 
 Class **IndexVersionUpdater** has been added to **GroupDocs.Search** namespace.  
-Constructor **IndexVersionUpdater()** has been added to **GroupDocs.Search.**IndexVersionUpdater**** class.  
-Method **bool IsLatestVersion(string)** has been added to **GroupDocs.Search.**IndexVersionUpdater**** class.  
-Method **bool CanUpdate(string)** has been added to **GroupDocs.Search.**IndexVersionUpdater**** class.  
-Method **VersionUpdateResult Update(string, string)** has been added to **GroupDocs.Search.**IndexVersionUpdater**** class.
+Constructor **IndexVersionUpdater()** has been added to **GroupDocs.Search.IndexVersionUpdater** class.  
+Method **bool IsLatestVersion(string)** has been added to **GroupDocs.Search.IndexVersionUpdater** class.  
+Method **bool CanUpdate(string)** has been added to **GroupDocs.Search.IndexVersionUpdater** class.  
+Method **VersionUpdateResult Update(string, string)** has been added to **GroupDocs.Search.IndexVersionUpdater** class.
 
 ##### Usecases
 
@@ -323,10 +323,10 @@ This feature allows adding arbitrary additional fields to each document during i
 ##### Public API changes
 
 Property **FieldInfo\[\] AdditionalFields** has been added to **GroupDocs.Search.Events.FileIndexingEventArgs** class.  
-Method **string HighlightInText(DocumentResultInfo, IFieldExtractor, FieldInfo\[\])** has been added to ****GroupDocs.Search**.Index****** class.  
-Method **void HighlightInText(string, DocumentResultInfo, IFieldExtractor, FieldInfo\[\])** has been added to ****GroupDocs.Search**.Index****** class.  
-Method **string ExtractDocumentText(DocumentInfo, IFieldExtractor, FieldInfo\[\])** has been added to ****GroupDocs.Search**.Index****** class.  
-Method **void ExtractDocumentText(string, **DocumentInfo**, IFieldExtractor, FieldInfo\[\])** has been added to ****GroupDocs.Search**.Index****** class.  
+Method **string HighlightInText(DocumentResultInfo, IFieldExtractor, FieldInfo\[\])** has been added to **GroupDocs.Search.Index** class.  
+Method **void HighlightInText(string, DocumentResultInfo, IFieldExtractor, FieldInfo\[\])** has been added to **GroupDocs.Search.Index** class.  
+Method **string ExtractDocumentText(DocumentInfo, IFieldExtractor, FieldInfo\[\])** has been added to **GroupDocs.Search.Index** class.  
+Method **void ExtractDocumentText(string, DocumentInfo, IFieldExtractor, FieldInfo\[\])** has been added to **GroupDocs.Search.Index** class.  
 
 ##### Usecases
 
