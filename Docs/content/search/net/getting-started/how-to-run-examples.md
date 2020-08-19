@@ -10,10 +10,10 @@ hideChildren: False
 ---
 ## Build project from scratch
 
-*   Open Visual Studio and go to **File** -> **New **\->** Project**.
+*   Open Visual Studio and go to **File** -> **New** -> **Project**.
 *   Select appropriate project type - Console App, ASP.NET Web Application etc.
-*   Install **GroupDocs.Search for .NET **from Nuget or official GroupDocs website following this [guide]({{< ref "search/net/getting-started/installation.md" >}}).
-*   Code your first application with **GroupDocs.Search for .NET **like this:
+*   Install **GroupDocs.Search for .NET** from Nuget or official GroupDocs website following this [guide]({{< ref "search/net/getting-started/installation.md" >}}).
+*   Code your first application with **GroupDocs.Search for .NET** like this:
     
 
 **C#**
