@@ -49,11 +49,11 @@ The **EnglishWordFormsProvider** class provides word forms search functionalit
 Property **bool UseWordFormsSearch** has been added to **GroupDocs.Search.SearchParameters** class.
 
 Interface **IWordFormsProvider** has been added to **GroupDocs.Search** namespace.  
-Method **GetWordForms(System.String)** nas been added to **GroupDocs.Search.IWordFormsProvider** interface.
+Method **GetWordForms(String)** nas been added to **GroupDocs.Search.IWordFormsProvider** interface.
 
 Class **EnglishWordFormsProvider** has been added to **GroupDocs.Search** namespace.  
 Constructor **EnglishWordFormsProvider()** nas been added to **GroupDocs.Search.EnglishWordFormsProvider** class.  
-Method **GetWordForms(System.String)** nas been added to **GroupDocs.Search.EnglishWordFormsProvider** class.
+Method **GetWordForms(String)** nas been added to **GroupDocs.Search.EnglishWordFormsProvider** class.
 
 Property **IWordFormsProvider WordFormsProvider** has been added to **GroupDocs.Search.DictionaryCollection** class.
 
@@ -87,8 +87,8 @@ This enhancement is implemented for the possibility of cancelling the updating o
 
 ##### Public API changes
 
-Method **void Update(Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.  
-Method **void UpdateAsync(Cancellation cancellation)** has been added to **GroupDocs.Search.Index** class.
+Method **void Update(Cancellation)** has been added to **GroupDocs.Search.Index** class.  
+Method **void UpdateAsync(Cancellation)** has been added to **GroupDocs.Search.Index** class.
 
 ##### Usecases
 
