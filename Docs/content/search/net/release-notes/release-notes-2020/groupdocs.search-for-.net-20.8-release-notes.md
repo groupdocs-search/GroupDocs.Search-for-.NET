@@ -2,7 +2,7 @@
 id: groupdocs-search-for-net-20-8-release-notes
 url: search/net/groupdocs-search-for-net-20-8-release-notes
 title: GroupDocs.Search for .NET 20.8 Release Notes
-weight: 1
+weight: 4
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET
@@ -32,29 +32,29 @@ This feature provides the ability to index documents from streams and data struc
 
 ##### Public API changes
 
-Enum **DocumentSourceKind** has been added to **GroupDocs.Search.Common** namespace.
-Value **File** has been added to **GroupDocs.Search.Common.DocumentSourceKind** enum.
-Value **Stream** has been added to **GroupDocs.Search.Common.DocumentSourceKind** enum.
+Enum **DocumentSourceKind** has been added to **GroupDocs.Search.Common** namespace.  
+Value **File** has been added to **GroupDocs.Search.Common.DocumentSourceKind** enum.  
+Value **Stream** has been added to **GroupDocs.Search.Common.DocumentSourceKind** enum.  
 Value **Structure** has been added to **GroupDocs.Search.Common.DocumentSourceKind** enum.
 
-Class **Document** has been added to **GroupDocs.Search.Common** namespace.
-Property **DocumentSourceKind DocumentSourceKind** has been added to **GroupDocs.Search.Common.Document** class.
-Property **string DocumentKey** has been added to **GroupDocs.Search.Common.Document** class.
-Property **bool IsLazy** has been added to **GroupDocs.Search.Common.Document** class.
-Property **DateTime ModificationDate** has been added to **GroupDocs.Search.Common.Document** class.
-Property **string Extension** has been added to **GroupDocs.Search.Common.Document** class.
-Property **DocumentField[] AdditionalFields** has been added to **GroupDocs.Search.Common.Document** class.
-Property **string[] Attributes** has been added to **GroupDocs.Search.Common.Document** class.
-Static method **Document CreateFromFile(string)** has been added to **GroupDocs.Search.Common.Document** class.
-Static method **Document CreateFromStream(string, DateTime, string, Stream)** has been added to **GroupDocs.Search.Common.Document** class.
-Static method **Document CreateFromStructure(string, DateTime, DocumentField[])** has been added to **GroupDocs.Search.Common.Document** class.
+Class **Document** has been added to **GroupDocs.Search.Common** namespace.  
+Property **DocumentSourceKind DocumentSourceKind** has been added to **GroupDocs.Search.Common.Document** class.  
+Property **string DocumentKey** has been added to **GroupDocs.Search.Common.Document** class.  
+Property **bool IsLazy** has been added to **GroupDocs.Search.Common.Document** class.  
+Property **DateTime ModificationDate** has been added to **GroupDocs.Search.Common.Document** class.  
+Property **string Extension** has been added to **GroupDocs.Search.Common.Document** class.  
+Property **DocumentField[] AdditionalFields** has been added to **GroupDocs.Search.Common.Document** class.  
+Property **string[] Attributes** has been added to **GroupDocs.Search.Common.Document** class.  
+Static method **Document CreateFromFile(string)** has been added to **GroupDocs.Search.Common.Document** class.  
+Static method **Document CreateFromStream(string, DateTime, string, Stream)** has been added to **GroupDocs.Search.Common.Document** class.  
+Static method **Document CreateFromStructure(string, DateTime, DocumentField[])** has been added to **GroupDocs.Search.Common.Document** class.  
 Static method **Document CreateLazy(DocumentSourceKind, string, IDocumentLoader)** has been added to **GroupDocs.Search.Common.Document** class.
 
-Interface **IDocumentLoader** has been added to **GroupDocs.Search.Common** namespace.
-Method **Document LoadDocument()** has been added to **GroupDocs.Search.Common.IDocumentLoader** interface.
+Interface **IDocumentLoader** has been added to **GroupDocs.Search.Common** namespace.  
+Method **Document LoadDocument()** has been added to **GroupDocs.Search.Common.IDocumentLoader** interface.  
 Method **void CloseDocument()** has been added to **GroupDocs.Search.Common.IDocumentLoader** interface.
 
-Property **Document Document** has been added to **GroupDocs.Search.Events.FileIndexingEventArgs** class.
+Property **Document Document** has been added to **GroupDocs.Search.Events.FileIndexingEventArgs** class.  
 Property **string DocumentKey** has been added to **GroupDocs.Search.Events.FileIndexingEventArgs** class.
 
 Property **string LastDocumentKey** has been added to **GroupDocs.Search.Events.OperationProgressEventArgs** class.

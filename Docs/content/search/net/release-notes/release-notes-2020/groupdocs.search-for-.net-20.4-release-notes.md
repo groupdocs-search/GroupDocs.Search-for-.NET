@@ -2,7 +2,7 @@
 id: groupdocs-search-for-net-20-4-release-notes
 url: search/net/groupdocs-search-for-net-20-4-release-notes
 title: GroupDocs.Search for .NET 20.4 Release Notes
-weight: 1
+weight: 2
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET
@@ -37,7 +37,7 @@ This feature allows you to notify an index about renaming or moving to another l
 Value **Renaming** has been added to **GroupDocs.Search.Common.IndexStatus** enum.
 
 Class **Notification** has been added to **GroupDocs.Search.Common** namespace.  
-Method **Notification CreateRenameNotification(string, string)** has been added to **GroupDocs.Search.Common.**Notification**** class.
+Method **Notification CreateRenameNotification(string, string)** has been added to **GroupDocs.Search.Common.Notification** class.
 
 Method **bool Notify(Notification)** has been added to **GroupDocs.Search.Index** class.
 

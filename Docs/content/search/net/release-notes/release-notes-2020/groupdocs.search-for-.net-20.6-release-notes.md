@@ -2,7 +2,7 @@
 id: groupdocs-search-for-net-20-6-release-notes
 url: search/net/groupdocs-search-for-net-20-6-release-notes
 title: GroupDocs.Search for .NET 20.6 Release Notes
-weight: 1
+weight: 3
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET
@@ -28,8 +28,7 @@ There are the following new features in this release:
 
 ### Support Linux for GroupDocs.Search for .NET Core
 
-This investigation confirms the ability of the .NET Core assembly to
-work in Linux. The following issues are known:
+This investigation confirms the ability of the .NET Core assembly to work in Linux. The following issues are known:
 
 *   There is no support for the .MHTML (.MHT) format in Linux.
 *   There is no support for the .ONE format in Linux.
@@ -46,22 +45,18 @@ None.
 
 This improvement allows you to choose between two alternatives:
 
-1.  Indexing is faster, but with loss of formatting quality in some
-    cases (mostly relevant for PDF format).
-2.  Improve the formatting of text extracted during indexing, but with
-    loss of indexing speed (mainly relevant for the PDF format).
+1.  Indexing is faster, but with loss of formatting quality in some cases (mostly relevant for PDF format).
+2.  Improve the formatting of text extracted during indexing, but with loss of indexing speed (mainly relevant for the PDF format).
 
 By default, the raw mode is used if possible.
 
 ##### Public API changes 
 
-Property **bool UseRawTextExtraction** has been added
-to **GroupDocs.Search.IndexSettings** class.
+Property **bool UseRawTextExtraction** has been added to **GroupDocs.Search.IndexSettings** class.
 
 ##### Use cases 
 
-The following example demonstrates how to disable raw text extraction
-mode to improve formatting of extracted text:
+The following example demonstrates how to disable raw text extraction mode to improve formatting of extracted text:
 
 
 ```csharp

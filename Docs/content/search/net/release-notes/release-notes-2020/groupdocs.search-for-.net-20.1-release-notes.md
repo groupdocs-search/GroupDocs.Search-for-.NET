@@ -8,7 +8,7 @@ keywords:
 productName: GroupDocs.Search for .NET
 hideChildren: False
 ---
-  
+
 
 {{< alert style="info" >}}This page contains release notes for GroupDocs.Search for .NET 20.1{{< /alert >}}
 
@@ -100,7 +100,7 @@ All types from the **GroupDocs.Search.Legacy** namespace have been removed.
 
 ### Implement options for metadata indexing
 
-This improvement adds the **MetadataIndexingOptions** property to **IndexingOptions**, ****UpdateOptions****, and ******TextOptions****** classes. The **MetadataIndexingOptions** class contains the following properties for setting metadata indexing options:
+This improvement adds the **MetadataIndexingOptions** property to **IndexingOptions**, **UpdateOptions**, and **TextOptions** classes. The **MetadataIndexingOptions** class contains the following properties for setting metadata indexing options:
 
 *   The **IndexingEmptyValues** property sets a value indicating whether to index empty field values or not. The default value is true.
 *   The **IndexingEmptyNames** property sets a value indicating whether to index empty field names or not. The default value is true.
@@ -115,15 +115,15 @@ This improvement adds the **MetadataIndexingOptions** property to **Indexing
 ##### Public API changes
 
 Class **MetadataIndexingOptions** has been added to **GroupDocs.Search.Options** namespace.  
-Property **bool IndexingEmptyValues** has been added to **GroupDocs.Search.Options.**MetadataIndexingOptions**** class.  
-Property **bool IndexingEmptyNames** has been added to **GroupDocs.Search.Options.**MetadataIndexingOptions**** class.  
-Property **string DefaultFieldName** has been added to **GroupDocs.Search.Options.**MetadataIndexingOptions**** class.  
-Property **string SeparatorInCompoundName** has been added to **GroupDocs.Search.Options.**MetadataIndexingOptions**** class.  
-Property **int MaxBytesToIndexField** has been added to **GroupDocs.Search.Options.**MetadataIndexingOptions**** class.  
-Property **int MaxIntsToIndexField** has been added to **GroupDocs.Search.Options.**MetadataIndexingOptions**** class.  
-Property **int MaxLongsToIndexField** has been added to **GroupDocs.Search.Options.**MetadataIndexingOptions**** class.  
-Property **int MaxDoublesToIndexField** has been added to **GroupDocs.Search.Options.**MetadataIndexingOptions**** class.  
-Property **string SeparatorBetweenValues** has been added to **GroupDocs.Search.Options.**MetadataIndexingOptions**** class.
+Property **bool IndexingEmptyValues** has been added to **GroupDocs.Search.Options.MetadataIndexingOptions** class.  
+Property **bool IndexingEmptyNames** has been added to **GroupDocs.Search.Options.MetadataIndexingOptions** class.  
+Property **string DefaultFieldName** has been added to **GroupDocs.Search.Options.MetadataIndexingOptions** class.  
+Property **string SeparatorInCompoundName** has been added to **GroupDocs.Search.Options.MetadataIndexingOptions** class.  
+Property **int MaxBytesToIndexField** has been added to **GroupDocs.Search.Options.MetadataIndexingOptions** class.  
+Property **int MaxIntsToIndexField** has been added to **GroupDocs.Search.Options.MetadataIndexingOptions** class.  
+Property **int MaxLongsToIndexField** has been added to **GroupDocs.Search.Options.MetadataIndexingOptions** class.  
+Property **int MaxDoublesToIndexField** has been added to **GroupDocs.Search.Options.MetadataIndexingOptions** class.  
+Property **string SeparatorBetweenValues** has been added to **GroupDocs.Search.Options.MetadataIndexingOptions** class.
 
 Property **MetadataIndexingOptions MetadataIndexingOptions** has been added to **GroupDocs.Search.Options.IndexingOptions** class.  
 Property **MetadataIndexingOptions MetadataIndexingOptions** has been added to **GroupDocs.Search.Options.TextOptions** class.  
@@ -154,3 +154,4 @@ options.MetadataIndexingOptions.MaxDoublesToIndexField = 10;
 // Starting indexing operation
 index.Add(documentFolder, options);
 ```
+
