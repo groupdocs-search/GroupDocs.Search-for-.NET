@@ -16,6 +16,12 @@ To add groups of synonyms to the dictionary, use the [AddRange](https://apiref
 
 The [Clear](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/clear) method is used to remove all synonyms from the dictionary.
 
+The [GetSynonyms](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/getsynonyms) method is used to get a list of synonyms for a given word.
+
+The [GetSynonymGroups](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/getsynonymgroups) method is used to get all synonym groups to which a given word belongs.
+
+To get all synonym groups from the dictionary, use the [GetAllSynonymGroups](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/synonymdictionary/methods/getallsynonymgroups) method.
+
 To export synonyms to a file, use the [ExportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/exportdictionary) method.
 
 To import synonyms from a file, use the [ImportDictionary](https://apireference.groupdocs.com/net/search/groupdocs.search.dictionaries/dictionarybase/methods/importdictionary) method.
@@ -26,16 +32,37 @@ The following example demonstrates the use of methods of the synonym dictionary.
 
 ```csharp
 string indexFolder = @"c:\MyIndex\";
- 
+
 // Creating an index from in specified folder
 Index index = new Index(indexFolder);
- 
+
+// Getting synonyms for word 'make'
+string[] synonyms = index.Dictionaries.SynonymDictionary.GetSynonyms("make");
+Console.WriteLine("Synonyms for 'make':");
+for (int i = 0; i < synonyms.Length; i++)
+{
+    Console.WriteLine(synonyms[i]);
+}
+
+// Getting groups of synonyms to which word 'make' belongs to
+string[][] groups = index.Dictionaries.SynonymDictionary.GetSynonymGroups("make");
+Console.WriteLine("Synonym groups for 'make':");
+for (int i = 0; i < groups.Length; i++)
+{
+    string[] group = groups[i];
+    for (int j = 0; j < group.Length; j++)
+    {
+        Console.Write(group[j] + " ");
+    }
+    Console.WriteLine();
+}
+
 if (index.Dictionaries.SynonymDictionary.Count > 0)
 {
     // Removing all synonyms from the dictionary
     index.Dictionaries.SynonymDictionary.Clear();
 }
- 
+
 // Adding synonyms to the dictionary
 string[][] synonymGroups = new string[][]
 {
@@ -43,10 +70,10 @@ string[][] synonymGroups = new string[][]
     new string[] { "accept", "take", "have" },
 };
 index.Dictionaries.SynonymDictionary.AddRange(synonymGroups);
- 
+
 // Export synonyms to a file
 index.Dictionaries.SynonymDictionary.ExportDictionary(@"C:\Synonyms.dat");
- 
+
 // Import synonyms from a file
 index.Dictionaries.SynonymDictionary.ImportDictionary(@"C:\Synonyms.dat");
 ```

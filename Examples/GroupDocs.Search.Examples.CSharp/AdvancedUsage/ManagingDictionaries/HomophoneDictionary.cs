@@ -1,5 +1,6 @@
 ﻿using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
+using System;
 
 namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
 {
@@ -15,6 +16,27 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
 
             // Indexing documents from the specified folder
             index.Add(documentsFolder);
+
+            // Getting homophones for word 'braid'
+            string[] homophones = index.Dictionaries.HomophoneDictionary.GetHomophones("braid");
+            Console.WriteLine("Homophones for 'braid':");
+            for (int i = 0; i < homophones.Length; i++)
+            {
+                Console.WriteLine(homophones[i]);
+            }
+
+            // Getting groups of homophones to which word 'braid' belongs to
+            string[][] groups = index.Dictionaries.HomophoneDictionary.GetHomophoneGroups("braid");
+            Console.WriteLine("Homophone groups for 'braid':");
+            for (int i = 0; i < groups.Length; i++)
+            {
+                string[] group = groups[i];
+                for (int j = 0; j < group.Length; j++)
+                {
+                    Console.Write(group[j] + " ");
+                }
+                Console.WriteLine();
+            }
 
             if (index.Dictionaries.HomophoneDictionary.Count > 0)
             {

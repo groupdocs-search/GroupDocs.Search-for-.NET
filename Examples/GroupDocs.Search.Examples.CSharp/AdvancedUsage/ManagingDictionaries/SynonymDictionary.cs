@@ -1,5 +1,6 @@
 ﻿using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
+using System;
 
 namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
 {
@@ -15,6 +16,27 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
 
             // Indexing documents from the specified folder
             index.Add(documentsFolder);
+
+            // Getting synonyms for word 'make'
+            string[] synonyms = index.Dictionaries.SynonymDictionary.GetSynonyms("make");
+            Console.WriteLine("Synonyms for 'make':");
+            for (int i = 0; i < synonyms.Length; i++)
+            {
+                Console.WriteLine(synonyms[i]);
+            }
+
+            // Getting groups of synonyms to which word 'make' belongs to
+            string[][] groups = index.Dictionaries.SynonymDictionary.GetSynonymGroups("make");
+            Console.WriteLine("Synonym groups for 'make':");
+            for (int i = 0; i < groups.Length; i++)
+            {
+                string[] group = groups[i];
+                for (int j = 0; j < group.Length; j++)
+                {
+                    Console.Write(group[j] + " ");
+                }
+                Console.WriteLine();
+            }
 
             if (index.Dictionaries.SynonymDictionary.Count > 0)
             {
