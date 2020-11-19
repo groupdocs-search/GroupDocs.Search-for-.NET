@@ -32,8 +32,8 @@ This improvement adds a method to get synonyms for a specific word from the syno
 
 ##### Public API changes
 
-Method **string[] GetSynonyms(string)** has been added to **GroupDocs.Search.Dictionaries.SynonymDictionary** class.
-Method **string[]\[] GetSynonymGroups(string)** has been added to **GroupDocs.Search.Dictionaries.SynonymDictionary** class.
+Method **string[] GetSynonyms(string)** has been added to **GroupDocs.Search.Dictionaries.SynonymDictionary** class.  
+Method **string[]\[] GetSynonymGroups(string)** has been added to **GroupDocs.Search.Dictionaries.SynonymDictionary** class.  
 Method **string[]\[] GetAllSynonymGroups()** has been added to **GroupDocs.Search.Dictionaries.SynonymDictionary** class.
 
 ##### Use cases
@@ -74,8 +74,8 @@ This improvement adds a method to get homophones for a specific word from the ho
 
 ##### Public API changes
 
-Method **string[] GetHomophones(string)** has been added to **GroupDocs.Search.Dictionaries.HomophoneDictionary** class.
-Method **string[]\[] GetHomophoneGroups(string)** has been added to **GroupDocs.Search.Dictionaries.HomophoneDictionary** class.
+Method **string[] GetHomophones(string)** has been added to **GroupDocs.Search.Dictionaries.HomophoneDictionary** class.  
+Method **string[]\[] GetHomophoneGroups(string)** has been added to **GroupDocs.Search.Dictionaries.HomophoneDictionary** class.  
 Method **string[]\[] GetAllHomophoneGroups()** has been added to **GroupDocs.Search.Dictionaries.HomophoneDictionary** class.
 
 ##### Use cases
