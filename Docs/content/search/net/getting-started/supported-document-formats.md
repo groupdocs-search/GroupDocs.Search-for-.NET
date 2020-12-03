@@ -10,7 +10,7 @@ hideChildren: False
 ---
 The following table contains file formats supported by GroupDocs.Search.
 
-| Document Type | Indexing Content | Indexing Metadata | Supported Versions | Limitations | Notes |
+| Document Type | Document Type Description | Indexing Content | Indexing Metadata | Supported Versions | Notes |
 | --- | --- | --- | --- | --- | --- |
 | Word Processing |   |   |   |   |   |
 | [DOC](https://wiki.fileformat.com/word-processing/doc/) | Microsoft Word Document | ![(tick)](search/net/images/check.png) | ![(tick)](search/net/images/check.png) |   | Microsoft Word 97+ |
