@@ -2,7 +2,7 @@
 id: text-file-encoding-detection
 url: search/net/text-file-encoding-detection
 title: Text file encoding detection
-weight: 19
+weight: 20
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET

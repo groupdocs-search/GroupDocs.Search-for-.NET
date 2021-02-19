@@ -2,7 +2,7 @@
 id: logging
 url: search/net/logging
 title: Logging
-weight: 15
+weight: 16
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET

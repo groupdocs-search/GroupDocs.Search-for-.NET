@@ -39,8 +39,8 @@
     <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>packages\AWSSDK.S3.3.3.112.1\lib\net45\AWSSDK.S3.dll</HintPath>
     </Reference>
-    <Reference Include="GroupDocs.Search, Version=20.11.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>packages\GroupDocs.Search.20.11.0\lib\net20\GroupDocs.Search.dll</HintPath>
+    <Reference Include="GroupDocs.Search, Version=21.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>packages\GroupDocs.Search.21.2.0\lib\net20\GroupDocs.Search.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
@@ -69,6 +69,7 @@
     <Compile Include="AdvancedUsage\Indexing\CharacterReplacementDuringIndexing.cs" />
     <Compile Include="AdvancedUsage\Indexing\CharacterTypes.cs" />
     <Compile Include="AdvancedUsage\Indexing\CustomTextExtractors.cs" />
+    <Compile Include="AdvancedUsage\Indexing\DeleteIndexedDocuments.cs" />
     <Compile Include="AdvancedUsage\Indexing\DeleteIndexedPaths.cs" />
     <Compile Include="AdvancedUsage\Indexing\DocumentAttributes.cs" />
     <Compile Include="AdvancedUsage\Indexing\DocumentFilteringDuringIndexing.cs" />

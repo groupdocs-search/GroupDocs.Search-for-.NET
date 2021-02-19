@@ -2,7 +2,7 @@
 id: indexing-additional-fields
 url: search/net/indexing-additional-fields
 title: Indexing additional fields
-weight: 8
+weight: 9
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET

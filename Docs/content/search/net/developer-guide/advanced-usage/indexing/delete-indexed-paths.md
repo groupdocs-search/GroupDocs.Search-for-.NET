@@ -2,7 +2,7 @@
 id: delete-indexed-paths
 url: search/net/delete-indexed-paths
 title: Delete indexed paths
-weight: 4
+weight: 5
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET
@@ -18,17 +18,17 @@ The following example shows how to remove indexed paths from an index.
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder1 = @"c:\MyDocuments\";
 string documentsFolder2 = @"c:\MyDocuments2\";
- 
+
 // Creating an index in the specified folder
 Index index = new Index(indexFolder);
- 
+
 // Indexing documents from the specified folders
 index.Add(documentsFolder1);
 index.Add(documentsFolder2);
- 
+
 // Getting indexed paths from the index
 string[] indexedPaths1 = index.GetIndexedPaths();
- 
+
 // Writing indexed paths to the console
 Console.WriteLine("Indexed paths:");
 foreach (string path in indexedPaths1)
@@ -36,13 +36,13 @@ foreach (string path in indexedPaths1)
     Console.WriteLine("\t" + path);
 }
  
-// Deleting index path from the index
+// Deleting indexed path from the index
 DeleteResult deleteResult = index.Delete(new string[] { documentsFolder1 }, new UpdateOptions());
  
 // Getting indexed paths after deletion
 string[] indexedPaths2 = index.GetIndexedPaths();
 Console.WriteLine("\nDeleted paths: " + deleteResult.SuccessCount);
- 
+
 Console.WriteLine("\nIndexed paths:");
 foreach (string path in indexedPaths2)
 {

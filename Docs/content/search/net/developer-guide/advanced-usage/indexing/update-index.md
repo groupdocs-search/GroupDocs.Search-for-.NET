@@ -2,7 +2,7 @@
 id: update-index
 url: search/net/update-index
 title: Update index
-weight: 20
+weight: 21
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET

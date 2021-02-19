@@ -31,10 +31,10 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
             // Deleting index path from the index
             DeleteResult deleteResult = index.Delete(new string[] { documentsFolder1 }, new UpdateOptions());
+            Console.WriteLine("\nDeleted paths: " + deleteResult.SuccessCount);
 
             // Getting indexed paths after deletion
             string[] indexedPaths2 = index.GetIndexedPaths();
-            Console.WriteLine("\nDeleted paths: " + deleteResult.SuccessCount);
 
             Console.WriteLine("\nIndexed paths:");
             foreach (string path in indexedPaths2)

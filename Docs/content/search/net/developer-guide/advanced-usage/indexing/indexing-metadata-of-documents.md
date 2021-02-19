@@ -2,7 +2,7 @@
 id: indexing-metadata-of-documents
 url: search/net/indexing-metadata-of-documents
 title: Indexing metadata of documents
-weight: 10
+weight: 11
 description: ""
 keywords: 
 productName: GroupDocs.Search for .NET
