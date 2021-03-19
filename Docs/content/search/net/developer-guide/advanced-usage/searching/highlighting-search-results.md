@@ -19,11 +19,14 @@ The Index class also represents an overload of the [Highlight](https://apirefere
 *   [CustomExtractor](https://apireference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/customextractor) is an extractor used during indexing, it is necessary if the text of the document was not saved in the index;
 *   [AdditionalFields](https://apireference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/additionalfields) are additional document fields added during document indexing which are also necessary if the document text was not saved in the index;
 *   [Cancellation](https://apireference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/cancellation) is an object used to cancel the operation;
-*   [MetadataIndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/metadataindexingoptions) is an object for specifying metadata indexing options.
+*   [GenerateHead](https://apireference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/generatehead) is a flag to specify whether the Head tag is generated in the output HTML;
+*   [MetadataIndexingOptions](https://apireference.groupdocs.com/net/search/groupdocs.search.options/textoptions/properties/metadataindexingoptions) is an object for specifying metadata indexing options;
+*   [UseInlineStyles](https://apireference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/properties/useinlinestyles) is a flag to specify whether inline styles or CSS class are used to highlight occurrences;
+*   [HighlightColor](https://apireference.groupdocs.com/search/net/groupdocs.search.options/highlightoptions/properties/highlightcolor) is a color used to highlight occurrences.
 
 The other options are used for highlighting occurrences in text fragments.
 
-To highlight search results in the text of the whole document, a highlighter of the [HtmlHighlighter](https://apireference.groupdocs.com/net/search/groupdocs.search.highlighters/htmlhighlighter) class is used. To create a highlighter of this type, you must pass an object of a class derived from the abstract class **[OutputAdapter](https://apireference.groupdocs.com/net/search/groupdocs.search.common/outputadapter)** to its constructor. Details on the output adapters are presented on the page [Output adapters]({{< ref "search/net/developer-guide/advanced-usage/searching/output-adapters.md" >}}).
+To highlight search results in the text of the whole document, a highlighter of the [HtmlHighlighter](https://apireference.groupdocs.com/net/search/groupdocs.search.highlighters/htmlhighlighter) class is used. To create a highlighter of this type, you must pass an object of a class derived from the abstract class [OutputAdapter](https://apireference.groupdocs.com/net/search/groupdocs.search.common/outputadapter) to its constructor. Details on the output adapters are presented on the page [Output adapters]({{< ref "search/net/developer-guide/advanced-usage/searching/output-adapters.md" >}}).
 
 If after generation the text of a document was saved to a file, this file can be opened by an Internet browser to navigate the occurrences of the words found. To navigate the occurrences, the following text is added to the URL in a browser:
 
@@ -56,7 +59,11 @@ if (result.DocumentCount > 0)
     FoundDocument document = result.GetFoundDocument(0); // Getting the first found document
     OutputAdapter outputAdapter = new FileOutputAdapter(@"c:\Highlighted.html"); // Creating an output adapter to a file
     Highlighter highlighter = new HtmlHighlighter(outputAdapter); // Creating the highlighter object
-    index.Highlight(document, highlighter); // Generating HTML formatted text with highlighted occurrences
+    HighlightOptions options = new HighlightOptions(); // Creating the highlight options
+    options.HighlightColor = new Color(0, 127, 0); // Setting highlight color
+    options.UseInlineStyles = false; // Using CSS styles to highlight occurrences
+    options.GenerateHead = true; // Generating Head tag in output HTML
+    index.Highlight(document, highlighter, options); // Generating HTML formatted text with highlighted occurrences
 }
 ```
 
@@ -77,27 +84,29 @@ The example below demonstrates how to highlight search results in separate text 
 ```csharp
 string indexFolder = @"c:\MyIndex\";
 string documentsFolder = @"c:\MyDocuments\";
- 
+
 // Creating an index
 Index index = new Index(indexFolder);
- 
+
 // Indexing documents from the specified folder
 index.Add(documentsFolder);
- 
+
 // Search for the word 'Einstein'
 SearchResult result = index.Search("Einstein");
- 
+
 // Assigning highlight options
 HighlightOptions options = new HighlightOptions();
 options.TermsBefore = 5;
 options.TermsAfter = 5;
 options.TermsTotal = 15;
- 
+options.HighlightColor = new Color(0, 0, 127);
+options.UseInlineStyles = true;
+
 // Highlighting found words in separate text fragments of a document
 FoundDocument document = result.GetFoundDocument(0);
 HtmlFragmentHighlighter highlighter = new HtmlFragmentHighlighter();
 index.Highlight(document, highlighter, options);
- 
+
 // Getting the result
 FragmentContainer[] fragmentContainers = highlighter.GetResult();
 for (int i = 0; i < fragmentContainers.Length; i++)

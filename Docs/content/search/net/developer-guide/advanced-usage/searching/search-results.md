@@ -31,8 +31,10 @@ The found document is represented by an instance of a [FoundDocument](https://a
 *   The [FoundFields](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/foundfields) property returns the found document fields.
 *   The [Terms](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/terms) property returns the found terms. The value is evaluated each time the property is accessed based on the data for each document field found.
 *   The [TermSequences](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocument/properties/termsequences) property returns the found term sequences.
+*   The [Serialize](https://apireference.groupdocs.com/search/net/groupdocs.search.results/founddocument/methods/serialize) method serializes the current found document instance to a byte array.
+*   The [Deserialize](https://apireference.groupdocs.com/search/net/groupdocs.search.results/founddocument/methods/deserialize) method deserializes an instance of found document from a byte array.
 
-The document field found is represented by an instance of a [FoundDocumentField](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield) class. The [FoundDocumentField](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield) class contains the following members:
+The found document field is represented by an instance of a [FoundDocumentField](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield) class. The [FoundDocumentField](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield) class contains the following members:
 
 *   The [FieldName](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/fieldname) property returns the field name.
 *   The [OccurrenceCount](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/occurrencecount) property returns the number of occurrences found.
@@ -40,6 +42,8 @@ The document field found is represented by an instance of a [FoundDocumentField]
 *   The [TermsOccurrences](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/termsoccurrences) property returns the occurrences of the found terms.
 *   The [TermSequences](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/termsequences) property returns the term sequences found.
 *   The [TermSequencesOccurrences](https://apireference.groupdocs.com/net/search/groupdocs.search.results/founddocumentfield/properties/termsequencesoccurrences) property returns the occurrences of the found term sequences.
+*   The [Serialize](https://apireference.groupdocs.com/search/net/groupdocs.search.results/founddocumentfield/methods/serialize) method serializes the current found document field instance to a byte array.
+*   The [Deserialize](https://apireference.groupdocs.com/search/net/groupdocs.search.results/founddocumentfield/methods/deserialize) method deserializes an instance of found document field from a byte array.
 
 The following example shows how to print information on the documents found in the console.
 

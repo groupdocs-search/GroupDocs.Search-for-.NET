@@ -30,13 +30,17 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
                 FoundDocument document = result.GetFoundDocument(0); // Getting the first found document
                 OutputAdapter outputAdapter = new FileOutputAdapter(@".\AdvancedUsage\Searching\HighlightingSearchResults\Highlighted.html"); // Creating an output adapter to a file
                 Highlighter highlighter = new HtmlHighlighter(outputAdapter); // Creating the highlighter object
-                index.Highlight(document, highlighter); // Generating HTML formatted text with highlighted occurrences
+                HighlightOptions options = new HighlightOptions(); // Creating the highlight options
+                options.HighlightColor = new Color(0, 127, 0); // Setting highlight color
+                options.UseInlineStyles = false; // Using CSS styles to highlight occurrences
+                options.GenerateHead = true; // Generating Head tag in output HTML
+                index.Highlight(document, highlighter, options); // Generating HTML formatted text with highlighted occurrences
             }
         }
 
-        public static void HighlightingInSegments()
+        public static void HighlightingInFragments()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\HighlightingSearchResults\HighlightingInSegments";
+            string indexFolder = @".\AdvancedUsage\Searching\HighlightingSearchResults\HighlightingInFragments";
             string documentFolder = Utils.ArchivesPath;
 
             // Creating an index
@@ -53,6 +57,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             options.TermsBefore = 5;
             options.TermsAfter = 5;
             options.TermsTotal = 15;
+            options.HighlightColor = new Color(0, 0, 127);
+            options.UseInlineStyles = true;
 
             // Highlighting found words in separate text fragments of a document
             FoundDocument document = result.GetFoundDocument(0);
@@ -79,7 +85,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
                 }
             }
             Console.WriteLine(stringBuilder.ToString());
-            File.WriteAllText(@".\AdvancedUsage\Searching\HighlightingSearchResults\Segments.html", stringBuilder.ToString());
+            File.WriteAllText(@".\AdvancedUsage\Searching\HighlightingSearchResults\Fragments.html", stringBuilder.ToString());
         }
     }
 }

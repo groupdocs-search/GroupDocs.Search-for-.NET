@@ -151,7 +151,7 @@ namespace GroupDocs.Search.Examples.CSharp
             //GettingIndexedDocuments.GettingTextOfIndexedDocuments();
 
             //HighlightingSearchResults.HighlightingInEntireDocument();
-            //HighlightingSearchResults.HighlightingInSegments();
+            //HighlightingSearchResults.HighlightingInFragments();
 
             //HomophoneSearch.Run();
 
