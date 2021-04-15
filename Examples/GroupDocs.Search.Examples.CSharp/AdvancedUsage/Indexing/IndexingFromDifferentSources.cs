@@ -9,6 +9,7 @@ using Microsoft.Azure.Storage.Blob;
 using System;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 {
@@ -264,7 +265,9 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
                     Key = storageKey,
                     BucketName = bucketName,
                 };
-                using (GetObjectResponse response = client.GetObject(request))
+                var task = client.GetObjectAsync(request);
+                task.Wait();
+                using (GetObjectResponse response = task.Result)
                 {
                     MemoryStream memoryStream = new MemoryStream();
                     response.ResponseStream.CopyTo(memoryStream);
