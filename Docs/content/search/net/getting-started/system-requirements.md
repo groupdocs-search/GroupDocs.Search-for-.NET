@@ -41,23 +41,27 @@ GroupDocs.Search for .NET  supports .NET frameworks as follows:
 ### .NET Frameworks
 
 *   .NET Framework 2.0
+*   .NET Framework 3.0
 *   .NET Framework 3.5
 *   .NET Framework 4.0
 *   .NET Framework 4.0\_ClientProfile
-*   .NET Framework 4.5.0
+*   .NET Framework 4.5
 *   .NET Framework 4.5.1
 *   .NET Framework 4.5.2
-*   .NET Framework 4.6.0
-*   .NET Framework 4.6.2
-*   .NET Framework 4.5.0
-*   .NET Framework 4.5.1
-*   .NET Framework 4.6.0
+*   .NET Framework 4.6
+*   .NET Framework 4.6.1
 *   .NET Framework 4.6.2
 *   .NET Framework 4.7
+*   .NET Framework 4.7.1
 *   .NET Framework 4.7.2
+*   .NET Framework 4.8
 *   .NET Standard 2.0 
 *   .NET Core 2.0
 *   .NET Core 2.1
+*   .NET Core 2.2
+*   .NET Core 3.0
+*   .NET Core 3.1
+*   .NET Core 5.0
 
 ## Development Environments
 
