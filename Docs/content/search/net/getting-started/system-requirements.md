@@ -44,7 +44,6 @@ GroupDocs.Search for .NET  supports .NET frameworks as follows:
 *   .NET Framework 3.0
 *   .NET Framework 3.5
 *   .NET Framework 4.0
-*   .NET Framework 4.0\_ClientProfile
 *   .NET Framework 4.5
 *   .NET Framework 4.5.1
 *   .NET Framework 4.5.2
