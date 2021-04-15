@@ -8,18 +8,24 @@ namespace GroupDocs.Search.Examples.CSharp
 {
     class Utils
     {
-        public const string LicensePath = @"C:\Licenses\GroupDocs.Search.lic";
+        public const string LicensePath = @"C:/Licenses/GroupDocs.Search.lic";
 
-        public const string DocumentsPath = @"..\..\..\Resources\Documents\";
-        public const string DocumentsPath2 = @"..\..\..\Resources\Documents2\";
-        public const string DocumentsPath3 = @"..\..\..\Resources\Documents3\";
-        public const string DocumentsPath4 = @"..\..\..\Resources\Documents4\";
-        public const string PasswordProtectedDocumentsPath = @"..\..\..\Resources\PasswordProtectedDocuments\";
-        public const string LogPath = @"..\..\..\Resources\Log\";
-        public const string DocumentsUtf32Path = @"..\..\..\Resources\DocumentsUtf32\";
-        public const string ArchivesPath = @"..\..\..\Resources\Archives\";
+#if NETCOREAPP
+        public const string BasePath = @"../../../../";
+#else
+        public const string BasePath = @"../../../";
+#endif
 
-        public const string OldIndexPath = @"..\..\..\Resources\Index_19_4\";
+        public const string DocumentsPath = BasePath + @"Resources/Documents/";
+        public const string DocumentsPath2 = BasePath + @"Resources/Documents2/";
+        public const string DocumentsPath3 = BasePath + @"Resources/Documents3/";
+        public const string DocumentsPath4 = BasePath + @"Resources/Documents4/";
+        public const string PasswordProtectedDocumentsPath = BasePath + @"Resources/PasswordProtectedDocuments/";
+        public const string LogPath = BasePath + @"Resources/Log/";
+        public const string DocumentsUtf32Path = BasePath + @"Resources/DocumentsUtf32/";
+        public const string ArchivesPath = BasePath + @"Resources/Archives/";
+
+        public const string OldIndexPath = BasePath + @"Resources/Index_19_4/";
 
         public static void TraceResult(string query, SearchResult result)
         {
