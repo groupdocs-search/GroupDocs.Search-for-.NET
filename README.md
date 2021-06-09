@@ -11,7 +11,6 @@
 
 Directory | Description
 --------- | -----------
-[Docs](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Docs)  | Product documentation containing Developer's Guide, Release Notes and more.
 [Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Examples)  | C# based examples and sample files for quick start. 
 [Showcases](https://github.com/groupdocs-search/GroupDocs.Search-for-.NET/tree/master/Showcases/GroupDocs.Search-UI)  | ASP.NET MVC based application demonstrating the core features.
 
