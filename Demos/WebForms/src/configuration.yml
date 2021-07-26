@@ -1,0 +1,51 @@
+################################################
+# Server configurations
+################################################
+server:
+  type: simple
+  applicationContextPath: /
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 8080
+
+
+################################################
+# Application (global) configurations
+################################################
+application:
+    # License path
+    # Absolute path to GroupDocs license file
+    licensePath: 'Licenses/GroupDocs.Search.NET.lic'
+
+################################################
+# Common configurations
+################################################
+common:
+  # File rewriting on document uploading
+  # Set false to keep both files
+  # Set true to replace files with same name
+  rewrite: true
+  # Document download
+  # Set false to disable document download
+  download: true
+  # Document upload
+  # Set false to disable document upload
+  upload: true
+  # File browser
+  # Set false to disable document browse
+  browse: true
+
+################################################
+# GroupDocs.Search configurations
+################################################
+search:
+  # Files directory path
+  # Absolute path to files directory
+  filesDirectory: 'DocumentSamples/Search'
+  # Index directory path
+  # Absolute path to index files directory
+  indexDirectory: 'DocumentSamples/Search/Index'
+  # Indexed files directory path
+  # Absolute path to indexed files directory
+  indexedFilesDirectory: 'DocumentSamples/Search/Indexed'
