@@ -28,6 +28,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\IndexingWithStopWords.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\Logging.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\MergeIndexes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\OcrSupport.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\OptimizeIndex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\StoringTextOfIndexedDocuments.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\TextFileEncodingDetection.cs" />

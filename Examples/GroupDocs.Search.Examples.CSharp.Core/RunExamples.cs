@@ -112,6 +112,9 @@ namespace GroupDocs.Search.Examples.CSharp
 
             //MergeIndexes.Run();
 
+            //OcrSupport.UseAsposeOcrConnector();
+            //OcrSupport.UseTesseractOcrConnector();
+
             //OptimizeIndex.Run();
 
             //StoringTextOfIndexedDocuments.Run();
