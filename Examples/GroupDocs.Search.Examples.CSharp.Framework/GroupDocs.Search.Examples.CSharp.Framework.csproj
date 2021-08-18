@@ -46,7 +46,7 @@
       <HintPath>..\packages\AWSSDK.S3.3.7.0.13\lib\net45\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="GroupDocs.Search, Version=21.8.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>..\packages\GroupDocs.Search.21.8.0-alpha-20210813104412\lib\net20\GroupDocs.Search.dll</HintPath>
+      <HintPath>..\packages\GroupDocs.Search.21.8.0\lib\net20\GroupDocs.Search.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
