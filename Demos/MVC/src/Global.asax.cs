@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using GroupDocs.Search.MVC.AppDomainGenerator;
 
 namespace GroupDocs.Search.MVC
 {
@@ -9,12 +8,13 @@ namespace GroupDocs.Search.MVC
     {
         protected void Application_Start()
         {
-            // Fix required to use several GroupDocs products in one project.
-            // Set GroupDocs products assemblies names
-            string SearchAssemblyName = "GroupDocs.Search.dll";
-            // set GroupDocs.Search license
-            DomainGenerator SearchDomainGenerator = new DomainGenerator(SearchAssemblyName, "GroupDocs.Search.License");
-            SearchDomainGenerator.SetSearchLicense();
+            // Set GroupDocs.Search license
+            Products.Common.Config.GlobalConfiguration globalConfiguration = new Products.Common.Config.GlobalConfiguration();
+            string licensePath = globalConfiguration.Application.LicensePath;
+            if (!string.IsNullOrEmpty(licensePath))
+            {
+                new License().SetLicense(licensePath);
+            }
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
