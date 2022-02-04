@@ -73,6 +73,22 @@
     <Compile Include="$(MSBuildThisFileDirectory)GettingStarted\SetLicenseFromFile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GettingStarted\SetLicenseFromStream.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GettingStarted\SetMeteredLicense.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\HighlightExample.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\CharacterHolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\FoundWord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\HtmlHighlighter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\IFinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\ISuperFinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\PhraseAnyWordFinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\PhraseFirstWordFinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\PhraseNextWordFinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\SeparateWordFinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\SuperFinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\TextSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\Highlighter\WordFinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\HighlightService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\HtmlViewer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\IndexedFileInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils.cs" />
   </ItemGroup>
 </Project>

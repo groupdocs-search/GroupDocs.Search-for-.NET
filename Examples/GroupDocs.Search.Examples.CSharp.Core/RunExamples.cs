@@ -4,6 +4,7 @@ using GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries;
 using GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching;
 using GroupDocs.Search.Examples.CSharp.BasicUsage;
 using GroupDocs.Search.Examples.CSharp.GettingStarted;
+using GroupDocs.Search.Examples.CSharp.HighlightInHtml;
 using System;
 
 namespace GroupDocs.Search.Examples.CSharp
@@ -209,6 +210,12 @@ namespace GroupDocs.Search.Examples.CSharp
             //WordFormsProvider.Run();
 
             #endregion Advanced Usage ----------------------------------------------------------------------------------------------------
+
+            #region Highlight Search Results in HTML ----------------------------------------------------------------------------------------------------
+
+            //HighlightExample.Run();
+
+            #endregion Highlight Search Results in HTML ----------------------------------------------------------------------------------------------------
 
             Console.WriteLine();
             Console.WriteLine("All done.");
