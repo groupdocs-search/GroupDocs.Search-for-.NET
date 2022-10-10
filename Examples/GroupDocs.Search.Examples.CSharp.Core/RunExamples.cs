@@ -118,6 +118,8 @@ namespace GroupDocs.Search.Examples.CSharp
 
             //OptimizeIndex.Run();
 
+            //SeparateDataExtraction.Run();
+
             //StoringTextOfIndexedDocuments.Run();
 
             //TextFileEncodingDetection.Run();
@@ -172,6 +174,8 @@ namespace GroupDocs.Search.Examples.CSharp
             //QueriesInTextAndObjectForm.Run();
 
             //RegularExpressionSearch.Run();
+
+            //ReverseImageSearch.Run();
 
             //SearchByChunks.Run();
 

@@ -20,6 +20,7 @@ namespace GroupDocs.Search.Examples.CSharp
         public const string DocumentsPath2 = BasePath + @"Resources/Documents2/";
         public const string DocumentsPath3 = BasePath + @"Resources/Documents3/";
         public const string DocumentsPath4 = BasePath + @"Resources/Documents4/";
+        public const string ImagesPath = BasePath + @"Resources/Images/";
         public const string DocumentsPNG = BasePath + @"Resources/DocumentsPNG/";
         public const string PasswordProtectedDocumentsPath = BasePath + @"Resources/PasswordProtectedDocuments/";
         public const string LogPath = BasePath + @"Resources/Log/";

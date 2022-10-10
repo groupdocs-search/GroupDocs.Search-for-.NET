@@ -30,6 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\MergeIndexes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\OcrSupport.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\OptimizeIndex.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\SeparateDataExtraction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\StoringTextOfIndexedDocuments.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\TextFileEncodingDetection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\UpdateIndex.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\PhraseSearch.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\QueriesInTextAndObjectForm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\RegularExpressionSearch.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\ReverseImageSearch.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\SearchByChunks.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\SearchForDifferentWordForms.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\SearchReports.cs" />
