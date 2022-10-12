@@ -19,11 +19,11 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             extractionOptions.UseRawTextExtraction = false;
             ExtractedData extractedData = extractor.Extract(document, extractionOptions);
 
-            //// Serializing the data
-            //byte[] array = extractedData.Serialize();
+            // Serializing the data
+            byte[] array = extractedData.Serialize();
 
-            //// Deserializing the data
-            //ExtractedData deserializedData = ExtractedData.Deserialize(array);
+            // Deserializing the data
+            ExtractedData deserializedData = ExtractedData.Deserialize(array);
 
             // Creating an index
             Index index = new Index(indexFolder);
@@ -31,7 +31,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             // Indexing the data
             ExtractedData[] data = new ExtractedData[]
             {
-                extractedData
+                deserializedData
             };
             index.Add(data, new IndexingOptions());
 
