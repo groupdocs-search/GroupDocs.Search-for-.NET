@@ -1,4 +1,5 @@
 ﻿using GroupDocs.Search.Common;
+using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 using System;
 
@@ -37,8 +38,12 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string indexFolder = @".\AdvancedUsage\Searching\GettingIndexedDocuments\GettingTextOfIndexedDocuments";
             string documentsFolder = Utils.ArchivesPath;
 
+            // Creating an index settings instance
+            IndexSettings settings = new IndexSettings();
+            settings.TextStorageSettings = new TextStorageSettings(Compression.High); // Enabling storage of extracted text in the index
+
             // Creating an index in the specified folder
-            Index index = new Index(indexFolder);
+            Index index = new Index(indexFolder, settings);
 
             // Indexing documents from the specified folder
             index.Add(documentsFolder);
@@ -49,14 +54,14 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             // Getting a document text
             if (documents.Length > 0)
             {
-                FileOutputAdapter outputAdapter = new FileOutputAdapter(@".\AdvancedUsage\Searching\GettingIndexedDocuments\Text.html");
+                FileOutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, @".\AdvancedUsage\Searching\GettingIndexedDocuments\Text.html");
                 index.GetDocumentText(documents[0], outputAdapter);
 
                 // Getting list of files in the archive
                 DocumentInfo[] items = index.GetIndexedDocumentItems(documents[0]);
                 if (items.Length > 0)
                 {
-                    FileOutputAdapter outputAdapter2 = new FileOutputAdapter(@".\AdvancedUsage\Searching\GettingIndexedDocuments\ItemText.html");
+                    FileOutputAdapter outputAdapter2 = new FileOutputAdapter(OutputFormat.Html, @".\AdvancedUsage\Searching\GettingIndexedDocuments\ItemText.html");
                     index.GetDocumentText(items[0], outputAdapter2);
                 }
             }

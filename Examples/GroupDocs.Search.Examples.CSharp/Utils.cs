@@ -1,5 +1,6 @@
 ﻿using GroupDocs.Search.Common;
 using GroupDocs.Search.Highlighters;
+using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 using System;
 using System.IO;
@@ -52,8 +53,8 @@ namespace GroupDocs.Search.Examples.CSharp
         {
             if (document == null) return;
 
-            FileOutputAdapter outputAdapter = new FileOutputAdapter(filePath);
-            HtmlHighlighter highlighter = new HtmlHighlighter(outputAdapter);
+            FileOutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, filePath);
+            DocumentHighlighter highlighter = new DocumentHighlighter(outputAdapter);
             index.Highlight(document, highlighter);
         }
 

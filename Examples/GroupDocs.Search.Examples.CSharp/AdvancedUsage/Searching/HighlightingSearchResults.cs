@@ -15,8 +15,12 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string indexFolder = @".\AdvancedUsage\Searching\HighlightingSearchResults\HighlightingInEntireDocument";
             string documentFolder = Utils.ArchivesPath;
 
-            // Creating an index
-            Index index = new Index(indexFolder);
+            // Creating an index settings instance
+            IndexSettings settings = new IndexSettings();
+            settings.TextStorageSettings = new TextStorageSettings(Compression.High); // Enabling storage of extracted text in the index
+
+            // Creating an index in the specified folder
+            Index index = new Index(indexFolder, settings);
 
             // Indexing documents from the specified folder
             index.Add(documentFolder);
@@ -27,14 +31,34 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             // Highlighting occurrences in the text
             if (result.DocumentCount > 0)
             {
-                FoundDocument document = result.GetFoundDocument(0); // Getting the first found document
-                OutputAdapter outputAdapter = new FileOutputAdapter(@".\AdvancedUsage\Searching\HighlightingSearchResults\Highlighted.html"); // Creating an output adapter to a file
-                Highlighter highlighter = new HtmlHighlighter(outputAdapter); // Creating the highlighter object
-                HighlightOptions options = new HighlightOptions(); // Creating the highlight options
-                options.HighlightColor = new Color(0, 127, 0); // Setting highlight color
-                options.UseInlineStyles = false; // Using CSS styles to highlight occurrences
-                options.GenerateHead = true; // Generating Head tag in output HTML
-                index.Highlight(document, highlighter, options); // Generating HTML formatted text with highlighted occurrences
+                {
+                    FoundDocument document = result.GetFoundDocument(0); // Getting the first found document
+                    OutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, @".\AdvancedUsage\Searching\HighlightingSearchResults\Highlighted.html"); // Creating an output adapter to a file
+                    Highlighter highlighter = new DocumentHighlighter(outputAdapter); // Creating the highlighter object
+                    HighlightOptions options = new HighlightOptions(); // Creating the highlight options
+                    options.HighlightColor = new Color(150, 255, 150); // Setting highlight color
+                    options.UseInlineStyles = false; // Using CSS styles to highlight occurrences
+                    options.GenerateHead = true; // Generating Head tag in output HTML
+                    index.Highlight(document, highlighter, options); // Generating HTML formatted text with highlighted occurrences
+                }
+                {
+                    FoundDocument document = result.GetFoundDocument(0); // Getting the first found document
+                    StructureOutputAdapter outputAdapter = new StructureOutputAdapter(OutputFormat.PlainText); // Creating the output adapter
+                    Highlighter highlighter = new DocumentHighlighter(outputAdapter); // Creating the highlighter instance
+                    HighlightOptions options = new HighlightOptions(); // Creating the highlight options
+                    options.TermHighlightStartTag = "<Term>"; // Setting the start tag for the found word
+                    options.TermHighlightEndTag = "</Term>"; // Setting the end tag for the found word
+                    index.Highlight(document, highlighter, options); // Generating plain text with highlighted occurrences
+
+                    DocumentField[] fields = outputAdapter.GetResult();
+                    Console.WriteLine(document.ToString());
+                    for (int i = 0; i < fields.Length; i++)
+                    {
+                        // Printing field names of the found document
+                        DocumentField field = fields[i];
+                        Console.WriteLine("\t" + field.Name);
+                    }
+                }
             }
         }
 
@@ -43,8 +67,12 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string indexFolder = @".\AdvancedUsage\Searching\HighlightingSearchResults\HighlightingInFragments";
             string documentFolder = Utils.ArchivesPath;
 
-            // Creating an index
-            Index index = new Index(indexFolder);
+            // Creating an index settings instance
+            IndexSettings settings = new IndexSettings();
+            settings.TextStorageSettings = new TextStorageSettings(Compression.High); // Enabling storage of extracted text in the index
+
+            // Creating an index in the specified folder
+            Index index = new Index(indexFolder, settings);
 
             // Indexing documents from the specified folder
             index.Add(documentFolder);
@@ -57,12 +85,12 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             options.TermsBefore = 5;
             options.TermsAfter = 5;
             options.TermsTotal = 15;
-            options.HighlightColor = new Color(0, 0, 127);
+            options.HighlightColor = new Color(127, 200, 255);
             options.UseInlineStyles = true;
 
             // Highlighting found words in separate text fragments of a document
             FoundDocument document = result.GetFoundDocument(0);
-            HtmlFragmentHighlighter highlighter = new HtmlFragmentHighlighter();
+            FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.Html);
             index.Highlight(document, highlighter, options);
 
             // Getting the result

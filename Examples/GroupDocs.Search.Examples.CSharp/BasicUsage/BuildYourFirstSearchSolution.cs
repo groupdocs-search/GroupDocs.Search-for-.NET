@@ -47,8 +47,8 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
             {
                 FoundDocument document = result.GetFoundDocument(0); // Getting the first found document
                 string path = @".\BasicUsage\Highlighted.html";
-                OutputAdapter outputAdapter = new FileOutputAdapter(path); // Creating the output adapter to a file
-                HtmlHighlighter highlighter = new HtmlHighlighter(outputAdapter); // Creating the highlighter object
+                OutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, path); // Creating the output adapter to a file
+                DocumentHighlighter highlighter = new DocumentHighlighter(outputAdapter); // Creating the highlighter object
                 index.Highlight(document, highlighter); // Generating output HTML formatted document with highlighted search results
 
                 Console.WriteLine();

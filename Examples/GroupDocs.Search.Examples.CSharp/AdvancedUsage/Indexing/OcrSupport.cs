@@ -125,7 +125,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
                 var buffer = new byte[context.ImageStream.Length];
                 context.ImageStream.Read(buffer, 0, buffer.Length);
 
-                var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+                var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 path = Path.Combine(path, "tessdata");
                 path = path.Replace("file:\\", "");
 
