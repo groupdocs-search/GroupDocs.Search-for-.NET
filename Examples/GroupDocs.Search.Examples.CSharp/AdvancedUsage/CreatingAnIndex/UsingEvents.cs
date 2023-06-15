@@ -75,6 +75,40 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
             index.Add(documentsFolder);
         }
 
+        public static void OptimizationProgressChangedEvent()
+        {
+            string indexFolder = @"./AdvancedUsage/CreatingAnIndex/UsingEvents/OptimizationProgressChangedEvent";
+            string[] documents = new string[]
+            {
+                Utils.DocumentsPath + "English.docx",
+                Utils.DocumentsPath + "English.txt",
+                Utils.DocumentsPath + "Lorem ipsum.docx",
+                Utils.DocumentsPath + "Lorem ipsum.pdf",
+                Utils.DocumentsPath + "Lorem ipsum.txt",
+            };
+
+            // Creating an index
+            Index index = new Index(indexFolder);
+
+            // Indexing documents
+            index.Add(documents[0]);
+            index.Add(documents[1]);
+            index.Add(documents[2]);
+            index.Add(documents[3]);
+            index.Add(documents[4]);
+
+            // Subscribing to the event
+            index.Events.OptimizationProgressChanged += (sender, args) =>
+            {
+                Console.WriteLine();
+                Console.WriteLine("Processed segments: " + args.ProcessedSegments);
+                Console.WriteLine("Total segments: " + args.TotalSegments);
+                Console.WriteLine("Progress percentage: " + args.ProgressPercentage);
+            };
+
+            index.Optimize();
+        }
+
         public static void PasswordRequiredEvent()
         {
             string indexFolder = @".\AdvancedUsage\CreatingAnIndex\UsingEvents\PasswordRequiredEvent";

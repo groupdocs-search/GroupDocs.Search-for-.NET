@@ -49,6 +49,7 @@ namespace GroupDocs.Search.Examples.CSharp
             //UsingEvents.OperationFinishedEvent();
             //UsingEvents.ErrorOccurredEvent();
             //UsingEvents.OperationProgressChangedEvent();
+            //UsingEvents.OptimizationProgressChangedEvent();
             //UsingEvents.PasswordRequiredEvent();
             //UsingEvents.FileIndexingEvent();
             //UsingEvents.StatusChangedEvent();
