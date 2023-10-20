@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\ManagingDictionaries\HomophoneDictionary\Index";
+            string indexFolder = @"./AdvancedUsage/ManagingDictionaries/HomophoneDictionary/Index";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index from in specified folder
@@ -54,7 +54,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
             index.Dictionaries.HomophoneDictionary.AddRange(homophoneGroups);
 
             // Export homophones to a file
-            string fileName = @".\AdvancedUsage\ManagingDictionaries\HomophoneDictionary\Homophones.dat";
+            string fileName = @"./AdvancedUsage/ManagingDictionaries/HomophoneDictionary/Homophones.dat";
             index.Dictionaries.HomophoneDictionary.ExportDictionary(fileName);
 
             // Import homophones from a file

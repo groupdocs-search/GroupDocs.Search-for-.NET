@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\ManagingDictionaries\Alphabet\Index";
+            string indexFolder = @"./AdvancedUsage/ManagingDictionaries/Alphabet/Index";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating or opening an index from the specified folder
@@ -46,7 +46,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
             }
 
             // Export the alphabet to a file
-            string fileName = @".\AdvancedUsage\ManagingDictionaries\Alphabet\Alphabet.dat";
+            string fileName = @"./AdvancedUsage/ManagingDictionaries/Alphabet/Alphabet.dat";
             index.Dictionaries.Alphabet.ExportDictionary(fileName);
 
             // Import the alphabet from a file

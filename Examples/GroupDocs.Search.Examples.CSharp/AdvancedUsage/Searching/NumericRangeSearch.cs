@@ -6,7 +6,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\NumericRangeSearch";
+            string indexFolder = @"./AdvancedUsage/Searching/NumericRangeSearch";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder

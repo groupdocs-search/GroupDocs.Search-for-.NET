@@ -7,7 +7,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\ManagingDictionaries\SpellingCorrector\Index";
+            string indexFolder = @"./AdvancedUsage/ManagingDictionaries/SpellingCorrector/Index";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index from in specified folder
@@ -27,7 +27,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
             index.Dictionaries.SpellingCorrector.AddRange(words);
 
             // Export words to a file
-            string fileName = @".\AdvancedUsage\ManagingDictionaries\SpellingCorrector\Words.txt";
+            string fileName = @"./AdvancedUsage/ManagingDictionaries/SpellingCorrector/Words.txt";
             index.Dictionaries.SpellingCorrector.ExportDictionary(fileName);
 
             // Import words from a file

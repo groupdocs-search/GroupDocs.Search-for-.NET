@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\ManagingDictionaries\SynonymDictionary\Index";
+            string indexFolder = @"./AdvancedUsage/ManagingDictionaries/SynonymDictionary/Index";
             string documentsFolder = Utils.DocumentsPath2;
 
             // Creating an index from in specified folder
@@ -54,7 +54,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
             index.Dictionaries.SynonymDictionary.AddRange(synonymGroups);
 
             // Export synonyms to a file
-            string fileName = @".\AdvancedUsage\ManagingDictionaries\SynonymDictionary\Synonyms.dat";
+            string fileName = @"./AdvancedUsage/ManagingDictionaries/SynonymDictionary/Synonyms.dat";
             index.Dictionaries.SynonymDictionary.ExportDictionary(fileName);
 
             // Import synonyms from a file

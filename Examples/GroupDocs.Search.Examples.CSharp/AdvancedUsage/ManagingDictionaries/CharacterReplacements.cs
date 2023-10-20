@@ -9,7 +9,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\ManagingDictionaries\CharacterReplacements\Index";
+            string indexFolder = @"./AdvancedUsage/ManagingDictionaries/CharacterReplacements/Index";
             string documentsFolder = Utils.DocumentsPath;
 
             // Enabling character replacements in the index settings
@@ -49,7 +49,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
             index.Dictionaries.CharacterReplacements.AddRange(characterReplacements);
 
             // Export character replacements to a file
-            string fileName = @".\AdvancedUsage\ManagingDictionaries\CharacterReplacements\CharacterReplacements.dat";
+            string fileName = @"./AdvancedUsage/ManagingDictionaries/CharacterReplacements/CharacterReplacements.dat";
             index.Dictionaries.CharacterReplacements.ExportDictionary(fileName);
 
             // Import character replacements from a file

@@ -7,7 +7,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\SynonymSearch";
+            string indexFolder = @"./AdvancedUsage/Searching/SynonymSearch";
             string documentsFolder = Utils.DocumentsPath2;
 
             // Creating an index in the specified folder

@@ -6,7 +6,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingWithStopWords";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingWithStopWords";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index settings with disabled using of stop words

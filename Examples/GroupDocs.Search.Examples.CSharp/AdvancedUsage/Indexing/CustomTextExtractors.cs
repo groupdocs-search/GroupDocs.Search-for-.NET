@@ -43,7 +43,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\CustomTextExtractors"; // Specify path to the index folder
+            string indexFolder = @"./AdvancedUsage/Indexing/CustomTextExtractors"; // Specify path to the index folder
             string documentsFolder = Utils.LogPath; // Specify path to a folder containing documents to search
 
             IndexSettings settings = new IndexSettings();

@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void IndexingUsingThePasswordDictionary()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingPasswordProtectedDocuments\IndexingUsingThePasswordDictionary";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingPasswordProtectedDocuments/IndexingUsingThePasswordDictionary";
             string documentsFolder = Utils.PasswordProtectedDocumentsPath;
 
             // Creating an index
@@ -33,7 +33,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void IndexingUsingThePasswordRequiredEvent()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingPasswordProtectedDocuments\IndexingUsingThePasswordRequiredEvent";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingPasswordProtectedDocuments/IndexingUsingThePasswordRequiredEvent";
             string documentsFolder = Utils.PasswordProtectedDocumentsPath;
 
             // Creating an index

@@ -97,5 +97,14 @@ namespace GroupDocs.Search.Examples.CSharp
                 file.CopyTo(Path.Combine(target.FullName, file.Name), true);
             }
         }
+
+        public static string GetFullPath(string path)
+        {
+            string fullPath = Path.GetFullPath(path);
+            string fixedPath = fullPath
+                .Replace('\\', '/')
+                .Replace('/', Path.DirectorySeparatorChar);
+            return fixedPath;
+        }
     }
 }

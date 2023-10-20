@@ -8,8 +8,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void UpdateIndexedDocuments()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\UpdateIndex\UpdateIndexedDocuments\Index";
-            string documentFolder = @".\AdvancedUsage\Indexing\UpdateIndex\UpdateIndexedDocuments\Documents";
+            string indexFolder = @"./AdvancedUsage/Indexing/UpdateIndex/UpdateIndexedDocuments/Index";
+            string documentFolder = @"./AdvancedUsage/Indexing/UpdateIndex/UpdateIndexedDocuments/Documents";
             string query = "son";
 
             // Prepare data
@@ -44,8 +44,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         public static void UpdateIndexVersion()
         {
             string oldIndexFolder = Utils.OldIndexPath;
-            string sourceIndexFolder = @".\AdvancedUsage\Indexing\UpdateIndex\UpdateIndexVersion\SourceIndex";
-            string targetIndexFolder = @".\AdvancedUsage\Indexing\UpdateIndex\UpdateIndexVersion\TargetIndex";
+            string sourceIndexFolder = @"./AdvancedUsage/Indexing/UpdateIndex/UpdateIndexVersion/SourceIndex";
+            string targetIndexFolder = @"./AdvancedUsage/Indexing/UpdateIndex/UpdateIndexVersion/TargetIndex";
 
             // Prepare data
             Utils.CleanDirectory(sourceIndexFolder);

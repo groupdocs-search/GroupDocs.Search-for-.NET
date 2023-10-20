@@ -7,7 +7,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingMetadataOfDocuments";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingMetadataOfDocuments";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an instance of index settings

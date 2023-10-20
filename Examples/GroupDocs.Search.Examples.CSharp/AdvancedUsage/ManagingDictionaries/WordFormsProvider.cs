@@ -42,7 +42,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\ManagingDictionaries\WordFormsProvider\Index";
+            string indexFolder = @"./AdvancedUsage/ManagingDictionaries/WordFormsProvider/Index";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder

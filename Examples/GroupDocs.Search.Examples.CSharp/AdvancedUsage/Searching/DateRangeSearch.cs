@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void CreatingDateRangeSearchQueries()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\DateRangeSearch\CreatingDateRangeSearchQueries";
+            string indexFolder = @"./AdvancedUsage/Searching/DateRangeSearch/CreatingDateRangeSearchQueries";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -31,7 +31,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
         public static void SpecifyingDateRangeSearchFormats()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\DateRangeSearch\SpecifyingDateRangeSearchFormats";
+            string indexFolder = @"./AdvancedUsage/Searching/DateRangeSearch/SpecifyingDateRangeSearchFormats";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder

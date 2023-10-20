@@ -10,7 +10,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\OutputAdapters\Index";
+            string indexFolder = @"./AdvancedUsage/Searching/OutputAdapters/Index";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index settings instance
@@ -32,7 +32,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
                 DocumentInfo document = documents[0];
 
                 // Output to a file
-                FileOutputAdapter fileOutputAdapter = new FileOutputAdapter(OutputFormat.Html, @".\AdvancedUsage\Searching\OutputAdapters\Text.html");
+                FileOutputAdapter fileOutputAdapter = new FileOutputAdapter(OutputFormat.Html, @"./AdvancedUsage/Searching/OutputAdapters/Text.html");
                 index.GetDocumentText(document, fileOutputAdapter);
 
                 // Output to a stream

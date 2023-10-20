@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\ManagingDictionaries\AliasDictionary\Index";
+            string indexFolder = @"./AdvancedUsage/ManagingDictionaries/AliasDictionary/Index";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating or opening an index from the specified folder
@@ -41,7 +41,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
             }
 
             // Export aliases to a file
-            string fileName = @".\AdvancedUsage\ManagingDictionaries\AliasDictionary\Aliases.dat";
+            string fileName = @"./AdvancedUsage/ManagingDictionaries/AliasDictionary/Aliases.dat";
             index.Dictionaries.AliasDictionary.ExportDictionary(fileName);
 
             // Import aliases from a file

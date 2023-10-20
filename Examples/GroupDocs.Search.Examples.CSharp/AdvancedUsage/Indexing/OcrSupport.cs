@@ -12,7 +12,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void UseAsposeOcrConnector()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\OcrSupport\UseAsposeOcrConnector";
+            string indexFolder = @"./AdvancedUsage/Indexing/OcrSupport/UseAsposeOcrConnector";
             string documentsFolder = Utils.DocumentsPNG;
             string query = "water";
 
@@ -36,7 +36,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void UseTesseractOcrConnector()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\OcrSupport\UseTesseractOcrConnector";
+            string indexFolder = @"./AdvancedUsage/Indexing/OcrSupport/UseTesseractOcrConnector";
             string documentsFolder = Utils.DocumentsPNG;
             string query = "water";
 

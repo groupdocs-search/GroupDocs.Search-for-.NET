@@ -9,7 +9,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void GettingDocuments()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\GettingIndexedDocuments\GettingDocuments";
+            string indexFolder = @"./AdvancedUsage/Searching/GettingIndexedDocuments/GettingDocuments";
             string documentsFolder = Utils.ArchivesPath;
 
             // Creating an index in the specified folder
@@ -35,7 +35,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
         public static void GettingTextOfIndexedDocuments()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\GettingIndexedDocuments\GettingTextOfIndexedDocuments";
+            string indexFolder = @"./AdvancedUsage/Searching/GettingIndexedDocuments/GettingTextOfIndexedDocuments";
             string documentsFolder = Utils.ArchivesPath;
 
             // Creating an index settings instance
@@ -54,14 +54,14 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             // Getting a document text
             if (documents.Length > 0)
             {
-                FileOutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, @".\AdvancedUsage\Searching\GettingIndexedDocuments\Text.html");
+                FileOutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, @"./AdvancedUsage/Searching/GettingIndexedDocuments/Text.html");
                 index.GetDocumentText(documents[0], outputAdapter);
 
                 // Getting list of files in the archive
                 DocumentInfo[] items = index.GetIndexedDocumentItems(documents[0]);
                 if (items.Length > 0)
                 {
-                    FileOutputAdapter outputAdapter2 = new FileOutputAdapter(OutputFormat.Html, @".\AdvancedUsage\Searching\GettingIndexedDocuments\ItemText.html");
+                    FileOutputAdapter outputAdapter2 = new FileOutputAdapter(OutputFormat.Html, @"./AdvancedUsage/Searching/GettingIndexedDocuments/ItemText.html");
                     index.GetDocumentText(items[0], outputAdapter2);
                 }
             }

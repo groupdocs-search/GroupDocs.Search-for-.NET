@@ -1,6 +1,7 @@
 ﻿using GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex;
 using GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing;
 using GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries;
+using GroupDocs.Search.Examples.CSharp.AdvancedUsage.Scaling;
 using GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching;
 using GroupDocs.Search.Examples.CSharp.BasicUsage;
 using GroupDocs.Search.Examples.CSharp.GettingStarted;
@@ -213,6 +214,36 @@ namespace GroupDocs.Search.Examples.CSharp
             //SynonymDictionary.Run();
 
             //WordFormsProvider.Run();
+
+            // Scaling ----------------------------------------------------------------------------------------------------
+
+            //ConfiguringSearchNetwork.Run();
+
+            //SearchNetworkDeployment.Run();
+
+            //SearchNetworkNodeEvents.Run();
+
+            //IndexingDocuments.Run();
+
+            //DeletingDocuments.Run();
+
+            //OptimizingShards.Run();
+
+            //SynchronizingShards.Run();
+
+            //WorkingWithAttributes.Run();
+
+            //TextSearchInNetwork.Run();
+
+            //ImageSearchInNetwork.Run();
+
+            //HighlightingResultsInNetwork.Run();
+
+            //GettingDocumentsInNetwork.Run();
+
+            //GettingDocumentTextInNetwork.Run();
+
+            //ManagingDictionariesInNetwork.Run();
 
             #endregion Advanced Usage ----------------------------------------------------------------------------------------------------
 

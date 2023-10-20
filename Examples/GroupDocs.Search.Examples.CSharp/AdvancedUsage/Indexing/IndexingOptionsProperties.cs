@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void CancellationProperty()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingOptionsProperties\CancellationProperty";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingOptionsProperties/CancellationProperty";
             string documentFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -27,7 +27,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void IsAsyncProperty()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingOptionsProperties\IsAsyncProperty";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingOptionsProperties/IsAsyncProperty";
             string documentFolder = Utils.DocumentsPath;
 
             // Creating index in the specified folder
@@ -54,7 +54,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void ThreadsProperty()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingOptionsProperties\ThreadsProperty";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingOptionsProperties/ThreadsProperty";
             string documentFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -72,7 +72,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void MetadataIndexingOptionsProperty()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingOptionsProperties\MetadataIndexingOptionsProperty";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingOptionsProperties/MetadataIndexingOptionsProperty";
             string documentFolder = Utils.DocumentsPath;
 
             // Creating an index
@@ -81,7 +81,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             // Setting the metadata indexing options
             var options = new IndexingOptions();
             options.MetadataIndexingOptions.DefaultFieldName = "default";
-            options.MetadataIndexingOptions.SeparatorInCompoundName = @"\";
+            options.MetadataIndexingOptions.SeparatorInCompoundName = @"/";
             options.MetadataIndexingOptions.MaxBytesToIndexField = 10;
             options.MetadataIndexingOptions.MaxIntsToIndexField = 10;
             options.MetadataIndexingOptions.MaxLongsToIndexField = 10;

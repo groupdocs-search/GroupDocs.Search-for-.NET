@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void ChangeAttributes()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentAttributes\ChangeAttributes";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentAttributes/ChangeAttributes";
             string documentFolder = Utils.DocumentsPath;
 
             // Creating an index
@@ -43,7 +43,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void AddAttributesDuringIndexing()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentAttributes\AddAttributesDuringIndexing";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentAttributes/AddAttributesDuringIndexing";
             string documentFolder = Utils.DocumentsPath;
 
             // Creating an index

@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\TextFileEncodingDetection";
+            string indexFolder = @"./AdvancedUsage/Indexing/TextFileEncodingDetection";
             string documentsFolder = Utils.DocumentsUtf32Path;
 
             // Creating an index

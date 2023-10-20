@@ -8,8 +8,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void Run()
         {
-            string indexFolder1 = @".\AdvancedUsage\Indexing\MergeIndexes\Index1";
-            string indexFolder2 = @".\AdvancedUsage\Indexing\MergeIndexes\Index2";
+            string indexFolder1 = @"./AdvancedUsage/Indexing/MergeIndexes/Index1";
+            string indexFolder2 = @"./AdvancedUsage/Indexing/MergeIndexes/Index2";
             string documentsFolder1 = Utils.DocumentsPath;
             string documentsFolder2 = Utils.DocumentsPath2;
 

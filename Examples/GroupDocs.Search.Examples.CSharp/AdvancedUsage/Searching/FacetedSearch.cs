@@ -7,7 +7,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void SimpleFacetedSearch()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\FacetedSearch\SimpleFacetedSearch";
+            string indexFolder = @"./AdvancedUsage/Searching/FacetedSearch/SimpleFacetedSearch";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -31,7 +31,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
         public static void ComplexQuery()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\FacetedSearch\ComplexQuery";
+            string indexFolder = @"./AdvancedUsage/Searching/FacetedSearch/ComplexQuery";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -70,7 +70,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
         public static void UsingStandardFieldNames()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\FacetedSearch\UsingStandardFieldNames";
+            string indexFolder = @"./AdvancedUsage/Searching/FacetedSearch/UsingStandardFieldNames";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder

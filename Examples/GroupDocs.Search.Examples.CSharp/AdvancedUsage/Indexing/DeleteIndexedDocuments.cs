@@ -10,7 +10,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\DeleteIndexedDocuments";
+            string indexFolder = @"./AdvancedUsage/Indexing/DeleteIndexedDocuments";
             string filePath = Utils.DocumentsPath + "English.docx";
             string query = "moment";
 

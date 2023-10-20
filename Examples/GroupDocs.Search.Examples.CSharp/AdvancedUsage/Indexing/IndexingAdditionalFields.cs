@@ -17,7 +17,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             subjects.Add(Path.GetFullPath(Path.Combine(Utils.DocumentsPath, "English.txt")).ToLowerInvariant(), "English");
             subjects.Add(Path.GetFullPath(Path.Combine(Utils.DocumentsPath, "Lorem ipsum.txt")).ToLowerInvariant(), "Latin");
 
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingAdditionalFields";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingAdditionalFields";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index

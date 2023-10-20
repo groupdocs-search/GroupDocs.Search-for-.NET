@@ -7,7 +7,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void SettingFuzzySearchAlgorithm()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\FuzzySearch\SettingFuzzySearchAlgorithm";
+            string indexFolder = @"./AdvancedUsage/Searching/FuzzySearch/SettingFuzzySearchAlgorithm";
             string documentsFolder = Utils.DocumentsPath;
             string query = "nulla";
 
@@ -32,7 +32,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
         public static void SettingStepFunction()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\FuzzySearch\SettingStepFunction";
+            string indexFolder = @"./AdvancedUsage/Searching/FuzzySearch/SettingStepFunction";
             string documentsFolder = Utils.DocumentsPath;
             string query = "nulla";
 

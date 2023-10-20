@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void SettingAFilter()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentFilteringDuringIndexing\SettingAFilter";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/SettingAFilter";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating a filter that skips documents with extensions '.doc', '.docx', '.rtf'
@@ -38,7 +38,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             DocumentFilter filter3 = DocumentFilter.CreateCreationTimeRange(new DateTime(2017, 1, 1), new DateTime(2018, 6, 15));
 
 
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentFilteringDuringIndexing\CreationTimeFilters";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/CreationTimeFilters";
             string documentsFolder = Utils.DocumentsPath;
 
             IndexSettings settings = new IndexSettings();
@@ -65,7 +65,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             DocumentFilter filter3 = DocumentFilter.CreateModificationTimeRange(new DateTime(2017, 1, 1), new DateTime(2018, 6, 15));
 
 
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentFilteringDuringIndexing\ModificationTimeFilters";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/ModificationTimeFilters";
             string documentsFolder = Utils.DocumentsPath;
 
             IndexSettings settings = new IndexSettings();
@@ -82,7 +82,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void FilePathFilters()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentFilteringDuringIndexing\FilePathFilters";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/FilePathFilters";
             string documentsFolder = Utils.DocumentsPath;
 
             IndexSettings settings = new IndexSettings();
@@ -111,7 +111,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             DocumentFilter filter3 = DocumentFilter.CreateFileLengthRange(50 * 1024, 100 * 1024);
 
 
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentFilteringDuringIndexing\FileLengthFilters";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/FileLengthFilters";
             string documentsFolder = Utils.DocumentsPath;
 
             IndexSettings settings = new IndexSettings();
@@ -128,7 +128,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void FileExtensionFilter()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentFilteringDuringIndexing\FileExtensionFilter";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/FileExtensionFilter";
             string documentsFolder = Utils.DocumentsPath;
 
             IndexSettings settings = new IndexSettings();
@@ -147,7 +147,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void LogicalNotFilter()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentFilteringDuringIndexing\LogicalNotFilter";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/LogicalNotFilter";
             string documentsFolder = Utils.DocumentsPath;
 
             IndexSettings settings = new IndexSettings();
@@ -166,7 +166,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void LogicalAndFilter()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentFilteringDuringIndexing\LogicalAndFilter";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/LogicalAndFilter";
             string documentsFolder = Utils.DocumentsPath;
 
             IndexSettings settings = new IndexSettings();
@@ -187,7 +187,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void LogicalOrFilter()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentFilteringDuringIndexing\LogicalOrFilter";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/LogicalOrFilter";
             string documentsFolder = Utils.DocumentsPath;
 
             IndexSettings settings = new IndexSettings();

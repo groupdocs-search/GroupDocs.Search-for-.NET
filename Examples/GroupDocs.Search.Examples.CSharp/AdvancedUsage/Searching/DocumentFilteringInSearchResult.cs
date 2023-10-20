@@ -9,7 +9,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void SettingAFilter()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\DocumentFilteringInSearchResult\SettingAFilter";
+            string indexFolder = @"./AdvancedUsage/Searching/DocumentFilteringInSearchResult/SettingAFilter";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -32,7 +32,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
         public static void FilePathFilters()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\DocumentFilteringInSearchResult\FilePathFilters";
+            string indexFolder = @"./AdvancedUsage/Searching/DocumentFilteringInSearchResult/FilePathFilters";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -59,7 +59,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
         public static void FileExtensionFilter()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\DocumentFilteringInSearchResult\FileExtensionFilter";
+            string indexFolder = @"./AdvancedUsage/Searching/DocumentFilteringInSearchResult/FileExtensionFilter";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -86,7 +86,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
         public static void AttributeFilter()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\DocumentFilteringInSearchResult\AttributeFilter";
+            string indexFolder = @"./AdvancedUsage/Searching/DocumentFilteringInSearchResult/AttributeFilter";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -137,7 +137,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             ISearchDocumentFilter notFilter = SearchDocumentFilter.CreateNot(filter5);
 
 
-            string indexFolder = @".\AdvancedUsage\Searching\DocumentFilteringInSearchResult\CombiningFilters";
+            string indexFolder = @"./AdvancedUsage/Searching/DocumentFilteringInSearchResult/CombiningFilters";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder

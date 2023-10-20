@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
     {
         public static void Run()
         {
-            string indexFolder = @".\BasicUsage\BuildSearchQuery";
+            string indexFolder = @"./BasicUsage/BuildSearchQuery";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating index in the specified folder

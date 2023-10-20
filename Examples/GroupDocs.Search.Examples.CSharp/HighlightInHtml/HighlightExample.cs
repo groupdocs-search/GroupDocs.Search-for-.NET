@@ -6,15 +6,15 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     {
         public static void Run()
         {
-            string licensePath = @"E:\Licenses\Conholdate\Total\Subscription\Valid\Conholdate.Total.Product.Family.lic";
+            string licensePath = @"E:/Licenses/Conholdate/Total/Subscription/Valid/Conholdate.Total.Product.Family.lic";
 
             // Setting licenses
             new Aspose.Html.License().SetLicense(licensePath);
             new GroupDocs.Viewer.License().SetLicense(licensePath);
 
-            string basePath = @".\HighlightInHtml\HighlightExample";
-            string viewerCacheFolderPath = basePath + @"\ViewerCache";
-            string indexFolder = basePath + @"\Index";
+            string basePath = @"./HighlightInHtml/HighlightExample";
+            string viewerCacheFolderPath = basePath + @"/ViewerCache";
+            string indexFolder = basePath + @"/Index";
             string documentsFolder = Utils.DocumentsPath;
             string query = "\"dapibus diam\" OR lorem";
 

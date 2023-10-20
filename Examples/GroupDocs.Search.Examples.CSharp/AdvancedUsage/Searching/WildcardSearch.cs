@@ -6,7 +6,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void QueryInTextForm()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\WildcardSearch\QueryInTextForm";
+            string indexFolder = @"./AdvancedUsage/Searching/WildcardSearch/QueryInTextForm";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder

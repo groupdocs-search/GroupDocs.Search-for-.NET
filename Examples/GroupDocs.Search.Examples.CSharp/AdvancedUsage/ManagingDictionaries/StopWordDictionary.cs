@@ -6,7 +6,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\ManagingDictionaries\StopWordDictionary\Index";
+            string indexFolder = @"./AdvancedUsage/ManagingDictionaries/StopWordDictionary/Index";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index from in specified folder
@@ -30,7 +30,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
             }
 
             // Export words to a file
-            string fileName = @".\AdvancedUsage\ManagingDictionaries\StopWordDictionary\Words.txt";
+            string fileName = @"./AdvancedUsage/ManagingDictionaries/StopWordDictionary/Words.txt";
             index.Dictionaries.StopWordDictionary.ExportDictionary(fileName);
 
             // Import words from a file

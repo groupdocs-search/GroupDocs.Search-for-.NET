@@ -7,7 +7,7 @@ namespace GroupDocs.Search.Examples.CSharp.GettingStarted
     {
         public static void Run()
         {
-            string indexFolder = @".\GettingStarted\HelloWorld";
+            string indexFolder = @"./GettingStarted/HelloWorld";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating index in the specified folder

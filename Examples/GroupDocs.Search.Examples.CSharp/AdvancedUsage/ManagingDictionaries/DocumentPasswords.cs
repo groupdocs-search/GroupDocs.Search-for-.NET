@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\ManagingDictionaries\DocumentPasswords\Index";
+            string indexFolder = @"./AdvancedUsage/ManagingDictionaries/DocumentPasswords/Index";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index from in specified folder

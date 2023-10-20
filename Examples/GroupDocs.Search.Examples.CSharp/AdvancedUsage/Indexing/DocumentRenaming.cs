@@ -8,8 +8,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\DocumentRenaming\Index";
-            string documentFolder = @".\AdvancedUsage\Indexing\DocumentRenaming\Documents\";
+            string indexFolder = @"./AdvancedUsage/Indexing/DocumentRenaming/Index";
+            string documentFolder = @"./AdvancedUsage/Indexing/DocumentRenaming/Documents/";
 
             // Prepare data
             Utils.CleanDirectory(documentFolder);

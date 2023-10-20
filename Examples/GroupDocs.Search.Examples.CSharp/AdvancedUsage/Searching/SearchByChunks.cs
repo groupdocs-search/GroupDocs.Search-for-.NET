@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\SearchByChunks";
+            string indexFolder = @"./AdvancedUsage/Searching/SearchByChunks";
             string documentsFolder1 = Utils.DocumentsPath;
             string documentsFolder2 = Utils.DocumentsPath2;
             string documentsFolder3 = Utils.DocumentsPath3;

@@ -9,7 +9,6 @@ using Microsoft.Azure.Storage.Blob;
 using System;
 using System.IO;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 {
@@ -17,12 +16,11 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void IndexingFromFile()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingFromDifferentSources\IndexingFromFile";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromFile";
             string documentFilePath = Path.Combine(Utils.DocumentsPath, "Lorem ipsum.pdf");
 
             // Creating an index
             IndexSettings settings = new IndexSettings();
-            settings.UseRawTextExtraction = false;
             Index index = new Index(indexFolder, settings);
 
             // Creating a document object
@@ -34,6 +32,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
             // Indexing document from the file
             IndexingOptions options = new IndexingOptions();
+            options.UseRawTextExtraction = false;
             index.Add(documents, options);
 
             // Searching in the index
@@ -45,7 +44,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void IndexingFromStream()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingFromDifferentSources\IndexingFromStream";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromStream";
             string documentFilePath = Path.Combine(Utils.DocumentsPath, "Lorem ipsum.pdf");
 
             // Creating an index
@@ -75,7 +74,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void IndexingFromStructure()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingFromDifferentSources\IndexingFromStructure";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromStructure";
             string documentFilePath = Path.Combine(Utils.DocumentsPath, "Lorem ipsum.txt");
 
             // Creating an index
@@ -106,13 +105,12 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void IndexingFromUrl()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingFromDifferentSources\IndexingFromUrl";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromUrl";
             string url = "http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf";
 
             // Creating an index
             IndexSettings settings = new IndexSettings();
             settings.TextStorageSettings = new TextStorageSettings(Compression.High);
-            settings.UseRawTextExtraction = false;
             Index index = new Index(indexFolder, settings, true);
 
             index.Events.ErrorOccurred += (s, a) =>
@@ -131,6 +129,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
             // Indexing the lazy-loaded document
             IndexingOptions options = new IndexingOptions();
+            options.UseRawTextExtraction = false;
             index.Add(documents, options);
 
             // Searching in the index
@@ -142,13 +141,12 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void IndexingFromFtp()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingFromDifferentSources\IndexingFromFtp";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromFtp";
             string url = "ftp://example.com/ExampleDocument.pdf";
 
             // Creating an index
             IndexSettings settings = new IndexSettings();
             settings.TextStorageSettings = new TextStorageSettings(Compression.High);
-            settings.UseRawTextExtraction = false;
             Index index = new Index(indexFolder, settings, true);
 
             index.Events.ErrorOccurred += (s, a) =>
@@ -167,6 +165,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
             // Indexing the lazy-loaded document
             IndexingOptions options = new IndexingOptions();
+            options.UseRawTextExtraction = false;
             index.Add(documents, options);
 
             // Searching in the index
@@ -217,7 +216,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void IndexingFromAmazon()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingFromDifferentSources\IndexingFromAmazon";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromAmazon";
             string key = "example.pdf";
 
             // Creating an index
@@ -284,7 +283,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void IndexingFromAzure()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\IndexingFromDifferentSources\IndexingFromAzure";
+            string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromAzure";
             string blobName = "example.pdf";
 
             // Creating an index

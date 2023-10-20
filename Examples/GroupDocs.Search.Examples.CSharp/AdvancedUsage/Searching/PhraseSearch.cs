@@ -7,7 +7,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void SimplePhraseSearch()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\PhraseSearch\SimplePhraseSearch";
+            string indexFolder = @"./AdvancedUsage/Searching/PhraseSearch/SimplePhraseSearch";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -33,7 +33,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
         public static void PhraseSearchWithWildcards()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\PhraseSearch\PhraseSearchWithWildcards";
+            string indexFolder = @"./AdvancedUsage/Searching/PhraseSearch/PhraseSearchWithWildcards";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -63,7 +63,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
         public static void PhraseSearchWithWildcards2()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\PhraseSearch\PhraseSearchWithWildcards2";
+            string indexFolder = @"./AdvancedUsage/Searching/PhraseSearch/PhraseSearchWithWildcards2";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder

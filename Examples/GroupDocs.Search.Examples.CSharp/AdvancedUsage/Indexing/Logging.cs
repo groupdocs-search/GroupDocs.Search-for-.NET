@@ -25,10 +25,10 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void UseOfStandardFileLogger()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\Logging\UseOfStandardFileLogger";
+            string indexFolder = @"./AdvancedUsage/Indexing/Logging/UseOfStandardFileLogger";
             string documentsFolder = Utils.DocumentsPath;
             string query = "Lorem";
-            string logPath = @".\AdvancedUsage\Indexing\Logging\Log.txt";
+            string logPath = @"./AdvancedUsage/Indexing/Logging/Log.txt";
 
             IndexSettings settings = new IndexSettings();
             settings.Logger = new FileLogger(logPath, 4.0); // Specifying the path to the log file and a maximum length of 4 MB
@@ -44,7 +44,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void ImplementingCustomLogger()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\Logging\ImplementingCustomLogger";
+            string indexFolder = @"./AdvancedUsage/Indexing/Logging/ImplementingCustomLogger";
             string documentsFolder = Utils.DocumentsPath;
             string query = "Lorem";
 

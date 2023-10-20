@@ -12,7 +12,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void HighlightingInEntireDocument()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\HighlightingSearchResults\HighlightingInEntireDocument";
+            string indexFolder = @"./AdvancedUsage/Searching/HighlightingSearchResults/HighlightingInEntireDocument";
             string documentFolder = Utils.ArchivesPath;
 
             // Creating an index settings instance
@@ -33,7 +33,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             {
                 {
                     FoundDocument document = result.GetFoundDocument(0); // Getting the first found document
-                    OutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, @".\AdvancedUsage\Searching\HighlightingSearchResults\Highlighted.html"); // Creating an output adapter to a file
+                    OutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, @"./AdvancedUsage/Searching/HighlightingSearchResults/Highlighted.html"); // Creating an output adapter to a file
                     Highlighter highlighter = new DocumentHighlighter(outputAdapter); // Creating the highlighter object
                     HighlightOptions options = new HighlightOptions(); // Creating the highlight options
                     options.HighlightColor = new Color(150, 255, 150); // Setting highlight color
@@ -64,7 +64,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
         public static void HighlightingInFragments()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\HighlightingSearchResults\HighlightingInFragments";
+            string indexFolder = @"./AdvancedUsage/Searching/HighlightingSearchResults/HighlightingInFragments";
             string documentFolder = Utils.ArchivesPath;
 
             // Creating an index settings instance
@@ -113,7 +113,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
                 }
             }
             Console.WriteLine(stringBuilder.ToString());
-            File.WriteAllText(@".\AdvancedUsage\Searching\HighlightingSearchResults\Fragments.html", stringBuilder.ToString());
+            File.WriteAllText(@"./AdvancedUsage/Searching/HighlightingSearchResults/Fragments.html", stringBuilder.ToString());
         }
     }
 }

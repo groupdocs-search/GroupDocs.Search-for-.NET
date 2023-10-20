@@ -8,7 +8,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void RegularCharacters()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\CharacterTypes\RegularCharacters";
+            string indexFolder = @"./AdvancedUsage/Indexing/CharacterTypes/RegularCharacters";
             string documentFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder
@@ -48,7 +48,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
 
         public static void BlendedCharacters()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\CharacterTypes\BlendedCharacters";
+            string indexFolder = @"./AdvancedUsage/Indexing/CharacterTypes/BlendedCharacters";
             string documentFolder = Utils.DocumentsPath;
 
             // Creating an index in the specified folder

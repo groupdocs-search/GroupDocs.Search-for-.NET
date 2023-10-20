@@ -7,8 +7,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
     {
         public static void Run()
         {
-            string indexFolder1 = @".\AdvancedUsage\CreatingAnIndex\UsingIndexRepository\Index1";
-            string indexFolder2 = @".\AdvancedUsage\CreatingAnIndex\UsingIndexRepository\Index2";
+            string indexFolder1 = @"./AdvancedUsage/CreatingAnIndex/UsingIndexRepository/Index1";
+            string indexFolder2 = @"./AdvancedUsage/CreatingAnIndex/UsingIndexRepository/Index2";
             string documentFolder1 = Utils.DocumentsPath;
             string documentFolder2 = Utils.DocumentsPath2;
 

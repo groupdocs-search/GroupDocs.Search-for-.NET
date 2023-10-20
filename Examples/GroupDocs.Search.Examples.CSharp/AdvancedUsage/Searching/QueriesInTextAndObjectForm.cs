@@ -7,7 +7,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Searching\QueriesInTextAndObjectForm";
+            string indexFolder = @"./AdvancedUsage/Searching/QueriesInTextAndObjectForm";
             string documentsFolder = Utils.DocumentsPath;
 
             // Creating index

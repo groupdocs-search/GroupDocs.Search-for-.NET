@@ -11,7 +11,7 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
     {
         public static void ObtainSearchResultInformation()
         {
-            string indexFolder = @".\BasicUsage\WorkWithSearchResults\ObtainSearchResultInformation";
+            string indexFolder = @"./BasicUsage/WorkWithSearchResults/ObtainSearchResultInformation";
             string documentFolder = Utils.DocumentsPath;
 
             // Creating an index
@@ -64,7 +64,7 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
 
         public static void HighlightSearchResults()
         {
-            string indexFolder = @".\BasicUsage\WorkWithSearchResults\HighlightSearchResults";
+            string indexFolder = @"./BasicUsage/WorkWithSearchResults/HighlightSearchResults";
             string documentFolder = Utils.DocumentsPath;
 
             // Creating an index settings instance
@@ -84,7 +84,7 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
             if (result.DocumentCount > 0)
             {
                 FoundDocument document = result.GetFoundDocument(0); // Getting the first found document
-                string path = @".\BasicUsage\WorkWithSearchResults\Highlighted.html";
+                string path = @"./BasicUsage/WorkWithSearchResults/Highlighted.html";
                 OutputAdapter outputAdapter = new FileOutputAdapter(OutputFormat.Html, path); // Creating an output adapter to the file
                 Highlighter highlighter = new DocumentHighlighter(outputAdapter); // Creating the highlighter object
                 index.Highlight(document, highlighter); // Generating HTML formatted text with highlighted occurrences

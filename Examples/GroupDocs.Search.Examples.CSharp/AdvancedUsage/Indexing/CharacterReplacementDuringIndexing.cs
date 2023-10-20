@@ -9,7 +9,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\CharacterReplacementDuringIndexing";
+            string indexFolder = @"./AdvancedUsage/Indexing/CharacterReplacementDuringIndexing";
             string documentFolder = Utils.DocumentsPath;
 
             // Enabling character replacements in the index settings

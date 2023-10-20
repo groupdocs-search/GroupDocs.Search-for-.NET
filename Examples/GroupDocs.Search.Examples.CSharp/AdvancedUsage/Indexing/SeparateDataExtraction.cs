@@ -9,7 +9,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
     {
         public static void Run()
         {
-            string indexFolder = @".\AdvancedUsage\Indexing\SeparateDataExtraction";
+            string indexFolder = @"./AdvancedUsage/Indexing/SeparateDataExtraction";
             string documentPath = Utils.DocumentsPath + @"Lorem ipsum.pdf";
 
             // Extracting data from a document
