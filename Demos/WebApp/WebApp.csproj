@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\js\main-es2015.js" />
+    <Content Remove="wwwroot\js\main-es2015.js.map" />
+    <Content Remove="wwwroot\js\main-es5.js" />
+    <Content Remove="wwwroot\js\main-es5.js.map" />
+    <Content Remove="wwwroot\js\polyfills-es2015.js" />
+    <Content Remove="wwwroot\js\polyfills-es2015.js.map" />
+    <Content Remove="wwwroot\js\polyfills-es5.js" />
+    <Content Remove="wwwroot\js\polyfills-es5.js.map" />
+    <Content Remove="wwwroot\js\runtime-es2015.js" />
+    <Content Remove="wwwroot\js\runtime-es2015.js.map" />
+    <Content Remove="wwwroot\js\runtime-es5.js" />
+    <Content Remove="wwwroot\js\runtime-es5.js.map" />
+    <Content Remove="wwwroot\js\styles-es2015.js" />
+    <Content Remove="wwwroot\js\styles-es2015.js.map" />
+    <Content Remove="wwwroot\js\styles-es5.js" />
+    <Content Remove="wwwroot\js\styles-es5.js.map" />
+    <Content Remove="wwwroot\js\vendor-es2015.js" />
+    <Content Remove="wwwroot\js\vendor-es2015.js.map" />
+    <Content Remove="wwwroot\js\vendor-es5.js" />
+    <Content Remove="wwwroot\js\vendor-es5.js.map" />
+    <Content Remove="wwwroot\search\favicon.ico" />
+    <Content Remove="wwwroot\search\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\search\favicon.ico" />
+    <None Include="wwwroot\search\index.html" />
+    <None Include="wwwroot\search\main-es2015.js" />
+    <None Include="wwwroot\search\main-es2015.js.map" />
+    <None Include="wwwroot\search\main-es5.js" />
+    <None Include="wwwroot\search\main-es5.js.map" />
+    <None Include="wwwroot\search\polyfills-es2015.js" />
+    <None Include="wwwroot\search\polyfills-es2015.js.map" />
+    <None Include="wwwroot\search\polyfills-es5.js" />
+    <None Include="wwwroot\search\polyfills-es5.js.map" />
+    <None Include="wwwroot\search\runtime-es2015.js" />
+    <None Include="wwwroot\search\runtime-es2015.js.map" />
+    <None Include="wwwroot\search\runtime-es5.js" />
+    <None Include="wwwroot\search\runtime-es5.js.map" />
+    <None Include="wwwroot\search\styles-es2015.js" />
+    <None Include="wwwroot\search\styles-es2015.js.map" />
+    <None Include="wwwroot\search\styles-es5.js" />
+    <None Include="wwwroot\search\styles-es5.js.map" />
+    <None Include="wwwroot\search\vendor-es2015.js" />
+    <None Include="wwwroot\search\vendor-es2015.js.map" />
+    <None Include="wwwroot\search\vendor-es5.js" />
+    <None Include="wwwroot\search\vendor-es5.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GroupDocs.Search" Version="23.10.1" />
+    <PackageReference Include="YamlDotNet" Version="13.7.1" />
+  </ItemGroup>
+
+</Project>
