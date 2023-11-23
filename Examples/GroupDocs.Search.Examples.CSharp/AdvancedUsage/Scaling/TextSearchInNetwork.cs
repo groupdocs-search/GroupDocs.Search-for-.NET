@@ -23,7 +23,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Scaling
 
             IndexingDocuments.AddDirectories(masterNode, Utils.DocumentsPath);
 
-            SearchAll(masterNode, "tempor", false);
+            SearchAll(masterNode, "tempor", false, false);
 
             foreach (SearchNetworkNode node in nodes)
             {
@@ -36,18 +36,38 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Scaling
             string word,
             bool useSynonymSearch)
         {
+            return SearchAll(node, word, useSynonymSearch, true);
+        }
+
+        public static List<NetworkFoundDocument> SearchAll(
+            SearchNetworkNode node,
+            string word,
+            bool useSynonymSearch,
+            bool isObjectForm)
+        {
             Searcher searcher = node.Searcher;
 
-            SearchQuery query = SearchQuery.CreateWordQuery(word);
-            Console.WriteLine();
-            Console.WriteLine("First time search for: " + query);
             SearchOptions options = new SearchOptions();
             options.IsChunkSearch = true;
             options.UseSynonymSearch = useSynonymSearch;
             int totalOccurrences = 0;
             List<NetworkFoundDocument> documents = new List<NetworkFoundDocument>();
 
-            NetworkSearchResult result = searcher.SearchFirst(query, options);
+            NetworkSearchResult result;
+            if (isObjectForm)
+            {
+                SearchQuery query = SearchQuery.CreateWordQuery(word);
+                Console.WriteLine();
+                Console.WriteLine("First time search in object form for: " + query);
+                result = searcher.SearchFirst(query, options);
+            }
+            else
+            {
+                string query = word;
+                Console.WriteLine();
+                Console.WriteLine("First time search in text form for: " + query);
+                result = searcher.SearchFirst(query, options);
+            }
 
             AddDocsFromResult(documents, result);
             totalOccurrences += result.OccurrenceCount;
@@ -56,7 +76,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Scaling
             while (result.NextChunkSearchToken != null)
             {
                 Console.WriteLine();
-                Console.WriteLine("Next time search for: " + query);
+                Console.WriteLine("Next time search for: " + word);
 
                 result = searcher.SearchNext(result.NextChunkSearchToken);
 
