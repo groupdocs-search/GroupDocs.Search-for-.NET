@@ -16,22 +16,31 @@ Directory | Description
 
 ## Document Indexing Features
 
-- [70+ supported file formats](https://docs.groupdocs.com/search/net/supported-document-formats/).
+- [80+ supported file formats](https://docs.groupdocs.com/search/net/supported-document-formats/).
 - Create index in memory or on disk.
 - Update index to take into account changed, deleted and added documents.
 - Merge several indexes into one.
 - Optimize index to improve search performance.
-- Index password protected documents.
-- Index with stop words.
+- Indexing password protected documents.
+- Indexing with stop words.
+- Support for indexing additional fields.
+- Support for blended characters.
+- Support for characters indexed as a whole word.
+- Support for character replacement during indexing.
+- Support for custom text extractors.
 - Option for compact and metadata index.
 - Ability to save extracted text in index with different level of compression.
 - Document filtering during indexing.
-- Deleting indexed paths from index.
+- Ability to separately extract data from documents and index them.
+- Support for optical text recognition on images.
+- Calculation and indexing of image hashes for reverse image search.
+- The ability to create a distributed search network that automatically balances the load across nodes.
 
 ## Document Search Features
+
 - Simple word search.
 - Boolean search.
-- Search based on regular expression.
+- Regular expression search.
 - Faceted search.
 - Case sensitive search.
 - Flexible fuzzy search.
@@ -43,6 +52,19 @@ Directory | Description
 - Date range search.
 - Numeric range search.
 - Search by chunks (pages).
+- Document filtering in search result.
+- Search for different object types: text, numbers, dates, file names, document types, metadata fields, document creation/modification dates.
+- Combine different types of search into one search query.
+- Alias substitution in search queries.
+- Perform spell check during search.
+- Perform keyboard layout correction during search.
+- Search queries in text or flexible object form.
+- Highlight search results in the text of the entire document or in text segments.
+- Multiple simultaneous thread safe search.
+- Thread safe search during indexing, updating or merging operation.
+- Search over several indexes simultaneously.
+- Built-in support for reverse image search.
+
 
 ## Develop & Deploy GroupDocs.Search Anywhere
 
