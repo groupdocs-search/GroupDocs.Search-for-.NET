@@ -31,6 +31,7 @@ Directory | Description
 - Option for compact and metadata index.
 - Ability to save extracted text in index with different level of compression.
 - Document filtering during indexing.
+- Deleting indexed paths from index.
 - Ability to separately extract data from documents and index them.
 - Support for optical text recognition on images.
 - Calculation and indexing of image hashes for reverse image search.
