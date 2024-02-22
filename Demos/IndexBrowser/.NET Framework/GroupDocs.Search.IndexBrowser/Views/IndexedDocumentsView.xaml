@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="GroupDocs.Search.IndexBrowser.Views.IndexedDocumentsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:utils="clr-namespace:GroupDocs.Search.IndexBrowser.Utils"
+             Background="White">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <utils:BooleanConverter x:Key="WindowEnabledToInvisibilityConverter">
+                <utils:BooleanConverter.TrueValue>
+                    <Visibility>Visible</Visibility>
+                </utils:BooleanConverter.TrueValue>
+                <utils:BooleanConverter.FalseValue>
+                    <Visibility>Collapsed</Visibility>
+                </utils:BooleanConverter.FalseValue>
+            </utils:BooleanConverter>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Margin="{StaticResource CommonMargin}"
+                   Grid.Row="1">
+            <StackPanel Orientation="Horizontal"
+                        DockPanel.Dock="Top">
+                <Button Content="Update"
+                        Margin="{StaticResource CommonMargin}"
+                        Command="{Binding ExtractDocumentListCommand}" />
+                <TextBlock VerticalAlignment="Center"
+                           Margin="{StaticResource CommonMargin}">
+                    <Run Text="Indexed documents: " />
+                    <Run Text="{Binding Documents.Count, Mode=OneWay}" />
+                </TextBlock>
+            </StackPanel>
+
+            <ListView ItemsSource="{Binding Documents}"
+                      SelectedItem="{Binding SelectedDocument}"
+                      Margin="{StaticResource CommonMargin}"
+                      utils:GridViewColumnResize.Enabled="True"
+                      x:Name="DocumentListView">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Document"
+                                            utils:GridViewColumnResize.Width="*"
+                                            DisplayMemberBinding="{Binding FilePath, Mode=OneTime}" />
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="ToolTip"
+                                Value="{Binding FilePath, Mode=OneWay}">
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </DockPanel>
+
+        <GridSplitter Grid.Column="1"
+                      Grid.RowSpan="2"
+                      Background="DarkGray"
+                      Width="5"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Stretch" />
+
+        <DockPanel Margin="{StaticResource CommonMargin}"
+                   Grid.Row="1"
+                   Grid.Column="2">
+            <DockPanel DockPanel.Dock="Top">
+                <Label Content="Selected document:" />
+            </DockPanel>
+
+            <StackPanel DockPanel.Dock="Top"
+                        Orientation="Horizontal">
+            </StackPanel>
+
+            <Border BorderThickness="{Binding ElementName=DocumentListView, Path=BorderThickness}"
+                    BorderBrush="{Binding ElementName=DocumentListView, Path=BorderBrush}"
+                    CornerRadius="1"
+                    Margin="{StaticResource CommonMargin}">
+                <WebBrowser utils:BrowserBehavior.HtmlUrl="{Binding SelectedDocument.HtmlUrl}"
+                            Visibility="{Binding WindowEnabled, Mode=OneWay, Converter={StaticResource WindowEnabledToInvisibilityConverter}}" />
+            </Border>
+        </DockPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="GroupDocs.Search.IndexBrowser.Views.StartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:utils="clr-namespace:GroupDocs.Search.IndexBrowser.Utils">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <ListView ItemsSource="{Binding Indexes}"
+                  SelectedItem="{Binding SelectedIndex}"
+                  utils:GridViewColumnResize.Enabled="True">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Index name"
+                                        DisplayMemberBinding="{Binding Name, Mode=OneTime}" />
+                        <GridViewColumn Header="Index path"
+                                        utils:GridViewColumnResize.Width="*"
+                                        DisplayMemberBinding="{Binding Path, Mode=OneTime}" />
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="ToolTip"
+                            Value="{Binding Path, Mode=OneWay}">
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <WrapPanel Grid.Row="1">
+            <Button Content="Set license"
+                    ToolTip="Sets license from a file"
+                    Command="{Binding LoadLicenseCommand}" />
+            <Separator Width="8" />
+            <Button Content="Create index"
+                    ToolTip="Creates a new index or overwrites an existing one"
+                    Command="{Binding CreateIndexCommand}" />
+            <Button Content="Load index"
+                    ToolTip="Loads the selected index into memory"
+                    Command="{Binding LoadIndexCommand}" />
+            <Button Content="Add index"
+                    ToolTip="Adds an existing index to the list"
+                    Command="{Binding AddIndexCommand}" />
+            <Button Content="Remove index"
+                    ToolTip="Removes the selected index from the list"
+                    Command="{Binding RemoveIndexCommand}" />
+        </WrapPanel>
+    </Grid>
+</UserControl>

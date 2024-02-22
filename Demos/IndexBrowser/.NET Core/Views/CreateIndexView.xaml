@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="GroupDocs.Search.IndexBrowser.Views.CreateIndexView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel>
+        <StackPanel Margin="{StaticResource CommonMargin}">
+            <DockPanel IsEnabled="{Binding IsFolderEnabled}">
+                <Label Content="Index folder:"
+                       DockPanel.Dock="Top" />
+                <Button DockPanel.Dock="Right"
+                        ToolTip="Selects a new index folder"
+                        Content="Select"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                        Command="{Binding SelectFolderCommand}" />
+                <TextBox Text="{Binding Folder, UpdateSourceTrigger=PropertyChanged}" />
+            </DockPanel>
+
+            <StackPanel>
+                <Label Content="Index name:" />
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+
+            <CheckBox Content="In memory index"
+                      IsChecked="{Binding InMemoryIndex}" />
+
+            <StackPanel>
+                <Label Content="Index type:" />
+                <ComboBox ItemsSource="{Binding IndexTypes}"
+                          SelectedValue="{Binding IndexType}" />
+            </StackPanel>
+
+            <CheckBox Content="Use stop words"
+                      IsChecked="{Binding UseStopWords}" />
+
+            <CheckBox Content="Use character replacements"
+                      IsChecked="{Binding UseCharacterReplacements}" />
+
+            <DockPanel>
+                <CheckBox Content="Cache document text with compression: "
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding CacheDocumentText}" />
+                <ComboBox ItemsSource="{Binding TextCompressions}"
+                          SelectedValue="{Binding TextCompression}"
+                          IsEnabled="{Binding CacheDocumentText}" />
+            </DockPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    Margin="{StaticResource CommonMargin}">
+            <Button Content="Create"
+                    ToolTip="Creates a new index"
+                    IsDefault="True"
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                    Command="{Binding ApplyCommand}" />
+            <Button Content="Cancel"
+                    ToolTip="Cancels index creation"
+                    IsCancel="True"
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                    Command="{Binding CancelCommand}" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

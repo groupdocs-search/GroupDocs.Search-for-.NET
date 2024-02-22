@@ -1,0 +1,160 @@
+﻿<UserControl x:Class="GroupDocs.Search.IndexBrowser.Views.SearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="150"
+             d:DesignWidth="800">
+
+    <StackPanel>
+        <StackPanel Margin="{StaticResource CommonMargin}">
+            <DockPanel>
+                <TextBlock Text="Query:"
+                           Margin="{StaticResource CommonMargin}"
+                           VerticalAlignment="Center" />
+                <Button Content="Search"
+                        ToolTip="Searches for the specified search query"
+                        DockPanel.Dock="Right"
+                        Command="{Binding SearchCommand}" />
+                <TextBox Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"
+                         HorizontalAlignment="Stretch">
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="{Binding SearchCommand}"
+                                    Key="Return" />
+                    </TextBox.InputBindings>
+                </TextBox>
+            </DockPanel>
+
+            <WrapPanel>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Content="Use fuzzy search:"
+                              VerticalAlignment="Center"
+                              IsChecked="{Binding SearchOptions.IsFuzzySearchEnabled}" />
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="{StaticResource CommonMargin}">
+                        <TextBox Width="25"
+                                 Margin="0"
+                                 MinHeight="22"
+                                 VerticalContentAlignment="Center"
+                                 HorizontalContentAlignment="Center"
+                                 IsReadOnly="True"
+                                 ToolTip="Maximum mistake count"
+                                 Text="{Binding SearchOptions.FuzzySearchMaxMistakeCount}" />
+                        <StackPanel VerticalAlignment="Center">
+                            <Button Width="22"
+                                    MinWidth="0"
+                                    Margin="0"
+                                    MinHeight="11"
+                                    Height="11"
+                                    Command="{Binding SearchOptions.IncreaseFuzzyMistakesCommand}"
+                                    ToolTip="Increases the maximum number of mistakes">
+                                <Path Fill="Black"
+                                      Data="M 0 5 L 10 5 L 5 0 Z" />
+                            </Button>
+                            <Button Width="22"
+                                    MinWidth="0"
+                                    Margin="0"
+                                    MinHeight="11"
+                                    Height="11"
+                                    Command="{Binding SearchOptions.DecreaseFuzzyMistakesCommand}"
+                                    ToolTip="Decreases the maximum number of mistakes">
+                                <Path Fill="Black"
+                                      Data="M 0 0 L 5 5 L 10 0 Z" />
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <CheckBox Content="Only best results"
+                              VerticalAlignment="Center"
+                              IsChecked="{Binding SearchOptions.FuzzySearchOnlyBestResults}" />
+                </StackPanel>
+
+                <CheckBox Content="Case sensitive search"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding SearchOptions.IsCaseSensitiveSearch}" />
+
+                <CheckBox Content="Use keyboard layout correction"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding SearchOptions.UseKeyboardLayoutCorrector}" />
+
+                <CheckBox Content="Use synonym search"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding SearchOptions.UseSynonymSearch}" />
+
+                <CheckBox Content="Use homophone search"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding SearchOptions.UseHomophoneSearch}" />
+
+                <CheckBox Content="Use word forms search"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding SearchOptions.UseWordFormsSearch}" />
+
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Content="Use spelling corrector:"
+                              VerticalAlignment="Center"
+                              IsChecked="{Binding SearchOptions.IsSpellingCorrectorEnabled}" />
+                    <StackPanel Orientation="Horizontal"
+                                Margin="{StaticResource CommonMargin}">
+                        <TextBox Width="25"
+                                 Margin="0"
+                                 MinHeight="22"
+                                 VerticalContentAlignment="Center"
+                                 HorizontalContentAlignment="Center"
+                                 IsReadOnly="True"
+                                 ToolTip="Maximum mistake count"
+                                 Text="{Binding SearchOptions.SpellingCorrectorMaxMistakeCount}" />
+                        <StackPanel VerticalAlignment="Center">
+                            <Button Width="21"
+                                    MinWidth="0"
+                                    Margin="0"
+                                    MinHeight="11"
+                                    Height="11"
+                                    Command="{Binding SearchOptions.IncreaseCorrectorMistakesCommand}"
+                                    ToolTip="Increases the maximum number of mistakes">
+                                <Path Fill="Black"
+                                      Data="M 0 5 L 10 5 L 5 0 Z" />
+                            </Button>
+                            <Button Width="21"
+                                    MinWidth="0"
+                                    Margin="0"
+                                    MinHeight="11"
+                                    Height="11"
+                                    Command="{Binding SearchOptions.DecreaseCorrectorMistakesCommand}"
+                                    ToolTip="Decreases the maximum number of mistakes">
+                                <Path Fill="Black"
+                                      Data="M 0 0 L 5 5 L 10 0 Z" />
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                    <CheckBox Content="Only best results"
+                              VerticalAlignment="Center"
+                              IsChecked="{Binding SearchOptions.SpellingCorrectorOnlyBestResults}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center">
+                    <Label Content="Max total hits:"
+                           VerticalAlignment="Center" />
+                    <TextBox Text="{Binding SearchOptions.MaxTotalOccurrences, UpdateSourceTrigger=PropertyChanged}"
+                             VerticalAlignment="Center"
+                             Width="70" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center">
+                    <Label Content="Max hits per term:"
+                           VerticalAlignment="Center" />
+                    <TextBox Text="{Binding SearchOptions.MaxOccurrencesPerTerm, UpdateSourceTrigger=PropertyChanged}"
+                             VerticalAlignment="Center"
+                             Width="70" />
+                </StackPanel>
+            </WrapPanel>
+        </StackPanel>
+
+        <Border BorderBrush="Gray"
+                BorderThickness="0,0,0,1"
+                Height="1" />
+    </StackPanel>
+</UserControl>
