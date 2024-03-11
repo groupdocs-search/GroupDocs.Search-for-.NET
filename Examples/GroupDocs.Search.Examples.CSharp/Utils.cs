@@ -4,6 +4,7 @@ using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace GroupDocs.Search.Examples.CSharp
 {
@@ -29,6 +30,23 @@ namespace GroupDocs.Search.Examples.CSharp
         public const string ArchivesPath = BasePath + @"Resources/Archives/";
 
         public const string OldIndexPath = BasePath + @"Resources/Index_19_4/";
+
+        public static void PrintHeader(params string[] parts)
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(("Example / " + string.Join(" / ", parts) + " ").PadRight(118, '='));
+        }
+
+        public static void PrintHeaderFromPath(string path)
+        {
+            string[] parts = path.Split('/', StringSplitOptions.RemoveEmptyEntries)
+                .SkipWhile(part => part == ".")
+                .TakeWhile(part => !(part.StartsWith("Index") && part.Length < 7))
+                .ToArray();
+            PrintHeader(parts);
+        }
 
         public static void TraceResult(string query, SearchResult result)
         {

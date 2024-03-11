@@ -11,6 +11,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingOptionsProperties/CancellationProperty";
             string documentFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 
@@ -29,6 +31,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingOptionsProperties/IsAsyncProperty";
             string documentFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating index in the specified folder
             Index index = new Index(indexFolder);
@@ -57,6 +61,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingOptionsProperties/ThreadsProperty";
             string documentFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 
@@ -74,6 +80,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingOptionsProperties/MetadataIndexingOptionsProperty";
             string documentFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             Index index = new Index(indexFolder);

@@ -12,6 +12,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/CharacterReplacementDuringIndexing";
             string documentFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Enabling character replacements in the index settings
             IndexSettings settings = new IndexSettings();
             settings.UseCharacterReplacements = true;

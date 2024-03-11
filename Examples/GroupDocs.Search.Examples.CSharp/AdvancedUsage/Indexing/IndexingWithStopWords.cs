@@ -9,6 +9,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingWithStopWords";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index settings with disabled using of stop words
             IndexSettings settings = new IndexSettings();
             settings.UseStopWords = false;

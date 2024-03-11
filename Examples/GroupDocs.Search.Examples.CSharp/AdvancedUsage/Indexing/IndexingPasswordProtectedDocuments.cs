@@ -11,6 +11,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingPasswordProtectedDocuments/IndexingUsingThePasswordDictionary";
             string documentsFolder = Utils.PasswordProtectedDocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             Index index = new Index(indexFolder);
 
@@ -35,6 +37,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingPasswordProtectedDocuments/IndexingUsingThePasswordRequiredEvent";
             string documentsFolder = Utils.PasswordProtectedDocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             Index index = new Index(indexFolder);

@@ -45,6 +45,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
             string indexFolder = @"./AdvancedUsage/ManagingDictionaries/WordFormsProvider/Index";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 

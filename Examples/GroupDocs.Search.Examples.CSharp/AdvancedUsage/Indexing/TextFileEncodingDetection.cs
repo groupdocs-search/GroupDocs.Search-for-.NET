@@ -11,6 +11,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/TextFileEncodingDetection";
             string documentsFolder = Utils.DocumentsUtf32Path;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             Index index = new Index(indexFolder);
 

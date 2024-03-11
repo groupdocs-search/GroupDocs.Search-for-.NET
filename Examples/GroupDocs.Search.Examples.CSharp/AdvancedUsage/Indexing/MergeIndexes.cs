@@ -13,6 +13,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string documentsFolder1 = Utils.DocumentsPath;
             string documentsFolder2 = Utils.DocumentsPath2;
 
+            Utils.PrintHeaderFromPath(indexFolder1);
+
             Index index1 = new Index(indexFolder1); // Creating index1
             index1.Add(documentsFolder1); // Indexing documents
 

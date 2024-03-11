@@ -9,6 +9,8 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
     {
         public static void Run()
         {
+            Utils.PrintHeaderFromPath(@"./BasicUsage/GetSupportedFileFormats");
+
             IEnumerable<FileType> supportedFileTypes = FileType
                 .GetSupportedFileTypes()
                 .OrderBy(ft => ft.Extension);

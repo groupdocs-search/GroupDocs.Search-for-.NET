@@ -19,6 +19,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromFile";
             string documentFilePath = Path.Combine(Utils.DocumentsPath, "Lorem ipsum.pdf");
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             IndexSettings settings = new IndexSettings();
             Index index = new Index(indexFolder, settings);
@@ -46,6 +48,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromStream";
             string documentFilePath = Path.Combine(Utils.DocumentsPath, "Lorem ipsum.pdf");
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             Index index = new Index(indexFolder);
@@ -77,6 +81,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromStructure";
             string documentFilePath = Path.Combine(Utils.DocumentsPath, "Lorem ipsum.txt");
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             Index index = new Index(indexFolder);
 
@@ -107,6 +113,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromUrl";
             string url = "http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf";
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             IndexSettings settings = new IndexSettings();
@@ -143,6 +151,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromFtp";
             string url = "ftp://example.com/ExampleDocument.pdf";
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             IndexSettings settings = new IndexSettings();
@@ -219,6 +229,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromAmazon";
             string key = "example.pdf";
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             Index index = new Index(indexFolder);
 
@@ -285,6 +297,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingFromDifferentSources/IndexingFromAzure";
             string blobName = "example.pdf";
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             Index index = new Index(indexFolder);

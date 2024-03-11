@@ -10,6 +10,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/StoringTextOfIndexedDocuments";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index settings instance
             IndexSettings settings = new IndexSettings();
             settings.TextStorageSettings = new TextStorageSettings(Compression.High); // Setting high compression ratio for the index text storage

@@ -14,6 +14,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string filePath = Utils.DocumentsPath + "English.docx";
             string query = "moment";
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 

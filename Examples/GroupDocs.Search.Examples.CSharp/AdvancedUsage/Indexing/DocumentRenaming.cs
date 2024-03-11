@@ -11,6 +11,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentRenaming/Index";
             string documentFolder = @"./AdvancedUsage/Indexing/DocumentRenaming/Documents/";
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Prepare data
             Utils.CleanDirectory(documentFolder);
             Utils.CopyFiles(Utils.DocumentsPath, documentFolder);

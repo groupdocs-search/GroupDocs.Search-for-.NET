@@ -10,6 +10,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/IndexingMetadataOfDocuments";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an instance of index settings
             IndexSettings settings = new IndexSettings();
             settings.IndexType = IndexType.MetadataIndex; // Setting index type

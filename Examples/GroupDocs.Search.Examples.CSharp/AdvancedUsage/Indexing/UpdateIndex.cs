@@ -12,6 +12,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string documentFolder = @"./AdvancedUsage/Indexing/UpdateIndex/UpdateIndexedDocuments/Documents";
             string query = "son";
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Prepare data
             Utils.CleanDirectory(documentFolder);
             Utils.CopyFiles(Utils.DocumentsPath, documentFolder);
@@ -44,8 +46,10 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         public static void UpdateIndexVersion()
         {
             string oldIndexFolder = Utils.OldIndexPath;
-            string sourceIndexFolder = @"./AdvancedUsage/Indexing/UpdateIndex/UpdateIndexVersion/SourceIndex";
-            string targetIndexFolder = @"./AdvancedUsage/Indexing/UpdateIndex/UpdateIndexVersion/TargetIndex";
+            string sourceIndexFolder = @"./AdvancedUsage/Indexing/UpdateIndex/UpdateIndexVersion/IndexS";
+            string targetIndexFolder = @"./AdvancedUsage/Indexing/UpdateIndex/UpdateIndexVersion/IndexT";
+
+            Utils.PrintHeaderFromPath(sourceIndexFolder);
 
             // Prepare data
             Utils.CleanDirectory(sourceIndexFolder);

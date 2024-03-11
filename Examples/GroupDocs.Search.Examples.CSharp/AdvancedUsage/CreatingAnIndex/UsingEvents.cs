@@ -12,6 +12,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
             string indexFolder = @"./AdvancedUsage/CreatingAnIndex/UsingEvents/OperationFinishedEvent";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             Index index = new Index(indexFolder);
 
@@ -37,6 +39,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
             string documentsFolder = Utils.PasswordProtectedDocumentsPath;
             string query = "Lorem";
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             Index index = new Index(indexFolder);
 
@@ -58,6 +62,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
         {
             string indexFolder = @"./AdvancedUsage/CreatingAnIndex/UsingEvents/OperationProgressChangedEvent";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             Index index = new Index(indexFolder);
@@ -87,6 +93,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
                 Utils.DocumentsPath + "Lorem ipsum.txt",
             };
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             Index index = new Index(indexFolder);
 
@@ -113,6 +121,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
         {
             string indexFolder = @"./AdvancedUsage/CreatingAnIndex/UsingEvents/PasswordRequiredEvent";
             string documentsFolder = Utils.PasswordProtectedDocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             Index index = new Index(indexFolder);
@@ -144,6 +154,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
         {
             string indexFolder = @"./AdvancedUsage/CreatingAnIndex/UsingEvents/FileIndexingEvent";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             Index index = new Index(indexFolder);
@@ -179,6 +191,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
             string indexFolder = @"./AdvancedUsage/CreatingAnIndex/UsingEvents/StatusChangedEvent";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             Index index = new Index(indexFolder);
 
@@ -205,6 +219,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
         {
             string indexFolder = @"./AdvancedUsage/CreatingAnIndex/UsingEvents/SearchPhaseCompletedEvent";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             Index index = new Index(indexFolder);

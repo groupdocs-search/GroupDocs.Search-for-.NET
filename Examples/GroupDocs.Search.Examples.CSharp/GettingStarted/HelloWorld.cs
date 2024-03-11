@@ -9,6 +9,9 @@ namespace GroupDocs.Search.Examples.CSharp.GettingStarted
         {
             string indexFolder = @"./GettingStarted/HelloWorld";
             string documentsFolder = Utils.DocumentsPath;
+            string query = "Lorem";
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating index in the specified folder
             Index index = new Index(indexFolder);
@@ -17,9 +20,9 @@ namespace GroupDocs.Search.Examples.CSharp.GettingStarted
             index.Add(documentsFolder);
 
             // Searching in index
-            SearchResult result = index.Search("Lorem");
+            SearchResult result = index.Search(query);
 
-            Console.WriteLine("Documents found: " + result.DocumentCount);
+            Utils.TraceResult(query, result);
         }
     }
 }

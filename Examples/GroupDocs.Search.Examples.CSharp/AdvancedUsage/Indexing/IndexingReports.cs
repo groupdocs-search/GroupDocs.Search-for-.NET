@@ -11,6 +11,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string documentsFolder1 = Utils.DocumentsPath;
             string documentsFolder2 = Utils.DocumentsPath2;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 

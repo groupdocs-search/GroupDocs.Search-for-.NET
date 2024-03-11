@@ -10,6 +10,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Scaling
             string basePath = @"./AdvancedUsage/Scaling/ConfiguringSearchNetwork/";
             int basePort = 49100;
 
+            Utils.PrintHeaderFromPath(basePath);
+
             Configuration configuration = Configure(basePath, basePort);
         }
 

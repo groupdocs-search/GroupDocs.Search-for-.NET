@@ -46,6 +46,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/CustomTextExtractors"; // Specify path to the index folder
             string documentsFolder = Utils.LogPath; // Specify path to a folder containing documents to search
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             IndexSettings settings = new IndexSettings();
             settings.CustomExtractors.Add(new LogExtractor()); // Adding custom text extractor to the index settings
 

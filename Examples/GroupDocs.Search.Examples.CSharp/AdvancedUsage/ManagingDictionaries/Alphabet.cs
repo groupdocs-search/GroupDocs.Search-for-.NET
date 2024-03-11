@@ -11,6 +11,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.ManagingDictionaries
             string indexFolder = @"./AdvancedUsage/ManagingDictionaries/Alphabet/Index";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating or opening an index from the specified folder
             Index index = new Index(indexFolder);
 

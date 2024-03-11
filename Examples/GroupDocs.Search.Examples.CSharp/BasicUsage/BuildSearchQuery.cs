@@ -11,6 +11,8 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
             string indexFolder = @"./BasicUsage/BuildSearchQuery";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating index in the specified folder
             Index index = new Index(indexFolder);
 

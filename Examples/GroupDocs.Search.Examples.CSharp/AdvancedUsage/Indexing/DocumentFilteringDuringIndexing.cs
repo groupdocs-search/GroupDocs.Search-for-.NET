@@ -11,6 +11,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/SettingAFilter";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating a filter that skips documents with extensions '.doc', '.docx', '.rtf'
             IndexSettings settings = new IndexSettings();
             DocumentFilter fileExtensionFilter = DocumentFilter.CreateFileExtension(".doc", ".docx", ".rtf"); // Creating file extension filter that allows only specified extensions
@@ -41,6 +43,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/CreationTimeFilters";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             IndexSettings settings = new IndexSettings();
             settings.DocumentFilter = filter3; // Setting the filter
 
@@ -68,6 +72,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/ModificationTimeFilters";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             IndexSettings settings = new IndexSettings();
             settings.DocumentFilter = filter2; // Setting the filter
 
@@ -84,6 +90,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/FilePathFilters";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             IndexSettings settings = new IndexSettings();
             // Creating a filter that skips files that do not contain the word 'Ipsum' in their paths
@@ -114,6 +122,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/FileLengthFilters";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             IndexSettings settings = new IndexSettings();
             settings.DocumentFilter = filter3; // Setting the filter
 
@@ -130,6 +140,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/FileExtensionFilter";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             IndexSettings settings = new IndexSettings();
             // This filter allows indexing only FB2, EPUB, and TXT files
@@ -150,6 +162,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/LogicalNotFilter";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             IndexSettings settings = new IndexSettings();
             DocumentFilter filter = DocumentFilter.CreateFileExtension(".htm", ".html", ".pdf");
             DocumentFilter invertedFilter = DocumentFilter.CreateNot(filter); // Inverting file extension filter to allow all extensions except of HTM, HTML, and PDF
@@ -168,6 +182,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/LogicalAndFilter";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             IndexSettings settings = new IndexSettings();
             DocumentFilter filter1 = DocumentFilter.CreateCreationTimeRange(new DateTime(2015, 1, 1), new DateTime(2016, 1, 1));
@@ -189,6 +205,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentFilteringDuringIndexing/LogicalOrFilter";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             IndexSettings settings = new IndexSettings();
             DocumentFilter txtFilter = DocumentFilter.CreateFileExtension(".txt");

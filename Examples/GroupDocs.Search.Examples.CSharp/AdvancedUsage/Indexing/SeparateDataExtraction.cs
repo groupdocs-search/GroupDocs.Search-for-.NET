@@ -12,6 +12,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/SeparateDataExtraction";
             string documentPath = Utils.DocumentsPath + @"Lorem ipsum.pdf";
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Extracting data from a document
             Extractor extractor = new Extractor();
             Document document = Document.CreateFromFile(documentPath);

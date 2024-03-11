@@ -14,6 +14,8 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
             string indexFolder = @"./BasicUsage/BuildYourFirstSearchSolution/SynchronousIndexing"; // Specify the path to the index folder
             string documentsFolder = Utils.DocumentsPath; // Specify the path to a folder containing documents to search
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // a) Create new index or
             // b) Open existing index
             Index index = new Index(indexFolder);
@@ -62,6 +64,8 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
         {
             string indexFolder = @"./BasicUsage/BuildYourFirstSearchSolution/AsynchronousIndexing"; // Specify the path to the index folder
             string documentsFolder = Utils.DocumentsPath; // Specify the path to a folder containing documents to search
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // a) Create new index or
             // b) Open existing index

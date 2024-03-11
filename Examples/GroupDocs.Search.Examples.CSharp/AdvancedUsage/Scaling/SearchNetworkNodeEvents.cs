@@ -11,6 +11,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Scaling
             string basePath = @"./AdvancedUsage/Scaling/SearchNetworkNodeEvents/";
             int basePort = 49100;
 
+            Utils.PrintHeaderFromPath(basePath);
+
             Configuration configuration = ConfiguringSearchNetwork.Configure(basePath, basePort);
 
             SearchNetworkNode[] nodes = SearchNetworkDeployment.Deploy(basePath, basePort, configuration);

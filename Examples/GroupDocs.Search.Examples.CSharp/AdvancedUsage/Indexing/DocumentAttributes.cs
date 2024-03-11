@@ -11,6 +11,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentAttributes/ChangeAttributes";
             string documentFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             Index index = new Index(indexFolder);
 
@@ -45,6 +47,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
         {
             string indexFolder = @"./AdvancedUsage/Indexing/DocumentAttributes/AddAttributesDuringIndexing";
             string documentFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             Index index = new Index(indexFolder);

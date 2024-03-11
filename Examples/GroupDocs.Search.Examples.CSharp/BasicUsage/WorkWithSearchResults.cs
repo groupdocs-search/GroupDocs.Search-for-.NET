@@ -14,6 +14,8 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
             string indexFolder = @"./BasicUsage/WorkWithSearchResults/ObtainSearchResultInformation";
             string documentFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             Index index = new Index(indexFolder);
 
@@ -66,6 +68,8 @@ namespace GroupDocs.Search.Examples.CSharp.BasicUsage
         {
             string indexFolder = @"./BasicUsage/WorkWithSearchResults/HighlightSearchResults";
             string documentFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index settings instance
             IndexSettings settings = new IndexSettings();

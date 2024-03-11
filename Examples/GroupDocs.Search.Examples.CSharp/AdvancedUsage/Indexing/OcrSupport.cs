@@ -16,6 +16,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string documentsFolder = Utils.DocumentsPNG;
             string query = "water";
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index
             Index index = new Index(indexFolder);
 
@@ -39,6 +41,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             string indexFolder = @"./AdvancedUsage/Indexing/OcrSupport/UseTesseractOcrConnector";
             string documentsFolder = Utils.DocumentsPNG;
             string query = "water";
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
             Index index = new Index(indexFolder);
