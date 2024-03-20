@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GroupDocs.Search.Options;
+using System;
 using System.Collections.ObjectModel;
 
 namespace GroupDocs.Search.IndexBrowser.ViewModels
@@ -14,12 +15,15 @@ namespace GroupDocs.Search.IndexBrowser.ViewModels
         private readonly Settings settings;
         private readonly StartViewModel startViewModel;
         private ViewModelBase currentViewModel;
+        private readonly string version;
 
         public MainViewModel(Settings settings)
         {
             this.settings = settings;
             startViewModel = new StartViewModel(this);
             CurrentViewModel = startViewModel;
+
+            version = new DeleteOptions().GetType().Assembly.GetName().Version.ToString(3);
         }
 
         public bool WindowEnabled
@@ -27,6 +31,8 @@ namespace GroupDocs.Search.IndexBrowser.ViewModels
             get { return windowEnabled; }
             set { UpdateProperty(ref windowEnabled, value); }
         }
+
+        public string Title => "GroupDocs.Search Index Browser " + version;
 
         public Settings Settings => settings;
 

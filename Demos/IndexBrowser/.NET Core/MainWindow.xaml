@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:utils="clr-namespace:GroupDocs.Search.IndexBrowser.Utils"
         xmlns:ctrl="clr-namespace:GroupDocs.Search.IndexBrowser.Controls"
-        Title="GroupDocs.Search Index Browser"
+        Title="{Binding Title, Mode=OneTime}"
         Icon="pack://application:,,,/GroupDocs.Search.ico"
         WindowState="{Binding Settings.WindowState, Mode=TwoWay}"
         Height="{Binding Settings.Height, Mode=TwoWay}"

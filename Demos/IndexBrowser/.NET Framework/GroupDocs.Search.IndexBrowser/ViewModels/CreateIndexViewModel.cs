@@ -12,7 +12,7 @@ namespace GroupDocs.Search.IndexBrowser.ViewModels
         private string name;
         private string folder;
         private bool inMemoryIndex;
-        private bool useStopWords = true;
+        private bool useStopWords;
         private bool useCharacterReplacements;
         private bool cacheDocumentText = true;
         private readonly ObservableCollection<Compression> textCompressions;

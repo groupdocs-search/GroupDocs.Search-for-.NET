@@ -41,7 +41,7 @@ namespace GroupDocs.Search.Examples.CSharp
 
         public static void PrintHeaderFromPath(string path)
         {
-            string[] parts = path.Split('/', StringSplitOptions.RemoveEmptyEntries)
+            string[] parts = path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
                 .SkipWhile(part => part == ".")
                 .TakeWhile(part => !(part.StartsWith("Index") && part.Length < 7))
                 .ToArray();

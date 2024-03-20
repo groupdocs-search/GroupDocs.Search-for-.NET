@@ -1,4 +1,5 @@
 ﻿using GroupDocs.Search.Common;
+using GroupDocs.Search.Dictionaries;
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
@@ -18,8 +19,7 @@ namespace GroupDocs.Search.WebForms.Products.Search.Service
         internal static Dictionary<string, string> FileIndexingStatusDict { get; } = new Dictionary<string, string>();
         internal static Dictionary<string, string> PassRequiredStatusDict { get; } = new Dictionary<string, string>();
 
-        private static readonly List<char> specialCharsList = new List<char>();
-        private static readonly List<char> foundSpecialChars = new List<char>();
+        private static readonly List<int> foundSpecialChars = new List<int>();
 
         public static SummarySearchResult Search(SearchPostedData searchRequest, GlobalConfiguration globalConfiguration)
         {
@@ -35,11 +35,13 @@ namespace GroupDocs.Search.WebForms.Products.Search.Service
             var searchQuery = searchRequest.query;
             SearchResult result;
 
-            foreach (char specialChar in specialCharsList)
+            var alphabet = index.Dictionaries.Alphabet;
+            for (int i = 0; i < searchQuery.Length; i++)
             {
-                if (searchQuery.Contains(specialChar))
+                char c = searchQuery[i];
+                if (alphabet.GetCharacterType(c) == CharacterType.Separator)
                 {
-                    foundSpecialChars.Add(specialChar);
+                    foundSpecialChars.Add(c);
                 }
             }
 
@@ -49,9 +51,10 @@ namespace GroupDocs.Search.WebForms.Products.Search.Service
             }
             else if (foundSpecialChars.Count > 0)
             {
-                foreach (char specialChar in foundSpecialChars)
+                foreach (int specialChar in foundSpecialChars)
                 {
-                    searchQuery = searchQuery.Replace(specialChar, ' ');
+                    var specialCharString = char.ConvertFromUtf32(specialChar);
+                    searchQuery = searchQuery.Replace(specialCharString, " ");
                 }
 
                 foundSpecialChars.Clear();
@@ -175,18 +178,6 @@ namespace GroupDocs.Search.WebForms.Products.Search.Service
                 };
 
                 index.Add(indexedFilesDirectory);
-
-                InitSpecailCharsList();
-            }
-        }
-
-        private static void InitSpecailCharsList()
-        {
-            IEnumerator<char> ie = index.Dictionaries.Alphabet.GetEnumerator();
-            while (ie.MoveNext())
-            {
-                char item = ie.Current;
-                specialCharsList.Add(item);
             }
         }
 

@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GroupDocs.Search" Version="24.2.1" />
+    <PackageReference Include="GroupDocs.Search" Version="24.3.0" />
   </ItemGroup>
 
   <ItemGroup>
