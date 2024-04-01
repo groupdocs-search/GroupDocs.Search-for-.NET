@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupDocs.Search.Examples.CSharp.NET6", "GroupDocs.Search.Examples.CSharp.NET6\GroupDocs.Search.Examples.CSharp.NET6.csproj", "{4EA150EF-E823-444D-8154-D5F25496E91B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupDocs.Search.Examples.CSharp.NET", "GroupDocs.Search.Examples.CSharp.NET\GroupDocs.Search.Examples.CSharp.NET.csproj", "{4EA150EF-E823-444D-8154-D5F25496E91B}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GroupDocs.Search.Examples.CSharp", "GroupDocs.Search.Examples.CSharp\GroupDocs.Search.Examples.CSharp.shproj", "{1C60463F-69B5-44DB-BC96-267F129E8AB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,7 @@ Global
 		SolutionGuid = {AAB98662-9FAF-4411-BC88-12998EEC4F89}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		GroupDocs.Search.Examples.CSharp\GroupDocs.Search.Examples.CSharp.projitems*{1c60463f-69b5-44db-bc96-267f129e8ab7}*SharedItemsImports = 13
 		GroupDocs.Search.Examples.CSharp\GroupDocs.Search.Examples.CSharp.projitems*{4ea150ef-e823-444d-8154-d5f25496e91b}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
