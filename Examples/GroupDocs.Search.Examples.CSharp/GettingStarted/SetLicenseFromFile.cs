@@ -15,6 +15,7 @@ namespace GroupDocs.Search.Examples.CSharp.GettingStarted
     {
         public static void Run()
         {
+            Utils.TraceLibraryVersion();
             if (File.Exists(Utils.LicensePath))
             {
                 License license = new License();

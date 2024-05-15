@@ -51,7 +51,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             IndexSettings settings = new IndexSettings();
             settings.CustomExtractors.Add(new LogExtractor()); // Adding custom text extractor to the index settings
 
-            Index index = new Index(indexFolder, settings); // Creating or loading an index
+            Index index = new Index(indexFolder, settings, true); // Creating or loading an index
 
             index.Add(documentsFolder); // Indexing documents from the specified folder
 

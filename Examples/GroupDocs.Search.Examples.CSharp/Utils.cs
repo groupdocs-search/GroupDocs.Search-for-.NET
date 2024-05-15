@@ -31,6 +31,13 @@ namespace GroupDocs.Search.Examples.CSharp
 
         public const string OldIndexPath = BasePath + @"Resources/Index_19_4/";
 
+        public static void TraceLibraryVersion()
+        {
+            string version = typeof(GroupDocs.Search.Index).Assembly.GetName().Version.ToString(3);
+            Console.WriteLine("GroupDocs.Search for .NET " + version);
+            Console.WriteLine();
+        }
+
         public static void PrintHeader(params string[] parts)
         {
             Console.WriteLine();
