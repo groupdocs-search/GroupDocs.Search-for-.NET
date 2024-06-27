@@ -1,4 +1,5 @@
 ﻿using GroupDocs.Search.Common;
+using GroupDocs.Search.Events;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 using System;
@@ -246,6 +247,29 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.CreatingAnIndex
             options.FuzzySearch.Enabled = true;
             options.UseHomophoneSearch = true;
             SearchResult result = index.Search("buy", options);
+        }
+
+        public static void ImagePreparingEvent()
+        {
+            string indexFolder = @"./AdvancedUsage/CreatingAnIndex/UsingEvents/ImagePreparingEvent";
+            string documentsFolder = Utils.DocumentsPNG;
+
+            Utils.PrintHeaderFromPath(indexFolder);
+
+            // Creating an index
+            Index index = new Index(indexFolder, true);
+
+            // Subscribing to the event
+            index.Events.ImagePreparing += (sender, args) =>
+            {
+                Console.WriteLine("Document: " + args.DocumentKey);
+                Console.WriteLine("Image inner path: '" + string.Join("/", args.InnerPath) + "'");
+                Console.WriteLine("Image index: " + args.ImageIndex);
+                Console.WriteLine("Image frames: " + args.ImageFrames.Length);
+            };
+
+            // Indexing files
+            index.Add(documentsFolder);
         }
     }
 }

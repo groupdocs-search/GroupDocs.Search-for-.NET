@@ -55,6 +55,7 @@ namespace GroupDocs.Search.Examples.CSharp
             //UsingEvents.FileIndexingEvent();
             //UsingEvents.StatusChangedEvent();
             //UsingEvents.SearchPhaseCompletedEvent();
+            //UsingEvents.ImagePreparingEvent();
 
             //UsingIndexRepository.Run();
 
