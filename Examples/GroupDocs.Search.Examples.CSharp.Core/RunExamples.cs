@@ -197,6 +197,7 @@ namespace GroupDocs.Search.Examples.CSharp
             //UsingAliases.Run();
 
             //WildcardSearch.QueryInTextForm();
+            //WildcardSearch.QueryInObjectForm();
 
             // Managing Dictionaries ----------------------------------------------------------------------------------------------------
 
