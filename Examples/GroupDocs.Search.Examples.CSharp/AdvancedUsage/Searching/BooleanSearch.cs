@@ -9,6 +9,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string indexFolder = @"./AdvancedUsage/Searching/BooleanSearch/OperatorAnd";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 
@@ -33,6 +35,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
         {
             string indexFolder = @"./AdvancedUsage/Searching/BooleanSearch/OperatorOr";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
@@ -59,6 +63,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string indexFolder = @"./AdvancedUsage/Searching/BooleanSearch/OperatorNot";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 
@@ -84,6 +90,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
         {
             string indexFolder = @"./AdvancedUsage/Searching/BooleanSearch/ComplexQueries";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);

@@ -10,6 +10,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string indexFolder = @"./AdvancedUsage/Searching/CaseSensitiveSearch/QueryInTextForm";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             Index index = new Index(indexFolder); // Creating index in the specified folder
             index.Add(documentsFolder); // Indexing documents from the specified folder
 
@@ -26,6 +28,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
         {
             string indexFolder = @"./AdvancedUsage/Searching/CaseSensitiveSearch/QueryInObjectForm";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             Index index = new Index(indexFolder); // Creating index in the specified folder
             index.Add(documentsFolder); // Indexing documents from the specified folder

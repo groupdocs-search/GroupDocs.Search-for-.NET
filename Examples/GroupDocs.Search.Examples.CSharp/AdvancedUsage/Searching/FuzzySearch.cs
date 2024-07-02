@@ -11,6 +11,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string documentsFolder = Utils.DocumentsPath;
             string query = "nulla";
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 
@@ -35,6 +37,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string indexFolder = @"./AdvancedUsage/Searching/FuzzySearch/SettingStepFunction";
             string documentsFolder = Utils.DocumentsPath;
             string query = "nulla";
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);

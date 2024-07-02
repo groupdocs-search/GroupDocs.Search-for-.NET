@@ -10,6 +10,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string indexFolder = @"./AdvancedUsage/Searching/PhraseSearch/SimplePhraseSearch";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 
@@ -35,6 +37,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
         {
             string indexFolder = @"./AdvancedUsage/Searching/PhraseSearch/PhraseSearchWithWildcards";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
@@ -65,6 +69,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
         {
             string indexFolder = @"./AdvancedUsage/Searching/PhraseSearch/PhraseSearchWithWildcards2";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);

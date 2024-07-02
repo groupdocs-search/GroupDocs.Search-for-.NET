@@ -15,6 +15,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string indexFolder = @"./AdvancedUsage/Searching/HighlightingSearchResults/HighlightingInEntireDocument";
             string documentFolder = Utils.ArchivesPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index settings instance
             IndexSettings settings = new IndexSettings();
             settings.TextStorageSettings = new TextStorageSettings(Compression.High); // Enabling storage of extracted text in the index
@@ -66,6 +68,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
         {
             string indexFolder = @"./AdvancedUsage/Searching/HighlightingSearchResults/HighlightingInFragments";
             string documentFolder = Utils.ArchivesPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index settings instance
             IndexSettings settings = new IndexSettings();

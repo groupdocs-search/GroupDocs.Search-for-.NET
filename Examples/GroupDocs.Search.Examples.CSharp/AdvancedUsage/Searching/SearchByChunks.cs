@@ -14,6 +14,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string documentsFolder3 = Utils.DocumentsPath3;
             string query = "invitation";
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 

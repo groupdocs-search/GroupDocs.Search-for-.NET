@@ -12,6 +12,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string indexFolder = @"./AdvancedUsage/Searching/DocumentFilteringInSearchResult/SettingAFilter";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 
@@ -34,6 +36,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
         {
             string indexFolder = @"./AdvancedUsage/Searching/DocumentFilteringInSearchResult/FilePathFilters";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
@@ -62,6 +66,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             string indexFolder = @"./AdvancedUsage/Searching/DocumentFilteringInSearchResult/FileExtensionFilter";
             string documentsFolder = Utils.DocumentsPath;
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 
@@ -88,6 +94,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
         {
             string indexFolder = @"./AdvancedUsage/Searching/DocumentFilteringInSearchResult/AttributeFilter";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
@@ -139,6 +147,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
 
             string indexFolder = @"./AdvancedUsage/Searching/DocumentFilteringInSearchResult/CombiningFilters";
             string documentsFolder = Utils.DocumentsPath;
+
+            Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
