@@ -75,6 +75,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\ReverseImageSearch.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\SearchByChunks.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\SearchForDifferentWordForms.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\SearchForSpecialCharacters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\SearchReports.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\SearchResults.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Searching\SpellChecking.cs" />

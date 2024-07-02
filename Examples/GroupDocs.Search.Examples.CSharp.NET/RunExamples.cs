@@ -184,6 +184,8 @@ namespace GroupDocs.Search.Examples.CSharp
 
             //SearchForDifferentWordForms.Run();
 
+            //SearchForSpecialCharacters.Run();
+
             //SearchReports.Run();
 
             //SearchResults.Run();
