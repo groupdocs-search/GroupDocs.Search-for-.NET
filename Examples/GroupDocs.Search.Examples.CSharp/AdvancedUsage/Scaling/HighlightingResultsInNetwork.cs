@@ -14,7 +14,8 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Scaling
         public static void Run()
         {
             string basePath = @"./AdvancedUsage/Scaling/HighlightingResultsInNetwork/";
-            int basePort = 49100;
+            // If an error occurs about using a busy network port, you need to change the value of the base port
+            int basePort = 49116;
 
             Utils.PrintHeaderFromPath(basePath);
 
