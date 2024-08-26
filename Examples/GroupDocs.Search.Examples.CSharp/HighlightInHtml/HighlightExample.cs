@@ -18,6 +18,8 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
             string documentsFolder = Utils.DocumentsPath;
             string query = "\"dapibus diam\" OR lorem";
 
+            Utils.PrintHeaderFromPath(indexFolder);
+
             // Creating an index in the specified folder
             Index index = new Index(indexFolder);
 
