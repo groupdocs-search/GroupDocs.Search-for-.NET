@@ -1,5 +1,4 @@
-﻿using Aspose.Html.Dom;
-using GroupDocs.Search.Scaling;
+﻿using GroupDocs.Search.Scaling;
 using GroupDocs.Search.Scaling.Configuring;
 using System;
 
@@ -34,28 +33,30 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Scaling
         {
             int sendTimeout = 3000;
             int receiveTimeout = 3000;
+            int connectTimeout = 3000;
+            int retryTimeout = 1000;
 
             // Each of the following 3 nodes can run on a separate server or in conjunction with others
-            SearchNetworkNode node1 = new SearchNetworkNode(
+            SearchNetworkNode node1 = SearchNetworkNode.CreateSlaveNode(
                 1,
                 basePath + "Node1",
-                new TcpSettings(basePort + 1, sendTimeout, receiveTimeout));
+                new TcpSettings(basePort + 1, sendTimeout, receiveTimeout, connectTimeout, retryTimeout));
             node1.Start();
-            SearchNetworkNode node2 = new SearchNetworkNode(
+            SearchNetworkNode node2 = SearchNetworkNode.CreateSlaveNode(
                 2,
                 basePath + "Node2",
-                new TcpSettings(basePort + 2, sendTimeout, receiveTimeout));
+                new TcpSettings(basePort + 2, sendTimeout, receiveTimeout, connectTimeout, retryTimeout));
             node2.Start();
-            SearchNetworkNode node3 = new SearchNetworkNode(
+            SearchNetworkNode node3 = SearchNetworkNode.CreateSlaveNode(
                 3,
                 basePath + "Node3",
-                new TcpSettings(basePort + 3, sendTimeout, receiveTimeout));
+                new TcpSettings(basePort + 3, sendTimeout, receiveTimeout, connectTimeout, retryTimeout));
             node3.Start();
 
-            SearchNetworkNode node0 = new SearchNetworkNode(
+            SearchNetworkNode node0 = SearchNetworkNode.CreateMasterNode(
                 0,
                 basePath + "Node0",
-                new TcpSettings(basePort, sendTimeout, receiveTimeout),
+                new TcpSettings(basePort, sendTimeout, receiveTimeout, connectTimeout, retryTimeout),
                 new ConsoleLogger(),
                 configuration);
 
