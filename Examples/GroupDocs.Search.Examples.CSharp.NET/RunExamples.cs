@@ -87,6 +87,8 @@ namespace GroupDocs.Search.Examples.CSharp
 
             //DocumentRenaming.Run();
 
+            //ExtractionInSeparateProcess.Run();
+
             //IndexingAdditionalFields.Run();
 
             //IndexingFromDifferentSources.IndexingFromFile();

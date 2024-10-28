@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupDocs.Search.Examples.C
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GroupDocs.Search.Examples.CSharp", "GroupDocs.Search.Examples.CSharp\GroupDocs.Search.Examples.CSharp.shproj", "{1C60463F-69B5-44DB-BC96-267F129E8AB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupDocs.Search.Extraction.NET", "GroupDocs.Search.Extraction.NET\GroupDocs.Search.Extraction.NET.csproj", "{23985052-A408-46B3-B722-F74006318090}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{4EA150EF-E823-444D-8154-D5F25496E91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EA150EF-E823-444D-8154-D5F25496E91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EA150EF-E823-444D-8154-D5F25496E91B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23985052-A408-46B3-B722-F74006318090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23985052-A408-46B3-B722-F74006318090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23985052-A408-46B3-B722-F74006318090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23985052-A408-46B3-B722-F74006318090}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

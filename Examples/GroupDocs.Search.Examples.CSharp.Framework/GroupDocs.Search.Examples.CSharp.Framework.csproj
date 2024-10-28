@@ -52,8 +52,8 @@
     <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.S3.3.7.0.13\lib\net45\AWSSDK.S3.dll</HintPath>
     </Reference>
-    <Reference Include="GroupDocs.Search, Version=24.9.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>..\packages\GroupDocs.Search.24.9.0\lib\net45\GroupDocs.Search.dll</HintPath>
+    <Reference Include="GroupDocs.Search, Version=24.10.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\GroupDocs.Search.24.10.0\lib\net45\GroupDocs.Search.dll</HintPath>
     </Reference>
     <Reference Include="GroupDocs.Viewer, Version=23.6.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
       <HintPath>..\packages\GroupDocs.Viewer.23.6.0\lib\net40\GroupDocs.Viewer.dll</HintPath>
@@ -211,6 +211,12 @@
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.S3.3.7.0.13\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GroupDocs.Search.Extraction.Framework\GroupDocs.Search.Extraction.Framework.csproj">
+      <Project>{5f4bf200-798f-48ec-ba27-b1dd09c11ee3}</Project>
+      <Name>GroupDocs.Search.Extraction.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\GroupDocs.Search.Examples.CSharp\GroupDocs.Search.Examples.CSharp.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,17 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30330.147
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GroupDocs.Search.Examples.CSharp", "GroupDocs.Search.Examples.CSharp\GroupDocs.Search.Examples.CSharp.shproj", "{1C60463F-69B5-44DB-BC96-267F129E8AB7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupDocs.Search.Examples.CSharp.Core", "GroupDocs.Search.Examples.CSharp.Core\GroupDocs.Search.Examples.CSharp.Core.csproj", "{217CDE5A-2C5E-486C-AEF1-06E7EAA0F2AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupDocs.Search.Extraction.Core", "GroupDocs.Search.Extraction.Core\GroupDocs.Search.Extraction.Core.csproj", "{2AEEA970-4175-40A2-9F41-354E1D8F0B67}"
+EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		GroupDocs.Search.Examples.CSharp\GroupDocs.Search.Examples.CSharp.projitems*{1c60463f-69b5-44db-bc96-267f129e8ab7}*SharedItemsImports = 13
-		GroupDocs.Search.Examples.CSharp\GroupDocs.Search.Examples.CSharp.projitems*{217cde5a-2c5e-486c-aef1-06e7eaa0f2ab}*SharedItemsImports = 5
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -21,11 +19,19 @@ Global
 		{217CDE5A-2C5E-486C-AEF1-06E7EAA0F2AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{217CDE5A-2C5E-486C-AEF1-06E7EAA0F2AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{217CDE5A-2C5E-486C-AEF1-06E7EAA0F2AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AEEA970-4175-40A2-9F41-354E1D8F0B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AEEA970-4175-40A2-9F41-354E1D8F0B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AEEA970-4175-40A2-9F41-354E1D8F0B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AEEA970-4175-40A2-9F41-354E1D8F0B67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8B167399-5F5F-4567-AFB5-440564300A83}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		GroupDocs.Search.Examples.CSharp\GroupDocs.Search.Examples.CSharp.projitems*{1c60463f-69b5-44db-bc96-267f129e8ab7}*SharedItemsImports = 13
+		GroupDocs.Search.Examples.CSharp\GroupDocs.Search.Examples.CSharp.projitems*{217cde5a-2c5e-486c-aef1-06e7eaa0f2ab}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

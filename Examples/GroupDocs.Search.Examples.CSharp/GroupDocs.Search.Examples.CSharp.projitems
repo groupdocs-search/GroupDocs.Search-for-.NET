@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\DocumentAttributes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\DocumentFilteringDuringIndexing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\DocumentRenaming.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\ExtractionInSeparateProcess.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\IndexingAdditionalFields.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\IndexingFromDifferentSources.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\IndexingMetadataOfDocuments.cs" />
