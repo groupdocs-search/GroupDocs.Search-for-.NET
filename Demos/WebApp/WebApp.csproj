@@ -55,7 +55,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GroupDocs.Search" Version="24.12.0" />
+    <PackageReference Include="GroupDocs.Search" Version="25.1.0" />
     <PackageReference Include="YamlDotNet" Version="13.7.1" />
   </ItemGroup>
 
