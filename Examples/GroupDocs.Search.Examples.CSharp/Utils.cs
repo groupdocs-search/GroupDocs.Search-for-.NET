@@ -31,6 +31,8 @@ namespace GroupDocs.Search.Examples.CSharp
 
         public const string OldIndexPath = BasePath + @"Resources/Index_19_4/";
 
+        public const string DocumentsZHPath = BasePath + @"Resources/zh/";
+
         public static void TraceLibraryVersion()
         {
             string version = typeof(GroupDocs.Search.Index).Assembly.GetName().Version.ToString(3);

@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\CharacterReplacementDuringIndexing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\CharacterTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\CustomTextExtractors.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\CustomTextSegmenter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\DeleteIndexedDocuments.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\DeleteIndexedPaths.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AdvancedUsage\Indexing\DocumentAttributes.cs" />
@@ -109,5 +110,37 @@
     <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\HtmlViewer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HighlightInHtml\IndexedFileInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Resources\char_state_tab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\cn_synonym.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\dict.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\idf.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\pos_prob_emit.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\pos_prob_start.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\pos_prob_trans.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\prob_emit.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\prob_trans.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\stopwords.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

@@ -68,6 +68,8 @@ namespace GroupDocs.Search.Examples.CSharp
 
             //CustomTextExtractors.Run();
 
+            //CustomTextSegmenter.Run();
+
             //DeleteIndexedDocuments.Run();
 
             //DeleteIndexedPaths.Run();
