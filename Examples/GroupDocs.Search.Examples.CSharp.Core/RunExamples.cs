@@ -129,7 +129,8 @@ namespace GroupDocs.Search.Examples.CSharp
 
             //StoringTextOfIndexedDocuments.Run();
 
-            //TextFileEncodingDetection.Run();
+            //TextFileEncodingDetection.SetEncoding();
+            //TextFileEncodingDetection.ExternalEncodingDetection();
 
             //UpdateIndex.UpdateIndexedDocuments();
             //UpdateIndex.UpdateIndexVersion();
