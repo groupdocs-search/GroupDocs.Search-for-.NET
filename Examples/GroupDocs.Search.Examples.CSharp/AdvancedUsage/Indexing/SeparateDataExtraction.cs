@@ -30,18 +30,21 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             // Creating an index
             Index index = new Index(indexFolder);
 
-            // Indexing the data
-            ExtractedData[] data = new ExtractedData[]
+            if (deserializedData.IsExtractionSuccessful)
             {
+                // Indexing the data
+                ExtractedData[] data = new ExtractedData[]
+                {
                 deserializedData
-            };
-            index.Add(data, new IndexingOptions());
+                };
+                index.Add(data, new IndexingOptions());
 
-            // Searching in the index
-            string query = "ipsum";
-            SearchResult result = index.Search(query);
+                // Searching in the index
+                string query = "ipsum";
+                SearchResult result = index.Search(query);
 
-            Utils.TraceResult(query, result);
+                Utils.TraceResult(query, result);
+            }
         }
     }
 }
