@@ -53,9 +53,8 @@
     <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.S3.3.7.0.13\lib\net45\AWSSDK.S3.dll</HintPath>
     </Reference>
-    <Reference Include="GroupDocs.Search, Version=25.4.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>..\packages\GroupDocs.Search.NETFramework.25.4.0\lib\net462\GroupDocs.Search.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="GroupDocs.Search, Version=25.5.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\GroupDocs.Search.NETFramework.25.5.0\lib\net462\GroupDocs.Search.dll</HintPath>
     </Reference>
     <Reference Include="GroupDocs.Viewer, Version=23.6.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
       <HintPath>..\packages\GroupDocs.Viewer.23.6.0\lib\net40\GroupDocs.Viewer.dll</HintPath>
