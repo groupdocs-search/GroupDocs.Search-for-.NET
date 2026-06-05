@@ -6,7 +6,7 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     {
         public static void Run()
         {
-            string licensePath = @"E:/Licenses/Conholdate/Total/Subscription/Valid/Conholdate.Total.Product.Family.lic";
+            string licensePath = @"D:/Licenses/Conholdate/Total/Subscription/Valid/Conholdate.Total.Product.Family.lic";
 
             // Setting licenses
             new Aspose.Html.License().SetLicense(licensePath);

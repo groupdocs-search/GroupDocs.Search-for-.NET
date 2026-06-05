@@ -15,7 +15,13 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Searching
             Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
-            Index index = new Index(indexFolder);
+            Index index = new Index(indexFolder, true);
+
+            // Subscribe to the event
+            index.Events.ErrorOccurred += (s, e) =>
+            {
+                Console.WriteLine("Error occurred: " + e.Message);
+            };
 
             // Setting the image indexing options
             IndexingOptions indexingOptions = new IndexingOptions();

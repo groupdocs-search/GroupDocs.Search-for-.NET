@@ -19,7 +19,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
-            Index index = new Index(indexFolder);
+            Index index = new Index(indexFolder, true);
 
             // Setting the OCR indexing options
             IndexingOptions options = new IndexingOptions();
@@ -45,7 +45,7 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
             Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating an index
-            Index index = new Index(indexFolder);
+            Index index = new Index(indexFolder, true);
 
             // Setting the OCR indexing options
             IndexingOptions options = new IndexingOptions();
@@ -109,7 +109,10 @@ namespace GroupDocs.Search.Examples.CSharp.AdvancedUsage.Indexing
                 context.ImageStream.CopyTo(memoryStream);
 
                 AsposeOcr asposeOcr = new AsposeOcr();
-                string result = asposeOcr.RecognizeImage(memoryStream);
+                OcrInput input = new OcrInput(InputType.SingleImage);
+                input.Add(memoryStream);
+                OcrOutput output = asposeOcr.Recognize(input);
+                string result = output[0].RecognitionText;
                 return result;
             }
         }
