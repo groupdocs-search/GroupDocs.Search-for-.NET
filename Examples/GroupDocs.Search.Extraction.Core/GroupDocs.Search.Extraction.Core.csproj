@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GroupDocs.Search" Version="26.6.1" />
+    <PackageReference Include="GroupDocs.Search" Version="26.7.0" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.22.1" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="9.0.2" />
     <PackageReference Include="UTF.Unknown" Version="2.6.0" />

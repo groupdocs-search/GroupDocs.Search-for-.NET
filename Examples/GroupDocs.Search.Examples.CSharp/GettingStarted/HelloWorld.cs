@@ -14,7 +14,7 @@ namespace GroupDocs.Search.Examples.CSharp.GettingStarted
             Utils.PrintHeaderFromPath(indexFolder);
 
             // Creating index in the specified folder
-            Index index = new Index(indexFolder);
+            Index index = new Index(indexFolder, true);
 
             // Indexing documents from the specified folder
             index.Add(documentsFolder);

@@ -129,7 +129,7 @@ namespace GroupDocs.Search.WebForms.Products.Search.Service
                 string indexedFilesDirectory = globalConfiguration.Search.GetIndexedFilesDirectory();
                 var settings = new IndexSettings();
                 settings.UseStopWords = false;
-                index = new Index(globalConfiguration.Search.GetIndexDirectory(), settings, false);
+                index = new Index(globalConfiguration.Search.GetIndexDirectory(), settings, true);
 
                 index.Events.OperationProgressChanged += (sender, args) =>
                 {
