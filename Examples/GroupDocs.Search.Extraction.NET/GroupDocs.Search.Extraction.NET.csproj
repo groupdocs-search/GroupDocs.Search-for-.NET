@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GroupDocs.Search" Version="26.7.2" />
+    <PackageReference Include="GroupDocs.Search" Version="26.8.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="9.0.2" />
     <PackageReference Include="UTF.Unknown" Version="2.6.0" />
   </ItemGroup>
